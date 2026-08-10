@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>COMPANY — BLACKHOLEMAN BROS</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#04060b;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:root{--blue:#49a7ff;--cyan:#4be4de;--violet:#9d67ff;--orange:#ffad2f;--pink:#ee63b8;--green:#9ce24c;--line:rgba(255,255,255,.10);--muted:rgba(255,255,255,.58)}
+
+.page{min-height:100vh;background:
+radial-gradient(circle at 84% 7%,rgba(74,117,255,.10),transparent 25%),
+radial-gradient(circle at 10% 42%,rgba(74,183,255,.06),transparent 25%),#04060b}
+
+header{height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 2.6vw;position:sticky;top:0;z-index:80;border-bottom:1px solid var(--line);background:rgba(2,4,9,.72);backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:14px;line-height:.9}
+.brandmark{width:36px;height:36px;position:relative;display:inline-block}
+.brandmark:before,.brandmark:after{content:"";position:absolute;inset:2px;border:2px solid #fff;border-radius:50%}
+.brandmark:after{inset:10px}
+nav{display:flex;gap:32px;font-size:12px;font-weight:750}
+nav a{opacity:.62}nav a.active,nav a:hover{opacity:1}
+.header-right{justify-self:end}
+.close{width:42px;height:42px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;font-size:20px;background:rgba(255,255,255,.02)}
+
+.hero{min-height:82vh;position:relative;display:flex;align-items:center;padding:8vw 6vw 5vw;overflow:hidden}
+.hero-copy{position:relative;z-index:8;width:min(690px,56vw)}
+.kicker{font-size:12px;letter-spacing:.24em;color:var(--blue);font-weight:800;margin-bottom:22px}
+.hero h1{font-size:clamp(58px,7.2vw,116px);line-height:.86;letter-spacing:-.055em;margin:0;font-weight:900}
+.hero h1 span{display:block;background:linear-gradient(90deg,#fff 0%,#8acbff 42%,#a176ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:610px;color:rgba(255,255,255,.72);font-size:clamp(17px,1.35vw,21px);line-height:1.65;margin:30px 0 0}
+.hero-visual{position:absolute;right:4vw;top:10vh;width:min(47vw,740px);height:62vh;z-index:5}
+.vortex{position:absolute;left:54%;top:47%;width:82%;aspect-ratio:1;border-radius:50%;
+background:radial-gradient(circle at center,#000 0 19%,rgba(0,0,0,.96) 23%,transparent 30%),
+conic-gradient(from 10deg,transparent 0 7%,rgba(78,150,255,.18) 12%,transparent 18%,rgba(170,105,255,.17) 28%,transparent 37%,rgba(72,128,255,.16) 48%,transparent 59%,rgba(80,187,255,.14) 73%,transparent 84%);
+transform:translate(-50%,-50%);filter:drop-shadow(0 0 65px rgba(66,111,255,.28))}
+.vortex:before{content:"";position:absolute;inset:16%;border:1px solid rgba(255,255,255,.16);border-radius:50%;box-shadow:0 0 44px rgba(98,151,255,.20),inset 0 0 40px rgba(98,151,255,.08)}
+.hero-char{position:absolute;bottom:0;filter:drop-shadow(0 24px 24px rgba(0,0,0,.45))}
+.hero-char img{width:100%;display:block}
+.hdog{left:1%;width:34%} .hblack{left:33%;width:40%;z-index:3} .hcat{right:0;width:35%}
+.hero-index{position:absolute;right:6vw;bottom:4vw;font-size:11px;letter-spacing:.28em;color:rgba(255,255,255,.38)}
+
+.section{padding:110px 6vw;border-top:1px solid rgba(255,255,255,.06)}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:46px}
+.section-head .label{font-size:11px;letter-spacing:.22em;color:var(--blue);font-weight:850}
+.section-head h2{font-size:clamp(34px,4vw,60px);letter-spacing:-.045em;line-height:1;margin:10px 0 0}
+.section-head p{max-width:470px;color:var(--muted);line-height:1.7;font-size:14px;margin:0}
+
+.vm{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.vm-card{min-height:300px;border:1px solid var(--line);border-radius:24px;padding:34px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012));position:relative;overflow:hidden}
+.vm-card:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(55px);opacity:.20;right:-60px;bottom:-70px}
+.vm-card.blue:after{background:var(--blue)}.vm-card.violet:after{background:var(--violet)}
+.vm-card .no{font-size:12px;color:rgba(255,255,255,.38);font-weight:800}
+.vm-card h3{font-size:28px;margin:54px 0 14px}
+.vm-card p{color:var(--muted);font-size:16px;line-height:1.7;max-width:480px}
+
+.compare{display:grid;grid-template-columns:1fr 90px 1fr;align-items:stretch}
+.compare-panel{border:1px solid var(--line);border-radius:24px;padding:34px;background:rgba(255,255,255,.025)}
+.compare-panel.after{background:linear-gradient(145deg,rgba(67,147,255,.08),rgba(145,84,255,.045))}
+.compare-panel h3{font-size:24px;margin:0 0 28px}
+.compare-panel ul{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.compare-panel li{padding:15px 16px;border-radius:12px;background:rgba(255,255,255,.035);color:rgba(255,255,255,.68);font-size:14px}
+.arrow{display:grid;place-items:center;color:var(--blue);font-size:34px}
+
+.ceo{display:grid;grid-template-columns:.82fr 1.18fr;gap:54px;align-items:start}
+.ceo-visual{border-radius:28px;border:1px solid var(--line);overflow:hidden;position:relative;background:#10131a}
+.ceo-visual img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.ceo-visual:after{content:"CEO / BLACKHOLEMAN BROS";position:absolute;left:18px;bottom:18px;padding:8px 11px;border-radius:999px;background:rgba(0,0,0,.56);backdrop-filter:blur(8px);font-size:10px;letter-spacing:.12em}
+.ceo-copy .name{font-size:46px;font-weight:900;letter-spacing:-.045em;margin:0 0 6px}
+.ceo-copy .role{color:var(--blue);font-size:14px;margin-bottom:28px}
+.ceo-copy>p{color:rgba(255,255,255,.67);line-height:1.85;font-size:15px}
+.timeline{margin-top:36px;border-top:1px solid var(--line)}
+.trow{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:17px 0;border-bottom:1px solid var(--line)}
+.trow strong{font-size:12px;color:rgba(255,255,255,.42)}.trow span{font-size:14px;color:rgba(255,255,255,.76)}
+
+.ip-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.patent{border:1px solid rgba(74,167,255,.26);border-radius:26px;padding:38px;background:linear-gradient(145deg,rgba(57,137,255,.10),rgba(127,79,255,.06));min-height:330px}
+.patent .tag{font-size:11px;letter-spacing:.24em;color:#83c9ff;font-weight:850}
+.patent .number{font-size:clamp(34px,4.2vw,62px);font-weight:900;letter-spacing:-.05em;margin:72px 0 14px}
+.patent p{color:var(--muted);max-width:620px;line-height:1.7}
+.ip-stack{display:grid;gap:18px}
+.ip-card{border:1px solid var(--line);border-radius:22px;padding:28px;min-height:156px;background:rgba(255,255,255,.025)}
+.ip-card h4{margin:0 0 10px;font-size:18px}.ip-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.step{min-height:230px;border:1px solid var(--line);border-radius:20px;padding:24px;background:rgba(255,255,255,.025)}
+.step.active{border-color:rgba(73,167,255,.45);background:linear-gradient(145deg,rgba(73,167,255,.09),rgba(255,255,255,.02))}
+.step .sno{font-size:11px;color:var(--blue);font-weight:850;letter-spacing:.1em}
+.step h4{font-size:18px;line-height:1.35;margin:54px 0 12px}
+.step p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+
+.cta{margin:0 6vw 80px;border:1px solid var(--line);border-radius:28px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:30px;background:linear-gradient(120deg,rgba(66,149,255,.12),rgba(139,85,255,.08))}
+.cta h3{font-size:30px;margin:0;letter-spacing:-.035em}.cta p{color:var(--muted);margin:8px 0 0}
+.cta a{padding:14px 22px;border-radius:999px;background:#fff;color:#05070b;font-size:12px;font-weight:900;white-space:nowrap}
+.reveal{opacity:0;transform:translateY(28px);transition:.7s ease}.reveal.on{opacity:1;transform:none}
+
+@media(max-width:900px){
+header{grid-template-columns:1fr auto}nav{display:none}
+.hero{padding-top:120px;min-height:74vh}.hero-copy{width:86vw}.hero-visual{opacity:.42;right:-18vw;width:78vw}
+.vm,.ceo,.ip-grid{grid-template-columns:1fr}.compare{grid-template-columns:1fr}.arrow{transform:rotate(90deg);height:70px}
+.roadmap{grid-template-columns:1fr 1fr}.section-head{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:560px){
+.section{padding:78px 20px}.hero{padding:110px 20px 60px}.hero-copy{width:100%}.hero h1{font-size:17vw}
+.roadmap{grid-template-columns:1fr}.trow{grid-template-columns:1fr;gap:6px}
+.cta{margin:0 20px 50px;padding:30px;align-items:flex-start;flex-direction:column}
+}
+</style>
+
+<style id="corp-footer-style">
+.corp-footer{border-top:1px solid rgba(255,255,255,.10);background:#05070b;color:rgba(255,255,255,.60);padding:26px 5vw 34px}
+.corp-footer-inner{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
+.corp-brand{font-weight:900;color:#fff;font-size:13px;line-height:1.1}
+.corp-info{font-size:10px;line-height:1.8}
+.corp-copy{font-size:9px;white-space:nowrap;color:rgba(255,255,255,.38)}
+@media(max-width:800px){.corp-footer-inner{grid-template-columns:1fr}.corp-copy{white-space:normal}}
+</style>
+
+</head>
+<body>
+<div class="page">
+<header>
+<a class="brand" href="index.html"><span class="brandmark"></span><span>BLACKHOLEMAN<br>BROS</span></a>
+<nav><a class="active" href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a></nav>
+<div class="header-right"><a class="close" href="index.html">×</a></div>
+</header>
+
+<section class="hero">
+<div class="hero-copy">
+<div class="kicker">01 — COMPANY</div>
+<h1>WE BUILD<br><span>LIVING IP.</span></h1>
+<p>블랙홀맨브로스는 캐릭터를 한 번 만들고 소비하는 회사가 아니라, 사용자 반응을 바탕으로 IP가 지속적으로 확장되고 진화하는 구조를 만드는 회사입니다.</p>
+</div>
+<div class="hero-visual">
+<div class="vortex"></div>
+<div class="hero-char hdog"><img src="assets/9f36ab4b445c2308.png" alt="Holedog"></div>
+<div class="hero-char hblack"><img src="assets/cd33e0ed67201028.png" alt="Blackholeman"></div>
+<div class="hero-char hcat"><img src="assets/f654843e589a50a7.png" alt="Holecat"></div>
+</div>
+<div class="hero-index">BLACKHOLEMAN BROS / COMPANY</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head">
+<div><div class="label">VISION & MISSION</div><h2>캐릭터 산업의<br>다음 운영 방식을 만듭니다.</h2></div>
+<p>오리지널 캐릭터 IP와 AI 기술을 연결해 콘텐츠 제작, 반응 분석, 세계관 확장을 하나의 운영 구조로 연결합니다.</p>
+</div>
+<div class="vm">
+<article class="vm-card blue"><div class="no">01 / VISION</div><h3>Characters as Living IP</h3><p>캐릭터가 고정된 자산에 머무르지 않고, 콘텐츠와 사용자 반응 속에서 지속적으로 성장하는 IP 생태계를 구축합니다.</p></article>
+<article class="vm-card violet"><div class="no">02 / MISSION</div><h3>AI-Driven IP Operation</h3><p>사람의 감각에만 의존하던 IP 운영을 데이터·AI·특허 기술 기반의 반복 가능한 시스템으로 전환합니다.</p></article>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head">
+<div><div class="label">WHY NOW</div><h2>IP를 만드는 시대에서<br>IP를 운영하는 시대로.</h2></div>
+<p>콘텐츠 수요는 빠르게 늘지만, 기존 제작 방식은 비용·시간·확장성 측면에서 한계를 갖습니다.</p>
+</div>
+<div class="compare">
+<div class="compare-panel"><h3>BEFORE — 기존 IP 운영</h3><ul><li>작가·제작자 개인 역량에 높은 의존</li><li>기획·작화·편집 전 과정의 높은 제작비</li><li>플랫폼별 별도 제작과 반복 작업</li><li>사용자 반응이 다음 IP 진화에 체계적으로 축적되지 않음</li></ul></div>
+<div class="arrow">→</div>
+<div class="compare-panel after"><h3>AFTER — BlackholemanBros</h3><ul><li>사용자 반응 데이터 기반 진화 방향 제안</li><li>스토리·이미지·영상 제작 과정의 AI 연계</li><li>웹툰·숏폼·브랜드 콘텐츠로 멀티 포맷 확장</li><li>캐릭터·세계관·콘텐츠 이력을 데이터 자산으로 축적</li></ul></div>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head">
+<div><div class="label">FOUNDER STORY</div><h2>캐릭터 IP 경험과<br>플랫폼 경험의 결합.</h2></div>
+<p>캐릭터를 직접 만들고 사업화해 본 경험 위에 IT·UX·플랫폼 기획 경험을 더해 새로운 IP 운영 구조를 설계합니다.</p>
+</div>
+<div class="ceo">
+<div class="ceo-visual"><img src="assets/516da462b96849be.png" alt="블랙홀맨브로스 대표이사 조미숙"></div>
+<div class="ceo-copy">
+<h3 class="name">조미숙</h3>
+<div class="role">CEO / BUSINESS LEAD</div>
+<p>대기업 통신사, 캐릭터 전문 기업, 디자인·콘텐츠 조직, IT 투자·컨설팅 회사까지 다양한 환경에서 캐릭터 개발·디자인·IP 사업·플랫폼 UX를 경험했습니다.</p>
+<div class="timeline">
+<div class="trow"><strong>LG텔레콤</strong><span>마케팅실 디자인 / 캐릭터 개발 총괄</span></div>
+<div class="trow"><strong>홀맨글로벌</strong><span>홀맨 캐릭터 개발사 / 캐릭터 IP 본부장</span></div>
+<div class="trow"><strong>D&T Investment</strong><span>IT 투자 및 컨설팅 / UX·UI Head</span></div>
+<div class="trow"><strong>BlackholemanBros</strong><span>대표이사 / AI Character Evolution Platform 사업 총괄</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head">
+<div><div class="label">IP & PATENT</div><h2>캐릭터와 기술,<br>두 개의 자산을 동시에.</h2></div>
+<p>오리지널 캐릭터 IP와 사용자 반응 데이터를 IP 진화 정보로 전환하는 핵심 기술을 함께 축적합니다.</p>
+</div>
+<div class="ip-grid">
+<div class="patent"><div class="tag">PATENT-BASED CORE TECHNOLOGY</div><div class="number">10-2837572</div><p>사용자 반응 데이터 속에서 의미 있는 Signal을 추출하고 캐릭터·스토리·세계관의 진화 방향을 제안하는 Character Evolution Engine의 기반 기술.</p></div>
+<div class="ip-stack">
+<div class="ip-card"><h4>Original Character IP</h4><p>블랙홀맨 · 홀맨독 · 홀맨캣을 중심으로 콘텐츠·게임·만화·굿즈로 확장 가능한 오리지널 IP 생태계.</p></div>
+<div class="ip-card"><h4>Character Knowledge Asset</h4><p>캐릭터 설정, 관계, 세계관, 에피소드 이력과 사용자 피드백을 구조화해 장기적인 IP 자산으로 축적.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head">
+<div><div class="label">PLATFORM ROADMAP</div><h2>빠른 사업화를 위한<br>단계적 구축.</h2></div>
+<p>거대 AI 모델을 직접 개발하기보다 특허 기반 핵심 엔진에 집중하고 검증된 글로벌 생성 AI를 연계하는 전략입니다.</p>
+</div>
+<div class="roadmap">
+<article class="step active"><div class="sno">STEP 0</div><h4>Platform / MVP Planning</h4><p>2026 상반기<br>플랫폼 및 MVP 기획 완료</p></article>
+<article class="step"><div class="sno">STEP 1</div><h4>Character Evolution Core</h4><p>사용자 반응 데이터에서 의미 있는 Signal을 추출하는 핵심 엔진 구축</p></article>
+<article class="step"><div class="sno">STEP 2</div><h4>Character Knowledge Base</h4><p>캐릭터·세계관 정보를 구조화하고 장기 데이터 자산으로 축적</p></article>
+<article class="step"><div class="sno">STEP 3</div><h4>AI Content Creation</h4><p>진화 방향을 스토리·이미지·영상 제작 워크플로와 연결</p></article>
+<article class="step"><div class="sno">STEP 4</div><h4>Operation Dashboard</h4><p>콘텐츠 운영·성과·진화 결과를 한 곳에서 관리하는 통합 환경</p></article>
+</div>
+</section>
+
+<section class="cta reveal">
+<div><h3>Next — Meet the Characters</h3><p>블랙홀맨브로스의 세계를 구성하는 세 캐릭터를 만나보세요.</p></div>
+<a href="#">CHARACTERS →</a>
+</section>
+</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
+      <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+</body>
+</html>
