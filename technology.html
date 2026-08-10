@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TECHNOLOGY — BLACKHOLEMAN BROS</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#020409;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:root{
+ --blue:#4aa8ff;
+ --cyan:#49e0dc;
+ --violet:#9b63ff;
+ --pink:#ef5bb8;
+ --green:#9dde4b;
+ --line:rgba(255,255,255,.10);
+ --muted:rgba(255,255,255,.60);
+ --panel:rgba(255,255,255,.035);
+}
+
+header{
+ height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+ padding:0 2.6vw;position:sticky;top:0;z-index:80;
+ background:rgba(2,4,9,.78);backdrop-filter:blur(14px);
+ border-bottom:1px solid var(--line)
+}
+.brand{display:flex;gap:12px;align-items:center;font-weight:900;font-size:14px;line-height:.9}
+.mark{width:36px;height:36px;border:2px solid white;border-radius:50%;position:relative}
+.mark:after{content:"";position:absolute;inset:8px;border:2px solid white;border-radius:50%}
+nav{display:flex;gap:32px;font-size:12px;font-weight:750}
+nav a{opacity:.55}
+nav .active,nav a:hover{opacity:1}
+.right{justify-self:end;font-size:22px}
+
+/* HERO */
+.hero{
+ min-height:86vh;position:relative;overflow:hidden;
+ padding:9vw 6vw 5vw;
+ background:
+ radial-gradient(circle at 72% 43%,rgba(63,130,255,.15),transparent 27%),
+ radial-gradient(circle at 80% 52%,rgba(145,78,255,.11),transparent 25%),
+ linear-gradient(180deg,#020409 0%,#050816 100%)
+}
+.kicker{font-size:12px;letter-spacing:.24em;color:var(--blue);font-weight:850}
+.hero h1{
+ max-width:900px;
+ font-size:clamp(52px,6.8vw,108px);
+ line-height:.88;letter-spacing:-.055em;
+ margin:24px 0 28px;font-weight:900
+}
+.hero h1 span{
+ display:block;
+ background:linear-gradient(90deg,#6cb9ff 0%,#9c72ff 70%);
+ -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero p{
+ max-width:700px;
+ font-size:18px;line-height:1.75;color:var(--muted)
+}
+.core-visual{
+ position:absolute;right:5%;top:14%;width:min(39vw,610px);aspect-ratio:1;
+ display:grid;place-items:center
+}
+.ring{
+ position:absolute;border-radius:50%;border:1px solid rgba(113,176,255,.24);
+ box-shadow:0 0 55px rgba(61,123,255,.13),inset 0 0 40px rgba(83,135,255,.06)
+}
+.r1{inset:0;animation:spin 24s linear infinite}
+.r2{inset:12%;animation:spinR 18s linear infinite}
+.r3{inset:25%;animation:spin 14s linear infinite}
+.ring:before,.ring:after{
+ content:"";position:absolute;width:10px;height:10px;border-radius:50%;
+ background:#65b7ff;box-shadow:0 0 16px #65b7ff
+}
+.r1:before{top:8%;left:50%}.r1:after{bottom:8%;right:22%}
+.r2:before{left:8%;top:47%;background:#9d6cff;box-shadow:0 0 16px #9d6cff}
+.r2:after{right:8%;top:30%}
+.r3:before{left:50%;bottom:0}.r3:after{right:0;top:50%;background:#49dfdc;box-shadow:0 0 16px #49dfdc}
+.core{
+ width:38%;aspect-ratio:1;border-radius:50%;
+ display:grid;place-items:center;text-align:center;
+ background:radial-gradient(circle at 35% 30%,#10294b,#06101d 58%,#020409);
+ border:1px solid rgba(103,180,255,.35);
+ box-shadow:0 0 60px rgba(70,143,255,.28),inset 0 0 28px rgba(85,156,255,.12);
+ font-size:12px;line-height:1.5;letter-spacing:.16em;font-weight:850;color:#9bd1ff
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinR{to{transform:rotate(-360deg)}}
+
+/* SHARED */
+.section{padding:108px 6vw;border-top:1px solid rgba(255,255,255,.06)}
+.head{
+ display:flex;justify-content:space-between;align-items:flex-end;
+ gap:30px;margin-bottom:48px
+}
+.label{font-size:11px;letter-spacing:.22em;color:var(--blue);font-weight:850}
+.head h2{
+ font-size:clamp(34px,4.1vw,62px);line-height:1;
+ letter-spacing:-.045em;margin:10px 0 0
+}
+.head p{max-width:500px;color:var(--muted);line-height:1.75;font-size:14px;margin:0}
+
+/* HOW IT WORKS */
+.cycle{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:14px;
+ align-items:stretch;
+ position:relative
+}
+.cycle:before{
+ content:"";position:absolute;left:10%;right:10%;top:50%;
+ height:1px;background:linear-gradient(90deg,transparent,#4aa8ff 20%,#9b63ff 50%,#4aa8ff 80%,transparent);
+ opacity:.35;z-index:0
+}
+.cstep{
+ position:relative;z-index:1;min-height:235px;
+ border:1px solid var(--line);border-radius:22px;
+ padding:24px;background:rgba(4,8,16,.9)
+}
+.cnum{font-size:11px;color:#6ebcff;font-weight:850;letter-spacing:.1em}
+.cicon{
+ width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+ margin:34px 0 22px;background:rgba(74,168,255,.10);
+ border:1px solid rgba(74,168,255,.18);font-size:20px
+}
+.cstep h3{font-size:18px;margin:0 0 10px}
+.cstep p{font-size:13px;line-height:1.65;color:var(--muted);margin:0}
+.loop-note{
+ margin-top:20px;padding:15px 18px;border-radius:14px;
+ border:1px solid rgba(73,168,255,.18);
+ color:#89cbff;background:rgba(73,168,255,.05);
+ font-size:12px;letter-spacing:.02em
+}
+
+/* 4 MODULES */
+.modules{
+ display:grid;grid-template-columns:1.25fr 1fr 1fr;
+ gap:16px
+}
+.module{
+ border:1px solid var(--line);border-radius:24px;
+ padding:30px;min-height:265px;background:var(--panel);position:relative;overflow:hidden
+}
+.module.coremod{
+ grid-row:span 2;min-height:546px;
+ border-color:rgba(74,168,255,.36);
+ background:
+ radial-gradient(circle at 72% 22%,rgba(73,168,255,.16),transparent 27%),
+ linear-gradient(145deg,rgba(55,145,255,.10),rgba(120,74,255,.05))
+}
+.module .mno{font-size:11px;color:#7dc6ff;font-weight:850}
+.module h3{font-size:24px;line-height:1.25;margin:42px 0 12px}
+.module p{color:var(--muted);font-size:14px;line-height:1.7}
+.coremod h3{font-size:36px;margin-top:110px}
+.coremod .badge{
+ display:inline-flex;padding:8px 11px;border-radius:999px;
+ background:rgba(74,168,255,.10);border:1px solid rgba(74,168,255,.25);
+ color:#8ecfff;font-size:10px;font-weight:850;letter-spacing:.1em
+}
+
+/* ENGINE */
+.engine{
+ display:grid;grid-template-columns:1.05fr .95fr;gap:22px
+}
+.pipe{
+ border:1px solid var(--line);border-radius:26px;padding:34px;background:var(--panel)
+}
+.pipe h3{font-size:28px;margin:0 0 12px}
+.pipe>p{color:var(--muted);font-size:14px;line-height:1.7}
+.process{margin-top:28px;display:grid;gap:12px}
+.proc{
+ display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:start;
+ padding:17px;border-radius:14px;background:rgba(255,255,255,.035)
+}
+.proc b{
+ width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+ background:rgba(75,168,255,.12);color:#75c0ff
+}
+.proc strong{display:block;font-size:14px;margin-bottom:4px}
+.proc span{font-size:12px;color:var(--muted)}
+.case{
+ border:1px solid rgba(74,168,255,.30);border-radius:26px;padding:34px;
+ background:
+ radial-gradient(circle at 72% 20%,rgba(74,168,255,.14),transparent 25%),
+ radial-gradient(circle at 32% 76%,rgba(156,89,255,.12),transparent 28%),
+ rgba(255,255,255,.02)
+}
+.case .big{
+ font-size:clamp(48px,5.5vw,82px);font-weight:900;letter-spacing:-.05em;
+ margin:44px 0 8px
+}
+.case .big span{color:#66b8ff}
+.case p{color:var(--muted);font-size:14px;line-height:1.7}
+.caseflow{display:grid;gap:10px;margin-top:28px}
+.caseflow div{
+ display:flex;justify-content:space-between;gap:18px;
+ padding:13px 0;border-bottom:1px solid var(--line);font-size:13px
+}
+.caseflow strong{color:#fff}.caseflow span{color:var(--muted)}
+
+/* AI CREATION */
+.creation{
+ display:grid;grid-template-columns:repeat(5,1fr);gap:12px
+}
+.tool{
+ min-height:190px;border:1px solid var(--line);border-radius:20px;padding:24px;
+ background:rgba(255,255,255,.025)
+}
+.tool .ico{font-size:30px;margin-bottom:38px;color:#80c7ff}
+.tool h4{font-size:17px;margin:0 0 8px}
+.tool p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+.partnerbar{
+ margin-top:20px;padding:18px 20px;border-radius:16px;
+ border:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.02)
+}
+.partnerbar span{
+ padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.05);
+ color:rgba(255,255,255,.72);font-size:11px
+}
+.strategy{
+ margin-top:24px;border:1px solid rgba(157,99,255,.20);border-radius:18px;
+ padding:20px 22px;background:rgba(157,99,255,.04);color:rgba(255,255,255,.72);
+ font-size:13px;line-height:1.7
+}
+
+/* KNOWLEDGE BASE */
+.kb{
+ display:grid;grid-template-columns:1fr 260px 1fr;gap:18px;align-items:center
+}
+.kbcol{display:grid;gap:12px}
+.kcard{
+ padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--panel)
+}
+.kcard b{display:block;font-size:16px;margin-bottom:6px}
+.kcard span{color:var(--muted);font-size:12px;line-height:1.6}
+.database{
+ aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;
+ border:1px solid rgba(75,168,255,.34);
+ background:radial-gradient(circle,#102641,#07101c 65%,#03050a);
+ box-shadow:0 0 60px rgba(70,136,255,.22);
+ color:#9bd3ff;font-size:12px;letter-spacing:.12em;font-weight:850;
+ position:relative
+}
+.database:before,.database:after{
+ content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.10)
+}
+.database:before{inset:13%}.database:after{inset:26%}
+
+/* DASHBOARD */
+.dashboard{
+ display:grid;grid-template-columns:1.3fr .7fr;gap:22px
+}
+.mock{
+ border:1px solid var(--line);border-radius:26px;padding:24px;background:#090d15;min-height:480px
+}
+.topline{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.45);margin-bottom:20px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.metric{padding:18px;border-radius:14px;background:rgba(255,255,255,.035)}
+.metric b{display:block;font-size:24px;margin-bottom:5px}
+.metric span{font-size:11px;color:var(--muted)}
+.chart{
+ height:220px;margin-top:16px;border-radius:18px;position:relative;overflow:hidden;
+ background:
+ linear-gradient(180deg,rgba(75,168,255,.09),transparent),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 44px),
+ repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 72px)
+}
+.chart svg{position:absolute;inset:0;width:100%;height:100%}
+.insights{display:grid;gap:10px;margin-top:16px}
+.insight{
+ padding:14px;border-radius:12px;background:rgba(255,255,255,.03);
+ display:flex;justify-content:space-between;gap:20px;font-size:12px
+}
+.sidecards{display:grid;gap:14px}
+.side{
+ border:1px solid var(--line);border-radius:20px;padding:24px;background:rgba(255,255,255,.025)
+}
+.side h4{margin:0 0 10px;font-size:17px}
+.side p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+
+/* PATENT */
+.patent{
+ border:1px solid rgba(74,168,255,.30);border-radius:28px;padding:52px;
+ background:
+ radial-gradient(circle at 80% 30%,rgba(79,162,255,.14),transparent 25%),
+ linear-gradient(125deg,rgba(74,168,255,.12),rgba(151,83,255,.08));
+ display:flex;justify-content:space-between;gap:30px;align-items:flex-end
+}
+.patent .small{font-size:11px;letter-spacing:.18em;color:#81c9ff;margin-bottom:12px}
+.patent .number{font-size:clamp(44px,5vw,78px);font-weight:900;letter-spacing:-.05em}
+.patent p{max-width:540px;color:var(--muted);line-height:1.7;margin:0}
+
+/* NEXT */
+.next{
+ margin:0 6vw 70px;padding:45px;border:1px solid var(--line);border-radius:25px;
+ display:flex;justify-content:space-between;align-items:center;
+ background:linear-gradient(120deg,rgba(60,150,255,.1),rgba(160,75,255,.08))
+}
+.next h3{font-size:28px;margin:0}
+.next p{color:var(--muted)}
+.next a{
+ background:#fff;color:#05070b;border-radius:999px;padding:14px 22px;
+ font-size:12px;font-weight:900
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:.7s}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:1050px){
+ header{grid-template-columns:1fr auto}
+ nav{display:none}
+ .core-visual{opacity:.34;right:-15%;width:70vw}
+ .cycle{grid-template-columns:1fr}
+ .cycle:before{display:none}
+ .modules{grid-template-columns:1fr 1fr}
+ .module.coremod{grid-column:1/-1;grid-row:auto;min-height:360px}
+ .engine,.dashboard{grid-template-columns:1fr}
+ .creation{grid-template-columns:1fr 1fr}
+ .kb{grid-template-columns:1fr}
+ .database{width:260px;justify-self:center}
+ .head{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:620px){
+ .hero{padding:110px 20px 60px}
+ .section{padding:78px 20px}
+ .hero h1{font-size:15vw}
+ .modules,.creation{grid-template-columns:1fr}
+ .patent,.next{flex-direction:column;align-items:flex-start}
+ .patent{padding:30px}
+ .next{margin:0 20px 50px}
+ .metrics{grid-template-columns:1fr}
+}
+</style>
+
+<style id="corp-footer-style">
+.corp-footer{border-top:1px solid rgba(255,255,255,.10);background:#05070b;color:rgba(255,255,255,.60);padding:26px 5vw 34px}
+.corp-footer-inner{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
+.corp-brand{font-weight:900;color:#fff;font-size:13px;line-height:1.1}
+.corp-info{font-size:10px;line-height:1.8}
+.corp-copy{font-size:9px;white-space:nowrap;color:rgba(255,255,255,.38)}
+@media(max-width:800px){.corp-footer-inner{grid-template-columns:1fr}.corp-copy{white-space:normal}}
+</style>
+
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html">
+    <span class="mark"></span><span>BLACKHOLEMAN<br>BROS</span>
+  </a>
+  <nav>
+    <a href="about.html">COMPANY</a>
+    <a href="characters.html">CHARACTERS</a>
+    <a class="active" href="technology.html">TECHNOLOGY</a>
+    <a href="contents.html">CONTENTS</a>
+    <a href="community.html">COMMUNITY</a>
+    <a href="goods.html">SHOP</a>
+  </nav>
+  <div class="right">×</div>
+</header>
+
+<section class="hero">
+  <div class="kicker">03 — TECHNOLOGY</div>
+  <h1>AI가 만드는 게 아니라,<br><span>무엇을 만들지 결정합니다.</span></h1>
+  <p>
+    외부 생성 AI는 콘텐츠를 만듭니다. 블랙홀맨브로스의 특허 기반
+    Character Evolution Engine은 사용자 반응을 분석해 다음 콘텐츠와
+    캐릭터·세계관이 어디로 진화해야 하는지 결정합니다.
+  </p>
+
+  <div class="core-visual">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="ring r3"></div>
+    <div class="core">CHARACTER<br>EVOLUTION<br>ENGINE</div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div>
+      <div class="label">HOW IT WORKS</div>
+      <h2>반응이 다음 콘텐츠를 만듭니다.</h2>
+    </div>
+    <p>
+      콘텐츠가 배포되고 사용자 반응이 쌓이면, 그 데이터를 분석해
+      다음 진화 방향을 정하고 다시 콘텐츠 제작으로 연결합니다.
+    </p>
+  </div>
+
+  <div class="cycle">
+    <article class="cstep">
+      <div class="cnum">01</div>
+      <div class="cicon">◉</div>
+      <h3>사용자 반응 수집</h3>
+      <p>조회수, 댓글, 좋아요, 공유, 시청시간 등 실제 반응 데이터를 수집합니다.</p>
+    </article>
+
+    <article class="cstep">
+      <div class="cnum">02</div>
+      <div class="cicon">⌁</div>
+      <h3>Signal 추출</h3>
+      <p>Noise를 제거하고 IP 성장에 의미 있는 반응 패턴만 추출합니다.</p>
+    </article>
+
+    <article class="cstep">
+      <div class="cnum">03</div>
+      <div class="cicon">✦</div>
+      <h3>진화 방향 결정</h3>
+      <p>캐릭터 비중, 스토리 방향, 세계관 확장 등 다음 의사결정을 제안합니다.</p>
+    </article>
+
+    <article class="cstep">
+      <div class="cnum">04</div>
+      <div class="cicon">▶</div>
+      <h3>AI 콘텐츠 생성</h3>
+      <p>결정된 방향을 기반으로 스토리, 이미지, 영상, 음성 콘텐츠를 생성합니다.</p>
+    </article>
+
+    <article class="cstep">
+      <div class="cnum">05</div>
+      <div class="cicon">↻</div>
+      <h3>다시 배포·학습</h3>
+      <p>새 콘텐츠를 배포하고 다시 사용자 반응을 수집해 다음 진화로 연결합니다.</p>
+    </article>
+  </div>
+
+  <div class="loop-note">CONTENT → REACTION → SIGNAL → EVOLUTION → CONTENT · 반복될수록 IP 운영 데이터가 축적됩니다.</div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div>
+      <div class="label">4 CORE MODULES</div>
+      <h2>하나의 플랫폼,<br>네 개의 핵심 모듈.</h2>
+    </div>
+    <p>
+      진화 방향을 결정하는 핵심 엔진을 중심으로 지식, 제작, 운영을 연결합니다.
+    </p>
+  </div>
+
+  <div class="modules">
+    <article class="module coremod">
+      <div class="mno">01 / CORE</div>
+      <div class="badge">PATENT-BASED</div>
+      <h3>Character<br>Evolution Engine</h3>
+      <p>
+        사용자 반응 데이터에서 의미 있는 Signal을 추출하고,
+        캐릭터·스토리·세계관의 진화 방향을 제안하는 플랫폼의 핵심 의사결정 엔진.
+      </p>
+    </article>
+
+    <article class="module">
+      <div class="mno">02</div>
+      <h3>Character Knowledge Base</h3>
+      <p>캐릭터 설정, 관계, 세계관, 콘텐츠 이력, 사용자 반응을 데이터 자산으로 구조화합니다.</p>
+    </article>
+
+    <article class="module">
+      <div class="mno">03</div>
+      <h3>AI Content Creation Layer</h3>
+      <p>스토리·이미지·영상·음성·현지화 제작을 검증된 외부 생성 AI와 연결합니다.</p>
+    </article>
+
+    <article class="module">
+      <div class="mno">04</div>
+      <h3>Operation Dashboard</h3>
+      <p>콘텐츠 운영, 성과 분석, 진화 제안, 인사이트 리포트를 한 화면에서 관리합니다.</p>
+    </article>
+
+    <article class="module">
+      <div class="mno">SYSTEM VALUE</div>
+      <h3>AI Generation ≠ IP Evolution</h3>
+      <p>생성 AI가 콘텐츠를 만드는 것과 IP가 어디로 진화할지 결정하는 것은 다른 문제입니다.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div>
+      <div class="label">CHARACTER EVOLUTION ENGINE</div>
+      <h2>Noise를 걷어내고,<br>Signal만 남깁니다.</h2>
+    </div>
+    <p>
+      단순한 인기 지표가 아니라 실제 IP 성장에 도움이 되는 패턴을 추출해
+      다음 콘텐츠 제작의 판단 기준으로 변환합니다.
+    </p>
+  </div>
+
+  <div class="engine">
+    <div class="pipe">
+      <h3>Evolution Process</h3>
+      <p>반응 데이터가 최종 진화 제안으로 바뀌는 4단계 처리 과정.</p>
+
+      <div class="process">
+        <div class="proc">
+          <b>01</b>
+          <div><strong>Noise Filtering</strong><span>불필요하거나 왜곡 가능성이 높은 데이터 제거</span></div>
+        </div>
+        <div class="proc">
+          <b>02</b>
+          <div><strong>Signal Extraction</strong><span>반복적으로 나타나는 핵심 반응 정보 추출</span></div>
+        </div>
+        <div class="proc">
+          <b>03</b>
+          <div><strong>Trend Detection</strong><span>캐릭터·감정·에피소드 유형별 선호 패턴 탐지</span></div>
+        </div>
+        <div class="proc">
+          <b>04</b>
+          <div><strong>Evolution Recommendation</strong><span>다음 캐릭터·스토리·세계관 진화 방향 제안</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="label">EXAMPLE CASE</div>
+      <div class="big"><span>+35%</span> RESPONSE</div>
+      <p>
+        특정 캐릭터가 등장한 장면의 반응률이 높게 나타난다면,
+        엔진은 이를 다음 콘텐츠에서 해당 캐릭터 비중을 확대할 수 있는 Signal로 해석합니다.
+      </p>
+
+      <div class="caseflow">
+        <div><strong>INPUT</strong><span>조회수 · 댓글 · 시청시간 · 공유</span></div>
+        <div><strong>SIGNAL</strong><span>특정 캐릭터 등장 장면 반응 ↑</span></div>
+        <div><strong>RECOMMENDATION</strong><span>다음 에피소드 캐릭터 비중 확대</span></div>
+        <div><strong>OUTPUT</strong><span>새로운 콘텐츠 제작 및 재배포</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div>
+      <div class="label">AI CONTENT CREATION LAYER</div>
+      <h2>AI를 직접 다 만들지 않습니다.</h2>
+    </div>
+    <p>
+      대규모 생성 모델을 직접 개발하기보다, 검증된 글로벌 AI를 제작 레이어로 활용하고
+      블랙홀맨브로스는 특허 기반 핵심 엔진과 IP 운영 데이터에 집중합니다.
+    </p>
+  </div>
+
+  <div class="creation">
+    <div class="tool"><div class="ico">✎</div><h4>STORY</h4><p>시나리오, 대사, 에피소드 구성</p></div>
+    <div class="tool"><div class="ico">◫</div><h4>IMAGE</h4><p>캐릭터·일러스트·스타일 일관성</p></div>
+    <div class="tool"><div class="ico">▶</div><h4>VIDEO</h4><p>숏폼, 편집, 자막, 더빙</p></div>
+    <div class="tool"><div class="ico">◖</div><h4>VOICE</h4><p>캐릭터 음성, 보이스 콘텐츠</p></div>
+    <div class="tool"><div class="ico">文</div><h4>LOCALIZATION</h4><p>번역 및 글로벌 현지화</p></div>
+  </div>
+
+  <div class="partnerbar">
+    <span>OpenAI</span>
+    <span>Claude</span>
+    <span>Gemini</span>
+    <span>Midjourney</span>
+    <span>Flux</span>
+    <span>Runway</span>
+    <span>Veo</span>
+    <span>Kling</span>
+    <span>ElevenLabs</span>
+    <span>DeepL</span>
+  </div>
+
+  <div class="strategy">
+    자체 개발 범위를 최소화하고, 특허 기반 핵심 기술에 집중합니다.
+    이를 통해 초기 개발비를 줄이고 빠른 시장 검증과 사업화를 목표로 합니다.
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div>
+      <div class="label">CHARACTER KNOWLEDGE BASE</div>
+      <h2>진화의 기억을<br>데이터 자산으로.</h2>
+    </div>
+    <p>
+      캐릭터와 세계관, 콘텐츠 이력, 사용자 반응을 구조화해
+      다음 콘텐츠의 일관성과 진화 판단의 기반으로 사용합니다.
+    </p>
+  </div>
+
+  <div class="kb">
+    <div class="kbcol">
+      <div class="kcard"><b>Character Data</b><span>캐릭터 설정, 성격, 관계도, 비주얼 규칙</span></div>
+      <div class="kcard"><b>Worldview Data</b><span>세계관, 규칙, 배경, 스토리 구조</span></div>
+    </div>
+
+    <div class="database">CHARACTER<br>KNOWLEDGE<br>BASE</div>
+
+    <div class="kbcol">
+      <div class="kcard"><b>Content History</b><span>에피소드 연관성, 이미지, 영상, 제작 이력</span></div>
+      <div class="kcard"><b>User Feedback</b><span>조회수, 댓글, 좋아요, 공유, 시청시간</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div>
+      <div class="label">OPERATION DASHBOARD</div>
+      <h2>운영과 진화를<br>한 화면에서.</h2>
+    </div>
+    <p>
+      플랫폼 전반의 운영 현황과 성과를 확인하고,
+      AI 엔진이 제안한 진화 방향과 다음 액션을 함께 관리합니다.
+    </p>
+  </div>
+
+  <div class="dashboard">
+    <div class="mock">
+      <div class="topline"><span>BLACKHOLEMAN IP / PERFORMANCE</span><span>LIVE</span></div>
+
+      <div class="metrics">
+        <div class="metric"><b>1.28M</b><span>VIEWS</span></div>
+        <div class="metric"><b>+18.4%</b><span>ENGAGEMENT</span></div>
+        <div class="metric"><b>+35%</b><span>SIGNAL SCORE</span></div>
+      </div>
+
+      <div class="chart">
+        <svg viewBox="0 0 800 220" preserveAspectRatio="none">
+          <polyline fill="none" stroke="#4aa8ff" stroke-width="4"
+            points="20,175 110,148 190,155 275,112 365,120 450,80 540,96 625,58 710,70 780,38"/>
+          <polyline fill="none" stroke="#9b63ff" stroke-width="3" opacity=".8"
+            points="20,190 110,175 190,160 275,162 365,135 450,132 540,100 625,112 710,87 780,91"/>
+        </svg>
+      </div>
+
+      <div class="insights">
+        <div class="insight"><span>진화 제안</span><strong>홀맨 등장 비중 확대</strong></div>
+        <div class="insight"><span>트렌드</span><strong>짧은 코미디 에피소드 반응 ↑</strong></div>
+        <div class="insight"><span>추천 액션</span><strong>15–30초 숏폼 우선 제작</strong></div>
+      </div>
+    </div>
+
+    <div class="sidecards">
+      <div class="side"><h4>Content Management</h4><p>콘텐츠 운영 상태와 발행 이력을 관리합니다.</p></div>
+      <div class="side"><h4>Performance Analysis</h4><p>조회수·댓글·좋아요·공유·시청시간을 분석합니다.</p></div>
+      <div class="side"><h4>Evolution Insight</h4><p>엔진이 제안한 진화 방향과 근거를 확인합니다.</p></div>
+      <div class="side"><h4>Alert & Report</h4><p>반응 변화와 주요 인사이트를 리포트 형태로 제공합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="patent">
+    <div>
+      <div class="small">REGISTERED PATENT</div>
+      <div class="number">10-2837572</div>
+    </div>
+    <p>
+      사용자 반응 데이터를 IP 진화 정보로 변환하는 Character Evolution Platform 핵심 기술.
+      외부 AI가 콘텐츠를 생성한다면, 특허 기반 엔진은 무엇을 생성할지 결정합니다.
+    </p>
+  </div>
+</section>
+
+<section class="next reveal">
+  <div>
+    <h3>Next — Contents</h3>
+    <p>이 기술이 실제 게임·만화·영상 콘텐츠로 어떻게 연결되는지 확인하세요.</p>
+  </div>
+  <a href="#">CONTENTS →</a>
+</section>
+
+<script>
+const io=new IntersectionObserver(
+  es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),
+  {threshold:.1}
+);
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
+      <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+</body>
+</html>
