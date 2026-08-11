@@ -97,6 +97,14 @@ transform:translate(-50%,-50%);filter:drop-shadow(0 0 65px rgba(66,111,255,.28))
 .cta a{padding:14px 22px;border-radius:999px;background:#fff;color:#05070b;font-size:12px;font-weight:900;white-space:nowrap}
 .reveal{opacity:0;transform:translateY(28px);transition:.7s ease}.reveal.on{opacity:1;transform:none}
 
+.partners-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.partner-card{border:1px solid var(--line);border-radius:16px;padding:24px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;background:rgba(255,255,255,.025);transition:.2s border-color,.2s background,.2s transform}
+.partner-card:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06);transform:translateY(-4px)}
+.partner-card span{font-weight:800;font-size:14px}
+.partner-card small{font-size:11px;color:var(--muted)}
+@media(max-width:900px){.partners-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.partners-grid{grid-template-columns:repeat(2,1fr)}}
+
 @media(max-width:900px){
 header{grid-template-columns:1fr auto}nav{display:none}
 .hero{padding-top:120px;min-height:74vh}.hero-copy{width:86vw}.hero-visual{opacity:.42;right:-18vw;width:78vw}
@@ -136,9 +144,9 @@ header{grid-template-columns:1fr auto}nav{display:none}
 </div>
 <div class="hero-visual">
 <div class="vortex"></div>
-<div class="hero-char hdog"><img src="assets/9f36ab4b445c2308.png" alt="Holedog"></div>
+<div class="hero-char hdog"><img src="assets/9f36ab4b445c2308.png" alt="Holdog"></div>
 <div class="hero-char hblack"><img src="assets/cd33e0ed67201028.png" alt="Blackholeman"></div>
-<div class="hero-char hcat"><img src="assets/f654843e589a50a7.png" alt="Holecat"></div>
+<div class="hero-char hcat"><img src="assets/f654843e589a50a7.png" alt="Holcat"></div>
 </div>
 <div class="hero-index">BLACKHOLEMAN BROS / COMPANY</div>
 </section>
@@ -195,7 +203,7 @@ header{grid-template-columns:1fr auto}nav{display:none}
 <div class="ip-grid">
 <div class="patent"><div class="tag">PATENT-BASED CORE TECHNOLOGY</div><div class="number">10-2837572</div><p>사용자 반응 데이터 속에서 의미 있는 Signal을 추출하고 캐릭터·스토리·세계관의 진화 방향을 제안하는 Character Evolution Engine의 기반 기술.</p></div>
 <div class="ip-stack">
-<div class="ip-card"><h4>Original Character IP</h4><p>블랙홀맨 · 홀맨독 · 홀맨캣을 중심으로 콘텐츠·게임·만화·굿즈로 확장 가능한 오리지널 IP 생태계.</p></div>
+<div class="ip-card"><h4>Original Character IP</h4><p>블랙홀맨 · 홀독 · 홀캣을 중심으로 콘텐츠·게임·만화·굿즈로 확장 가능한 오리지널 IP 생태계.</p></div>
 <div class="ip-card"><h4>Character Knowledge Asset</h4><p>캐릭터 설정, 관계, 세계관, 에피소드 이력과 사용자 피드백을 구조화해 장기적인 IP 자산으로 축적.</p></div>
 </div>
 </div>
@@ -215,9 +223,24 @@ header{grid-template-columns:1fr auto}nav{display:none}
 </div>
 </section>
 
+<section class="section reveal">
+<div class="section-head">
+<div><div class="label">PARTNERS</div><h2>함께하는<br>파트너사.</h2></div>
+<p>다양한 분야의 파트너사와 협력하며 블랙홀맨브로스의 세계를 확장하고 있습니다.</p>
+</div>
+<div class="partners-grid">
+<a class="partner-card" href="https://uznex.com" target="_blank" rel="noopener"><span>UZNEX</span><small>uznex.com</small></a>
+<a class="partner-card" href="https://amfnetwork.com" target="_blank" rel="noopener"><span>AMF GLOBAL</span><small>amfnetwork.com</small></a>
+<a class="partner-card" href="https://topel.or.kr" target="_blank" rel="noopener"><span>TOPEL</span><small>topel.or.kr</small></a>
+<a class="partner-card" href="https://khaicompany.com" target="_blank" rel="noopener"><span>Khai</span><small>khaicompany.com</small></a>
+<a class="partner-card" href="https://asiacat.net" target="_blank" rel="noopener"><span>ASIACAT</span><small>asiacat.net</small></a>
+<a class="partner-card" href="https://holeman.co.kr" target="_blank" rel="noopener"><span>Blackhole</span><small>holeman.co.kr</small></a>
+</div>
+</section>
+
 <section class="cta reveal">
 <div><h3>Next — Meet the Characters</h3><p>블랙홀맨브로스의 세계를 구성하는 세 캐릭터를 만나보세요.</p></div>
-<a href="#">CHARACTERS →</a>
+<a href="characters.html">CHARACTERS →</a>
 </section>
 </div>
 
