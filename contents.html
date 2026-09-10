@@ -20,7 +20,7 @@ nav a{opacity:.58}nav a.active{opacity:1;position:relative}nav a.active:after{co
 .social{justify-self:end;display:flex;gap:18px;font-size:13px;color:rgba(255,255,255,.75)}
 
 .hero{min-height:430px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.74) 28%,rgba(0,0,0,.18) 65%,rgba(0,0,0,.54) 100%),url("assets/129e52072946e3b9.png");background-size:cover;background-position:center}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.74) 28%,rgba(0,0,0,.18) 65%,rgba(0,0,0,.54) 100%),url("assets/gallery/gallery-06.png");background-size:cover;background-position:center}
 .hero-copy{position:relative;z-index:2;padding:72px 3.6vw 50px;max-width:650px}
 .hero h1{font-size:clamp(64px,7vw,112px);line-height:.82;letter-spacing:-.06em;margin:0 0 28px}
 .hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,.78);max-width:420px}
@@ -43,7 +43,7 @@ nav a{opacity:.58}nav a.active{opacity:1;position:relative}nav a.active:after{co
 /* MUSIC */
 .music-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
 .music-player{min-height:330px;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:260px 1fr;background:linear-gradient(130deg,#111522,#07090e)}
-.album{position:relative;background-image:linear-gradient(180deg,rgba(70,60,255,.05),rgba(0,0,0,.12)),url("assets/129e52072946e3b9.png");background-size:cover;background-position:center}
+.album{position:relative;background-image:linear-gradient(180deg,rgba(70,60,255,.05),rgba(0,0,0,.12)),url("assets/gallery/gallery-06.png");background-size:cover;background-position:center}
 .album:after{content:"홀 패밀리\A규칙";white-space:pre;position:absolute;inset:auto 20px 22px;font-size:28px;line-height:.9;font-weight:900;text-shadow:0 2px 20px #000}
 .player-panel{padding:34px;display:flex;flex-direction:column;justify-content:center}
 .player-panel h3{font-size:26px;margin:0 0 7px}.player-panel .artist{font-size:12px;letter-spacing:.06em;color:var(--muted)}
@@ -150,14 +150,14 @@ audio{width:100%;filter:invert(1) hue-rotate(180deg);opacity:.9}
         <div class="player-panel">
           <h3>홀 패밀리 규칙</h3><div class="artist">BLACKHOLEMAN BROS</div>
           <div class="wave"></div>
-          <audio controls src="assets/bfc114abd3790279.mp3"></audio>
+          <audio controls src="assets/music/hol-family-rules.mp3"></audio>
         </div>
       </div>
       <div class="music-gallery">
-        <img src="assets/ba384f3cf9ac02c9.png" alt="music visual 1">
-        <img src="assets/a91de6fe3345394f.png" alt="music visual 2">
-        <img src="assets/d00670e5989fc9e5.png" alt="music visual 3">
-        <img src="assets/62fd0a237c65e366.png" alt="music visual 4">
+        <img src="assets/gallery/gallery-07.png" alt="music visual 1">
+        <img src="assets/gallery/gallery-08.png" alt="music visual 2">
+        <img src="assets/gallery/gallery-09.png" alt="music visual 3">
+        <img src="assets/gallery/gallery-10.png" alt="music visual 4">
       </div>
     </div>
   </div>
@@ -167,8 +167,8 @@ audio{width:100%;filter:invert(1) hue-rotate(180deg);opacity:.9}
   <div class="row-layout">
     <div class="side-title"><h2 style="color:#a05dff">COMIC ♧</h2><p>블랙홀맨브로스의 좌충우돌 모험기!</p><a href="#">웹툰 보러가기 →</a></div>
     <div class="comic-row">
-      <button class="episode" onclick="openReader(1)"><img src="assets/9f096a516526c12f.png"><span class="ep">EP.01</span></button>
-      <button class="episode" onclick="openReader(2)"><img src="assets/4bebdfffaa31418c.png"><span class="ep">EP.02</span></button>
+      <button class="episode" onclick="openReader(1)"><img src="assets/comic/ep01-01.png"><span class="ep">EP.01</span></button>
+      <button class="episode" onclick="openReader(2)"><img src="assets/comic/ep02-01.png"><span class="ep">EP.02</span></button>
       <div class="episode locked"><div><b>🔒</b><span>EP.03 · NEXT WEEK</span><small>다음 주 공개</small></div></div>
       <div class="episode locked"><div><b>🔒</b><span>EP.04 · NEXT WEEK</span><small>다음 주 공개</small></div></div>
       <div class="episode locked"><div><b>🔒</b><span>EP.05 · NEXT WEEK</span><small>다음 주 공개</small></div></div>
@@ -180,15 +180,15 @@ audio{width:100%;filter:invert(1) hue-rotate(180deg);opacity:.9}
 <section class="section">
   <div class="row-layout">
     <div class="side-title"><h2 style="color:#925bff">GALLERY ◉</h2><p>블랙홀맨브로스의 세계를 이미지로 만나보세요!</p><a href="#">갤러리 전체 보기 →</a></div>
-    <div class="gallery-grid"><button class="gallery-item" onclick="openLightbox(0)"><img src="assets/8bfe4d009cf03dca.png" alt="Gallery 1"></button>
-<button class="gallery-item" onclick="openLightbox(1)"><img src="assets/2ea1ccd49b8bd61e.png" alt="Gallery 2"></button>
-<button class="gallery-item" onclick="openLightbox(2)"><img src="assets/9d34af8a0e483358.png" alt="Gallery 3"></button>
-<button class="gallery-item" onclick="openLightbox(3)"><img src="assets/15fdfcc2e63ccb1a.png" alt="Gallery 4"></button>
-<button class="gallery-item" onclick="openLightbox(4)"><img src="assets/851ae68cd8139701.png" alt="Gallery 5"></button>
-<button class="gallery-item" onclick="openLightbox(5)"><img src="assets/129e52072946e3b9.png" alt="Gallery 6"></button>
-<button class="gallery-item" onclick="openLightbox(6)"><img src="assets/ba384f3cf9ac02c9.png" alt="Gallery 7"></button>
-<button class="gallery-item" onclick="openLightbox(7)"><img src="assets/a91de6fe3345394f.png" alt="Gallery 8"></button>
-<button class="gallery-item" onclick="openLightbox(8)"><img src="assets/d00670e5989fc9e5.png" alt="Gallery 9"></button></div>
+    <div class="gallery-grid"><button class="gallery-item" onclick="openLightbox(0)"><img src="assets/gallery/gallery-01.png" alt="Gallery 1"></button>
+<button class="gallery-item" onclick="openLightbox(1)"><img src="assets/gallery/gallery-02.png" alt="Gallery 2"></button>
+<button class="gallery-item" onclick="openLightbox(2)"><img src="assets/gallery/gallery-03.png" alt="Gallery 3"></button>
+<button class="gallery-item" onclick="openLightbox(3)"><img src="assets/gallery/gallery-04.png" alt="Gallery 4"></button>
+<button class="gallery-item" onclick="openLightbox(4)"><img src="assets/gallery/gallery-05.png" alt="Gallery 5"></button>
+<button class="gallery-item" onclick="openLightbox(5)"><img src="assets/gallery/gallery-06.png" alt="Gallery 6"></button>
+<button class="gallery-item" onclick="openLightbox(6)"><img src="assets/gallery/gallery-07.png" alt="Gallery 7"></button>
+<button class="gallery-item" onclick="openLightbox(7)"><img src="assets/gallery/gallery-08.png" alt="Gallery 8"></button>
+<button class="gallery-item" onclick="openLightbox(8)"><img src="assets/gallery/gallery-09.png" alt="Gallery 9"></button></div>
   </div>
 </section>
 
@@ -196,42 +196,42 @@ audio{width:100%;filter:invert(1) hue-rotate(180deg);opacity:.9}
   <div class="row-layout">
     <div class="side-title"><h2 style="color:#4ea6ff">MOTION ▷</h2><p>블랙홀맨브로스의 움직이는 순간들!</p><a href="#">전체 영상 보기 →</a></div>
     <div class="motion-grid"><div class="motion-card">
-        <video src="assets/62632431c7272d22.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-01.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>01</span>
     </div>
 <div class="motion-card">
-        <video src="assets/0c95e5707f5ea354.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-02.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>02</span>
     </div>
 <div class="motion-card">
-        <video src="assets/9bafbb3529101b5f.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-03.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>03</span>
     </div>
 <div class="motion-card">
-        <video src="assets/6596704c2f5a0401.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-04.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>04</span>
     </div>
 <div class="motion-card">
-        <video src="assets/9565ecb5ee2fa77c.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-05.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>05</span>
     </div>
 <div class="motion-card">
-        <video src="assets/6596704c2f5a0401.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-04.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>06</span>
     </div>
 <div class="motion-card">
-        <video src="assets/9565ecb5ee2fa77c.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-05.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>07</span>
     </div>
 <div class="motion-card">
-        <video src="assets/558c21ddf41bb33d.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <video src="assets/motion/motion-06.mp4" muted loop playsinline preload="metadata" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
         <div class="play-badge">▶</div>
         <span>08</span>
     </div></div>
@@ -248,9 +248,9 @@ audio{width:100%;filter:invert(1) hue-rotate(180deg);opacity:.9}
 </div>
 
 <script>
-const EP1=['assets/9f096a516526c12f.png','assets/413dd469296f67a2.png','assets/947b4edc057df2d3.png','assets/ccee0b569ef2de9b.png','assets/191e6f5ea06c5169.png','assets/d70268ba5faefa08.png','assets/863277835dcce118.png','assets/fcb1d0eb79bab910.png'];
-const EP2=['assets/4bebdfffaa31418c.png','assets/adcd6442de2d025f.png','assets/8b8da71c5c2d54c7.png','assets/f0b17f1e05bca9ac.png','assets/dc2cc560564699d7.png','assets/9d014e868d2ea431.png','assets/878ad3dc10d238ee.png','assets/03474233a0f24f1d.png'];
-const GALLERY=['assets/8bfe4d009cf03dca.png','assets/2ea1ccd49b8bd61e.png','assets/9d34af8a0e483358.png','assets/15fdfcc2e63ccb1a.png','assets/851ae68cd8139701.png','assets/129e52072946e3b9.png','assets/ba384f3cf9ac02c9.png','assets/a91de6fe3345394f.png','assets/d00670e5989fc9e5.png'];
+const EP1=['assets/comic/ep01-01.png','assets/comic/ep01-02.png','assets/comic/ep01-03.png','assets/comic/ep01-04.png','assets/comic/ep01-05.png','assets/comic/ep01-06.png','assets/comic/ep01-07.png','assets/comic/ep01-08.png'];
+const EP2=['assets/comic/ep02-01.png','assets/comic/ep02-02.png','assets/comic/ep02-03.png','assets/comic/ep02-04.png','assets/comic/ep02-05.png','assets/comic/ep02-06.png','assets/comic/ep02-07.png','assets/comic/ep02-08.png'];
+const GALLERY=['assets/gallery/gallery-01.png','assets/gallery/gallery-02.png','assets/gallery/gallery-03.png','assets/gallery/gallery-04.png','assets/gallery/gallery-05.png','assets/gallery/gallery-06.png','assets/gallery/gallery-07.png','assets/gallery/gallery-08.png','assets/gallery/gallery-09.png'];
 
 function openReader(ep){
   const arr=ep===1?EP1:EP2;
