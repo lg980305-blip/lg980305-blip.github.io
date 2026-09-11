@@ -1,0 +1,41 @@
+{
+  "packageId": "kr.co.blackholemanbros.app",
+  "host": "lg980305-blip.github.io",
+  "name": "BLACKHOLEMAN BROS",
+  "launcherName": "BHB",
+  "display": "standalone",
+  "themeColor": "#02040A",
+  "themeColorDark": "#02040A",
+  "navigationColor": "#02040A",
+  "navigationColorDark": "#02040A",
+  "navigationDividerColor": "#02040A",
+  "navigationDividerColorDark": "#02040A",
+  "backgroundColor": "#02040A",
+  "enableNotifications": false,
+  "startUrl": "/index.html",
+  "iconUrl": "https://lg980305-blip.github.io/assets/icon-512.png",
+  "maskableIconUrl": "https://lg980305-blip.github.io/assets/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "blackholemanbros"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [
+    { "name": "CHARACTERS", "short_name": "CHARACTERS", "url": "/characters.html", "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png" },
+    { "name": "AI LAB", "short_name": "AI LAB", "url": "/ai.html", "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png" },
+    { "name": "ARCADE", "short_name": "ARCADE", "url": "/games/", "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png" }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://lg980305-blip.github.io/site.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": { "enabled": false },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://lg980305-blip.github.io/",
+  "minSdkVersion": 21,
+  "orientation": "portrait"
+}
