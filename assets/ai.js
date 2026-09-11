@@ -14,16 +14,20 @@
    ============================================================ */
 
 window.BHB_AI_CONFIG = window.BHB_AI_CONFIG || {
-  // 예) 'https://bhb-gemini.<계정명>.workers.dev/api/gemini'
-  // 예) 'https://blackholemanbros.vercel.app/api/gemini'
-  ENDPOINT: ''
+  // 기본값은 같은 도메인의 /api/gemini 입니다.
+  //   · Vercel 에 배포하면 api/gemini.mjs 가 여기에 올라가므로 자동으로 연결됩니다.
+  //   · GitHub Pages 처럼 서버가 없는 곳에서는 자동으로 데모 모드가 됩니다.
+  // Cloudflare Workers 처럼 다른 도메인을 쓰실 때만 전체 주소를 적어 주세요.
+  //   예) 'https://bhb-gemini.<계정명>.workers.dev'
+  ENDPOINT: '/api/gemini'
 };
 
 (function () {
   'use strict';
 
   const CFG = window.BHB_AI_CONFIG;
-  const LIVE = !!CFG.ENDPOINT;
+  // 서버가 실제로 응답하는지 확인되기 전까지는 데모로 둔다.
+  let LIVE = false;
 
   /* ---------- 캐릭터 페르소나 ----------
      서버로 mode 와 character 만 보내고, 실제 시스템 프롬프트는 서버가 갖습니다.
@@ -350,16 +354,49 @@ window.BHB_AI_CONFIG = window.BHB_AI_CONFIG || {
     });
   }
 
-  /* ---------- 부팅 ---------- */
-  document.addEventListener('DOMContentLoaded', () => {
-    const badge = document.querySelector('[data-ai-mode]');
-    if (badge) {
-      badge.textContent = LIVE ? 'GEMINI CONNECTED' : 'DEMO MODE';
-      badge.classList.toggle('live', LIVE);
+  /* ---------- 서버 연결 확인 ----------
+     ENDPOINT 로 OPTIONS 를 한 번 보내 중계 서버가 살아 있는지 본다.
+       · 204 + x-bhb-ready: 1  -> Gemini 사용 가능
+       · 204 + x-bhb-ready: 0  -> 서버는 있지만 API 키가 설정되지 않음
+       · 그 외 / 실패          -> 서버 없음 (데모 모드)
+     실패해도 사이트 동작에는 영향이 없다. */
+  async function probe() {
+    if (!CFG.ENDPOINT) return 'demo';
+    try {
+      const res = await fetch(CFG.ENDPOINT, { method: 'OPTIONS' });
+      if (res.status !== 204) return 'demo';
+      return res.headers.get('x-bhb-ready') === '0' ? 'nokey' : 'live';
+    } catch (e) {
+      return 'demo';
     }
+  }
+
+  /* ---------- 부팅 ---------- */
+  document.addEventListener('DOMContentLoaded', async () => {
+    const badge = document.querySelector('[data-ai-mode]');
+    const note = document.querySelector('[data-ai-note]');
+    if (badge) badge.textContent = 'CHECKING…';
+
     document.querySelectorAll('[data-ai-chat]').forEach(initChat);
     document.querySelectorAll('[data-ai-ask]').forEach(initAsk);
     document.querySelectorAll('[data-ai-evolve]').forEach(initEvolve);
     document.querySelectorAll('[data-ai-story]').forEach(initStory);
+
+    const state = await probe();
+    LIVE = state === 'live';
+
+    if (badge) {
+      badge.textContent = LIVE ? 'GEMINI CONNECTED'
+                        : state === 'nokey' ? 'API KEY 미설정'
+                        : 'DEMO MODE';
+      badge.classList.toggle('live', LIVE);
+    }
+    if (note) {
+      note.innerHTML = LIVE
+        ? '※ Gemini가 연결되어 있습니다. 아래 응답은 모두 실시간으로 생성됩니다.'
+        : state === 'nokey'
+        ? '※ 중계 서버는 연결됐지만 <strong>GEMINI_API_KEY</strong> 환경변수가 비어 있습니다. 배포 설정에서 키를 넣고 재배포하면 바로 동작합니다. 지금은 데모 답변이 표시됩니다.'
+        : '※ 현재는 서버 연결 전 <strong>데모 모드</strong>입니다. 미리 준비된 예시 답변이 표시되며, 화면과 흐름은 실제 연동 시와 동일합니다. Gemini를 연결하면 이 배지가 초록색 <strong>GEMINI CONNECTED</strong>로 바뀝니다.';
+    }
   });
 })();

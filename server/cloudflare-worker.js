@@ -152,14 +152,17 @@ ${SITE_FACTS}
   return null;
 }
 
-function corsHeaders(origin, allowed) {
+function corsHeaders(origin, allowed, ready) {
   const ok = allowed.includes(origin);
   return {
     'Access-Control-Allow-Origin': ok ? origin : allowed[0] || '',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
-    'Vary': 'Origin'
+    'Vary': 'Origin',
+    // 프런트엔드가 서버 존재와 키 설정 여부를 확인하는 용도
+    'X-BHB-Ready': ready ? '1' : '0',
+    'Access-Control-Expose-Headers': 'X-BHB-Ready'
   };
 }
 
@@ -167,7 +170,7 @@ export default {
   async fetch(request, env) {
     const allowed = (env.ALLOWED_ORIGIN || '').split(',').map((s) => s.trim()).filter(Boolean);
     const origin = request.headers.get('Origin') || '';
-    const cors = corsHeaders(origin, allowed);
+    const cors = corsHeaders(origin, allowed, !!env.GEMINI_API_KEY);
 
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
     if (request.method !== 'POST') {

@@ -65,7 +65,7 @@
 |---|---|---|
 | 전체 (푸터 · 문의 · 알림 신청) | `contact@blackholemanbros.com` | **실제 이메일 주소로 교체** |
 | 전 페이지 `<head>`의 GA4 주석 | `G-XXXXXXXXXX` | 방문자 통계를 쓰려면 측정 ID를 넣고 주석 해제 |
-| `assets/ai.js` 의 `ENDPOINT` | 비어 있음 (데모 모드) | Gemini 중계 서버 주소 (→ `server/README.md`) |
+| Gemini 연동 | 자동 감지 (현재 데모 모드) | Vercel 배포 + `GEMINI_API_KEY` 환경변수만 설정하면 자동 연결 (→ `server/README.md`) |
 | `.well-known/assetlinks.json` | `REPLACE_WITH_YOUR_...` | APK 빌드 후 서명 지문 (→ `APK.md`) |
 
 이메일은 아래 명령 한 줄로 전부 바꿀 수 있습니다.
@@ -82,6 +82,10 @@ grep -rl "contact@blackholemanbros.com" --include="*.html" --include="*.md" . \
 `ai.html`은 서버 없이도 **데모 모드**로 동작합니다.
 실제 Gemini를 붙이려면 API 키를 보관할 중계 서버가 하나 필요합니다.
 브라우저 코드에 키를 넣으면 누구나 볼 수 있으므로 절대 그렇게 하지 마세요.
+
+`assets/ai.js` 는 같은 도메인의 `/api/gemini` 를 자동으로 찾습니다.
+Vercel 에 배포하면 `api/gemini.mjs` 가 함께 올라가므로 **코드를 고칠 필요가 없습니다.**
+GitHub Pages 처럼 서버가 없는 곳에서는 자동으로 데모 모드가 됩니다.
 
 - 배포 가이드: **[`server/README.md`](server/README.md)**
 - Cloudflare Workers 용: `server/cloudflare-worker.js` (무료 · 상업적 사용 가능)

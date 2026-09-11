@@ -167,6 +167,10 @@ export default async function handler(req, res) {
   res.setHeader('Vary', 'Origin');
   res.setHeader('Cache-Control', 'no-store');
 
+  // 프런트엔드가 서버 존재와 키 설정 여부를 확인하는 용도
+  res.setHeader('X-BHB-Ready', process.env.GEMINI_API_KEY ? '1' : '0');
+  res.setHeader('Access-Control-Expose-Headers', 'X-BHB-Ready');
+
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'method not allowed' });
 
