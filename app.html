@@ -140,7 +140,7 @@ button{font-family:inherit;cursor:pointer}
 .view::-webkit-scrollbar{display:none}
 
 .tabs{
-  flex:none;display:grid;grid-template-columns:repeat(5,1fr);
+  flex:none;display:grid;grid-template-columns:repeat(6,1fr);
   border-top:1px solid var(--line-2);background:rgba(3,6,14,.92);
   backdrop-filter:blur(12px);padding:9px 8px;
 }
@@ -148,8 +148,8 @@ button{font-family:inherit;cursor:pointer}
   appearance:none;border:0;background:transparent;
   display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px 2px;color:var(--w-low);
 }
-.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.tab span{font-size:10.5px;font-weight:700}
+.tab svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tab span{font-size:9.5px;font-weight:700;letter-spacing:-.02em}
 .tab[aria-selected="true"]{color:var(--w)}
 .tab:focus-visible{outline:2px solid var(--blue);outline-offset:-2px;border-radius:10px}
 
@@ -293,6 +293,47 @@ form{display:flex;gap:8px}
 .pointer{position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:15px solid var(--amber);z-index:2}
 .result{text-align:center;font-size:19px;font-weight:900;letter-spacing:-.03em;margin-top:12px;min-height:28px}
 
+/* ---- 콘텐츠 ---- */
+.subtabs{display:flex;gap:6px;margin:16px 0 14px;flex-wrap:wrap}
+.subtab{
+  appearance:none;border:1px solid var(--line);border-radius:999px;background:transparent;
+  color:var(--w-mid);font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 15px;
+}
+.subtab[aria-pressed="true"]{background:var(--w);color:var(--deep);border-color:var(--w)}
+.subtab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.epcard{display:flex;gap:13px;align-items:center;border:1px solid var(--line);border-radius:16px;
+  background:rgba(255,255,255,.04);padding:11px;overflow:hidden}
+.epcard img{width:76px;height:76px;object-fit:cover;border-radius:11px;flex:none}
+.epcard .eplock{width:76px;height:76px;border-radius:11px;flex:none;display:grid;place-items:center;
+  background:rgba(255,255,255,.05);font-size:22px;opacity:.5}
+.epcard .epmeta{display:flex;flex-direction:column;min-width:0}
+.epcard .epno{font-family:var(--lat);font-size:10px;letter-spacing:.14em;color:var(--blue);font-weight:700}
+.epcard b{font-size:14.5px;font-weight:800;letter-spacing:-.02em;margin-top:3px}
+.epcard .pill{align-self:flex-start}
+.epcard.lock b{color:var(--w-mid)}
+
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.vcard{
+  appearance:none;border:1px solid var(--line);border-radius:14px;background:#000;
+  padding:0;position:relative;aspect-ratio:9/13;overflow:hidden;
+}
+.vcard img{width:100%;height:100%;object-fit:cover;display:block}
+.vcard .vplay{position:absolute;inset:0;display:grid;place-items:center;font-size:22px;color:#fff;
+  text-shadow:0 2px 10px rgba(0,0,0,.7);background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.5))}
+.vcard .vname{position:absolute;left:9px;right:9px;bottom:8px;font-size:11px;font-weight:700;
+  color:#fff;text-align:left;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.vcard:hover{border-color:var(--violet)}
+
+.musicbox{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.04);padding:20px;text-align:center}
+.musicbox img{width:100%;max-width:210px;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.musicbox .mtitle{font-size:19px;font-weight:900;letter-spacing:-.03em;margin-top:15px}
+.musicbox .msub{font-size:12.5px;color:var(--w-mid);margin-top:4px}
+.musicbox audio{filter:invert(1) hue-rotate(180deg);border-radius:999px}
+
+.ggrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.ggrid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
+
 /* ---- MY ---- */
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
 .cal .dow{text-align:center;font-family:var(--lat);font-size:10px;color:var(--w-low);font-weight:700;padding-bottom:3px}
@@ -344,9 +385,10 @@ form{display:flex;gap:8px}
     <ul class="flow">
       <li><span class="n">01</span><span class="d">홈 — 오늘의 미션, 진화 진척도, 연속 출석</span></li>
       <li><span class="n">02</span><span class="d">캐릭터 — 5인 프로필, 성격·관계 설정</span></li>
-      <li><span class="n">03</span><span class="d">대화 — 캐릭터와 실시간 AI 대화</span></li>
-      <li><span class="n">04</span><span class="d">아케이드 — 룰렛·사다리 등 미니게임</span></li>
-      <li><span class="n">05</span><span class="d">MY — 출석 캘린더, 포인트, 랭킹</span></li>
+      <li><span class="n">03</span><span class="d">콘텐츠 — 웹툰·영상·음원·갤러리</span></li>
+      <li><span class="n">04</span><span class="d">대화 — 캐릭터와 실시간 AI 대화</span></li>
+      <li><span class="n">05</span><span class="d">게임 — 룰렛·사다리 등 미니게임</span></li>
+      <li><span class="n">06</span><span class="d">MY — 출석 캘린더, 포인트, 랭킹</span></li>
     </ul>
 
     <div class="rule"></div>
@@ -442,6 +484,26 @@ form{display:flex;gap:8px}
       demo:['들었어? 굿즈 라인업이 준비 중이래. 플러시랑 아크릴 키링까지! 근데 정확한 날짜는 아직 비밀이야.','커뮤니티는 준비 중이야. 팬이 다음 이야기를 직접 정하는 투표도 들어간대!','오늘 아침에 블랙홀맨이 냉장고를 통째로 빨아들였어. 홀독이 세 시간 걸려 꺼냈대.'] }
   ];
 
+  const CONT = {
+    sub:'webtoon',
+    webtoon:[
+      { n:'EP.01', t:'블랙홀에서 만난 날', img:'assets/9f096a516526c12f.webp', open:true },
+      { n:'EP.02', t:'냉장고를 빨아들였다', img:'assets/4bebdfffaa31418c.webp', open:true },
+      { n:'EP.03', t:'홀캣의 털 관리 대소동', open:false },
+      { n:'EP.04', t:'우주 정거장 소동', open:false },
+      { n:'EP.05', t:'티버드의 첫 배달', open:false }
+    ],
+    motion:[
+      { v:'assets/62632431c7272d22.mp4', p:'assets/62632431c7272d22-poster.webp', t:'블랙홀맨 인트로' },
+      { v:'assets/0c95e5707f5ea354.mp4', p:'assets/0c95e5707f5ea354-poster.webp', t:'홀독 반응 모션' },
+      { v:'assets/9bafbb3529101b5f.mp4', p:'assets/9bafbb3529101b5f-poster.webp', t:'홀캣 등장' },
+      { v:'assets/6596704c2f5a0401.mp4', p:'assets/6596704c2f5a0401-poster.webp', t:'세 친구 여행' },
+      { v:'assets/9565ecb5ee2fa77c.mp4', p:'assets/9565ecb5ee2fa77c-poster.webp', t:'블랙홀 오프닝' },
+      { v:'assets/558c21ddf41bb33d.mp4', p:'assets/558c21ddf41bb33d-poster.webp', t:'홀패밀리 데일리' }
+    ],
+    gallery:['assets/8bfe4d009cf03dca.webp','assets/2ea1ccd49b8bd61e.webp','assets/9d34af8a0e483358.webp','assets/15fdfcc2e63ccb1a.webp','assets/851ae68cd8139701.webp','assets/129e52072946e3b9.webp','assets/ba384f3cf9ac02c9.webp','assets/a91de6fe3345394f.webp','assets/d00670e5989fc9e5.webp']
+  };
+
   const GAMES = [
     { n:'룰렛', d:'돌려서 정하기', play:true },
     { n:'번호 추첨기', d:'무작위 번호 뽑기' },
@@ -470,13 +532,15 @@ form{display:flex;gap:8px}
     cast:'<circle cx="9" cy="9" r="3.4"/><path d="M3.4 19c.6-3 2.8-4.7 5.6-4.7S14 16 14.6 19"/><path d="M16 6.5a3.2 3.2 0 0 1 0 6.2"/><path d="M17.6 15c2 .6 3.2 2.1 3.6 4"/>',
     chat:'<path d="M20 12c0 4-3.6 7.2-8 7.2a9.7 9.7 0 0 1-2.6-.35L4.8 20.4l1.1-3.4A6.9 6.9 0 0 1 4 12c0-4 3.6-7.2 8-7.2s8 3.2 8 7.2Z"/>',
     game:'<rect x="2.5" y="7" width="19" height="10.5" rx="4.2"/><path d="M7 10.6v3.2M5.4 12.2h3.2"/><circle cx="16" cy="11.4" r=".9"/><circle cx="18" cy="13.6" r=".9"/>',
+    cont:'<rect x="3" y="4.5" width="18" height="15" rx="2.6"/><path d="M3 9h18"/><path d="M10.2 12.4l4 1.9-4 1.9z"/>',
     my:'<circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c.8-3.6 3.7-5.6 7.2-5.6S18.4 16.4 19.2 20"/>'
   };
   const TABS = [
     { k:'home', label:'홈', i:'home' },
     { k:'cast', label:'캐릭터', i:'cast' },
+    { k:'cont', label:'콘텐츠', i:'cont' },
     { k:'chat', label:'대화', i:'chat' },
-    { k:'game', label:'아케이드', i:'game' },
+    { k:'game', label:'게임', i:'game' },
     { k:'my',   label:'MY', i:'my' }
   ];
 
@@ -530,8 +594,8 @@ form{display:flex;gap:8px}
           <span class="ic">💬</span><b>캐릭터와 대화</b><span>5인과 실시간 대화</span></button>
         <button class="tapcard" style="--qc:var(--violet)" data-go="game">
           <span class="ic">🎲</span><b>아케이드</b><span>미니게임 6종</span></button>
-        <button class="tapcard" style="--qc:var(--c-cat)" data-go="cast">
-          <span class="ic">✦</span><b>캐릭터 도감</b><span>프로필과 관계</span></button>
+        <button class="tapcard" style="--qc:var(--c-cat)" data-go="cont">
+          <span class="ic">▶</span><b>만화 · 영상 · 노래</b><span>웹툰 5편 · 영상 6편</span></button>
         <button class="tapcard" style="--qc:var(--amber)" data-go="my">
           <span class="ic">◎</span><b>내 기록</b><span>출석 ${S.streak}일 연속</span></button>
       </div>
@@ -670,6 +734,67 @@ form{display:flex;gap:8px}
     if(s2){s2.textContent='보내기';s2.classList.remove('stop');}
   }
 
+  /* ---------- 콘텐츠 ---------- */
+  const SUBS=[['webtoon','웹툰'],['motion','영상'],['music','뮤직'],['gallery','갤러리']];
+  function cont(){
+    const sub=CONT.sub;
+    let body='';
+
+    if(sub==='webtoon'){
+      body=`<div style="display:flex;flex-direction:column;gap:9px">
+        ${CONT.webtoon.map((e)=>e.open?`
+          <div class="epcard">
+            <img src="${e.img}" alt="${esc(e.t)} 표지" loading="lazy">
+            <div class="epmeta"><span class="epno">${e.n}</span><b>${esc(e.t)}</b>
+              <span class="pill g" style="margin-top:7px">공개</span></div>
+          </div>`:`
+          <div class="epcard lock">
+            <div class="eplock" aria-hidden="true">🔒</div>
+            <div class="epmeta"><span class="epno">${e.n}</span><b>${esc(e.t)}</b>
+              <span class="pill n" style="margin-top:7px">다음 주 공개</span></div>
+          </div>`).join('')}
+      </div>
+      <p class="note">웹툰은 실제 사이트의 CONTENTS 에서 전편을 보실 수 있습니다.</p>`;
+    }
+
+    if(sub==='motion'){
+      body=`<div class="vgrid">
+        ${CONT.motion.map((m)=>`
+          <button class="vcard" data-play="${m.v}">
+            <img src="${m.p}" alt="${esc(m.t)} 미리보기" loading="lazy">
+            <span class="vplay" aria-hidden="true">▶</span>
+            <span class="vname">${esc(m.t)}</span>
+          </button>`).join('')}
+      </div>
+      <p class="note">썸네일을 누르면 영상이 재생됩니다.</p>`;
+    }
+
+    if(sub==='music'){
+      body=`<div class="musicbox">
+        <img src="assets/ba384f3cf9ac02c9.webp" alt="홀 패밀리 규칙 앨범 아트" loading="lazy">
+        <div class="mtitle">홀 패밀리 규칙</div>
+        <div class="msub">BLACKHOLEMAN BROS · 첫 번째 음원</div>
+        <audio controls preload="none" src="assets/bfc114abd3790279.mp3" style="width:100%;margin-top:16px"></audio>
+      </div>
+      <p class="note">블랙홀맨브로스의 세계관을 담은 첫 번째 음원입니다.</p>`;
+    }
+
+    if(sub==='gallery'){
+      body=`<div class="ggrid">
+        ${CONT.gallery.map((g,i)=>`<img src="${g}" alt="갤러리 이미지 ${i+1}" loading="lazy">`).join('')}
+      </div>
+      <p class="note">블랙홀맨브로스의 세계를 이미지로 만나보세요.</p>`;
+    }
+
+    return `
+      <div class="eyebrow">CONTENTS</div>
+      <p class="hello">만화 · 영상 · 노래</p>
+      <div class="subtabs">
+        ${SUBS.map(([k,l])=>`<button class="subtab" aria-pressed="${sub===k}" data-sub="${k}">${l}</button>`).join('')}
+      </div>
+      ${body}`;
+  }
+
   /* ---------- 아케이드 ---------- */
   function game(){
     const seg=['블랙홀맨','홀독','홀캣','티맨','티버드','한 번 더'];
@@ -756,7 +881,7 @@ form{display:flex;gap:8px}
   }
 
   /* ---------- 렌더 ---------- */
-  const SCREENS={home,cast,chat,game,my};
+  const SCREENS={home,cast,cont,chat,game,my};
   function render(){
     renderTabs();
     view.innerHTML=SCREENS[S.tab]();
@@ -793,6 +918,20 @@ form{display:flex;gap:8px}
     const q=t.closest('[data-q]');
     if(q){ return ask(q.dataset.q); }
 
+    const sb=t.closest('[data-sub]');
+    if(sb){ CONT.sub=sb.dataset.sub; render(); view.scrollTop=0; return; }
+
+    const pv=t.closest('[data-play]');
+    if(pv){
+      const card=pv;
+      if(card.querySelector('video')) return;
+      const v=document.createElement('video');
+      v.src=card.dataset.play; v.controls=true; v.autoplay=true; v.playsInline=true;
+      v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000';
+      card.appendChild(v);
+      return;
+    }
+
     const sp=t.closest('[data-spin]');
     if(sp){ return spin(); }
   });
@@ -800,7 +939,6 @@ form{display:flex;gap:8px}
   render();
 
   (async()=>{
-    // 같은 도메인의 /api/gemini 가 살아 있는지 확인 (없으면 데모 응답)
     try{
       const r=await fetch(ENDPOINT,{method:'OPTIONS'});
       sample = (r.status===204 && r.headers.get('x-bhb-ready')!=='0') ? true : null;
