@@ -4,6 +4,8 @@
 
 🔗 <https://lg980305-blip.github.io>
 
+[![Vercel로 배포](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flg980305-blip%2Flg980305-blip.github.io&project-name=blackholemanbros&repository-name=blackholemanbros&env=GEMINI_API_KEY,ALLOWED_ORIGIN&envDescription=GEMINI_API_KEY%EB%8A%94%20AI%20Studio%EC%97%90%EC%84%9C%20%EB%B0%9C%EA%B8%89%ED%95%9C%20%ED%82%A4%2C%20ALLOWED_ORIGIN%EC%9D%80%20%ED%97%88%EC%9A%A9%ED%95%A0%20%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%A3%BC%EC%86%8C&envLink=https%3A%2F%2Fgithub.com%2Flg980305-blip%2Flg980305-blip.github.io%2Fblob%2Fmain%2Fserver%2FREADME.md)
+
 ---
 
 ## 페이지 구성
@@ -83,7 +85,7 @@ grep -rl "contact@blackholemanbros.com" --include="*.html" --include="*.md" . \
 
 - 배포 가이드: **[`server/README.md`](server/README.md)**
 - Cloudflare Workers 용: `server/cloudflare-worker.js` (무료 · 상업적 사용 가능)
-- Vercel 용: `api/gemini.js` (무료 Hobby 플랜은 비상업용 한정)
+- Vercel 용: `api/gemini.mjs` (무료 Hobby 플랜은 비상업용 한정)
 
 ---
 

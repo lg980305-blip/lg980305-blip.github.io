@@ -77,7 +77,7 @@ wrangler deploy
 **무료 Hobby 플랜은 약관상 비상업적 개인 프로젝트용입니다.**
 법인 사이트로 운영하실 계획이면 Pro($20/월)를 쓰거나 방법 A를 권합니다.
 
-이 저장소에는 이미 `api/gemini.js` 가 들어 있어서, 저장소를 그대로 Vercel에 연결하면 됩니다.
+이 저장소에는 이미 `api/gemini.mjs` 가 들어 있어서, 저장소를 그대로 Vercel에 연결하면 됩니다.
 
 1. <https://vercel.com> 가입 → **Add New → Project**
 2. 이 GitHub 저장소를 선택 → **Import**
