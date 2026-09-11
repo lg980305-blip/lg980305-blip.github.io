@@ -16,6 +16,7 @@ const PRECACHE = [
   './community.html',
   './goods.html',
   './ai.html',
+  './app.html',
   './games/index.html',
   './en/index.html',
   './en/about.html',
