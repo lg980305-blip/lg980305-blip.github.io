@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>TECHNOLOGY — BLACKHOLEMAN BROS</title>
 <style>
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#020409;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
@@ -337,32 +335,61 @@ nav .active,nav a:hover{opacity:1}
 }
 </style>
 
-<style id="corp-footer-style">
-.corp-footer{border-top:1px solid rgba(255,255,255,.10);background:#05070b;color:rgba(255,255,255,.60);padding:26px 5vw 34px}
-.corp-footer-inner{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
-.corp-brand{font-weight:900;color:#fff;font-size:13px;line-height:1.1}
-.corp-info{font-size:10px;line-height:1.8}
-.corp-copy{font-size:9px;white-space:nowrap;color:rgba(255,255,255,.38)}
-@media(max-width:800px){.corp-footer-inner{grid-template-columns:1fr}.corp-copy{white-space:normal}}
-</style>
 
+<meta name="description" content="사용자 반응 데이터에서 의미 있는 Signal을 추출해 캐릭터·스토리·세계관의 진화 방향을 제안하는 Character Evolution Engine(특허 10-2837572) 기술을 설명합니다.">
+<meta name="author" content="주식회사 블랙홀맨브로스">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/technology.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/technology.html">
+<link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/technology.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/technology.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="TECHNOLOGY — BLACKHOLEMAN BROS">
+<meta property="og:description" content="사용자 반응 데이터에서 의미 있는 Signal을 추출해 캐릭터·스토리·세계관의 진화 방향을 제안하는 Character Evolution Engine(특허 10-2837572) 기술을 설명합니다.">
+<meta property="og:url" content="https://lg980305-blip.github.io/technology.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="블랙홀맨, 홀독, 홀캣 세 캐릭터가 블랙홀 배경 앞에 서 있는 이미지">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TECHNOLOGY — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="사용자 반응 데이터에서 의미 있는 Signal을 추출해 캐릭터·스토리·세계관의 진화 방향을 제안하는 Character Evolution Engine(특허 10-2837572) 기술을 설명합니다.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">본문 바로가기</a>
 
 <header>
   <a class="brand" href="index.html">
     <span class="mark"></span><span>BLACKHOLEMAN<br>BROS</span>
   </a>
-  <nav>
-    <a href="about.html">COMPANY</a>
-    <a href="characters.html">CHARACTERS</a>
-    <a class="active" href="technology.html">TECHNOLOGY</a>
-    <a href="contents.html">CONTENTS</a>
-    <a href="community.html">COMMUNITY</a>
-    <a href="goods.html">SHOP</a>
-  </nav>
-  <div class="right">×</div>
-</header>
+  <nav aria-label="주요 메뉴"><a href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a class="active" aria-current="page" href="technology.html">TECHNOLOGY</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="games/index.html">ARCADE</a></nav>
+  <div class="header-right"><a class="langswitch" href="en/technology.html" hreflang="en" lang="en" aria-label="English version">EN</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div></header>
+<span id="main" tabindex="-1"></span>
 
 <section class="hero">
   <div class="kicker">03 — TECHNOLOGY</div>
@@ -684,10 +711,19 @@ document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
     <div class="corp-info">
       <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
       <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+      <div>문의 <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="en/index.html" hreflang="en" lang="en">ENGLISH</a>
+      </div>
     </div>
     <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
   </div>
 </footer>
 
+<nav class="sitemenu" id="sitemenu" aria-label="모바일 메뉴" hidden><a href="index.html"><span>HOME</span><span class="ko">홈</span></a><a href="about.html"><span>COMPANY</span><span class="ko">회사소개</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">캐릭터</span></a><a aria-current="page" href="technology.html"><span>TECHNOLOGY</span><span class="ko">기술</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">콘텐츠</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">커뮤니티</span></a><a href="goods.html"><span>SHOP</span><span class="ko">굿즈샵</span></a><a href="games/index.html"><span>ARCADE</span><span class="ko">아케이드</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="en/technology.html" hreflang="en" lang="en">ENGLISH</a></div></nav>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
