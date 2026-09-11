@@ -100,6 +100,11 @@ jobs:
             m.appVersionName='${{ inputs.version }}';
             m.appVersionCode=Number(process.env.GITHUB_RUN_NUMBER);
             m.signingKey={path:'./android.keystore',alias:'blackholemanbros'};
+            // Bubblewrap 은 shortcuts 에 camelCase(shortName) 를 요구한다
+            m.shortcuts=(m.shortcuts||[])
+              .map(s=>({name:s.name, shortName:s.shortName||s.short_name||s.name,
+                        url:s.url, chosenIconUrl:s.chosenIconUrl}))
+              .filter(s=>s.name&&s.shortName&&s.url&&s.chosenIconUrl);
             fs.writeFileSync('twa-manifest.json',JSON.stringify(m,null,2));
             console.log('version', m.appVersionName, 'code', m.appVersionCode);
           "

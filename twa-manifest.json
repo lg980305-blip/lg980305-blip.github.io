@@ -23,15 +23,32 @@
   "appVersionName": "1.0.0",
   "appVersionCode": 1,
   "shortcuts": [
-    { "name": "CHARACTERS", "short_name": "CHARACTERS", "url": "/characters.html", "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png" },
-    { "name": "AI LAB", "short_name": "AI LAB", "url": "/ai.html", "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png" },
-    { "name": "ARCADE", "short_name": "ARCADE", "url": "/games/", "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png" }
+    {
+      "name": "CHARACTERS",
+      "shortName": "CHARACTERS",
+      "url": "/characters.html",
+      "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png"
+    },
+    {
+      "name": "AI LAB",
+      "shortName": "AI LAB",
+      "url": "/ai.html",
+      "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png"
+    },
+    {
+      "name": "ARCADE",
+      "shortName": "ARCADE",
+      "url": "/games/",
+      "chosenIconUrl": "https://lg980305-blip.github.io/assets/icon-192.png"
+    }
   ],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://lg980305-blip.github.io/site.webmanifest",
   "fallbackType": "customtabs",
   "features": {},
-  "alphaDependencies": { "enabled": false },
+  "alphaDependencies": {
+    "enabled": false
+  },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "isMetaQuest": false,
