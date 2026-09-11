@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CHARACTERS — BLACKHOLEMAN BROS</title>
+<style>
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:#03050a;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none} :root{--line:rgba(255,255,255,.1);--muted:rgba(255,255,255,.6)}
+header{height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 2.6vw;position:sticky;top:0;z-index:50;background:rgba(2,4,9,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:12px;align-items:center;font-weight:900;font-size:14px;line-height:.9} .mark{width:36px;height:36px;border:2px solid white;border-radius:50%;position:relative} .mark:after{content:"";position:absolute;inset:8px;border:2px solid white;border-radius:50%}
+nav{display:flex;gap:32px;font-size:12px;font-weight:750} nav a{opacity:.55} nav .active{opacity:1} .right{justify-self:end;font-size:22px}
+.hero{min-height:72vh;padding:9vw 6vw 4vw;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 45%,rgba(60,130,255,.13),transparent 32%)}
+.kicker{font-size:12px;letter-spacing:.24em;color:#4aa8ff;font-weight:850} h1{font-size:clamp(65px,9vw,140px);line-height:.82;letter-spacing:-.06em;margin:22px 0 26px} h1 span{display:block;color:#73baff}
+.hero p{max-width:650px;font-size:18px;line-height:1.75;color:var(--muted)} .hero-trio{position:absolute;right:3%;bottom:-5%;width:49%;height:70%}
+.hero-trio img{position:absolute;bottom:0;filter:drop-shadow(0 28px 25px #000);transition:.3s}
+.hero-trio .d{left:0;width:34%} .hero-trio .b{left:31%;width:40%;z-index:3} .hero-trio .c{right:0;width:35%}
+.hero-trio:hover .d{transform:translate(-18px,-10px) rotate(-3deg)} .hero-trio:hover .b{transform:translateY(-20px)} .hero-trio:hover .c{transform:translate(18px,-8px) rotate(3deg)}
+.intro{padding:85px 6vw;border-top:1px solid var(--line);display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.label{font-size:11px;letter-spacing:.22em;color:#4aa8ff;font-weight:850} .intro h2{font-size:clamp(34px,4vw,58px);letter-spacing:-.045em;margin:12px 0}
+.intro p{color:var(--muted);line-height:1.8;font-size:16px}
+.character{min-height:82vh;padding:8vw 7vw;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;position:relative;overflow:hidden}
+.character.reverse .visual{order:2} .visual{min-height:560px;display:grid;place-items:center;position:relative}
+.visual:before{content:"";position:absolute;width:65%;aspect-ratio:1;border-radius:50%;filter:blur(70px);opacity:.22}
+.blue .visual:before{background:#3e9fff} .green .visual:before{background:#9bd83c} .pink .visual:before{background:#ed4fab}
+.visual img{width:min(80%,520px);position:relative;z-index:2;filter:drop-shadow(0 35px 30px rgba(0,0,0,.65));transition:.35s}
+.visual:hover img{transform:translateY(-15px) scale(1.025)}
+.no{font-size:12px;letter-spacing:.16em;font-weight:850;margin-bottom:20px} .blue .no{color:#55adff} .green .no{color:#9de14d} .pink .no{color:#ef63ba}
+.copy h2{font-size:clamp(48px,6vw,90px);line-height:.9;letter-spacing:-.055em;margin:0 0 15px} .eng{font-size:14px;letter-spacing:.15em;color:rgba(255,255,255,.42);margin-bottom:30px}
+.desc{font-size:17px;line-height:1.85;color:rgba(255,255,255,.72);max-width:570px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px} .tag{border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-size:11px;color:rgba(255,255,255,.72)}
+.profile{margin-top:38px;border-top:1px solid var(--line)} .row{display:grid;grid-template-columns:120px 1fr;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px} .row strong{color:rgba(255,255,255,.38)} .row span{color:rgba(255,255,255,.76)}
+.world{padding:110px 6vw;border-top:1px solid var(--line);text-align:center;background:radial-gradient(circle at 50% 60%,rgba(103,78,255,.12),transparent 30%)}
+.world h2{font-size:clamp(38px,5vw,70px);letter-spacing:-.05em;margin:14px 0} .world p{color:var(--muted);max-width:680px;margin:0 auto 45px;line-height:1.75}
+.worldcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left} .wc{padding:28px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.025)} .wc b{font-size:18px} .wc p{font-size:13px;margin:10px 0 0}
+.next{margin:0 6vw 70px;padding:45px;border:1px solid var(--line);border-radius:25px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(120deg,rgba(60,150,255,.1),rgba(160,75,255,.08))} .next h3{font-size:28px;margin:0} .next a{background:white;color:#05070b;border-radius:999px;padding:14px 22px;font-size:12px;font-weight:900}
+.reveal{opacity:0;transform:translateY(30px);transition:.7s} .reveal.on{opacity:1;transform:none}
+.visual.framed{background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.visual.framed img{width:100%;max-width:100%}
+.cyan .visual:before{background:#39d6d1} .indigo .visual:before{background:#7c8cff}
+.cyan .no{color:#39d6d1} .indigo .no{color:#8f9dff}
+@media(max-width:850px){header{grid-template-columns:1fr auto}nav{display:none}.hero-trio{opacity:.35;width:85%;right:-20%}.intro,.character{grid-template-columns:1fr}.character.reverse .visual{order:0}.visual{min-height:420px}.worldcards{grid-template-columns:1fr}}
+</style>
+
+
+<meta name="description" content="Blackholeman, Holdog, Holcat, T-Man and T-Bird — meet the original characters and lore that make up the BLACKHOLEMAN BROS universe.">
+<meta name="author" content="BLACKHOLEMAN BROS Co., Ltd.">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/en/characters.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/characters.html">
+<link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/characters.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/characters.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="CHARACTERS — BLACKHOLEMAN BROS">
+<meta property="og:description" content="Blackholeman, Holdog, Holcat, T-Man and T-Bird — meet the original characters and lore that make up the BLACKHOLEMAN BROS universe.">
+<meta property="og:url" content="https://lg980305-blip.github.io/en/characters.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Blackholeman, Holdog and Holcat standing in front of a black hole">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CHARACTERS — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="Blackholeman, Holdog, Holcat, T-Man and T-Bird — meet the original characters and lore that make up the BLACKHOLEMAN BROS universe.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header><a class="brand" href="index.html"><span class="mark"></span><span>BLACKHOLEMAN<br>BROS</span></a>
+<nav aria-label="Main menu"><a href="about.html">COMPANY</a><a class="active" aria-current="page" href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="../games/index.html">ARCADE</a></nav><div class="header-right"><a class="langswitch" href="../characters.html" hreflang="ko" lang="ko" aria-label="한국어 버전">KO</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div></header>
+<span id="main" tabindex="-1"></span>
+
+<section class="hero"><div class="kicker">02 — CHARACTERS</div><h1>MEET THE<br><span>BROS.</span></h1><p>Three characters born from a black hole. Blackholeman, Holdog and Holcat each bring their own temperament and energy, expanding content and experience within one shared universe.</p>
+<div class="hero-trio"><img class="d" src="../assets/9f36ab4b445c2308.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async" width="967" height="1400"><img class="b" src="../assets/cd33e0ed67201028.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async" width="1118" height="1400"><img class="c" src="../assets/f654843e589a50a7.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async" width="1400" height="1273"></div></section>
+
+<section class="intro reveal"><div><div class="label">BLACKHOLEMAN UNIVERSE</div><h2>Three characters,<br>one universe.</h2></div><p>These are not mascots. They are the core IP driving the BLACKHOLEMAN BROS content ecosystem — their personalities and relationships carry through games, comics, video, community and merchandise.</p></section>
+
+<section class="character blue reveal" id="blackhole"><div class="visual"><img src="../assets/cd33e0ed67201028.webp" alt="Blackholeman character, 3D render" loading="lazy" decoding="async" width="1118" height="1400"></div><div class="copy"><div class="no">01 / MAIN CHARACTER</div><h2>Blackholeman</h2><div class="eng">BLACKHOLEMAN</div><p class="desc">Like the black hole that pulls everything in, Blackholeman holds boundless curiosity and possibility. Cheerful and mischievous, he often stirs up chaos — but no one has a softer heart. He sits at the centre of the universe, connecting new experiences and stories.</p><div class="tags"><span class="tag">CORE IP</span><span class="tag">PLAYFUL</span><span class="tag">BLACKHOLE</span><span class="tag">ADVENTURE</span></div><div class="profile"><div class="row"><strong>ROLE</strong><span>Heart of the universe / Explorer</span></div><div class="row"><strong>PERSONALITY</strong><span>Playful and mischievous, warm underneath</span></div><div class="row"><strong>COLOR</strong><span>Black · Ice Blue</span></div><div class="row"><strong>EXPANSION</strong><span>Games · Comics · Video · Brand content</span></div></div></div></section>
+
+<section class="character green reverse reveal" id="holdog"><div class="visual"><img src="../assets/9f36ab4b445c2308.webp" alt="Holdog character, 3D render" loading="lazy" decoding="async" width="967" height="1400"></div><div class="copy"><div class="no">02 / CHARACTER</div><h2>Holdog</h2><div class="eng">HOLDOG</div><p class="desc">Round, bright and full of energy, Holdog keeps the universe lively. Thoughtful and fiercely loyal, he looks after his friends — and quietly tries a little too hard to impress Holcat.</p><div class="tags"><span class="tag">FRIENDLY</span><span class="tag">LOYAL</span><span class="tag">GREEN ENERGY</span><span class="tag">COMMUNITY</span></div><div class="profile"><div class="row"><strong>ROLE</strong><span>Mood maker / Companion</span></div><div class="row"><strong>PERSONALITY</strong><span>Loyal and dependable — and eager to impress Holcat</span></div><div class="row"><strong>COLOR</strong><span>White · Lime Green · Black</span></div><div class="row"><strong>EXPANSION</strong><span>Short-form · Games · Emoji · Merchandise</span></div></div></div></section>
+
+<section class="character pink reveal" id="holcat"><div class="visual"><img src="../assets/f654843e589a50a7.webp" alt="Holcat character, 3D render" loading="lazy" decoding="async" width="1400" height="1273"></div><div class="copy"><div class="no">03 / CHARACTER</div><h2>Holcat</h2><div class="eng">HOLCAT</div><p class="desc">Distinctive silhouette, pink accent and a curled-up tail. Aloof and a little prim, Holcat takes her looks very seriously — a stylish, mysterious presence that widens the emotional range of the universe.</p><div class="tags"><span class="tag">CHIC</span><span class="tag">PINK SIGNAL</span><span class="tag">STYLE</span><span class="tag">STORY</span></div><div class="profile"><div class="row"><strong>ROLE</strong><span>Mystery / Emotional core</span></div><div class="row"><strong>PERSONALITY</strong><span>Aloof and prim, serious about looks and style</span></div><div class="row"><strong>COLOR</strong><span>Black · Magenta · White</span></div><div class="row"><strong>EXPANSION</strong><span>Comics · Video · Fashion · Collectibles</span></div></div></div></section>
+
+<section class="intro reveal"><div><div class="label">EXTENDED CAST</div><h2>Expanding the universe —<br>New faces.</h2></div><p>The BLACKHOLEMAN BROS universe keeps expanding. T-Man and T-Bird are the newest additions, and will help carry the content and technology story forward.</p></section>
+
+<section class="character cyan reveal" id="tman"><div class="visual framed"><img src="../assets/tman.webp" alt="T-Man character" loading="lazy" decoding="async" width="1280" height="1280"></div><div class="copy"><div class="no">04 / NEW CHARACTER</div><h2>T-Man</h2><div class="eng">T-MAN</div><p class="desc">An AI guide whose screen-like face displays information. Calm and helpful, T-Man walks people through BLACKHOLEMAN BROS technology and services.</p><div class="tags"><span class="tag">AI GUIDE</span><span class="tag">TECH</span><span class="tag">SCREEN FACE</span><span class="tag">NEW</span></div><div class="profile"><div class="row"><strong>ROLE</strong><span>AI guide / Tech navigator</span></div><div class="row"><strong>PERSONALITY</strong><span>Calm and kind, a natural explainer</span></div><div class="row"><strong>COLOR</strong><span>White · Sky Blue</span></div><div class="row"><strong>EXPANSION</strong><span>Tech guidance · Interface · Collab content</span></div></div></div></section>
+
+<section class="character indigo reverse reveal" id="tbird"><div class="visual framed"><img src="../assets/tbird.webp" alt="T-Bird character" loading="lazy" decoding="async" width="1280" height="1024"></div><div class="copy"><div class="no">05 / NEW CHARACTER</div><h2>T-Bird</h2><div class="eng">T-BIRD</div><p class="desc">Cutting across the sky carrying news and stories. Bright and upbeat, T-Bird is the messenger who brings community and content updates first.</p><div class="tags"><span class="tag">MESSENGER</span><span class="tag">COMMUNITY</span><span class="tag">SCREEN FACE</span><span class="tag">NEW</span></div><div class="profile"><div class="row"><strong>ROLE</strong><span>Community messenger / Newsbringer</span></div><div class="row"><strong>PERSONALITY</strong><span>Bright and upbeat, loves delivering news</span></div><div class="row"><strong>COLOR</strong><span>Periwinkle · Orange</span></div><div class="row"><strong>EXPANSION</strong><span>Community · Notifications · Emoji</span></div></div></div></section>
+
+<section class="world reveal"><div class="label">IP EXPANSION</div><h2>CHARACTERS → CONTENT → FANDOM</h2><p>Personalities and relationships are never a one-off setting. As content experience and audience response accumulate, they grow into new episodes, products and fan experiences.</p><div class="worldcards"><div class="wc"><b>PLAY</b><p>Game content where you move the characters yourself.</p></div><div class="wc"><b>STORY</b><p>Comics and video that widen the world and its relationships.</p></div><div class="wc"><b>CONNECT</b><p>Where fans and the IP meet — through community and merchandise.</p></div></div></section>
+<section class="next reveal"><div><h3>Next — Technology</h3><p style="color:var(--muted)">See how the characters evolve through data and AI.</p></div><a href="technology.html">TECHNOLOGY →</a></section>
+<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(x=>io.observe(x));</script>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>BLACKHOLEMAN BROS Co., Ltd. · CEO Cho Mi-sook · Business Reg. No. 717-81-03443</div>
+      <div>5F #5249, 529 Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea</div>
+      <div>Contact <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Use</a>
+        <a href="../index.html" hreflang="ko" lang="ko">한국어</a>
+      </div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<nav class="sitemenu" id="sitemenu" aria-label="Mobile menu" hidden><a href="index.html"><span>HOME</span><span class="ko">Home</span></a><a href="about.html"><span>COMPANY</span><span class="ko">About us</span></a><a aria-current="page" href="characters.html"><span>CHARACTERS</span><span class="ko">Characters</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">Technology</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">Contents</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">Community</span></a><a href="goods.html"><span>SHOP</span><span class="ko">Shop</span></a><a href="../games/index.html"><span>ARCADE</span><span class="ko">Arcade</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="../characters.html" hreflang="ko" lang="ko">한국어</a></div></nav>
+<script src="../assets/site.js" defer></script>
+</body></html>
