@@ -90,6 +90,43 @@ bubblewrap build
 
 ---
 
+## ✅ 이미 빌드된 APK (GitHub Actions)
+
+이 저장소에는 **APK를 자동으로 빌드하는 워크플로**가 들어 있습니다.
+내 PC에 아무것도 설치하지 않아도 됩니다.
+
+### 다시 빌드하는 법
+저장소 → **Actions** 탭 → 왼쪽 **Build APK** → 오른쪽 **Run workflow** 버튼 → 초록 **Run workflow**
+
+약 2분 뒤 **Releases** 페이지에 `app-release-signed.apk` 가 올라옵니다.
+
+### ⚠️ 데모 서명키에 대하여
+Secret 을 등록하지 않으면 **빌드할 때마다 새 서명키가 만들어집니다.** 그래서
+- 이전 버전 위에 **덮어쓰기 설치가 안 됩니다** (지우고 다시 설치해야 함)
+- `assetlinks.json` 의 지문은 워크플로가 **자동으로 갱신·커밋**하므로 따로 손댈 필요는 없습니다
+
+계속 배포하실 거라면 아래처럼 키를 고정해 두세요.
+
+```bash
+# 내 PC에서 한 번만 실행
+keytool -genkeypair -v -keystore android.keystore -alias blackholemanbros \
+  -keyalg RSA -keysize 2048 -validity 10000
+
+base64 -w0 android.keystore > keystore.b64   # macOS 는 base64 -i android.keystore
+```
+
+저장소 → Settings → Secrets and variables → Actions → **New repository secret** 로 두 개 등록:
+
+| Name | Value |
+|---|---|
+| `ANDROID_KEYSTORE_BASE64` | `keystore.b64` 파일 내용 전체 |
+| `ANDROID_KEYSTORE_PASSWORD` | 위에서 정한 비밀번호 |
+
+등록 후에는 항상 같은 키로 빌드되어 덮어쓰기 설치가 됩니다.
+`android.keystore` 파일 원본은 **안전한 곳에 백업**해 두세요. 잃어버리면 같은 앱으로 업데이트할 수 없습니다.
+
+---
+
 ## 주소창을 없애려면 — assetlinks.json 설정
 
 방법 2로 만든 APK는 처음엔 화면 위에 **주소창이 얇게 보입니다.**

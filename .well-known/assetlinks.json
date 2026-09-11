@@ -1,11 +1,13 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "kr.co.blackholemanbros.app",
       "sha256_cert_fingerprints": [
-        "REPLACE_WITH_YOUR_SHA256_FINGERPRINT"
+        "84:86:CF:06:28:75:5D:70:35:DE:53:05:15:D4:59:AE:E7:99:4B:68:CE:B1:E9:CE:BA:04:26:C1:B8:77:51:EE"
       ]
     }
   }

@@ -123,11 +123,32 @@ jobs:
           echo "--- 생성된 파일 ---"
           ls -la *.apk *.aab 2>/dev/null || true
 
-      - name: 서명 지문 출력 (assetlinks.json 용)
+      # 데모 키는 빌드마다 새로 생성되므로 지문이 바뀐다.
+      # assetlinks.json 을 자동으로 맞춰 두어야 앱에서 주소창이 사라진다.
+      - name: assetlinks.json 지문 자동 갱신
         run: |
-          keytool -list -v -keystore android.keystore \
-            -alias blackholemanbros -storepass ${{ steps.keystore.outputs.pw }} \
-            | grep -A1 "SHA256:" | head -3
+          set -e
+          FP=$(keytool -list -v -keystore android.keystore \
+                 -alias blackholemanbros -storepass '${{ steps.keystore.outputs.pw }}' \
+               | grep "SHA256:" | head -1 | sed 's/.*SHA256: *//' | tr -d ' \r')
+          echo "SHA256 지문: $FP"
+          node -e "
+            const fs=require('fs');
+            const p='.well-known/assetlinks.json';
+            const d=JSON.parse(fs.readFileSync(p,'utf8'));
+            d[0].target.sha256_cert_fingerprints=['$FP'];
+            fs.writeFileSync(p, JSON.stringify(d,null,2)+'\n');
+          "
+          if git diff --quiet -- .well-known/assetlinks.json; then
+            echo "지문 변동 없음"
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .well-known/assetlinks.json
+            git commit -m "chore: update assetlinks.json fingerprint (build #${{ github.run_number }})"
+            git push
+            echo "::notice::assetlinks.json 을 새 서명 지문으로 갱신했습니다."
+          fi
 
       - name: 빌드 결과 업로드
         uses: actions/upload-artifact@v4
