@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>COMMUNITY — BLACKHOLEMAN BROS</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#03050a;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+:root{--blue:#52aaff;--cyan:#4bdfdb;--purple:#9a64ff;--pink:#ee5bb8;--green:#9dde4a;--line:rgba(255,255,255,.10);--muted:rgba(255,255,255,.60)}
+
+header{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 3vw;position:sticky;top:0;z-index:80;background:rgba(2,4,9,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-size:14px;font-weight:900;line-height:.9}
+nav{display:flex;gap:31px;font-size:12px;font-weight:750}
+nav a{opacity:.53}nav a.active{opacity:1;position:relative}nav a.active:after{content:"";position:absolute;left:25%;right:25%;bottom:-13px;height:2px;background:#9a64ff}
+.right{justify-self:end;font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.65)}
+
+.hero{min-height:82vh;position:relative;overflow:hidden;display:flex;align-items:center;padding:7vw 5vw;
+background:radial-gradient(circle at 72% 43%,rgba(124,75,255,.18),transparent 27%),radial-gradient(circle at 85% 58%,rgba(237,68,181,.10),transparent 23%),#03050a}
+.hero-bg{position:absolute;right:0;top:0;width:62%;height:100%;background-image:linear-gradient(90deg,#03050a 0%,rgba(3,5,10,.35) 42%,rgba(3,5,10,.15)),url("../assets/15fdfcc2e63ccb1a.webp");background-size:cover;background-position:center;opacity:.86}
+.hero-copy{position:relative;z-index:3;width:min(760px,58vw)}
+.kicker{font-size:11px;letter-spacing:.24em;color:#a985ff;font-weight:850}
+.hero h1{font-size:clamp(58px,7.2vw,116px);line-height:.84;letter-spacing:-.06em;margin:20px 0 25px}
+.hero h1 span{display:block;background:linear-gradient(90deg,#66b7ff,#a874ff,#ef63bb);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:610px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.72)}
+.hero-actions{display:flex;gap:11px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:999px;font-size:11px;font-weight:850;border:1px solid rgba(255,255,255,.25)}
+.btn.primary{border:0;background:linear-gradient(90deg,#5979ff,#985cff)}
+.status{position:absolute;right:4%;bottom:4%;z-index:4;padding:11px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.5);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.16em}
+
+.section{padding:105px 5vw;border-top:1px solid rgba(255,255,255,.06)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:42px}
+.label{font-size:11px;letter-spacing:.22em;color:#9d78ff;font-weight:850}
+.head h2{font-size:clamp(34px,4.2vw,64px);line-height:1;letter-spacing:-.05em;margin:10px 0 0}
+.head p{max-width:500px;color:var(--muted);line-height:1.7;font-size:14px;margin:0}
+
+/* community preview cards */
+.hub{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:15px}
+.hub-card{min-height:330px;border:1px solid var(--line);border-radius:24px;overflow:hidden;position:relative;background:#090d15}
+.hub-card.big{grid-row:span 2;min-height:675px}
+.hub-card img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s}
+.hub-card:hover img{transform:scale(1.025)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.90) 100%)}
+.cardcopy{position:absolute;left:24px;right:24px;bottom:22px}
+.cardcopy .tag{font-size:10px;letter-spacing:.12em;color:#a990ff;font-weight:850}
+.cardcopy h3{font-size:25px;margin:7px 0 7px}
+.cardcopy p{font-size:12px;color:rgba(255,255,255,.66);line-height:1.6;margin:0}
+.cardcopy .soon{display:inline-block;margin-top:13px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.11);font-size:9px;letter-spacing:.12em}
+
+/* participation */
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.action{min-height:230px;border:1px solid var(--line);border-radius:20px;padding:25px;background:rgba(255,255,255,.027);position:relative}
+.action .no{font-size:11px;color:#9b77ff;font-weight:850}
+.action .icon{font-size:31px;margin:42px 0 18px}
+.action h4{font-size:20px;margin:0 0 9px}
+.action p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
+.action .state{position:absolute;right:18px;top:18px;font-size:9px;padding:6px 8px;border-radius:999px;background:rgba(156,101,255,.10);color:#ac8aff}
+
+/* mock feed */
+.feed-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.feed{border:1px solid var(--line);border-radius:25px;background:#090d15;overflow:hidden}
+.feed-top{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.post{display:grid;grid-template-columns:1fr 210px;gap:18px;padding:20px;border-bottom:1px solid var(--line)}
+.post:last-child{border-bottom:0}
+.user{display:flex;gap:10px;align-items:center;font-size:12px;font-weight:800}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#54aaff,#9f62ff)}
+.post h4{font-size:17px;margin:15px 0 8px}
+.post p{font-size:12px;color:var(--muted);line-height:1.65;margin:0}
+.reactions{display:flex;gap:14px;margin-top:15px;color:rgba(255,255,255,.48);font-size:11px}
+.thumb{border-radius:14px;overflow:hidden;background:#111;min-height:145px}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.sidepanels{display:grid;gap:13px}
+.panel{border:1px solid var(--line);border-radius:20px;padding:24px;background:rgba(255,255,255,.027)}
+.panel h4{margin:0 0 15px;font-size:18px}
+.poll-row{display:flex;justify-content:space-between;font-size:12px;margin:13px 0 7px}
+.bar{height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden}
+.bar span{height:100%;display:block;border-radius:inherit;background:linear-gradient(90deg,#58aaff,#9d65ff)}
+.panel small{color:var(--muted);line-height:1.6}
+.event{padding:14px 0;border-top:1px solid var(--line)}
+.event:first-of-type{border-top:0}
+.event b{font-size:13px}.event span{display:block;margin-top:4px;color:var(--muted);font-size:11px}
+
+/* real world */
+.realworld{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+.rw{aspect-ratio:1.45;border-radius:20px;overflow:hidden;position:relative;border:1px solid var(--line)}
+.rw img{width:100%;height:100%;object-fit:cover}
+.rw:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.76))}
+.rw span{position:absolute;left:18px;bottom:16px;z-index:2;font-size:12px;font-weight:850}
+
+/* CTA */
+.final{margin:0 5vw 75px;min-height:390px;border:1px solid var(--line);border-radius:30px;position:relative;overflow:hidden;display:flex;align-items:center;padding:50px;background:#080b12}
+.final:before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(5,7,12,.96),rgba(5,7,12,.56) 55%,rgba(5,7,12,.25)),url("../assets/851ae68cd8139701.webp");background-size:cover;background-position:center}
+.final-copy{position:relative;z-index:2;max-width:620px}
+.final .small{font-size:11px;letter-spacing:.22em;color:#ae8aff;font-weight:850}
+.final h3{font-size:clamp(36px,4.8vw,70px);line-height:.95;letter-spacing:-.05em;margin:13px 0}
+.final p{color:rgba(255,255,255,.65);line-height:1.7}
+.final .pill{display:inline-block;margin-top:14px;padding:12px 16px;border-radius:999px;background:#fff;color:#080a0e;font-size:11px;font-weight:900}
+
+footer{padding:25px 5vw 35px;display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.38);font-size:10px;border-top:1px solid var(--line)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:.7s}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ header{grid-template-columns:1fr auto}nav{display:none}
+ .hero-copy{width:80vw}.hero-bg{width:85%;opacity:.48}
+ .hub{grid-template-columns:1fr 1fr}.hub-card.big{grid-column:1/-1;grid-row:auto;min-height:520px}
+ .actions{grid-template-columns:1fr 1fr}
+ .feed-layout{grid-template-columns:1fr}
+ .realworld{grid-template-columns:1fr 1fr}
+ .head{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:620px){
+ .hero{padding:100px 20px 60px;min-height:76vh}.hero-copy{width:100%}.hero h1{font-size:17vw}
+ .section{padding:76px 20px}.hub{grid-template-columns:1fr}.hub-card.big{min-height:400px}
+ .actions,.realworld{grid-template-columns:1fr}
+ .post{grid-template-columns:1fr}.thumb{min-height:210px}
+ .final{margin:0 20px 50px;padding:30px}
+ footer{padding:22px 20px 30px;flex-direction:column}
+}
+
+a.btn,a.pill{text-decoration:none;transition:.2s;cursor:pointer}
+a.btn:hover,a.pill:hover{opacity:.85}
+</style>
+
+
+<meta name="description" content="The BLACKHOLEMAN BROS fan community — a space where fans take part in shaping how the characters evolve. Coming soon.">
+<meta name="author" content="BLACKHOLEMAN BROS Co., Ltd.">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/en/community.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/community.html">
+<link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/community.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/community.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="COMMUNITY — BLACKHOLEMAN BROS">
+<meta property="og:description" content="The BLACKHOLEMAN BROS fan community — a space where fans take part in shaping how the characters evolve. Coming soon.">
+<meta property="og:url" content="https://lg980305-blip.github.io/en/community.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Blackholeman, Holdog and Holcat standing in front of a black hole">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="COMMUNITY — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="The BLACKHOLEMAN BROS fan community — a space where fans take part in shaping how the characters evolve. Coming soon.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <a class="brand" href="index.html">BLACKHOLEMAN<br>BROS</a>
+  <nav aria-label="Main menu"><a href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="../ai.html">AI LAB</a><a href="contents.html">CONTENTS</a><a class="active" aria-current="page" href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="../games/index.html">ARCADE</a></nav>
+  <div class="header-right"><a class="langswitch" href="../community.html" hreflang="ko" lang="ko" aria-label="한국어 버전">KO</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div></header>
+<span id="main" tabindex="-1"></span>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-copy">
+    <div class="kicker">BLACKHOLEMAN COMMUNITY</div>
+    <h1>THE UNIVERSE<br><span>GROWS WITH YOU.</span></h1>
+    <p>The BLACKHOLEMAN BROS world isn't finished by content alone. We are building a space where fan response, taste, stories and participation accumulate — and the characters and world grow with them.</p>
+    <div class="hero-actions">
+      <span class="btn primary">COMMUNITY PREVIEW →</span>
+      <a class="btn" href="mailto:contact@blackholemanbros.com?subject=%5B%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%5D%20%EC%98%A4%ED%94%88%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%84%B1%ED%95%A8%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EA%B4%80%EC%8B%AC%20%EA%B8%B0%EB%8A%A5%3A%20%28%ED%8C%AC%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%2F%20%ED%88%AC%ED%91%9C%20%2F%20%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%2F%20%EA%B8%B0%ED%83%80%29%0A%0A%2A%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EA%B0%80%20%EC%97%B4%EB%A6%AC%EB%A9%B4%20%EA%B0%80%EC%9E%A5%20%EB%A8%BC%EC%A0%80%20%EC%95%8C%EB%A0%A4%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">Notify me at launch　→</a>
+    </div>
+  </div>
+  <div class="status">PRE-OPEN COMMUNITY EXPERIENCE</div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div><div class="label">COMMUNITY HUB</div><h2>Watch it, talk about it,<br>A space we build together.</h2></div>
+    <p>Not just another message board — an IP community where character content and fan activity connect naturally.</p>
+  </div>
+
+  <div class="hub">
+    <article class="hub-card big">
+      <img src="../assets/9d34af8a0e483358.webp" alt="Fan gallery — BLACKHOLEMAN WORLD preview" loading="lazy" decoding="async" width="1400" height="662">
+      <div class="shade"></div>
+      <div class="cardcopy"><div class="tag">FAN GALLERY</div><h3>BLACKHOLEMAN WORLD</h3><p>A visual archive gathering fan art, character images and moments from travel and daily life.</p><span class="soon">COMING SOON</span></div>
+    </article>
+    <article class="hub-card">
+      <img src="../assets/15fdfcc2e63ccb1a.webp" alt="BLACKHOLEMAN BROS community key visual" loading="lazy" decoding="async" width="1400" height="662">
+      <div class="shade"></div>
+      <div class="cardcopy"><div class="tag">FAN TALK</div><h3>Hol Family today</h3><p>A space to talk freely about favourite scenes and characters.</p><span class="soon">PREVIEW</span></div>
+    </article>
+    <article class="hub-card">
+      <img src="../assets/851ae68cd8139701.webp" alt="BLACKHOLEMAN BROS characters group shot" loading="lazy" decoding="async" width="1400" height="662">
+      <div class="shade"></div>
+      <div class="cardcopy"><div class="tag">CHALLENGE</div><h3>This week's mission</h3><p>A seasonal fan challenge — join in with a photo, a drawing or a few lines.</p><span class="soon">PLANNED</span></div>
+    </article>
+    <article class="hub-card">
+      <img src="../assets/129e52072946e3b9.webp" alt="Next-story vote section key visual" loading="lazy" decoding="async" width="1400" height="662">
+      <div class="shade"></div>
+      <div class="cardcopy"><div class="tag">VOTE</div><h3>What happens next?</h3><p>Fan response to characters and content feeds straight into the next plan.</p><span class="soon">COMING SOON</span></div>
+    </article>
+    <article class="hub-card">
+      <img src="../assets/ba384f3cf9ac02c9.webp" alt="Offline event — Into the Real World key visual" loading="lazy" decoding="async" width="781" height="1400">
+      <div class="shade"></div>
+      <div class="cardcopy"><div class="tag">EVENT</div><h3>Into the Real World</h3><p>An IP that starts online and carries through to pop-ups, festivals and live events.</p><span class="soon">PLANNED</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div><div class="label">HOW TO JOIN</div><h2>Fan response<br>becomes part of the universe.</h2></div>
+    <p>The community is designed so fans can take part in the character IP in many ways, well beyond passive consumption.</p>
+  </div>
+  <div class="actions">
+    <div class="action"><span class="state">COMING SOON</span><div class="no">01</div><div class="icon">♡</div><h4>REACT</h4><p>React to the characters and content you love, and show your taste.</p></div>
+    <div class="action"><span class="state">COMING SOON</span><div class="no">02</div><div class="icon">✎</div><h4>CREATE</h4><p>Share fan-made content — fan art, photos, short stories.</p></div>
+    <div class="action"><span class="state">PLANNED</span><div class="no">03</div><div class="icon">◎</div><h4>VOTE</h4><p>Vote on the next episode, the next merch drop, what the characters do next.</p></div>
+    <div class="action"><span class="state">PLANNED</span><div class="no">04</div><div class="icon">✦</div><h4>MEET</h4><p>Online events that lead into pop-ups, festivals and live activities.</p></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div><div class="label">COMMUNITY EXPERIENCE MOCKUP</div><h2>This is the community<br>we are preparing.</h2></div>
+    <p>The screens below are a concept preview of the community experience, shown ahead of launch.</p>
+  </div>
+
+  <div class="feed-layout">
+    <div class="feed">
+      <div class="feed-top"><strong>BLACKHOLEMAN FEED</strong><span>PREVIEW MODE</span></div>
+      <div class="post">
+        <div>
+          <div class="user"><span class="avatar"></span><span>HOLE_FAN_01</span></div>
+          <h4>Today's favourite Hol Family scene</h4>
+          <p>I love the shot of the three of them travelling together. I'd love a beach or camping episode next.</p>
+          <div class="reactions"><span>♡ 248</span><span>◌ 31</span><span>↗ SHARE</span></div>
+        </div>
+        <div class="thumb"><img src="../assets/851ae68cd8139701.webp" alt="BLACKHOLEMAN BROS characters group shot" loading="lazy" decoding="async" width="1400" height="662"></div>
+      </div>
+      <div class="post">
+        <div>
+          <div class="user"><span class="avatar" style="background:linear-gradient(135deg,#ef5bb8,#945eff)"></span><span>BLACKHOLE_LOVER</span></div>
+          <h4>Which item do you most want next?</h4>
+          <p>Plush would be great, and an acrylic keyring set for each character too.</p>
+          <div class="reactions"><span>♡ 176</span><span>◌ 42</span><span>↗ SHARE</span></div>
+        </div>
+        <div class="thumb"><img src="../assets/a91de6fe3345394f.webp" alt="Community poll results card" loading="lazy" decoding="async" width="781" height="1400"></div>
+      </div>
+    </div>
+
+    <div class="sidepanels">
+      <div class="panel">
+        <h4>COMMUNITY POLL</h4>
+        <small>Which theme do you most want to see next?</small>
+        <div class="poll-row"><span>Travel</span><strong>42%</strong></div><div class="bar"><span style="width:42%"></span></div>
+        <div class="poll-row"><span>Space adventure</span><strong>31%</strong></div><div class="bar"><span style="width:31%"></span></div>
+        <div class="poll-row"><span>Everyday comedy</span><strong>27%</strong></div><div class="bar"><span style="width:27%"></span></div>
+      </div>
+      <div class="panel">
+        <h4>UPCOMING</h4>
+        <div class="event"><b>FAN ART WEEK</b><span>Fan art challenge · Coming soon</span></div>
+        <div class="event"><b>CHARACTER VOTE</b><span>Next content theme poll · Planned</span></div>
+        <div class="event"><b>OFFLINE MEET</b><span>Pop-up / event tie-in · Future plan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="head">
+    <div><div class="label">ONLINE → REAL WORLD</div><h2>The community reaches<br>it keeps growing.</h2></div>
+    <p>We are building toward a structure where community activity connects to pop-ups, merchandise, events and brand collaborations.</p>
+  </div>
+  <div class="realworld">
+    <div class="rw"><img src="../assets/ba384f3cf9ac02c9.webp" alt="Offline event — Into the Real World key visual" loading="lazy" decoding="async" width="781" height="1400"><span>POP-UP EXPERIENCE</span></div>
+    <div class="rw"><img src="../assets/a91de6fe3345394f.webp" alt="Community poll results card" loading="lazy" decoding="async" width="781" height="1400"><span>COLLECTIBLE & GOODS</span></div>
+    <div class="rw"><img src="../assets/d00670e5989fc9e5.webp" alt="Join the Blackhole character event visual" loading="lazy" decoding="async" width="781" height="1400"><span>CHARACTER EVENT</span></div>
+  </div>
+</section>
+
+<section class="final reveal">
+  <div class="final-copy">
+    <div class="small">COMING NEXT</div>
+    <h3>JOIN THE<br>BLACKHOLE.</h3>
+    <p>The next BLACKHOLEMAN BROS story is written with its fans. Community features and participation programmes will roll out in stages.</p>
+    <a class="pill" href="mailto:contact@blackholemanbros.com?subject=%5B%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%5D%20%EC%98%A4%ED%94%88%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%84%B1%ED%95%A8%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EA%B4%80%EC%8B%AC%20%EA%B8%B0%EB%8A%A5%3A%20%28%ED%8C%AC%EA%B0%A4%EB%9F%AC%EB%A6%AC%20%2F%20%ED%88%AC%ED%91%9C%20%2F%20%EC%9D%B4%EB%B2%A4%ED%8A%B8%20%2F%20%EA%B8%B0%ED%83%80%29%0A%0A%2A%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EA%B0%80%20%EC%97%B4%EB%A6%AC%EB%A9%B4%20%EA%B0%80%EC%9E%A5%20%EB%A8%BC%EC%A0%80%20%EC%95%8C%EB%A0%A4%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">Notify me at launch　→</a>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>BLACKHOLEMAN BROS Co., Ltd. · CEO Cho Mi-sook · Business Reg. No. 717-81-03443</div>
+      <div>5F #5249, 529 Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea</div>
+      <div>Contact <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Use</a>
+        <a href="../index.html" hreflang="ko" lang="ko">한국어</a>
+      </div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<nav class="sitemenu" id="sitemenu" aria-label="Mobile menu" hidden><a href="index.html"><span>HOME</span><span class="ko">Home</span></a><a href="about.html"><span>COMPANY</span><span class="ko">About us</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">Characters</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">Technology</span></a><a href="../ai.html"><span>AI LAB</span><span class="ko">Talk to the characters</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">Contents</span></a><a aria-current="page" href="community.html"><span>COMMUNITY</span><span class="ko">Community</span></a><a href="goods.html"><span>SHOP</span><span class="ko">Shop</span></a><a href="../games/index.html"><span>ARCADE</span><span class="ko">Arcade</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="../community.html" hreflang="ko" lang="ko">한국어</a></div></nav>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

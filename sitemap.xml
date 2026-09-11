@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://lg980305-blip.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/about.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/characters.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/characters.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/characters.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/characters.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/technology.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/technology.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/technology.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/technology.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/contents.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/contents.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/contents.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/contents.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/community.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/community.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/community.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/community.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/goods.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/goods.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/goods.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/goods.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/privacy.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/terms.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/characters.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/technology.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/contents.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/community.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/en/goods.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/roulette.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/lottery.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/ladder.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/dice.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/cards.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/bracket.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/games/beam-battle.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lg980305-blip.github.io/ai.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

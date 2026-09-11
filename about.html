@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>COMPANY — BLACKHOLEMAN BROS</title>
 <style>
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#04060b;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
@@ -116,25 +115,84 @@ header{grid-template-columns:1fr auto}nav{display:none}
 .roadmap{grid-template-columns:1fr}.trow{grid-template-columns:1fr;gap:6px}
 .cta{margin:0 20px 50px;padding:30px;align-items:flex-start;flex-direction:column}
 }
+
+/* ---------- CONTACT ---------- */
+.contact-sec{scroll-margin-top:96px}
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;margin-top:34px}
+.contact-card{border:1px solid var(--line);border-radius:24px;padding:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012))}
+.contact-card h3{font-size:20px;margin:0 0 6px;letter-spacing:-.02em}
+.contact-card p{color:var(--muted);font-size:13px;line-height:1.85;margin:0 0 24px}
+.contact-row{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line);
+  font-size:13px;align-items:baseline;flex-wrap:wrap}
+.contact-row strong{min-width:96px;font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:850}
+.contact-row span,.contact-row a{color:rgba(255,255,255,.86);line-height:1.7;word-break:break-word}
+.contact-row a:hover{text-decoration:underline}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.contact-btn{padding:14px 24px;border-radius:999px;font-size:11px;font-weight:850;letter-spacing:.04em}
+.contact-btn.primary{background:linear-gradient(90deg,#168ff5,#8750f5);box-shadow:0 8px 30px rgba(76,89,255,.28)}
+.contact-btn.ghost{border:1px solid rgba(255,255,255,.32)}
+.contact-note{margin-top:22px;font-size:11px;color:rgba(255,255,255,.4);line-height:1.8}
+.inquiry-list{list-style:none;margin:0;padding:0}
+.inquiry-list li{padding:15px 0;border-top:1px solid var(--line);font-size:13px;color:rgba(255,255,255,.8)}
+.inquiry-list li b{display:block;font-size:11px;letter-spacing:.14em;color:var(--violet);
+  font-weight:850;margin-bottom:5px}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}.contact-card{padding:26px}}
 </style>
 
-<style id="corp-footer-style">
-.corp-footer{border-top:1px solid rgba(255,255,255,.10);background:#05070b;color:rgba(255,255,255,.60);padding:26px 5vw 34px}
-.corp-footer-inner{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
-.corp-brand{font-weight:900;color:#fff;font-size:13px;line-height:1.1}
-.corp-info{font-size:10px;line-height:1.8}
-.corp-copy{font-size:9px;white-space:nowrap;color:rgba(255,255,255,.38)}
-@media(max-width:800px){.corp-footer-inner{grid-template-columns:1fr}.corp-copy{white-space:normal}}
-</style>
 
+<meta name="description" content="주식회사 블랙홀맨브로스 회사소개. 비전과 미션, 창업자 스토리, 특허 기반 핵심 기술(등록번호 10-2837572), 플랫폼 로드맵과 파트너사를 안내합니다.">
+<meta name="author" content="주식회사 블랙홀맨브로스">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/about.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/about.html">
+<link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/about.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/about.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="COMPANY — BLACKHOLEMAN BROS">
+<meta property="og:description" content="주식회사 블랙홀맨브로스 회사소개. 비전과 미션, 창업자 스토리, 특허 기반 핵심 기술(등록번호 10-2837572), 플랫폼 로드맵과 파트너사를 안내합니다.">
+<meta property="og:url" content="https://lg980305-blip.github.io/about.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="블랙홀맨, 홀독, 홀캣 세 캐릭터가 블랙홀 배경 앞에 서 있는 이미지">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="COMPANY — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="주식회사 블랙홀맨브로스 회사소개. 비전과 미션, 창업자 스토리, 특허 기반 핵심 기술(등록번호 10-2837572), 플랫폼 로드맵과 파트너사를 안내합니다.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">본문 바로가기</a>
 <div class="page">
 <header>
 <a class="brand" href="index.html"><span class="brandmark"></span><span>BLACKHOLEMAN<br>BROS</span></a>
-<nav><a class="active" href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a></nav>
-<div class="header-right"><a class="close" href="index.html">×</a></div>
-</header>
+<nav aria-label="주요 메뉴"><a class="active" aria-current="page" href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="ai.html">AI LAB</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="games/index.html">ARCADE</a></nav>
+<div class="header-right"><a class="langswitch" href="en/about.html" hreflang="en" lang="en" aria-label="English version">EN</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div></header>
+<span id="main" tabindex="-1"></span>
 
 <section class="hero">
 <div class="hero-copy">
@@ -144,9 +202,9 @@ header{grid-template-columns:1fr auto}nav{display:none}
 </div>
 <div class="hero-visual">
 <div class="vortex"></div>
-<div class="hero-char hdog"><img src="assets/9f36ab4b445c2308.png" alt="Holdog"></div>
-<div class="hero-char hblack"><img src="assets/cd33e0ed67201028.png" alt="Blackholeman"></div>
-<div class="hero-char hcat"><img src="assets/f654843e589a50a7.png" alt="Holcat"></div>
+<div class="hero-char hdog"><img src="assets/9f36ab4b445c2308.webp" alt="Holdog" loading="lazy" decoding="async" width="967" height="1400"></div>
+<div class="hero-char hblack"><img src="assets/cd33e0ed67201028.webp" alt="Blackholeman" loading="lazy" decoding="async" width="1118" height="1400"></div>
+<div class="hero-char hcat"><img src="assets/f654843e589a50a7.webp" alt="Holcat" loading="lazy" decoding="async" width="1400" height="1273"></div>
 </div>
 <div class="hero-index">BLACKHOLEMAN BROS / COMPANY</div>
 </section>
@@ -180,7 +238,7 @@ header{grid-template-columns:1fr auto}nav{display:none}
 <p>캐릭터를 직접 만들고 사업화해 본 경험 위에 IT·UX·플랫폼 기획 경험을 더해 새로운 IP 운영 구조를 설계합니다.</p>
 </div>
 <div class="ceo">
-<div class="ceo-visual"><img src="assets/516da462b96849be.png" alt="블랙홀맨브로스 대표이사 조미숙"></div>
+<div class="ceo-visual"><img src="assets/516da462b96849be.webp" alt="블랙홀맨브로스 대표이사 조미숙" loading="lazy" decoding="async" width="657" height="774"></div>
 <div class="ceo-copy">
 <h3 class="name">조미숙</h3>
 <div class="role">CEO / BUSINESS LEAD</div>
@@ -229,12 +287,51 @@ header{grid-template-columns:1fr auto}nav{display:none}
 <p>다양한 분야의 파트너사와 협력하며 블랙홀맨브로스의 세계를 확장하고 있습니다.</p>
 </div>
 <div class="partners-grid">
-<a class="partner-card" href="https://uznex.com" target="_blank" rel="noopener"><img src="assets/partners/uznex.png" alt="UZNEX"><small>uznex.com</small></a>
-<a class="partner-card" href="https://amfnetwork.com" target="_blank" rel="noopener"><img src="assets/partners/amfglobal.png" alt="AMF GLOBAL"><small>amfnetwork.com</small></a>
-<a class="partner-card" href="https://topel.or.kr" target="_blank" rel="noopener"><img src="assets/partners/topel.png" alt="TOPEL"><small>topel.or.kr</small></a>
-<a class="partner-card" href="https://khaicompany.com" target="_blank" rel="noopener"><img src="assets/partners/khai.png" alt="Khai"><small>khaicompany.com</small></a>
-<a class="partner-card" href="https://asiacat.net" target="_blank" rel="noopener"><img src="assets/partners/asiacat.png" alt="ASIACAT"><small>asiacat.net</small></a>
-<a class="partner-card" href="https://holeman.co.kr" target="_blank" rel="noopener"><img src="assets/partners/blackhole.png" alt="Blackhole"><small>holeman.co.kr</small></a>
+<a class="partner-card" href="https://uznex.com" target="_blank" rel="noopener"><img src="assets/partners/uznex.webp" alt="UZNEX" loading="lazy" decoding="async" width="480" height="313"><small>uznex.com</small></a>
+<a class="partner-card" href="https://amfnetwork.com" target="_blank" rel="noopener"><img src="assets/partners/amfglobal.webp" alt="AMF GLOBAL" loading="lazy" decoding="async" width="480" height="313"><small>amfnetwork.com</small></a>
+<a class="partner-card" href="https://topel.or.kr" target="_blank" rel="noopener"><img src="assets/partners/topel.webp" alt="TOPEL" loading="lazy" decoding="async" width="480" height="313"><small>topel.or.kr</small></a>
+<a class="partner-card" href="https://khaicompany.com" target="_blank" rel="noopener"><img src="assets/partners/khai.webp" alt="Khai" loading="lazy" decoding="async" width="480" height="313"><small>khaicompany.com</small></a>
+<a class="partner-card" href="https://asiacat.net" target="_blank" rel="noopener"><img src="assets/partners/asiacat.webp" alt="ASIACAT" loading="lazy" decoding="async" width="480" height="313"><small>asiacat.net</small></a>
+<a class="partner-card" href="https://holeman.co.kr" target="_blank" rel="noopener"><img src="assets/partners/blackhole.webp" alt="Blackhole" loading="lazy" decoding="async" width="480" height="313"><small>holeman.co.kr</small></a>
+</div>
+</section>
+
+
+<section class="section contact-sec reveal" id="contact">
+<div class="section-head"><span class="label">08 / CONTACT</span></div>
+<h2>함께할 이야기를 기다립니다.</h2>
+
+<div class="contact-grid">
+  <div class="contact-card">
+    <h3>문의하기</h3>
+    <p>사업 제휴, IP 라이선싱, 투자, 채용 등 어떤 문의든 아래로 연락 주시면 영업일 기준 2~3일 내에 답변드립니다.</p>
+
+    <div class="contact-row"><strong>EMAIL</strong>
+      <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+    <div class="contact-row"><strong>ADDRESS</strong>
+      <span>서울특별시 강남구 선릉로 529, 5층 5249호<br>(역삼동, 함양재빌딩)</span></div>
+    <div class="contact-row"><strong>COMPANY</strong>
+      <span>주식회사 블랙홀맨브로스 · 대표자 조미숙<br>사업자등록번호 717-81-03443</span></div>
+
+    <div class="contact-actions">
+      <a class="contact-btn primary" href="mailto:contact@blackholemanbros.com?subject=%5B%EB%B8%94%EB%9E%99%ED%99%80%EB%A7%A8%EB%B8%8C%EB%A1%9C%EC%8A%A4%5D%20%EB%AC%B8%EC%9D%98%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4&amp;body=%EC%86%8C%EC%86%8D%3A%0A%EC%84%B1%ED%95%A8%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EB%AC%B8%EC%9D%98%20%EC%9C%A0%ED%98%95%3A%20%28%EC%A0%9C%ED%9C%B4%20%2F%20%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8B%B1%20%2F%20%ED%88%AC%EC%9E%90%20%2F%20%EC%B1%84%EC%9A%A9%20%2F%20%EA%B8%B0%ED%83%80%29%0A%0A%EB%82%B4%EC%9A%A9%3A%0A">
+        이메일 보내기　→</a>
+      <a class="contact-btn ghost" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EC%84%A0%EB%A6%89%EB%A1%9C%20529" target="_blank" rel="noopener">지도에서 보기</a>
+    </div>
+    <p class="contact-note">※ 문의 메일에 담아 주신 개인정보는 문의 처리 목적으로만 사용하며, 처리 완료 후 지체 없이 파기합니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 참고해 주세요.</p>
+  </div>
+
+  <div class="contact-card">
+    <h3>이런 문의를 환영합니다</h3>
+    <p>어떤 형태로 협업이 가능한지 궁금하시다면, 아래 유형을 참고해 주세요.</p>
+    <ul class="inquiry-list">
+      <li><b>IP LICENSING</b>블랙홀맨·홀독·홀캣 캐릭터를 활용한 제품, 콘텐츠, 브랜드 협업</li>
+      <li><b>BUSINESS</b>플랫폼 연동, 공동 사업, 해외 진출 파트너십</li>
+      <li><b>INVESTMENT</b>AI Character Evolution Platform 관련 투자 및 IR 자료 요청</li>
+      <li><b>CONTENT</b>웹툰·숏폼·게임 등 콘텐츠 제작 및 유통 제안</li>
+      <li><b>RECRUIT</b>기획·디자인·개발 직군 상시 지원 (포트폴리오 첨부)</li>
+    </ul>
+  </div>
 </div>
 </section>
 
@@ -255,10 +352,19 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     <div class="corp-info">
       <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
       <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+      <div>문의 <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="en/index.html" hreflang="en" lang="en">ENGLISH</a>
+      </div>
     </div>
     <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
   </div>
 </footer>
 
+<nav class="sitemenu" id="sitemenu" aria-label="모바일 메뉴" hidden><a href="index.html"><span>HOME</span><span class="ko">홈</span></a><a aria-current="page" href="about.html"><span>COMPANY</span><span class="ko">회사소개</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">캐릭터</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">기술</span></a><a href="ai.html"><span>AI LAB</span><span class="ko">AI 랩</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">콘텐츠</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">커뮤니티</span></a><a href="goods.html"><span>SHOP</span><span class="ko">굿즈샵</span></a><a href="games/index.html"><span>ARCADE</span><span class="ko">아케이드</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="en/about.html" hreflang="en" lang="en">ENGLISH</a></div></nav>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

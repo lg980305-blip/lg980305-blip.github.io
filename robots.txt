@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lg980305-blip.github.io/sitemap.xml

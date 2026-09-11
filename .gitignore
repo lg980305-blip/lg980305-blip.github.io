@@ -1,0 +1,16 @@
+# Android 앱 서명키 — 절대 커밋 금지
+*.keystore
+*.jks
+android/
+app-release-*.apk
+app-release-*.aab
+
+# 빌드 산출물
+node_modules/
+.vercel/
+.wrangler/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db

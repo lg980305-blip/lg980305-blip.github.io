@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CONTENTS — BLACKHOLEMAN BROS</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#030409;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+:root{--line:rgba(255,255,255,.11);--muted:rgba(255,255,255,.63);--purple:#8e5bff;--blue:#4aa7ff;--cyan:#47dfe0;--pink:#ef5ab6}
+
+header{height:70px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 3.5vw;position:sticky;top:0;z-index:100;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-weight:900;font-size:14px;line-height:.9}
+nav{display:flex;gap:34px;font-size:12px;font-weight:700}
+nav a{opacity:.58}nav a.active{opacity:1;position:relative}nav a.active:after{content:"";position:absolute;left:25%;right:25%;bottom:-12px;height:2px;background:#8e5bff}
+.social{justify-self:end;display:flex;gap:18px;font-size:13px;color:rgba(255,255,255,.75)}
+
+.hero{min-height:430px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.74) 28%,rgba(0,0,0,.18) 65%,rgba(0,0,0,.54) 100%),url("../assets/129e52072946e3b9.webp");background-size:cover;background-position:center}
+.hero-copy{position:relative;z-index:2;padding:72px 3.6vw 50px;max-width:650px}
+.hero h1{font-size:clamp(64px,7vw,112px);line-height:.82;letter-spacing:-.06em;margin:0 0 28px}
+.hero p{font-size:18px;line-height:1.7;color:rgba(255,255,255,.78);max-width:420px}
+
+.section{padding:34px 3.6vw 42px;border-bottom:1px solid var(--line)}
+.row-layout{display:grid;grid-template-columns:210px 1fr;gap:30px;align-items:start}
+.side-title h2{font-size:28px;margin:0 0 8px;letter-spacing:-.035em}
+.side-title p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 18px}
+.side-title a{display:inline-block;padding:9px 14px;border:1px solid rgba(120,100,255,.45);border-radius:999px;font-size:11px;color:#9d82ff}
+
+/* ARCADE */
+.arcade-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.game-card{position:relative;min-height:260px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#111a31,#080b12)}
+.game-art{position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(120,80,255,.36),transparent 25%),radial-gradient(circle at 38% 65%,rgba(55,177,255,.20),transparent 26%),linear-gradient(180deg,#111830,#080910)}
+.game-art:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px);background-size:45px 45px;opacity:.2}
+.game-title{position:absolute;left:24px;top:22px;font-size:28px;font-weight:900;line-height:.95;text-transform:uppercase}
+.game-meta{position:absolute;left:24px;bottom:20px;right:20px;display:flex;justify-content:space-between;align-items:center}
+.play-btn{padding:9px 15px;border:none;border-radius:8px;background:linear-gradient(90deg,#575bff,#9f58ff);color:#fff;font-weight:850;font-size:11px;cursor:pointer}
+
+/* MUSIC */
+.music-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+.music-player{min-height:330px;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:260px 1fr;background:linear-gradient(130deg,#111522,#07090e)}
+.album{position:relative;background-image:linear-gradient(180deg,rgba(70,60,255,.05),rgba(0,0,0,.12)),url("../assets/129e52072946e3b9.webp");background-size:cover;background-position:center}
+.album:after{content:"홀 패밀리\A규칙";white-space:pre;position:absolute;inset:auto 20px 22px;font-size:28px;line-height:.9;font-weight:900;text-shadow:0 2px 20px #000}
+.player-panel{padding:34px;display:flex;flex-direction:column;justify-content:center}
+.player-panel h3{font-size:26px;margin:0 0 7px}.player-panel .artist{font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.wave{height:58px;margin:26px 0;background:repeating-linear-gradient(90deg,#4a8cff 0 2px,transparent 2px 5px);mask-image:linear-gradient(180deg,transparent 0,black 15%,black 85%,transparent 100%);opacity:.85}
+audio{width:100%;filter:invert(1) hue-rotate(180deg);opacity:.9}
+.music-gallery{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:157px;gap:8px}
+.music-gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--line);filter:saturate(.95) contrast(1.03)}
+
+/* COMIC */
+.comic-row{display:grid;grid-template-columns:1fr 1fr repeat(4,.82fr);gap:9px}
+.episode{min-height:188px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#080b12;position:relative;cursor:pointer}
+.episode img{width:100%;height:100%;object-fit:cover}
+.episode .ep{position:absolute;left:10px;top:9px;padding:5px 8px;background:#fff;color:#111;border-radius:7px;font-size:11px;font-weight:900}
+.locked{display:grid;place-items:center;text-align:center;color:#9f7cff;background:radial-gradient(circle at 50% 35%,rgba(130,90,255,.14),transparent 40%),#060810}
+.locked b{font-size:28px;display:block;margin-bottom:8px}.locked span{font-size:12px;color:#a987ff}.locked small{display:block;margin-top:4px;color:#ddd}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:7px}
+.gallery-item{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#080b12;cursor:pointer;aspect-ratio:1}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.25s}
+.gallery-item:hover img{transform:scale(1.06)}
+
+/* MOTION */
+.motion-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.motion-card{aspect-ratio:1.2;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#070a10}
+.motion-card video{width:100%;height:100%;object-fit:cover}
+.play-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.4);pointer-events:none}
+.motion-card span{position:absolute;left:8px;top:7px;font-size:10px;font-weight:800;color:rgba(255,255,255,.7)}
+
+/* MODALS */
+.modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.94);display:none;overflow:auto}
+.modal.open{display:block}
+.modal-close{position:fixed;right:24px;top:20px;z-index:220;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:#111;color:#fff;font-size:24px;cursor:pointer}
+.reader{width:min(900px,94vw);margin:70px auto 90px;display:grid;gap:8px}
+.reader img{width:100%;display:block;background:white}
+.lightbox-content{min-height:100vh;display:grid;place-items:center;padding:70px 30px}
+.lightbox-content img{max-width:min(94vw,1500px);max-height:88vh;object-fit:contain}
+
+@media(max-width:1050px){
+ header{grid-template-columns:1fr auto}nav{display:none}
+ .row-layout{grid-template-columns:1fr}
+ .music-wrap{grid-template-columns:1fr}
+ .gallery-grid{grid-template-columns:repeat(4,1fr)}
+ .motion-grid{grid-template-columns:repeat(4,1fr)}
+ .comic-row{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+ .hero h1{font-size:18vw}
+ .arcade-grid{grid-template-columns:1fr}
+ .music-player{grid-template-columns:1fr}.album{min-height:290px}
+ .music-gallery{grid-auto-rows:110px}
+ .gallery-grid{grid-template-columns:repeat(2,1fr)}
+ .motion-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+
+
+<meta name="description" content="Games, webtoons, music, motion graphics and gallery — all BLACKHOLEMAN BROS content in one place.">
+<meta name="author" content="BLACKHOLEMAN BROS Co., Ltd.">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/en/contents.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/contents.html">
+<link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/contents.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/contents.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:title" content="CONTENTS — BLACKHOLEMAN BROS">
+<meta property="og:description" content="Games, webtoons, music, motion graphics and gallery — all BLACKHOLEMAN BROS content in one place.">
+<meta property="og:url" content="https://lg980305-blip.github.io/en/contents.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Blackholeman, Holdog and Holcat standing in front of a black hole">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CONTENTS — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="Games, webtoons, music, motion graphics and gallery — all BLACKHOLEMAN BROS content in one place.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon-180.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+<a class="brand" href="index.html">BLACKHOLEMAN<br>BROS</a>
+<nav aria-label="Main menu"><a href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="../ai.html">AI LAB</a><a class="active" aria-current="page" href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="../games/index.html">ARCADE</a></nav>
+<div class="header-right"><a class="langswitch" href="../contents.html" hreflang="ko" lang="ko" aria-label="한국어 버전">KO</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div></header>
+<span id="main" tabindex="-1"></span>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-copy">
+    <h1>CONTENTS</h1>
+    <p>Every BLACKHOLEMAN BROS story<br>lives here.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="row-layout">
+    <div class="side-title"><h2 style="color:#8e5bff">ARCADE 🎮</h2><p>Play the BLACKHOLEMAN BROS arcade games!</p><a href="../games/index.html">See all games →</a></div>
+    <div class="arcade-grid">
+      <div class="game-card"><div class="game-art"></div><div class="game-title">BLACKHOLEMAN<br>BROTHERS</div><div class="game-meta"><span>GAME LAB</span><a class="play-btn" href="../games/index.html">PLAY</a></div></div>
+      <div class="game-card"><div class="game-art" style="filter:hue-rotate(40deg)"></div><div class="game-title">MASCOT<br>BEAM BATTLE</div><div class="game-meta"><span>ARCADE BATTLE</span><a class="play-btn" href="../games/beam-battle.html">COMING SOON</a></div></div>
+      <div class="game-card" style="grid-column:1/-1;min-height:180px"><div class="game-art" style="filter:hue-rotate(-20deg)"></div>
+        <div style="position:absolute;left:24px;top:20px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:10px;font-weight:850;letter-spacing:.08em">OFFICIAL GAME COLLABORATION</div>
+        <div class="game-title" style="font-size:24px;top:52px">Blackholeman × Fortress</div>
+        <div class="game-meta"><span>CCR collaboration · launching 2026</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="row-layout">
+    <div class="side-title"><h2 style="color:#587cff">MUSIC ♫</h2><p>The first track from the BLACKHOLEMAN BROS universe</p><a href="#">Listen to “Hol Family Rules” now →</a></div>
+    <div class="music-wrap">
+      <div class="music-player">
+        <div class="album"></div>
+        <div class="player-panel">
+          <h3>Hol Family Rules</h3><div class="artist">BLACKHOLEMAN BROS</div>
+          <div class="wave"></div>
+          <audio controls src="../assets/bfc114abd3790279.mp3"></audio>
+        </div>
+      </div>
+      <div class="music-gallery">
+        <img src="../assets/ba384f3cf9ac02c9.webp" alt="music visual 1" loading="lazy" decoding="async" width="781" height="1400">
+        <img src="../assets/a91de6fe3345394f.webp" alt="music visual 2" loading="lazy" decoding="async" width="781" height="1400">
+        <img src="../assets/d00670e5989fc9e5.webp" alt="music visual 3" loading="lazy" decoding="async" width="781" height="1400">
+        <img src="../assets/62fd0a237c65e366.webp" alt="music visual 4" loading="lazy" decoding="async" width="1400" height="933">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="row-layout">
+    <div class="side-title"><h2 style="color:#a05dff">COMIC ♧</h2><p>The chaotic adventures of BLACKHOLEMAN BROS!</p><a href="#">Read the webtoon →</a></div>
+    <div class="comic-row">
+      <button class="episode" onclick="openReader(1)"><img src="../assets/9f096a516526c12f.webp" alt="Webtoon EP.01 cover" loading="lazy" decoding="async" width="1376" height="768"><span class="ep">EP.01</span></button>
+      <button class="episode" onclick="openReader(2)"><img src="../assets/4bebdfffaa31418c.webp" alt="Webtoon EP.02 cover" loading="lazy" decoding="async" width="1376" height="768"><span class="ep">EP.02</span></button>
+      <div class="episode locked"><div><b>🔒</b><span>EP.03 · NEXT WEEK</span><small>Next week</small></div></div>
+      <div class="episode locked"><div><b>🔒</b><span>EP.04 · NEXT WEEK</span><small>Next week</small></div></div>
+      <div class="episode locked"><div><b>🔒</b><span>EP.05 · NEXT WEEK</span><small>Next week</small></div></div>
+      <div class="episode locked"><div><b>•••</b><span>EP.06–10</span><small>COMING NEXT</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="row-layout">
+    <div class="side-title"><h2 style="color:#925bff">GALLERY ◉</h2><p>See the BLACKHOLEMAN BROS world in pictures!</p><a href="#">See the full gallery →</a></div>
+    <div class="gallery-grid"><button class="gallery-item" onclick="openLightbox(0)"><img src="../assets/8bfe4d009cf03dca.webp" alt="Gallery 1" loading="lazy" decoding="async" width="1400" height="662"></button>
+<button class="gallery-item" onclick="openLightbox(1)"><img src="../assets/2ea1ccd49b8bd61e.webp" alt="Gallery 2" loading="lazy" decoding="async" width="1400" height="662"></button>
+<button class="gallery-item" onclick="openLightbox(2)"><img src="../assets/9d34af8a0e483358.webp" alt="Gallery 3" loading="lazy" decoding="async" width="1400" height="662"></button>
+<button class="gallery-item" onclick="openLightbox(3)"><img src="../assets/15fdfcc2e63ccb1a.webp" alt="Gallery 4" loading="lazy" decoding="async" width="1400" height="662"></button>
+<button class="gallery-item" onclick="openLightbox(4)"><img src="../assets/851ae68cd8139701.webp" alt="Gallery 5" loading="lazy" decoding="async" width="1400" height="662"></button>
+<button class="gallery-item" onclick="openLightbox(5)"><img src="../assets/129e52072946e3b9.webp" alt="Gallery 6" loading="lazy" decoding="async" width="1400" height="662"></button>
+<button class="gallery-item" onclick="openLightbox(6)"><img src="../assets/ba384f3cf9ac02c9.webp" alt="Gallery 7" loading="lazy" decoding="async" width="781" height="1400"></button>
+<button class="gallery-item" onclick="openLightbox(7)"><img src="../assets/a91de6fe3345394f.webp" alt="Gallery 8" loading="lazy" decoding="async" width="781" height="1400"></button>
+<button class="gallery-item" onclick="openLightbox(8)"><img src="../assets/d00670e5989fc9e5.webp" alt="Gallery 9" loading="lazy" decoding="async" width="781" height="1400"></button></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="row-layout">
+    <div class="side-title"><h2 style="color:#4ea6ff">MOTION ▷</h2><p>BLACKHOLEMAN BROS in motion!</p><a href="#">See all videos →</a></div>
+    <div class="motion-grid"><div class="motion-card">
+        <video src="../assets/62632431c7272d22.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/62632431c7272d22-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>01</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/0c95e5707f5ea354.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/0c95e5707f5ea354-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>02</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/9bafbb3529101b5f.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/9bafbb3529101b5f-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>03</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/6596704c2f5a0401.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/6596704c2f5a0401-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>04</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/9565ecb5ee2fa77c.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/9565ecb5ee2fa77c-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>05</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/6596704c2f5a0401.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/6596704c2f5a0401-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>06</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/9565ecb5ee2fa77c.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/9565ecb5ee2fa77c-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>07</span>
+    </div>
+<div class="motion-card">
+        <video src="../assets/558c21ddf41bb33d.mp4" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0" poster="../assets/558c21ddf41bb33d-poster.webp" preload="none"></video>
+        <div class="play-badge">▶</div>
+        <span>08</span>
+    </div></div>
+  </div>
+</section>
+
+<div class="modal" id="readerModal">
+  <button class="modal-close" onclick="closeModal('readerModal')">×</button>
+  <div class="reader" id="reader"></div>
+</div>
+<div class="modal" id="lightboxModal">
+  <button class="modal-close" onclick="closeModal('lightboxModal')">×</button>
+  <div class="lightbox-content"><img id="lightboxImg" alt="Enlarged gallery image"></div>
+</div>
+
+<script>
+const EP1=['assets/9f096a516526c12f.webp','assets/413dd469296f67a2.webp','assets/947b4edc057df2d3.webp','assets/ccee0b569ef2de9b.webp','assets/191e6f5ea06c5169.webp','assets/d70268ba5faefa08.webp','assets/863277835dcce118.webp','assets/fcb1d0eb79bab910.webp'];
+const EP2=['assets/4bebdfffaa31418c.webp','assets/adcd6442de2d025f.webp','assets/8b8da71c5c2d54c7.webp','assets/f0b17f1e05bca9ac.webp','assets/dc2cc560564699d7.webp','assets/9d014e868d2ea431.webp','assets/878ad3dc10d238ee.webp','assets/03474233a0f24f1d.webp'];
+const GALLERY=['assets/8bfe4d009cf03dca.webp','assets/2ea1ccd49b8bd61e.webp','assets/9d34af8a0e483358.webp','assets/15fdfcc2e63ccb1a.webp','assets/851ae68cd8139701.webp','assets/129e52072946e3b9.webp','assets/ba384f3cf9ac02c9.webp','assets/a91de6fe3345394f.webp','assets/d00670e5989fc9e5.webp'];
+
+function openReader(ep){
+  const arr=ep===1?EP1:EP2;
+  const box=document.getElementById('reader');
+  box.innerHTML=arr.map(x=>`<img src="${x}" alt="블랙홀맨브로스 갤러리 이미지" loading="lazy" decoding="async">`).join('');
+  document.getElementById('readerModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function openLightbox(i){
+  document.getElementById('lightboxImg').src=GALLERY[i];
+  document.getElementById('lightboxModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('readerModal');closeModal('lightboxModal')}});
+</script>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>BLACKHOLEMAN BROS Co., Ltd. · CEO Cho Mi-sook · Business Reg. No. 717-81-03443</div>
+      <div>5F #5249, 529 Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea</div>
+      <div>Contact <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Use</a>
+        <a href="../index.html" hreflang="ko" lang="ko">한국어</a>
+      </div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<nav class="sitemenu" id="sitemenu" aria-label="Mobile menu" hidden><a href="index.html"><span>HOME</span><span class="ko">Home</span></a><a href="about.html"><span>COMPANY</span><span class="ko">About us</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">Characters</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">Technology</span></a><a href="../ai.html"><span>AI LAB</span><span class="ko">Talk to the characters</span></a><a aria-current="page" href="contents.html"><span>CONTENTS</span><span class="ko">Contents</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">Community</span></a><a href="goods.html"><span>SHOP</span><span class="ko">Shop</span></a><a href="../games/index.html"><span>ARCADE</span><span class="ko">Arcade</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="../contents.html" hreflang="ko" lang="ko">한국어</a></div></nav>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
