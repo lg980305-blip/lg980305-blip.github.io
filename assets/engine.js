@@ -1,6 +1,6 @@
 /* ============================================================
    BLACKHOLEMAN BROS — ENGINE LOG
-   등록특허 10-2837572 의 처리 과정을 화면에 그대로 노출하는 실행 화면입니다.
+   등록특허 제10-2837572호를 활용한 처리 과정을 화면에 그대로 노출하는 실행 화면입니다.
 
    이 파일은 "보여주기용 껍데기"가 아닙니다.
    아래 파이프라인은 실제로 계산합니다. 로그에 찍히는 숫자는 전부
@@ -277,7 +277,7 @@ const BURST_MS = 400;
 
     const runId = 'RUN-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + pad(runNo, 3);
     log('info', 'engine start — ' + runId);
-    log('info', '특허 10-2837572 파이프라인 / 단계 ' + STAGES.length + '개');
+    log('info', '등록특허 10-2837572 활용 파이프라인 / 단계 ' + STAGES.length + '개');
     if (!allMapped()) log('warn', '청구항 매핑이 비어 있습니다. CLAIM_MAP 을 채우십시오.');
 
     const T0 = performance.now();
@@ -453,7 +453,7 @@ const BURST_MS = 400;
     if (!lastLogText) return;
     const head =
       '주식회사 블랙홀맨브로스 — 엔진 실행 로그\n' +
-      '등록특허 10-2837572\n' +
+      '등록특허 제10-2837572호 활용\n' +
       '생성 ' + new Date().toLocaleString('ko-KR') + '\n' +
       'URL ' + location.href + '\n' +
       (allMapped() ? '' : '\n※ 청구항 매핑이 입력되지 않은 상태의 실행 기록입니다.\n') +
