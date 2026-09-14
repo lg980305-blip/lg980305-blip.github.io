@@ -1363,6 +1363,60 @@ html.promo .drawer,html.promo .scrim{display:none!important}
 }
 @media(prefers-reduced-motion:reduce){ .pm-list li{transition:none} }
 
+/* ── 라이브 편성 · 구간 예측 ── */
+.cuerow{display:grid;grid-template-columns:96px 1fr 92px 128px;gap:0 14px;align-items:center;
+  padding:11px 0;border-bottom:1px solid var(--line)}
+.cuerow:last-child{border-bottom:none}
+.cuerow.best{background:var(--soft);margin:0 -14px;padding-left:14px;padding-right:14px;border-radius:var(--r)}
+.cuerow .cdp{font-size:12px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.cuerow .ccat{font-size:12.5px;font-weight:650;color:var(--ink)}
+.cuerow .cwt{font-size:10px;color:var(--ink3);margin-left:6px;font-weight:600}
+.cuerow .ccast{font-size:11px;color:var(--ink2);margin-top:3px;line-height:1.5}
+.cuerow .cnum{text-align:right}
+.cuerow .cnum b{display:block;font-size:14px;font-weight:750;letter-spacing:-.4px;
+  font-variant-numeric:tabular-nums}
+.cuerow .cnum span{display:block;font-size:9.5px;color:var(--ink3);margin-top:2px}
+.cuelbl{font-size:9.5px;letter-spacing:1.1px;color:var(--ink3);font-weight:700;
+  text-transform:uppercase;margin:14px 0 7px}
+.cuelbl:first-child{margin-top:0}
+.segtrail{display:flex;flex-wrap:wrap;gap:6px}
+.segchip{display:inline-flex;flex-direction:column;gap:1px;padding:5px 9px;border-radius:var(--r);
+  border:1px solid var(--line2);font-size:11px;font-weight:650;background:var(--surface);color:var(--ink2)}
+.segchip i{font-style:normal;font-size:9px;font-weight:600;opacity:.72}
+.segchip.b_hi{border-color:var(--pos);color:var(--pos)}
+.segchip.b_lo{border-color:var(--line2);opacity:.66}
+.segchip.now{background:var(--brand);border-color:var(--brand);color:#fff}
+.segchip.now i{opacity:.85}
+.predlist{display:flex;flex-direction:column;gap:6px}
+.predrow{display:grid;grid-template-columns:96px 1fr 54px;gap:0 10px;align-items:center;font-size:11.5px}
+.predrow .pname{font-weight:650;color:var(--ink2)}
+.predrow.top .pname{color:var(--ink);font-weight:750}
+.predrow .pbar{height:7px;background:var(--line);border-radius:4px;overflow:hidden}
+.predrow .pbar i{display:block;height:100%;background:var(--line2);border-radius:4px}
+.predrow.top .pbar i{background:var(--brand)}
+.predrow .ppct{text-align:right;font-variant-numeric:tabular-nums;font-weight:650;color:var(--ink2)}
+.pfhd{font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:var(--r);display:inline-block}
+.pfhd.on{background:var(--soft);color:var(--brand)}
+.pfhd.off{background:var(--line);color:var(--ink3)}
+.pflist{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.pfitem{font-size:10.5px;padding:4px 9px;border-radius:var(--r);border:1px dashed var(--line2);
+  color:var(--ink2);background:var(--surface)}
+.cuebar{display:flex;align-items:center;gap:9px;margin-top:16px;padding-top:13px;
+  border-top:1px solid var(--line);flex-wrap:wrap}
+.cueloss{font-size:10px;color:var(--ink3);margin-left:auto}
+.ctbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.ctbl th{text-align:left;font-size:9.5px;letter-spacing:.9px;text-transform:uppercase;
+  color:var(--ink3);font-weight:700;padding:0 10px 7px 0;border-bottom:1px solid var(--line2)}
+.ctbl td{padding:8px 10px 8px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+.ctbl td.cl1{font-weight:700;color:var(--ink);white-space:nowrap}
+.ctbl td.mono{font-size:10.5px;color:var(--brand)}
+@media(max-width:860px){
+  .cuerow{grid-template-columns:1fr 96px;gap:4px 10px}
+  .cuerow .cdp{grid-column:1/-1}
+  .cuerow .cmid{grid-column:1/2;grid-row:2}
+  .cuerow .cnum{grid-column:2/3}
+  .predrow{grid-template-columns:78px 1fr 48px}
+}
 </style>
 </head>
 <body>
@@ -1544,6 +1598,9 @@ html.promo .drawer,html.promo .scrim{display:none!important}
     <button class="rlink" data-view="shows">
       <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="11" rx="1.4"/><path d="M2 6.5h12M5.5 1.8v2.4M10.5 1.8v2.4"/></svg>
       쇼 일정 <span class="bdg" id="railShows">0</span></button>
+    <button class="rlink" data-view="cue">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.6" y="3.2" width="12.8" height="8.2" rx="1.2"/><path d="M5.6 13.8h4.8M8 11.4v2.4"/><path d="M6.4 5.8l3.2 1.5-3.2 1.5z" fill="currentColor" stroke="none"/></svg>
+      라이브 편성 <span class="bdg" id="railCue">7</span></button>
     <div class="rgrp">INSIGHTS</div>
     <button class="rlink" data-view="trends">
       <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 11.5l3.5-4 2.5 2.5L13.5 4"/><path d="M10.5 4h3v3"/></svg>
@@ -2013,6 +2070,54 @@ html.promo .drawer,html.promo .scrim{display:none!important}
     <div class="card">
       <div class="chd"><h3>일정</h3><span class="sub" id="showSub"></span></div>
       <div class="cbd" id="showList"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: CUE ══════════════ -->
+  <section id="v_cue" class="hidden">
+    <div class="pagehd"><div>
+      <h1>라이브 편성 · 구간 예측</h1>
+      <p>같은 엔진을 <b>방송 편성</b>에 적용한 화면입니다. 시간대마다 구매층이 다르므로
+         상품군과 출연자가 달라지고, 그 배치를 6축 점수와 중복 보정 순 도달로 계산합니다.
+         아래쪽은 방송이 진행되는 동안 <b>다음 구간을 예측해 소재를 미리 준비</b>하는
+         구성으로, 보유 특허의 구조를 판매 방송에 적용한 것입니다.</p>
+    </div></div>
+
+    <div class="note" style="margin-bottom:14px">
+      <b>데이터 고지 —</b> 시간대 구성 · 주문 추이 · 과거 방송 로그는 전부
+      <b>데모 가정치</b>입니다. 실제 방송 데이터와 다르며, 실 데이터 연동 시
+      <span class="mono">cueBuildLogs()</span> 한 곳만 교체하면 됩니다.
+    </div>
+
+    <div class="kpis" id="cueKpis"></div>
+
+    <div class="card">
+      <div class="chd"><h3>큐시트</h3><span class="sub" id="cueSub"></span></div>
+      <div class="cbd"><div id="cueList"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="chd"><h3>다음 구간 예측 · 선반영</h3>
+        <span class="sub">등록특허 제10-2278814호 구성 적용</span></div>
+      <div class="cbd">
+        <div class="cuelbl">진행된 구간</div>
+        <div id="cueSeq" class="segtrail"></div>
+        <div class="cuelbl">다음 구간 확률</div>
+        <div id="cuePred" class="predlist"></div>
+        <div class="cuelbl">선반영</div>
+        <div id="cuePrefetch"></div>
+        <div class="cuebar">
+          <button class="btn pri sm" id="cueStep">다음 구간 진행</button>
+          <button class="btn sm" id="cueReset">처음부터</button>
+          <span class="mono cueloss" id="cueLoss"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="chd"><h3>청구항 ↔ 구현 대응</h3>
+        <span class="sub">실사 제출용</span></div>
+      <div class="cbd" id="cueClaims"></div>
     </div>
   </section>
 
@@ -3010,6 +3115,49 @@ DICT = {
  'loads those conditions straight into the brief and hands them to the matching engine.',
 '입니다. 실제 일정과 다르며, 실 데이터 연동 시':
  '. They differ from the real calendar; to connect live data,',
+
+/* ── 라이브 편성 · 구간 예측 ── */
+'라이브 편성 · 구간 예측':'Live Scheduling & Segment Prediction',
+'같은 엔진을':'The same engine applied to','방송 편성':'broadcast scheduling',
+'에 적용한 화면입니다. 시간대마다 구매층이 다르므로 상품군과 출연자가 달라지고, 그 배치를 6축 점수와 중복 보정 순 도달로 계산합니다. 아래쪽은 방송이 진행되는 동안':
+ '. Each daypart draws a different audience, so the category and the cast change with it, and that placement is scored on the same six axes and de-duplicated net reach. Below, the running broadcast',
+'다음 구간을 예측해 소재를 미리 준비':'predicts its next segment and prepares the material in advance',
+'하는 구성으로, 보유 특허의 구조를 판매 방송에 적용한 것입니다.':
+ ' - the structure of the held patent applied to live selling.',
+'데이터 고지 —':'Data notice -',
+'라이브 편성':'Live scheduling','큐시트':'Rundown',
+'다음 구간 예측 · 선반영':'Next-segment prediction & prefetch',
+'등록특허 제10-2278814호 구성 적용':'Implements KR Patent 10-2278814',
+'청구항 ↔ 구현 대응':'Claim-to-implementation map','실사 제출용':'For due diligence',
+'진행된 구간':'Segments so far','다음 구간 확률':'Next-segment probability',
+'선반영':'Prefetch','다음 구간 진행':'Advance one segment','처음부터':'Restart',
+'편성 슬롯':'Slots','최적 시간대':'Best daypart','진행 구간':'Segment','예측 적중':'Prediction hit rate',
+'시간대 × 상품군':'Daypart x category','다음 구간 예측 중':'Predicting next segment',
+'직전 구간 기준 누적':'Cumulative, previous segment','가중 적합도':'Weighted fit',
+'순 도달':'Net reach','중복':'Overlap',
+'시간대 가중을 곱한 적합도 기준 · 슬롯당 3인':'Fit x daypart weight, three casts per slot',
+'선반영 실행':'Prefetch executed','선반영 보류':'Prefetch withheld','신뢰도':'Confidence',
+'임계 미만이면 준비하지 않는다. 잘못된 선반영은 준비 비용만 늘린다.':
+ 'Below threshold nothing is prepared - a wrong prefetch only adds cost.',
+'예측 준비 중':'Preparing prediction','방송 종료':'Broadcast ended','구간당 손실':'Loss per segment','균등분포':'uniform','어휘':'Vocabulary','종':' tokens',
+'청구항':'Claim','구성':'Element','구현':'Implementation',
+'오프닝':'Opening','상품 소개':'Product intro','시연':'Demo','후기 · 리뷰':'Reviews',
+'혜택 · 구성':'Offer & bundle','마감 임박':'Closing window','클로징':'Sign-off',
+'저조':'Low','보통':'Steady','급증':'Surging',
+'청구항 1 · 8 · 11 · 14':'Claims 1, 8, 11, 14','청구항 3':'Claim 3',
+'청구항 4 · 10 · 13':'Claims 4, 10, 13','청구항 6 · 7':'Claims 6, 7',
+'청구항 5':'Claim 5','청구항 2':'Claim 2',
+'수집 · 예측 · 선반영의 전체 흐름':'End-to-end collect / predict / prefetch flow',
+'대상 그룹화 — 구간 × 반응대를 하나의 키로':'Target grouping - segment x response band as one key',
+'Skip-gram 임베딩 (음성 표본 추출)':'Skip-gram embedding with negative sampling',
+'GRU 순환 예측 · 완전 해석적 역전파':'GRU recurrent prediction with full analytic BPTT',
+'소프트맥스 확률 출력':'Softmax probability output',
+'신뢰도 임계 미만이면 선반영 보류':'Prefetch withheld below the confidence threshold',
+'같은 엔진을 방송 편성에 적용한 화면입니다. 시간대마다 구매층이 다르므로 상품군과 출연자가 달라지고, 그 배치를 6축 점수와 중복 보정 순 도달로 계산합니다. 아래쪽은 방송이 진행되는 동안 다음 구간을 예측해 소재를 미리 준비하는 구성으로, 보유 특허의 구조를 판매 방송에 적용한 것입니다.':
+ 'The same engine applied to broadcast scheduling. Each daypart draws a different audience, so the category and the cast change with it, and that placement is scored on the same six axes and de-duplicated net reach. Below, the running broadcast predicts its next segment and prepares the material in advance - the structure of the held patent applied to live selling.',
+'시간대 구성 · 주문 추이 · 과거 방송 로그는 전부':'Dayparts, order trends and past broadcast logs are all',
+'데모 가정치':'demo assumptions',
+'입니다. 실제 방송 데이터와 다르며, 실 데이터 연동 시':'. They differ from real broadcast data; to connect live data,',
 };
 
 /* ── 보간 문장 (L 태그드 템플릿) — {n} 은 n번째 보간값 ── */
@@ -3287,6 +3435,7 @@ function applyLang(){
     if(v==='gov')    renderGov();
     if(v==='board')  renderBoard();
     if(v==='shows')  renderShows();
+    if(v==='cue'){   renderCue(); renderCueClaims(); }
     if(v==='trends') renderTrends();
     if(v==='growth') renderGrowth();
     if(v==='cases')  renderCases();
@@ -4052,6 +4201,7 @@ const VIEWS={
  match :['캠페인 매칭 엔진',  'Platform / Matching / New Campaign'],
  board :['캐스팅 보드',       'Platform / Casting / Board'],
  shows :['쇼 · 캐스팅 일정',  'Platform / Casting / Show Calendar'],
+ cue   :['라이브 편성 · 구간 예측','Platform / Casting / Live Rundown'],
  dash  :['네트워크 대시보드', 'Platform / Analytics / Network Overview'],
  roster:['크리에이터 DB',     'Platform / Data / Creator Registry'],
  trends:['권역별 트렌드 브리핑','Platform / Insights / Regional Trends'],
@@ -4072,6 +4222,7 @@ function showView(v){
   if(v==='gov')    renderGov();
   if(v==='board')  renderBoard();
   if(v==='shows')  renderShows();
+  if(v==='cue'){   renderCue(); renderCueClaims(); }
   if(v==='trends') renderTrends();
   if(v==='growth') renderGrowth();
   if(v==='cases')  renderCases();
@@ -8004,6 +8155,469 @@ if(APP_MODE){
     if(list){ list.querySelectorAll('li').forEach(li=>li.classList.remove('on'));
       list.querySelector('li').classList.add('on'); } };
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   라이브 편성 · 구간 예측  (v_cue)
+   ─────────────────────────────────────────────────────────────────────
+   이 화면이 하는 일은 두 가지이고, 둘은 같은 문제다.
+
+   ① 큐시트 편성 — 시간 슬롯마다 요구조건이 있고, 그 조건에 맞는 자원(출연자)을
+      배치한다. 쇼 캐스팅과 축만 다를 뿐 구조가 같으므로 6축 점수와
+      포화 보정 순 도달을 그대로 재사용한다.
+
+   ② 구간 예측 · 선반영 — 생방송이 진행되는 동안 구간 시퀀스와 주문 반응을 보고
+      다음 구간을 예측해, 필요한 소재를 미리 준비한다.
+      등록특허 제10-2278814호의 구성을 판매 방송 도메인에 적용한 것이다.
+
+        웹 URL 시퀀스        →  방송 구간 시퀀스
+        URL 그룹화(청구항 3)  →  구간 × 반응대 그룹화
+        Skip-gram(청구항 4)  →  구간 임베딩
+        GRU 예측(청구항 6·7)  →  다음 구간 예측
+        프리페칭             →  소재 · 자막 · 그래픽 선반영
+
+   난수 —
+     ROSTER 는 SEED 로 만들어진다. 이 화면은 **별도 PRNG(crnd)** 를 쓰므로
+     기존 데이터가 한 바이트도 바뀌지 않는다. 이 분리는 반드시 유지할 것.
+
+   고지 —
+     방송 시간대 구성과 주문 추이는 **데모 가정치**다. 실제 방송 데이터와 다르며,
+     실 데이터 연동 시 cueBuildLogs() 한 곳만 교체하면 된다.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const CUE_SEED = 20260902;              /* ROSTER 시드와 분리 */
+let crnd = mulberry32(CUE_SEED);
+const cpick = a => a[Math.floor(crnd()*a.length)];
+
+/* ── 구간 유형 — 홈쇼핑 생방송 1회의 구성 단위 ── */
+const CUE_SEG = [
+  {k:'open',    n:'오프닝',      en:'Opening',       dur:[40,90]},
+  {k:'intro',   n:'상품 소개',   en:'Product intro', dur:[120,240]},
+  {k:'demo',    n:'시연',        en:'Demo',          dur:[150,300]},
+  {k:'review',  n:'후기 · 리뷰', en:'Reviews',       dur:[90,180]},
+  {k:'benefit', n:'혜택 · 구성', en:'Offer & bundle',dur:[100,200]},
+  {k:'urgency', n:'마감 임박',   en:'Closing window',dur:[60,150]},
+  {k:'close',   n:'클로징',      en:'Sign-off',      dur:[40,90]}
+];
+const CUE_SEGMAP = Object.fromEntries(CUE_SEG.map(s=>[s.k,s]));
+const segN = k => LANG==='en' ? (CUE_SEGMAP[k]?CUE_SEGMAP[k].en:k) : (CUE_SEGMAP[k]?CUE_SEGMAP[k].n:k);
+
+/* ── 반응대 — 구간 중 주문 추이. 예측의 조건이 된다 ── */
+const CUE_BAND = [
+  {k:'lo',  n:'저조', en:'Low'},
+  {k:'mid', n:'보통', en:'Steady'},
+  {k:'hi',  n:'급증', en:'Surging'}
+];
+const CUE_BANDMAP = Object.fromEntries(CUE_BAND.map(b=>[b.k,b]));
+const bandN = k => LANG==='en' ? (CUE_BANDMAP[k]?CUE_BANDMAP[k].en:k) : (CUE_BANDMAP[k]?CUE_BANDMAP[k].n:k);
+
+/* 청구항 3 — 그룹화. 구간과 반응대를 하나의 키로 묶는다. */
+function cueKey(seg, band){ return seg+':'+band; }
+function cueSplit(key){ const p=String(key).split(':'); return {seg:p[0], band:p[1]||'mid'}; }
+
+/* ── 선반영 대상 — 다음 구간이 예측되면 미리 준비하는 것 ── */
+const CUE_PREFETCH = {
+  open   :['채널 인트로 그래픽','진행자 마이크 레벨'],
+  intro  :['상품 스펙 자막','대표 컷 이미지 3종'],
+  demo   :['시연 소품 대기','클로즈업 카메라 프리셋','시연 단계 자막'],
+  review :['후기 그래픽 5건','실사용 영상 클립'],
+  benefit:['구성표 그래픽','가격 · 할인 자막','사은품 컷'],
+  urgency:['재고 카운터 연동','마감 타이머','주문 폭주 자막'],
+  close  :['클로징 자막','다음 방송 예고 카드']
+};
+const CUE_PREFETCH_EN = {
+  open   :['Channel intro graphic','Host mic levels'],
+  intro  :['Spec caption','Three hero stills'],
+  demo   :['Demo props on standby','Close-up camera preset','Step captions'],
+  review :['Five review graphics','User footage clips'],
+  benefit:['Bundle table','Price / discount caption','Gift shot'],
+  urgency:['Stock counter feed','Countdown timer','Order-surge caption'],
+  close  :['Sign-off caption','Next-show teaser card']
+};
+const prefetchOf = k => (LANG==='en' ? CUE_PREFETCH_EN : CUE_PREFETCH)[k] || [];
+
+/* ── 시간대 — 시간대별 구매층이 다르다는 것이 편성의 출발점 ── */
+const CUE_DAYPART = [
+  {k:'dawn',  n:'06–09 아침',  en:'06-09 Morning',   cat:'health',      age:'50+',   sex:'여성', mul:0.86},
+  {k:'am',    n:'09–12 오전',  en:'09-12 Late morn', cat:'living',      age:'40-49', sex:'여성', mul:1.00},
+  {k:'lunch', n:'12–14 점심',  en:'12-14 Midday',    cat:'fashion_cas', age:'30-34', sex:'여성', mul:1.08},
+  {k:'pm',    n:'14–18 오후',  en:'14-18 Afternoon', cat:'fashion_acc', age:'35-39', sex:'여성', mul:0.94},
+  {k:'prime', n:'18–21 프라임',en:'18-21 Prime',     cat:'digital',     age:'30-34', sex:'성별 무관', mul:1.35},
+  {k:'night', n:'21–24 심야',  en:'21-24 Late',      cat:'beauty_skin', age:'25-29', sex:'여성', mul:1.18},
+  {k:'late',  n:'00–02 새벽',  en:'00-02 Overnight', cat:'beauty_make', age:'20-24', sex:'여성', mul:0.72}
+];
+const dpN = d => LANG==='en' ? d.en : d.n;
+
+/* ═══════════ 청구항 4 — Skip-gram 임베딩 ═══════════ */
+function cueSkipgram(seqs, opt){
+  opt = opt||{};
+  const dim=opt.dim||6, win=opt.win||2, epochs=opt.epochs||8, lr=opt.lr||0.05, neg=opt.neg||3;
+  const vocab=[...new Set(seqs.flat())];
+  const idx=new Map(vocab.map((w,i)=>[w,i]));
+  const V=vocab.length;
+  const emb=Array.from({length:V},()=>Array.from({length:dim},()=>(crnd()-0.5)/dim));
+  const ctx=Array.from({length:V},()=>Array.from({length:dim},()=>(crnd()-0.5)/dim));
+  const sg=x=>1/(1+Math.exp(-Math.max(-30,Math.min(30,x))));
+  for(let ep=0; ep<epochs; ep++){
+    for(const s of seqs){
+      const ids=s.map(w=>idx.get(w));
+      for(let i=0;i<ids.length;i++){
+        for(let j=Math.max(0,i-win); j<=Math.min(ids.length-1,i+win); j++){
+          if(i===j) continue;
+          const pairs=[[ids[j],1]];
+          for(let k=0;k<neg;k++) pairs.push([Math.floor(crnd()*V),0]);
+          for(const [cid,label] of pairs){
+            let dot=0; for(let d=0;d<dim;d++) dot+=emb[ids[i]][d]*ctx[cid][d];
+            const g=(sg(dot)-label)*lr;
+            for(let d=0;d<dim;d++){
+              const e=emb[ids[i]][d];
+              emb[ids[i]][d]-=g*ctx[cid][d];
+              ctx[cid][d]   -=g*e;
+            }
+          }
+        }
+      }
+    }
+  }
+  const dict={}; vocab.forEach((w,i)=>dict[w]=emb[i]);
+  return {dict, vocab, dim};
+}
+
+/* ═══════════ 청구항 6·7 — GRU ═══════════ */
+const csig = x => 1/(1+Math.exp(-Math.max(-30,Math.min(30,x))));
+function cueGRU(V,D,H){
+  const m=(r,c,s)=>Array.from({length:r},()=>Array.from({length:c},()=>(crnd()-0.5)*s));
+  const s=Math.sqrt(1/H);
+  return {V,D,H,
+    Wz:m(H,D,s),Uz:m(H,H,s),bz:new Array(H).fill(0),
+    Wr:m(H,D,s),Ur:m(H,H,s),br:new Array(H).fill(0),
+    Wh:m(H,D,s),Uh:m(H,H,s),bh:new Array(H).fill(0),
+    Wo:m(V,H,s),bo:new Array(V).fill(0)};
+}
+function cueStep(m,x,hp){
+  const H=m.H;
+  const az=new Array(H),ar=new Array(H),g=new Array(H),h=new Array(H),rh=new Array(H);
+  for(let i=0;i<H;i++){
+    let z=m.bz[i],r=m.br[i];
+    for(let d=0;d<m.D;d++){ z+=m.Wz[i][d]*x[d]; r+=m.Wr[i][d]*x[d]; }
+    for(let j=0;j<H;j++){ z+=m.Uz[i][j]*hp[j]; r+=m.Ur[i][j]*hp[j]; }
+    az[i]=csig(z); ar[i]=csig(r);
+  }
+  for(let i=0;i<H;i++) rh[i]=ar[i]*hp[i];
+  for(let i=0;i<H;i++){
+    let a=m.bh[i];
+    for(let d=0;d<m.D;d++) a+=m.Wh[i][d]*x[d];
+    for(let j=0;j<H;j++) a+=m.Uh[i][j]*rh[j];
+    g[i]=Math.tanh(a);
+    h[i]=(1-az[i])*hp[i]+az[i]*g[i];
+  }
+  return {h,z:az,r:ar,g,rh,hPrev:hp,x};
+}
+function cueSoftmax(m,h){
+  const o=new Array(m.V);
+  let mx=-Infinity;
+  for(let v=0;v<m.V;v++){ let a=m.bo[v]; for(let i=0;i<m.H;i++) a+=m.Wo[v][i]*h[i]; o[v]=a; if(a>mx)mx=a; }
+  let s=0; for(let v=0;v<m.V;v++){ o[v]=Math.exp(o[v]-mx); s+=o[v]; }
+  for(let v=0;v<m.V;v++) o[v]/=s;
+  return o;
+}
+function z2(n,k){ return Array.from({length:n},()=>new Array(k).fill(0)); }
+/* 완전 해석적 BPTT — 절단 없이 시퀀스 전체를 역전파한다 */
+function cueTrainSeq(m,emb,ids,lr){
+  const H=m.H,D=m.D,V=m.V,CLIP=5;
+  const cache=[]; let h=new Array(H).fill(0), loss=0;
+  for(let t=0;t<ids.length-1;t++){
+    const st=cueStep(m,emb[ids[t]],h);
+    const p=cueSoftmax(m,st.h);
+    loss+=-Math.log(Math.max(1e-12,p[ids[t+1]]));
+    cache.push({st,p,tgt:ids[t+1],inId:ids[t]});
+    h=st.h;
+  }
+  if(!cache.length) return 0;
+  const dWz=z2(H,D),dUz=z2(H,H),dbz=new Array(H).fill(0);
+  const dWr=z2(H,D),dUr=z2(H,H),dbr=new Array(H).fill(0);
+  const dWh=z2(H,D),dUh=z2(H,H),dbh=new Array(H).fill(0);
+  const dWo=z2(V,H),dbo=new Array(V).fill(0);
+  const dEmb=new Map();
+  let dhNext=new Array(H).fill(0);
+  for(let t=cache.length-1;t>=0;t--){
+    const {st,p,tgt,inId}=cache[t];
+    const dout=p.slice(); dout[tgt]-=1;
+    const dh=dhNext.slice();
+    for(let v=0;v<V;v++){
+      const d=dout[v]; if(!d) continue;
+      dbo[v]+=d;
+      for(let i=0;i<H;i++){ dWo[v][i]+=d*st.h[i]; dh[i]+=d*m.Wo[v][i]; }
+    }
+    const dz=new Array(H),dg=new Array(H),dr=new Array(H);
+    const dhPrev=new Array(H).fill(0), drh=new Array(H).fill(0);
+    const dx=new Array(D).fill(0);
+    for(let i=0;i<H;i++){
+      dg[i]=dh[i]*st.z[i]*(1-st.g[i]*st.g[i]);
+      dz[i]=dh[i]*(st.g[i]-st.hPrev[i])*st.z[i]*(1-st.z[i]);
+      dhPrev[i]+=dh[i]*(1-st.z[i]);
+    }
+    for(let i=0;i<H;i++){
+      dbh[i]+=dg[i];
+      for(let d=0;d<D;d++){ dWh[i][d]+=dg[i]*st.x[d]; dx[d]+=dg[i]*m.Wh[i][d]; }
+      for(let j=0;j<H;j++){ dUh[i][j]+=dg[i]*st.rh[j]; drh[j]+=dg[i]*m.Uh[i][j]; }
+    }
+    for(let j=0;j<H;j++){
+      dr[j]=drh[j]*st.hPrev[j]*st.r[j]*(1-st.r[j]);
+      dhPrev[j]+=drh[j]*st.r[j];
+    }
+    for(let i=0;i<H;i++){
+      dbz[i]+=dz[i]; dbr[i]+=dr[i];
+      for(let d=0;d<D;d++){
+        dWz[i][d]+=dz[i]*st.x[d]; dWr[i][d]+=dr[i]*st.x[d];
+        dx[d]+=dz[i]*m.Wz[i][d]+dr[i]*m.Wr[i][d];
+      }
+      for(let j=0;j<H;j++){
+        dUz[i][j]+=dz[i]*st.hPrev[j]; dUr[i][j]+=dr[i]*st.hPrev[j];
+        dhPrev[j]+=dz[i]*m.Uz[i][j]+dr[i]*m.Ur[i][j];
+      }
+    }
+    if(!dEmb.has(inId)) dEmb.set(inId,new Array(D).fill(0));
+    const de=dEmb.get(inId); for(let d=0;d<D;d++) de[d]+=dx[d];
+    dhNext=dhPrev;
+  }
+  const cl=v=>Math.max(-CLIP,Math.min(CLIP,v));
+  const ap=(W,dW)=>{ for(let i=0;i<W.length;i++) for(let j=0;j<W[i].length;j++) W[i][j]-=lr*cl(dW[i][j]); };
+  const ab=(b,db)=>{ for(let i=0;i<b.length;i++) b[i]-=lr*cl(db[i]); };
+  ap(m.Wz,dWz); ap(m.Uz,dUz); ab(m.bz,dbz);
+  ap(m.Wr,dWr); ap(m.Ur,dUr); ab(m.br,dbr);
+  ap(m.Wh,dWh); ap(m.Uh,dUh); ab(m.bh,dbh);
+  ap(m.Wo,dWo); ab(m.bo,dbo);
+  dEmb.forEach((g,id)=>{ for(let k=0;k<D;k++) emb[id][k]-=lr*cl(g[k]); });
+  return loss;
+}
+function cuePredict(tr,recent,topK){
+  const {model:m,emb,idx,vocab}=tr;
+  const ids=recent.map(w=>idx.get(w)).filter(v=>v!==undefined);
+  if(!ids.length) return [];
+  let h=new Array(m.H).fill(0);
+  for(const id of ids) h=cueStep(m,emb[id],h).h;
+  const p=cueSoftmax(m,h);
+  return p.map((v,i)=>({key:vocab[i],p:v})).sort((a,b)=>b.p-a.p).slice(0,topK||3);
+}
+
+/* ═══════════ 과거 방송 로그 (합성) ═══════════
+   실 데이터 연동 시 이 함수 하나만 교체하면 된다.
+   전이 규칙은 "주문이 붙으면 혜택·마감으로 당기고, 안 붙으면 시연·후기를
+   반복한다"는 현장 관행을 그대로 옮긴 것이다. */
+const CUE_NEXT = {
+  open   :{lo:['intro'],                  mid:['intro'],                    hi:['intro']},
+  intro  :{lo:['demo','demo','review'],   mid:['demo','demo','review'],     hi:['demo','benefit']},
+  demo   :{lo:['review','demo','intro'],  mid:['review','benefit','demo'],  hi:['benefit','urgency']},
+  review :{lo:['demo','intro','benefit'], mid:['benefit','demo'],           hi:['benefit','urgency']},
+  benefit:{lo:['demo','review'],          mid:['urgency','demo'],           hi:['urgency','urgency','close']},
+  urgency:{lo:['benefit','demo'],         mid:['close','benefit','demo'],   hi:['close','urgency','benefit']},
+  close  :{lo:['close'],                  mid:['close'],                    hi:['close']}
+};
+/* 구간이 반응에 미치는 영향 — 시연·후기·혜택은 주문을 밀어 올린다 */
+const CUE_LIFT = {open:-0.10, intro:0.02, demo:0.26, review:0.18, benefit:0.30, urgency:0.34, close:-0.20};
+/* 같은 구간을 연달아 쓰면 반응이 식는다 — 현장에서 '멘트가 돈다'고 부르는 현상 */
+const CUE_FATIGUE = 0.13;
+function cueHeat(h, prev, next){
+  const d = CUE_LIFT[next]*0.42 - (prev===next ? CUE_FATIGUE : 0) + (crnd()-0.5)*0.16 - 0.03;
+  return Math.max(0, Math.min(1, h + d));
+}
+function cueBandOf(x){ return x<0.34?'lo' : x<0.68?'mid' : 'hi'; }
+/* 마감 멘트는 방송 종료가 가까울 때만 나온다 — 현장 규칙을 전이에 그대로 반영 */
+const CUE_CLOSE_AFTER = 1800;                    /* 초 — 30분 이후에만 마감 멘트 */
+function cueNextSeg(seg, band, t){
+  const all = CUE_NEXT[seg][band];
+  const ok  = all.filter(x => x!=='close' || t>=CUE_CLOSE_AFTER);
+  return cpick(ok.length?ok:all);
+}
+function cueDur(seg){
+  const d=CUE_SEGMAP[seg].dur;
+  return Math.round(d[0]+crnd()*(d[1]-d[0]));
+}
+
+function cueBuildLogs(n){
+  const out=[];
+  for(let b=0;b<n;b++){
+    let seg='open', heat=0.30+crnd()*0.34, seq=[], el=0;
+    for(let i=0;i<16;i++){
+      const band=cueBandOf(heat);
+      seq.push(cueKey(seg,band));
+      if(seg==='close') break;
+      el += cueDur(seg);
+      const nx = cueNextSeg(seg, band, el);
+      heat = cueHeat(heat, seg, nx); seg = nx;
+    }
+    out.push(seq);
+  }
+  return out;
+}
+
+/* ═══════════ 학습 — 첫 진입 때 한 번만 ═══════════ */
+let CUE_TR=null, CUE_LOGS=null, CUE_LOSS=null;
+function cueTrain(){
+  if(CUE_TR) return CUE_TR;
+  crnd = mulberry32(CUE_SEED);                 /* 재현성 — 매번 같은 모델 */
+  CUE_LOGS = cueBuildLogs(20);
+  const sg = cueSkipgram(CUE_LOGS,{dim:6,win:2,epochs:5});
+  const vocab = sg.vocab, D=6, H=12;
+  const idx = new Map(vocab.map((w,i)=>[w,i]));
+  const m = cueGRU(vocab.length,D,H);
+  const emb = vocab.map(w=> (sg.dict[w]||new Array(D).fill(0.01)).slice(0,D));
+  const idSeqs = CUE_LOGS.map(s=>s.map(w=>idx.get(w)).filter(v=>v!==undefined)).filter(s=>s.length>=2);
+  const hist=[];
+  let steps=0; idSeqs.forEach(s=>steps+=s.length-1);
+  for(let ep=0; ep<14; ep++){
+    let L=0;
+    for(const s of idSeqs) L+=cueTrainSeq(m,emb,s,0.05);
+    hist.push(L/Math.max(1,steps));           /* 구간 1개당 손실 — 균등분포는 ln(V) */
+  }
+  CUE_LOSS = hist;
+  CUE_TR = {model:m, emb, idx, vocab, loss:hist};
+  return CUE_TR;
+}
+
+/* ═══════════ 진행 중 방송 상태 ═══════════ */
+const CUE_THRESH = 0.35;                        /* 선반영 임계 신뢰도 */
+const CUE_MAX_SEG = 16;                         /* 1회 방송의 구간 상한 */
+let CUE_RUN = null;
+function cueReset(){
+  CUE_RUN = {seg:'open', heat:0.42, trail:[], t:0, hits:0, tries:0, prefetchSeg:null};
+  cueStepRun(true);
+}
+function cueStepRun(first){
+  const R=CUE_RUN; if(!R) return;
+  const band=cueBandOf(R.heat);
+  const key=cueKey(R.seg,band);
+  /* 직전 예측이 맞았는지 채점 */
+  if(!first && R.pred && R.pred.length){
+    R.tries++;
+    if(cueSplit(R.pred[0].key).seg===R.seg) R.hits++;
+  }
+  R.trail.push({key, seg:R.seg, band, t:R.t});
+  R.t += cueDur(R.seg);
+  /* 다음 구간 예측 — 최근 3개 토큰 */
+  const tr=cueTrain();
+  const recent=R.trail.slice(-3).map(x=>x.key);
+  R.pred = cuePredict(tr, recent, 3);
+  /* 구간 단위로 합산 (반응대는 주변화) */
+  const agg={};
+  cuePredict(tr,recent,99).forEach(o=>{ const s=cueSplit(o.key).seg; agg[s]=(agg[s]||0)+o.p; });
+  R.segPred = Object.entries(agg).map(([seg,p])=>({seg,p})).sort((a,b)=>b.p-a.p).slice(0,3);
+  R.prefetchSeg = (R.segPred[0] && R.segPred[0].p>=CUE_THRESH) ? R.segPred[0].seg : null;
+  /* 실제 전이 */
+  if(R.seg==='close' || R.trail.length>=CUE_MAX_SEG){ R.done=true; }
+  else {
+    const nx=cueNextSeg(R.seg, band, R.t);
+    R.heat=cueHeat(R.heat, R.seg, nx); R.seg=nx;
+  }
+  renderCue();
+}
+
+/* ═══════════ 큐시트 편성 ═══════════ */
+function cueSlots(){
+  return CUE_DAYPART.map(d=>{
+    const brief = readBrief({
+      catIdx: CATS.findIndex(c=>c.k===d.cat),
+      ageIdx: AGEOPT.findIndex(a=>a.b===d.age),
+      objIdx: OBJS.findIndex(o=>o.k==='cvr'),
+      sex: d.sex, region:'전 권역', platform:'채널 무관', minTier:'C',
+      topN: 3, bodyReq:'제한 없음', minAqs:0, budgetM: 60
+    });
+    const pool = ROSTER.filter(c=>bodyPass(c,brief.bodyReq))
+                       .map(c=>({c, s:scoreCreator(c,brief)}))
+                       .sort((a,b)=>b.s.score-a.s.score)
+                       .slice(0,3);
+    const nr = netReach(pool);
+    const fit = pool.length ? pool.reduce((t,x)=>t+x.s.score,0)/pool.length : 0;
+    return {dp:d, brief, cast:pool, net:nr.net, dup:nr.dup, fit:+(fit*d.mul).toFixed(1)};
+  });
+}
+
+/* ═══════════ 렌더 ═══════════ */
+function renderCue(){
+  if(!CUE_RUN) { CUE_RUN={seg:'open',heat:0.42,trail:[],t:0,hits:0,tries:0,prefetchSeg:null}; cueStepRun(true); return; }
+  const R=CUE_RUN;
+  const slots=cueSlots();
+  const best=slots.slice().sort((a,b)=>b.fit-a.fit)[0];
+  const acc = R.tries ? Math.round(R.hits/R.tries*100) : 0;
+
+  $('cueKpis').innerHTML=[
+    ['a','편성 슬롯', slots.length+'', T('시간대 × 상품군')],
+    ['b','최적 시간대', dpN(best.dp), T(CATN[best.dp.cat])],
+    ['c','진행 구간', R.trail.length+' / '+CUE_MAX_SEG, R.done?T('방송 종료'):T('다음 구간 예측 중')],
+    ['d','예측 적중', (R.tries? acc+'%' : '—'), T('직전 구간 기준 누적')]
+  ].map(([c,l,v,s])=>'<div class="kpi '+c+'"><div class="k">'+T(l)+'</div><div class="v num">'+v+
+     '</div><div class="d">'+s+'</div></div>').join('');
+
+  /* ── 큐시트 ── */
+  $('cueList').innerHTML = slots.map(s=>{
+    const names=s.cast.map(x=>x.c.name).join(' · ')||'—';
+    return '<div class="cuerow'+(s===best?' best':'')+'">'+
+      '<div class="cdp">'+dpN(s.dp)+'</div>'+
+      '<div class="cmid"><div class="ccat">'+T(CATN[s.dp.cat])+
+        '<span class="cwt">×'+s.dp.mul.toFixed(2)+'</span></div>'+
+        '<div class="ccast">'+names+'</div></div>'+
+      '<div class="cnum"><b>'+s.fit.toFixed(1)+'</b><span>'+T('가중 적합도')+'</span></div>'+
+      '<div class="cnum"><b>'+MAN(s.net)+'</b><span>'+T('순 도달')+' · '+T('중복')+' '+s.dup+'%</span></div>'+
+    '</div>';
+  }).join('');
+  $('cueSub').textContent = T('시간대 가중을 곱한 적합도 기준 · 슬롯당 3인');
+
+  /* ── 진행 구간 ── */
+  $('cueSeq').innerHTML = R.trail.map((x,i)=>
+    '<span class="segchip b_'+x.band+(i===R.trail.length-1?' now':'')+'">'+
+      segN(x.seg)+'<i>'+bandN(x.band)+'</i></span>').join('');
+
+  /* ── 예측 ── */
+  const pr = R.segPred||[];
+  $('cuePred').innerHTML = pr.map((o,i)=>
+    '<div class="predrow'+(i===0?' top':'')+'">'+
+      '<div class="pname">'+segN(o.seg)+'</div>'+
+      '<div class="pbar"><i style="width:'+(o.p*100).toFixed(1)+'%"></i></div>'+
+      '<div class="ppct">'+(o.p*100).toFixed(1)+'%</div></div>').join('')
+    || '<div class="muted">'+T('예측 준비 중')+'</div>';
+
+  /* ── 선반영 ── */
+  const conf = pr[0] ? pr[0].p : 0;
+  $('cuePrefetch').innerHTML = conf>=CUE_THRESH
+    ? '<div class="pfhd on">'+T('선반영 실행')+' — '+T('신뢰도')+' '+(conf*100).toFixed(1)+'% ≥ '+
+        (CUE_THRESH*100)+'%</div><div class="pflist">'+
+        (R.prefetchSeg?prefetchOf(R.prefetchSeg):[]).map(x=>'<span class="pfitem">'+x+'</span>').join('')+'</div>'
+    : '<div class="pfhd off">'+T('선반영 보류')+' — '+T('신뢰도')+' '+(conf*100).toFixed(1)+'% &lt; '+
+        (CUE_THRESH*100)+'%</div><div class="muted">'+
+        T('임계 미만이면 준비하지 않는다. 잘못된 선반영은 준비 비용만 늘린다.')+'</div>';
+
+  const btn=$('cueStep'); if(btn) btn.disabled=!!R.done;
+  $('cueLoss').textContent = CUE_LOSS
+    ? T('구간당 손실')+' '+CUE_LOSS[0].toFixed(3)+' → '+CUE_LOSS[CUE_LOSS.length-1].toFixed(3)+
+      ' ('+T('균등분포')+' '+Math.log(CUE_TR?CUE_TR.vocab.length:2).toFixed(3)+')'+
+      ' · '+T('어휘')+' '+(CUE_TR?CUE_TR.vocab.length:0)+T('종')
+    : '';
+}
+
+/* ── 청구항 대응표 ── */
+const CUE_CLAIMS=[
+  ['청구항 1 · 8 · 11 · 14','수집 · 예측 · 선반영의 전체 흐름','cueStepRun()'],
+  ['청구항 3','대상 그룹화 — 구간 × 반응대를 하나의 키로','cueKey() · cueSplit()'],
+  ['청구항 4 · 10 · 13','Skip-gram 임베딩 (음성 표본 추출)','cueSkipgram()'],
+  ['청구항 6 · 7','GRU 순환 예측 · 완전 해석적 역전파','cueStep() · cueTrainSeq()'],
+  ['청구항 5','소프트맥스 확률 출력','cueSoftmax()'],
+  ['청구항 2','신뢰도 임계 미만이면 선반영 보류','CUE_THRESH']
+];
+function renderCueClaims(){
+  const el=$('cueClaims'); if(!el) return;
+  el.innerHTML='<table class="ctbl"><thead><tr><th>'+T('청구항')+'</th><th>'+T('구성')+
+    '</th><th>'+T('구현')+'</th></tr></thead><tbody>'+
+    CUE_CLAIMS.map(r=>'<tr><td class="cl1">'+T(r[0])+'</td><td>'+T(r[1])+
+      '</td><td class="mono">'+r[2]+'</td></tr>').join('')+'</tbody></table>';
+}
+
+/* ── 버튼 연결 ── */
+(function(){
+  const a=document.getElementById('cueStep'), b=document.getElementById('cueReset');
+  if(a) a.onclick=()=>cueStepRun(false);
+  if(b) b.onclick=()=>{ cueReset(); renderCueClaims(); };
+})();
 
 /* ═══════════ 언어 초기 적용 ═══════════
    Gemini 모듈의 const 가 모두 초기화된 뒤에 호출해야 gemSync() 가 TDZ 에 걸리지 않는다. */
