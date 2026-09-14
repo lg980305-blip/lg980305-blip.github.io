@@ -3,7 +3,7 @@
    앱처럼 설치되고, 재방문·오프라인에서도 빠르게 열리도록 캐시합니다.
    캐시 내용을 바꾸려면 CACHE 버전 문자열만 올리면 됩니다.
    ============================================================ */
-const CACHE = 'bhb-v1';
+const CACHE = 'bhb-v2';
 
 /* 설치 즉시 담아둘 핵심 파일 (용량이 작은 것만) */
 const PRECACHE = [
@@ -16,6 +16,7 @@ const PRECACHE = [
   './community.html',
   './goods.html',
   './ai.html',
+  './engine.html',
   './app.html',
   './games/index.html',
   './en/index.html',
@@ -24,6 +25,8 @@ const PRECACHE = [
   './assets/site.js',
   './assets/ai.css',
   './assets/ai.js',
+  './assets/engine.css',
+  './assets/engine.js',
   './favicon.svg',
   './site.webmanifest',
   './offline.html'

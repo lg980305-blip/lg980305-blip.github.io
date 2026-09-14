@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ENGINE LOG — BLACKHOLEMAN BROS</title>
+<meta name="description" content="등록특허 10-2837572의 처리 과정을 단계별 로그로 그대로 노출하는 실행 화면입니다. 반응 수집부터 신호 추출·가중치 산출·결과 도출까지 실제 연산 값을 확인할 수 있습니다.">
+<meta name="author" content="주식회사 블랙홀맨브로스">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/engine.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="ENGINE LOG — BLACKHOLEMAN BROS">
+<meta property="og:description" content="특허 10-2837572의 연산 과정을 눈으로 확인하는 실행 화면.">
+<meta property="og:url" content="https://lg980305-blip.github.io/engine.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:#02040a;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+header{height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:0 2.6vw;position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(2,4,9,.78);backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:14px;line-height:.9}
+.brandmark{width:36px;height:36px;position:relative;display:inline-block}
+.brandmark:before,.brandmark:after{content:"";position:absolute;inset:2px;border:2px solid #fff;border-radius:50%}
+.brandmark:after{inset:10px}
+header nav{display:flex;gap:26px;font-size:12px;font-weight:750}
+header nav a{opacity:.55}header nav a:hover,header nav a.active{opacity:1}
+</style>
+
+<link rel="stylesheet" href="assets/engine.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<header>
+<a class="brand" href="index.html"><span class="brandmark"></span><span>BLACKHOLEMAN<br>BROS</span></a>
+<nav aria-label="주요 메뉴"><a href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a class="active" aria-current="page" href="ai.html">AI LAB</a><a href="app.html">APP</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="games/index.html">ARCADE</a></nav>
+<div class="header-right"><a class="langswitch" href="en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div>
+</header>
+<span id="main" tabindex="-1"></span>
+
+<main class="eng-wrap">
+
+  <div class="eng-head">
+    <div class="label">ENGINE LOG · 실행 기록</div>
+    <h1>엔진이 무엇을 계산하는지<br>그대로 보여드립니다.</h1>
+    <p>
+      화면에서 반응을 입력하면 파이프라인이 실제로 돌아갑니다. 아래 로그에 찍히는 모든 숫자는
+      그 순간 브라우저에서 계산된 <strong>실제 값</strong>이며, 미리 적어둔 문자열이 아닙니다.
+      단계별 소요 시간도 <code>performance.now()</code> 로 실측한 값입니다.
+      계산식은 로그에 그대로 노출되므로 손으로 검산하실 수 있습니다.
+    </p>
+    <div class="eng-patent">등록특허 <b>10-2837572</b> · 주식회사 블랙홀맨브로스</div>
+
+    <div class="eng-todo" data-eng-todo>
+      <b>운영자 확인 필요 — 청구항 매핑이 비어 있습니다.</b><br>
+      <code>assets/engine.js</code> 상단의 <code>CLAIM_MAP</code> 에 등록공보의 청구항 번호와
+      구성요소 명칭을 <b>문언 그대로</b> 채우면 이 안내가 사라지고, 아래 파이프라인과 대응표에
+      청구항 번호가 표시됩니다. <b>실제로 구현되지 않은 요소는 적지 마십시오</b> —
+      대응표는 심사역이 소스와 대조해 볼 수 있는 자료입니다.
+    </div>
+  </div>
+
+  <div class="eng-grid">
+
+    <!-- ===== 왼쪽: 입력 + 콘솔 ===== -->
+    <div>
+      <section class="eng-panel">
+        <header>
+          <h2>01 · INPUT — 반응 수집</h2>
+          <span class="meta" data-eng-count>0 events</span>
+        </header>
+        <div class="eng-body">
+          <div class="eng-feed" data-eng-feed></div>
+          <div class="eng-btnrow">
+            <button class="eng-btn" type="button" data-eng-run disabled>엔진 실행　→</button>
+            <button class="eng-btn ghost" type="button" data-eng-seed>샘플 40건 주입</button>
+            <button class="eng-btn ghost" type="button" data-eng-clear>초기화</button>
+            <button class="eng-btn ghost" type="button" data-eng-save disabled>로그 저장 (.txt)</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="eng-panel" style="margin-top:20px">
+        <header>
+          <h2>02 · CONSOLE — 처리 로그</h2>
+          <span class="meta">stdout</span>
+        </header>
+        <div class="eng-console" data-eng-console role="log" aria-live="polite" aria-label="엔진 처리 로그"></div>
+      </section>
+    </div>
+
+    <!-- ===== 오른쪽: 파이프라인 + 결과 + 대응표 ===== -->
+    <div>
+      <section class="eng-panel">
+        <header>
+          <h2>PIPELINE</h2>
+          <span class="meta">6 stages</span>
+        </header>
+        <div class="eng-body">
+          <div class="eng-pipe" data-eng-pipe></div>
+        </div>
+      </section>
+
+      <section class="eng-panel" style="margin-top:20px" data-eng-out hidden>
+        <header>
+          <h2>OUTPUT — 도출 결과</h2>
+          <span class="meta">inference</span>
+        </header>
+        <div class="eng-body">
+          <div class="eng-out">
+            <div class="eng-out-row"><b>SIGNAL</b><span data-out-signal></span></div>
+            <div class="eng-out-row"><b>ACTION</b><span data-out-action></span></div>
+            <div class="eng-out-row"><b>VERDICT</b><span data-out-verdict></span></div>
+            <div class="eng-out-row"><b>WHY</b><span data-out-reason></span></div>
+            <div class="eng-out-row"><b>BASIS</b><span data-out-basis></span></div>
+            <div class="eng-out-row"><b>RANK</b><span><span class="eng-bars" data-eng-bars></span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="eng-panel" style="margin-top:20px">
+        <header>
+          <h2>CLAIM CHART — 청구항 대응표</h2>
+          <span class="meta">10-2837572</span>
+        </header>
+        <div class="eng-body" style="overflow-x:auto">
+          <table class="eng-map" data-eng-map></table>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="eng-note">
+    <b>이 화면에 대하여</b><br>
+    · 반응 데이터는 <b>이 브라우저 안에서만</b> 처리되며 서버로 전송되거나 저장되지 않습니다. 새로고침하면 사라집니다.<br>
+    · <b>[샘플 40건 주입]</b> 으로 만든 이벤트는 내부적으로 <code>synthetic</code> 으로 표시되며,
+      로그와 결과의 BASIS 줄에 <b>샘플 건수가 실제 입력과 분리되어 표기</b>됩니다. 실적 데이터가 아닙니다.<br>
+    · 반응 유형별 가중치(조회 1 · 완주 3 · 좋아요 4 · 저장 6 · 댓글 7 · 공유 8)는
+      <b>행동 비용이 클수록 선호 신호가 강하다</b>는 가정에 따른 초기값입니다.
+      실서비스 데이터가 쌓이면 회귀로 학습한 값으로 교체합니다.<br>
+    · 신호 추출은 TF-IDF(<code>signal = tf × ln(N/df)</code>)를 사용합니다.
+      많은 콘텐츠가 공통으로 가진 흔한 태그의 가중치를 낮춰, 특정 반응만의 변별력을 남기기 위한 것입니다.<br>
+    · <b>[로그 저장]</b> 버튼으로 실행 기록을 텍스트 파일로 내려받아 자료에 첨부할 수 있습니다.
+      이 페이지는 인쇄용 스타일도 포함하고 있어 <b>Ctrl/⌘ + P</b> 로 바로 출력됩니다.
+  </div>
+
+</main>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
+      <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+      <div>문의 <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="en/index.html" hreflang="en" lang="en">ENGLISH</a>
+      </div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<nav class="sitemenu" id="sitemenu" aria-label="모바일 메뉴" hidden><a href="index.html"><span>HOME</span><span class="ko">홈</span></a><a href="about.html"><span>COMPANY</span><span class="ko">회사소개</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">캐릭터</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">기술</span></a><a href="ai.html"><span>AI LAB</span><span class="ko">AI 랩</span></a><a aria-current="page" href="engine.html"><span>ENGINE LOG</span><span class="ko">엔진 로그</span></a><a href="app.html"><span>APP</span><span class="ko">앱 목업</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">콘텐츠</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">커뮤니티</span></a><a href="goods.html"><span>SHOP</span><span class="ko">굿즈샵</span></a><a href="games/index.html"><span>ARCADE</span><span class="ko">아케이드</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="en/index.html" hreflang="en" lang="en">ENGLISH</a></div></nav>
+
+<script src="assets/engine.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

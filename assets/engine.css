@@ -1,0 +1,198 @@
+/* ============================================================
+   BLACKHOLEMAN BROS — ENGINE LOG (특허 10-2837572 실시 화면)
+   실사·시연용. 파이프라인 각 단계의 실제 연산 과정을 로그로 노출합니다.
+   ============================================================ */
+
+:root {
+  --eng-bg: #02040a;
+  --eng-panel: rgba(255,255,255,.035);
+  --eng-line: rgba(255,255,255,.10);
+  --eng-muted: rgba(255,255,255,.56);
+  --eng-faint: rgba(255,255,255,.34);
+  --eng-blue: #49a7ff;
+  --eng-green: #3ddc97;
+  --eng-amber: #ffb547;
+  --eng-red: #ff6b6b;
+  --eng-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.eng-wrap { padding: 62px 4vw 110px; max-width: 1320px; margin: 0 auto; }
+
+/* ---------- 헤드 ---------- */
+.eng-head { border-bottom: 1px solid var(--eng-line); padding-bottom: 30px; margin-bottom: 34px; }
+.eng-head .label { font-size: 11px; letter-spacing: .2em; color: var(--eng-blue); font-weight: 850; }
+.eng-head h1 { font-size: clamp(28px, 5vw, 46px); font-weight: 900; letter-spacing: -.02em; margin: 12px 0 14px; line-height: 1.1; }
+.eng-head p { color: var(--eng-muted); font-size: 14px; line-height: 1.9; margin: 0; max-width: 720px; }
+
+.eng-patent {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 20px; padding: 10px 16px; border: 1px solid rgba(73,167,255,.42);
+  border-radius: 999px; background: rgba(73,167,255,.09);
+  font-size: 12px; font-weight: 700; letter-spacing: .02em;
+}
+.eng-patent b { color: var(--eng-blue); font-family: var(--eng-mono); letter-spacing: .04em; }
+
+/* 미매핑 경고 배너 */
+.eng-todo {
+  margin-top: 22px; padding: 16px 18px; border-radius: 12px;
+  border: 1px solid rgba(255,181,71,.38); background: rgba(255,181,71,.08);
+  font-size: 13px; line-height: 1.85; color: rgba(255,255,255,.82);
+}
+.eng-todo b { color: var(--eng-amber); }
+.eng-todo code {
+  font-family: var(--eng-mono); font-size: 12px; padding: 2px 6px;
+  border-radius: 4px; background: rgba(255,255,255,.09);
+}
+
+/* ---------- 2단 레이아웃 ---------- */
+.eng-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 26px; align-items: start; }
+.eng-grid > * { min-width: 0; }
+
+/* ---------- 패널 공통 ---------- */
+.eng-panel { border: 1px solid var(--eng-line); border-radius: 16px; background: var(--eng-panel); overflow: hidden; }
+.eng-panel > header {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 14px 18px; border-bottom: 1px solid var(--eng-line); background: rgba(255,255,255,.02);
+  height: auto; position: static; backdrop-filter: none;
+}
+.eng-panel > header h2 { font-size: 12px; font-weight: 850; letter-spacing: .16em; margin: 0; }
+.eng-panel > header .meta { font-family: var(--eng-mono); font-size: 11px; color: var(--eng-faint); }
+.eng-body { padding: 18px; }
+
+/* ---------- 입력(반응 수집) ---------- */
+.eng-feed { display: grid; gap: 10px; }
+.eng-item {
+  display: grid; grid-template-columns: 46px minmax(0,1fr) auto; gap: 12px; align-items: center;
+  padding: 10px 12px; border: 1px solid var(--eng-line); border-radius: 12px;
+  background: rgba(255,255,255,.02);
+}
+.eng-item img { width: 46px; height: 46px; border-radius: 10px; object-fit: cover; background: rgba(255,255,255,.05); }
+.eng-item .t { font-size: 13px; font-weight: 750; line-height: 1.4; }
+.eng-item .tags { font-size: 10.5px; color: var(--eng-faint); margin-top: 4px; font-family: var(--eng-mono); letter-spacing: .02em; }
+.eng-acts { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+.eng-act {
+  font: inherit; font-size: 11px; font-weight: 700; cursor: pointer;
+  padding: 6px 10px; border-radius: 8px; color: rgba(255,255,255,.72);
+  border: 1px solid var(--eng-line); background: transparent; transition: .15s;
+  white-space: nowrap;
+}
+.eng-act:hover { border-color: var(--eng-blue); color: #fff; background: rgba(73,167,255,.12); }
+.eng-act .w { color: var(--eng-faint); font-family: var(--eng-mono); font-size: 10px; margin-left: 3px; }
+
+/* ---------- 버튼 ---------- */
+.eng-btnrow { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.eng-btn {
+  font: inherit; font-size: 13px; font-weight: 800; cursor: pointer;
+  padding: 12px 20px; border-radius: 10px; border: 1px solid var(--eng-blue);
+  background: var(--eng-blue); color: #04121f; transition: .15s;
+}
+.eng-btn:hover { filter: brightness(1.1); }
+.eng-btn[disabled] { opacity: .45; cursor: not-allowed; filter: none; }
+.eng-btn.ghost { background: transparent; color: #fff; border-color: var(--eng-line); }
+.eng-btn.ghost:hover { border-color: var(--eng-blue); background: rgba(73,167,255,.10); }
+
+/* ---------- 파이프라인 ---------- */
+.eng-pipe { display: grid; gap: 8px; }
+.eng-stage {
+  display: grid; grid-template-columns: 26px minmax(0,1fr) auto; gap: 12px; align-items: center;
+  padding: 11px 13px; border: 1px solid var(--eng-line); border-radius: 11px;
+  background: rgba(255,255,255,.02); transition: .2s;
+}
+.eng-stage .dot {
+  width: 9px; height: 9px; border-radius: 50%; margin: 0 auto;
+  background: rgba(255,255,255,.18); transition: .2s;
+}
+.eng-stage .nm { font-size: 12.5px; font-weight: 750; }
+.eng-stage .cl {
+  font-size: 10.5px; font-family: var(--eng-mono); margin-top: 3px;
+  color: var(--eng-faint); letter-spacing: .02em;
+}
+.eng-stage .cl.unset { color: var(--eng-amber); }
+.eng-stage .ms { font-family: var(--eng-mono); font-size: 11px; color: var(--eng-faint); }
+
+.eng-stage.run { border-color: rgba(73,167,255,.55); background: rgba(73,167,255,.08); }
+.eng-stage.run .dot { background: var(--eng-blue); box-shadow: 0 0 0 4px rgba(73,167,255,.20); }
+.eng-stage.done .dot { background: var(--eng-green); }
+.eng-stage.done .ms { color: var(--eng-green); }
+
+/* ---------- 로그 콘솔 ---------- */
+.eng-console {
+  font-family: var(--eng-mono); font-size: 11.5px; line-height: 1.75;
+  background: #010307; border-top: 1px solid var(--eng-line);
+  padding: 14px 16px; height: 380px; overflow-y: auto; overflow-x: auto;
+  white-space: pre; -webkit-overflow-scrolling: touch;
+}
+.eng-console:empty::before { content: "대기 중 — [엔진 실행] 을 누르면 처리 과정이 여기에 기록됩니다."; color: var(--eng-faint); white-space: pre-wrap; }
+.eng-line { display: block; }
+.eng-line .ts { color: rgba(255,255,255,.26); }
+.eng-line .lv { font-weight: 700; }
+.eng-line.info  .lv { color: var(--eng-blue); }
+.eng-line.ok    .lv { color: var(--eng-green); }
+.eng-line.warn  .lv { color: var(--eng-amber); }
+.eng-line.drop  .lv { color: var(--eng-red); }
+.eng-line.calc  .lv { color: #b48cff; }
+.eng-line .msg { color: rgba(255,255,255,.86); }
+.eng-line .num { color: #ffd97d; }
+.eng-line.head { color: var(--eng-blue); font-weight: 700; margin-top: 6px; }
+
+/* ---------- 결과 ---------- */
+.eng-out { display: grid; gap: 12px; }
+.eng-out-row {
+  display: grid; grid-template-columns: 78px minmax(0,1fr); gap: 12px; align-items: baseline;
+  padding-bottom: 12px; border-bottom: 1px dashed var(--eng-line);
+}
+.eng-out-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.eng-out-row b { font-size: 10.5px; letter-spacing: .14em; color: var(--eng-blue); font-family: var(--eng-mono); }
+.eng-out-row span { font-size: 13.5px; line-height: 1.75; }
+
+.eng-bars { display: grid; gap: 7px; margin-top: 4px; }
+.eng-bar { display: grid; grid-template-columns: 62px minmax(0,1fr) 52px; gap: 10px; align-items: center; font-size: 11.5px; }
+.eng-bar .k { font-weight: 700; }
+.eng-bar .track { height: 7px; border-radius: 99px; background: rgba(255,255,255,.07); overflow: hidden; }
+.eng-bar .fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #2f7fd4, var(--eng-blue)); width: 0; transition: width .5s cubic-bezier(.2,.8,.2,1); }
+.eng-bar .v { font-family: var(--eng-mono); color: var(--eng-faint); text-align: right; }
+.eng-bar:first-child .fill { background: linear-gradient(90deg, #2aa87a, var(--eng-green)); }
+
+/* ---------- 청구항 대응표 ---------- */
+.eng-map { width: 100%; border-collapse: collapse; font-size: 12px; }
+.eng-map th, .eng-map td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--eng-line); vertical-align: top; line-height: 1.65; }
+.eng-map th { font-size: 10px; letter-spacing: .12em; color: var(--eng-faint); font-weight: 800; white-space: nowrap; }
+.eng-map th:nth-child(1) { width: 58px; }
+.eng-map th:nth-child(3) { width: 84px; }
+.eng-map td.c { font-family: var(--eng-mono); font-size: 11px; color: var(--eng-blue); white-space: nowrap; }
+.eng-map td.c.unset { color: var(--eng-amber); }
+.eng-map td.f { font-family: var(--eng-mono); font-size: 10.5px; color: var(--eng-faint); }
+
+/* ---------- 고지 ---------- */
+.eng-note {
+  margin-top: 26px; padding: 15px 17px; border-radius: 12px;
+  border: 1px solid var(--eng-line); background: rgba(255,255,255,.025);
+  font-size: 12px; line-height: 1.9; color: var(--eng-muted);
+}
+.eng-note b { color: rgba(255,255,255,.86); }
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 1040px) {
+  .eng-grid { grid-template-columns: minmax(0, 1fr); }
+  .eng-console { height: 300px; }
+}
+@media (max-width: 560px) {
+  .eng-wrap { padding: 44px 5vw 80px; }
+  .eng-item { grid-template-columns: 40px minmax(0,1fr); }
+  .eng-item img { width: 40px; height: 40px; }
+  .eng-acts { grid-column: 1 / -1; justify-content: flex-start; }
+  .eng-out-row { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  .eng-console { font-size: 10.5px; height: 260px; }
+}
+
+/* ---------- 인쇄 (실사 자료로 출력) ---------- */
+@media print {
+  header, footer, .eng-btnrow, .skip-link, .navtoggle { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .eng-wrap { padding: 0; max-width: none; }
+  .eng-grid { grid-template-columns: 1fr; }
+  .eng-panel { border-color: #ccc; background: #fff; break-inside: avoid; }
+  .eng-console { background: #fff; color: #000; height: auto; border-color: #ccc; white-space: pre-wrap; }
+  .eng-line .msg, .eng-line .num { color: #000; }
+  .eng-map td.c { color: #000; }
+}
