@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>반응 주입 연재기</title>
+<meta name="description" content="독자 반응이 다음 회차의 진화 방향이 되고, 그 방향이 곧바로 연재 집필로 이어지는 블랙홀맨브로스 Character Evolution Engine 목업">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A1A33">
+<style>
+:root{
+  --bg:#F2F4F7; --surface:#FFFFFF; --surface2:#F8FAFC; --surface3:#EEF2F7;
+  --line:#E2E7EF; --line2:#CBD4E1; --line3:#AEBACB;
+  --ink:#0F172A; --ink2:#475467; --ink3:#8A94A6; --ink4:#B0B8C6;
+  --navy:#0A1A33; --navy2:#12294D; --navy3:#1D3E6E;
+  --brand:#0B3A6F; --brand2:#1256A0; --brandsoft:#EAF1FA;
+  --gold:#9E7B24; --gold2:#C8A24A; --goldsoft:#FBF5E6;
+  --pos:#0E7C5A; --possoft:#E7F5F0;
+  --neg:#B42318; --negsoft:#FDEDEA;
+  --warn:#B54708; --warnsoft:#FEF3E6;
+  --viol:#6941C6; --violsoft:#F1ECFB;
+  --r:6px; --r2:10px;
+  --sh1:0 1px 2px rgba(16,24,40,.05);
+  --mono:'SF Mono',ui-monospace,'Cascadia Mono','Consolas','D2Coding',monospace;
+  --serif:'Noto Serif KR','Nanum Myeongjo','Batang',serif;
+  color-scheme:light;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1220; --surface:#111C2F; --surface2:#16233B; --surface3:#1E2C48;
+    --line:#22314F; --line2:#2F4268; --line3:#3E5480;
+    --ink:#E9EFF9; --ink2:#AAB9D1; --ink3:#7F90AD; --ink4:#5F6F8B;
+    --navy:#081020; --navy2:#122A4A; --navy3:#1D3E6E;
+    --brand:#4F90DC; --brand2:#74A9E8; --brandsoft:#17283F;
+    --gold:#DCB864; --gold2:#C8A24A; --goldsoft:#2B2415;
+    --pos:#3FC194; --possoft:#0F3127; --neg:#F2857A; --negsoft:#351D1A;
+    --warn:#E39B45; --warnsoft:#352610; --viol:#B69CF0; --violsoft:#241C3A;
+    --sh1:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1220; --surface:#111C2F; --surface2:#16233B; --surface3:#1E2C48;
+  --line:#22314F; --line2:#2F4268; --line3:#3E5480;
+  --ink:#E9EFF9; --ink2:#AAB9D1; --ink3:#7F90AD; --ink4:#5F6F8B;
+  --navy:#081020; --navy2:#122A4A; --navy3:#1D3E6E;
+  --brand:#4F90DC; --brand2:#74A9E8; --brandsoft:#17283F;
+  --gold:#DCB864; --gold2:#C8A24A; --goldsoft:#2B2415;
+  --pos:#3FC194; --possoft:#0F3127; --neg:#F2857A; --negsoft:#351D1A;
+  --warn:#E39B45; --warnsoft:#352610; --viol:#B69CF0; --violsoft:#241C3A;
+  --sh1:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic','맑은 고딕',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased;font-feature-settings:'tnum' 1}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* 상단 */
+.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+.top .in{display:flex;align-items:center;gap:14px;padding:10px 18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14px}
+.brand i{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#C8A24A,#4F90DC)}
+.brand small{font-weight:500;color:#AAB9D1;font-size:11px;margin-left:4px}
+.ep{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:11.5px;color:#AAB9D1;flex-wrap:wrap}
+.ep b{color:#fff}
+.pill{padding:3px 9px;border-radius:99px;background:rgba(255,255,255,.08);font-size:10.5px;font-family:var(--mono);color:#DCE6F5}
+.loop{display:flex;padding:0 18px 10px;overflow-x:auto;scrollbar-width:none}
+.loop::-webkit-scrollbar{display:none}
+.step{display:flex;align-items:center;gap:7px;padding:6px 11px;border-radius:99px;font-size:11px;color:#AAB9D1;white-space:nowrap}
+.step b{width:17px;height:17px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:10px;font-family:var(--mono)}
+.step .tag{font-size:9px;font-family:var(--mono);color:#C8A24A}
+.step.on{background:rgba(255,255,255,.12);color:#fff}
+.step.on b{background:#C8A24A;color:#0A1A33;font-weight:800}
+.step+.step::before{content:"→";color:#3E5480;margin-right:6px}
+
+/* 레이아웃 */
+.wrap{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 92px)}
+.rail{border-right:1px solid var(--line);background:var(--surface);padding:14px 10px;position:sticky;top:92px;height:calc(100vh - 92px);overflow:auto}
+.rgrp{font-size:9.5px;font-weight:750;letter-spacing:1.6px;color:var(--ink3);padding:6px 10px}
+.rlink{display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:9px 10px;border-radius:var(--r);font-size:12.5px;font-weight:600;color:var(--ink2)}
+.rlink:hover{background:var(--surface3)}
+.rlink.on{background:var(--brandsoft);color:var(--brand)}
+.rlink .n{width:18px;height:18px;border-radius:5px;background:var(--surface3);display:grid;place-items:center;font-size:10px;font-family:var(--mono);color:var(--ink3)}
+.rlink.on .n{background:var(--brand);color:#fff}
+.rlink .pt{margin-left:auto;font-size:9px;font-family:var(--mono);color:var(--gold)}
+.rsrc{margin-top:14px;padding:10px;border-top:1px solid var(--line);font-size:10px;color:var(--ink3);line-height:1.7}
+.rsrc b{display:block;color:var(--ink2);font-size:10px;letter-spacing:.4px;margin-bottom:2px}
+.main{padding:22px 24px 90px;max-width:1180px;width:100%}
+.view{display:none}.view.on{display:block}
+.pagehd{margin-bottom:16px}
+.pagehd h1{font-size:19px;font-weight:800;letter-spacing:-.2px}
+.pagehd p{font-size:12px;color:var(--ink2);margin-top:4px;max-width:780px}
+.sec{font-size:9.5px;font-weight:750;letter-spacing:1.6px;color:var(--ink3);text-transform:uppercase;margin:18px 0 8px}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--sh1);padding:14px 16px}
+.card h3{font-size:12.5px;font-weight:750;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card h3 .src{margin-left:auto;font-size:9.5px;font-family:var(--mono);color:var(--ink3);font-weight:500}
+.kpi b{display:block;font-size:22px;font-weight:800;letter-spacing:-.5px;font-family:var(--mono)}
+.kpi span{font-size:11px;color:var(--ink3)}
+.kpi .d{font-size:11px;font-family:var(--mono);margin-left:6px}
+.up{color:var(--pos)}.dn{color:var(--neg)}.wn{color:var(--warn)}
+.note{font-size:11px;color:var(--ink3);margin-top:8px;line-height:1.55}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:99px;font-size:10.5px;font-weight:600;background:var(--surface3);color:var(--ink2);margin:2px 4px 2px 0}
+.chip.b{background:var(--brandsoft);color:var(--brand)}.chip.g{background:var(--goldsoft);color:var(--gold)}
+.chip.p{background:var(--possoft);color:var(--pos)}.chip.n{background:var(--negsoft);color:var(--neg)}
+.chip.v{background:var(--violsoft);color:var(--viol)}.chip.w{background:var(--warnsoft);color:var(--warn)}
+.chip.x{text-decoration:line-through;opacity:.55}
+
+/* 차트 */
+.bars{display:flex;align-items:flex-end;gap:5px;height:96px;padding-top:6px}
+.bars i{flex:1;background:var(--brand2);border-radius:3px 3px 0 0;position:relative;min-width:8px;opacity:.85}
+.bars i.hot{background:var(--neg)}
+.bars i::after{content:attr(data-l);position:absolute;top:100%;left:0;right:0;text-align:center;font-size:9px;color:var(--ink3);margin-top:3px;font-family:var(--mono)}
+.hrow{display:grid;grid-template-columns:64px 1fr 46px;gap:8px;align-items:center;font-size:11.5px;margin:6px 0}
+.hrow .tr{height:9px;background:var(--surface3);border-radius:99px;overflow:hidden}
+.hrow .tr i{display:block;height:100%;background:var(--brand2);border-radius:99px}
+.hrow .tr i.g{background:var(--gold2)}
+.hrow .v{text-align:right;font-family:var(--mono);color:var(--ink2)}
+
+/* 특허 4단계 파이프 */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pipe .st{background:var(--surface);border:1px solid var(--line);border-radius:var(--r2);padding:12px 14px;position:relative}
+.pipe .st .no{font-size:9.5px;font-family:var(--mono);color:var(--gold);letter-spacing:.5px}
+.pipe .st h4{font-size:12.5px;font-weight:800;margin:3px 0 6px}
+.pipe .st ul{list-style:none;font-size:11px;color:var(--ink2);line-height:1.6}
+.pipe .st li::before{content:"·";margin-right:5px;color:var(--ink4)}
+.pipe .st+.st::before{content:"→";position:absolute;left:-12px;top:14px;color:var(--ink4);font-size:14px}
+.pipe .st.core{border-color:var(--gold2);background:linear-gradient(180deg,var(--goldsoft),var(--surface))}
+
+/* 제안 카드 */
+.prop{position:relative;border:1.5px solid var(--line);transition:border-color .15s,box-shadow .15s}
+.prop.pick{border-color:var(--brand);box-shadow:0 0 0 3px var(--brandsoft)}
+.prop .lab{font-size:10px;font-family:var(--mono);color:var(--gold);letter-spacing:.5px}
+.prop h4{font-size:14.5px;font-weight:800;margin:4px 0 8px;letter-spacing:-.2px}
+.prop .why{font-size:11.5px;color:var(--ink2);line-height:1.55}
+.prop .why b{color:var(--ink)}
+.prop .est{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:10px 0;font-size:11px}
+.prop .est div{background:var(--surface2);border-radius:var(--r);padding:6px 8px}
+.prop .est b{display:block;font-family:var(--mono);font-size:13px}
+.prop .est span{color:var(--ink3);font-size:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:var(--r);font-size:12px;font-weight:700;border:1px solid var(--line2);background:var(--surface)}
+.btn.pri{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.pri:hover{background:var(--brand2)}
+.stamp{position:absolute;top:12px;right:12px;font-size:9.5px;font-family:var(--mono);padding:3px 8px;border-radius:99px;background:var(--brandsoft);color:var(--brand);font-weight:700}
+
+/* 기획 */
+.ol{list-style:none}
+.ol li{display:grid;grid-template-columns:40px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:11.5px}
+.ol li:last-child{border:0}
+.ol .k{font-family:var(--mono);color:var(--ink3);font-size:10.5px;padding-top:2px}
+.ol b{display:block;font-size:12px;margin-bottom:2px}
+.ol .m{color:var(--ink2)}
+.cmd{display:inline-block;font-family:var(--mono);font-size:10.5px;background:var(--navy);color:#DCE6F5;padding:2px 8px;border-radius:4px}
+
+/* 집필 스테퍼 */
+.stp{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:12px}
+.stp div{padding:8px 6px;border-radius:var(--r);background:var(--surface2);border:1px solid var(--line);font-size:10.5px;text-align:center;color:var(--ink3)}
+.stp div b{display:block;font-family:var(--mono);font-size:9.5px;color:var(--ink4);margin-bottom:2px}
+.stp div.done{background:var(--possoft);border-color:transparent;color:var(--pos)}
+.stp div.done b{color:var(--pos)}
+.stp div.block{background:var(--warnsoft);border-color:var(--warn);color:var(--warn)}
+.ctx{list-style:none}
+.ctx li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:11.5px;display:grid;grid-template-columns:auto 1fr;gap:8px}
+.ctx li:last-child{border:0}
+.ctx .src{font-family:var(--mono);font-size:10px;color:var(--ink3);white-space:nowrap;padding-top:2px}
+.draft{font-family:var(--serif);font-size:13.5px;line-height:1.9;color:var(--ink);background:var(--surface2);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;max-height:340px;overflow:auto}
+.draft p{margin-bottom:10px}
+.draft .ttl{font-family:inherit;font-weight:700;font-size:14px;margin-bottom:12px}
+.rev{list-style:none}
+.rev li{display:flex;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:11.5px}
+.rev .ok{color:var(--pos);font-weight:800}.rev .wn{color:var(--warn);font-weight:800}
+.facts{font-family:var(--mono);font-size:10.5px;background:var(--surface2);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;color:var(--ink2);line-height:1.7;white-space:pre-wrap}
+
+/* 기억 */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line2)}
+.tli{position:relative;margin-bottom:16px}
+.tli::before{content:"";position:absolute;left:-23px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--brand2)}
+.tli.now::before{border-color:var(--gold2);background:var(--gold2)}
+.tli .hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tli .hd b{font-size:13px}
+.tli .hd .dt{font-size:10.5px;font-family:var(--mono);color:var(--ink3)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.flow div{background:var(--surface2);border:1px solid var(--line);border-radius:var(--r);padding:8px 10px;font-size:11px}
+.flow div span{display:block;font-size:9.5px;color:var(--ink3);font-family:var(--mono);margin-bottom:3px}
+.callout{border-left:3px solid var(--gold2);background:var(--goldsoft);color:var(--gold);padding:10px 12px;border-radius:0 var(--r) var(--r) 0;font-size:11.5px;margin-top:10px;line-height:1.55}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{text-align:left;font-weight:600;color:var(--ink3);font-size:10px;padding:6px;border-bottom:1px solid var(--line)}
+td{padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+td.mono{color:var(--ink2)}
+
+.foot{border-top:1px solid var(--line);padding:16px 24px;font-size:10.5px;color:var(--ink3);line-height:1.7}
+.foot .mono{color:var(--ink2)}
+
+.mtab{display:none}
+@media(max-width:820px){
+  .wrap{grid-template-columns:1fr}.rail{display:none}.main{padding:16px 16px 90px}
+  .g2,.g3,.g4,.pipe{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.stp{grid-template-columns:repeat(3,1fr)}
+  .pipe .st+.st::before{display:none}
+  .mtab{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);z-index:30;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .mtab button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9.5px;font-weight:600;color:var(--ink3);padding:4px 0}
+  .mtab button b{width:20px;height:20px;border-radius:6px;background:var(--surface3);display:grid;place-items:center;font-family:var(--mono);font-size:10px}
+  .mtab button.on{color:var(--brand)}.mtab button.on b{background:var(--brand);color:#fff}
+}
+@media(max-width:440px){.g2,.g3,.g4,.pipe{grid-template-columns:1fr}.top .in{padding:10px 14px}.loop{padding:0 14px 10px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="in">
+    <div class="brand"><i></i>반응 주입 연재기 <small>Character Evolution Engine · 블랙홀맨브로스</small></div>
+    <div class="ep"><span>작품</span><b>블랙홀맨 시즌 2</b><span class="pill">EP.12 배포 +3일</span><span class="pill" id="picked-pill">EP.13 방향 미정</span></div>
+  </div>
+  <div class="loop">
+    <div class="step" data-s="react"><b>1</b>배포·반응 수집</div>
+    <div class="step" data-s="evolve"><b>2</b>Noise 제거 · Signal 추출</div>
+    <div class="step" data-s="evolve"><b>3</b>진화 결정 <span class="tag">특허 10-2837572</span></div>
+    <div class="step" data-s="plan"><b>4</b>회차 기획 <span class="tag">/webnovel-plan</span></div>
+    <div class="step" data-s="write"><b>5</b>집필·검수 <span class="tag">/webnovel-write</span></div>
+    <div class="step" data-s="memory"><b>6</b>진화의 기억</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="rail" aria-label="주 메뉴">
+    <div class="rgrp">EVOLUTION LOOP</div>
+    <button class="rlink on" data-view="react"><span class="n">1</span>반응 보드</button>
+    <button class="rlink" data-view="evolve"><span class="n">3</span>진화 결정 <span class="pt">특허</span></button>
+    <button class="rlink" data-view="plan"><span class="n">4</span>회차 기획 <span class="pt">plan</span></button>
+    <button class="rlink" data-view="write"><span class="n">5</span>집필·검수 <span class="pt">write</span></button>
+    <button class="rlink" data-view="memory"><span class="n">6</span>진화의 기억</button>
+    <div class="rsrc">
+      <b>구성 요소</b>
+      반응 해석 — 댓글 LLM 분석<br>
+      결정 — <span class="mono">특허 10-2837572</span><br>
+      기획·집필·기억 — 연재 집필 시스템(설정집·상태·챕터 커밋)
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- ═══ 1 반응 ═══ -->
+    <section class="view on" data-view="react">
+      <div class="pagehd"><h1>반응 보드 — EP.12</h1><p>배포 후 72시간. 조회·완독·댓글을 컷과 캐릭터 단위로 해석합니다. 이 화면의 신호가 다음 단계에서 진화 결정의 재료가 됩니다.</p></div>
+      <div class="grid g4">
+        <div class="card kpi"><b>184,200<span class="d up">+9.4%</span></b><span>조회</span></div>
+        <div class="card kpi"><b>61%<span class="d dn">−7p</span></b><span>완독률</span></div>
+        <div class="card kpi"><b>4,212<span class="d up">+31%</span></b><span>댓글</span></div>
+        <div class="card kpi"><b>74%<span class="d up">+3p</span></b><span>긍정 비율</span></div>
+      </div>
+      <div class="grid g2" style="margin-top:12px">
+        <div class="card">
+          <h3>컷별 이탈 <span class="src">완독 이탈 지점</span></h3>
+          <div class="bars">
+            <i style="height:12%" data-l="1"></i><i style="height:18%" data-l="2"></i><i class="hot" style="height:88%" data-l="3"></i><i style="height:30%" data-l="4"></i><i style="height:22%" data-l="5"></i><i style="height:26%" data-l="6"></i><i style="height:34%" data-l="7"></i><i style="height:20%" data-l="8"></i><i style="height:16%" data-l="9"></i><i style="height:40%" data-l="10"></i><i style="height:24%" data-l="11"></i><i style="height:14%" data-l="12"></i>
+          </div>
+          <p class="note" style="margin-top:18px"><span class="chip n">신호</span> 3컷(사무실 설명 장면) 이탈이 최근 3화 평균의 <b>2.6배</b></p>
+        </div>
+        <div class="card">
+          <h3>캐릭터별 언급·감성 <span class="src">댓글 4,212건 · LLM 분류</span></h3>
+          <div class="hrow"><span>홀독</span><div class="tr"><i class="g" style="width:31%"></i></div><span class="v">31%</span></div>
+          <div class="hrow"><span>블랙홀맨</span><div class="tr"><i style="width:28%"></i></div><span class="v">28%</span></div>
+          <div class="hrow"><span>T-Man</span><div class="tr"><i style="width:17%"></i></div><span class="v">17%</span></div>
+          <div class="hrow"><span>홀캣</span><div class="tr"><i style="width:9%"></i></div><span class="v">9%</span></div>
+          <div class="hrow"><span>T-Bird</span><div class="tr"><i style="width:6%"></i></div><span class="v">6%</span></div>
+          <p class="note"><span class="chip g">신호</span> 홀독 언급 <b>31% (+12p)</b>, 긍정 78% — 주인공을 처음 넘어섬</p>
+        </div>
+      </div>
+      <div class="sec">댓글 클러스터</div>
+      <div class="grid g3">
+        <div class="card"><h3>"홀독 더 보고 싶다" <span class="src">1,104건</span></h3><p class="note">홀독 단독 장면 요청. 8화 옥상 장면 언급 반복.</p></div>
+        <div class="card"><h3>"초반이 늘어진다" <span class="src">612건</span></h3><p class="note">3컷 사무실 설명이 길다는 반응. 이탈 지점과 일치.</p></div>
+        <div class="card"><h3>"홀캣은 언제 나와?" <span class="src">287건</span></h3><p class="note">티저에 나온 홀캣 등장 시점 문의. 기대 신호이나 규모 작음.</p></div>
+      </div>
+      <div style="margin-top:14px"><button class="btn pri" data-go="evolve">신호를 진화 엔진으로 →</button></div>
+    </section>
+
+    <!-- ═══ 2·3 진화 결정 (특허) ═══ -->
+    <section class="view" data-view="evolve">
+      <div class="pagehd"><h1>진화 결정 — EP.13 방향</h1><p>반응 데이터가 최종 진화 제안으로 바뀌는 4단계. 등록특허 10-2837572의 핵심 엔진이 수행하는 구간입니다.</p></div>
+      <div class="pipe">
+        <div class="st"><div class="no">STEP 1</div><h4>Noise 제거</h4><ul><li>도배·봇 계정 218건 제외</li><li>회차 무관 잡담 1,090건 제외</li><li>남은 유효 반응 <b>2,904건</b></li></ul></div>
+        <div class="st"><div class="no">STEP 2</div><h4>Signal 추출</h4><ul><li>홀독 언급 +12p · 긍정 78%</li><li>3컷 이탈 ×2.6</li><li>홀캣 등장 문의 287건</li></ul></div>
+        <div class="st core"><div class="no">STEP 3 · 특허</div><h4>진화 방향 해석</h4><ul><li>"특정 캐릭터 장면 반응↑ → 비중 확대" 규칙 적용</li><li>구조 이탈 → 설명 축소</li><li>기대 신호 규모 미달 → 보류 후보</li></ul></div>
+        <div class="st"><div class="no">STEP 4</div><h4>Evolution Recommendation</h4><ul><li>제안 3안 생성</li><li>각 안에 근거·예상 반응 부착</li><li>채택 시 기획 단계로 전달</li></ul></div>
+      </div>
+      <div class="sec">Evolution Recommendation</div>
+      <div class="grid g3" id="props"></div>
+      <p class="note" style="margin-top:12px">안을 고르면 그 방향이 그대로 다음 화면 <span class="cmd">/webnovel-plan</span>의 입력이 됩니다.</p>
+    </section>
+
+    <!-- ═══ 4 회차 기획 ═══ -->
+    <section class="view" data-view="plan">
+      <div class="pagehd"><h1>회차 기획 — <span id="pl-title">방향을 먼저 정하세요</span></h1><p>진화 결정이 <span class="cmd">/webnovel-plan 13</span>의 입력이 되어 회차 아웃라인·복선·설정 제약이 생성됩니다. 집필 시스템은 반응을 모르고, 엔진은 글을 쓰지 않습니다 — 둘 사이의 인터페이스가 이 화면입니다.</p></div>
+      <div id="pl-empty" class="card"><p class="note">진화 결정 화면에서 안을 하나 고르면 여기에 기획이 나타납니다.</p></div>
+      <div id="pl-body" style="display:none">
+        <div class="grid g2">
+          <div class="card">
+            <h3>EP.13 아웃라인 <span class="src">대강/13화.md</span></h3>
+            <ul class="ol" id="pl-ol"></ul>
+          </div>
+          <div>
+            <div class="card">
+              <h3>설정 제약 <span class="src">설정집 조회 · /webnovel-query</span></h3>
+              <ul class="rev" id="pl-cons"></ul>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <h3>복선 트래커 <span class="src">state.json</span></h3>
+              <ul class="rev" id="pl-fs"></ul>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn pri" data-go="write">이 아웃라인으로 집필 →</button><button class="btn" data-go="evolve">방향 다시 고르기</button></div>
+      </div>
+    </section>
+
+    <!-- ═══ 5 집필·검수 ═══ -->
+    <section class="view" data-view="write">
+      <div class="pagehd"><h1>집필·검수 — <span id="wr-title">방향을 먼저 정하세요</span></h1><p><span class="cmd">/webnovel-write 13</span> 파이프라인. 설정집·장기기억에서 문맥을 꺼내 초안을 쓰고, 검수에서 설정 충돌이 나오면 진행이 멈춥니다. 통과하면 새로 생긴 사실을 기록하고 커밋합니다.</p></div>
+      <div id="wr-empty" class="card"><p class="note">진화 결정 화면에서 안을 고르면 집필 파이프라인이 나타납니다.</p></div>
+      <div id="wr-body" style="display:none">
+        <div class="stp">
+          <div class="done"><b>1</b>Preflight</div><div class="done"><b>2</b>문맥 주입</div><div class="done"><b>3</b>초안</div><div class="done" id="wr-rev"><b>4</b>검수</div><div class="done"><b>5</b>사실 기록</div><div class="done"><b>6</b>커밋</div>
+        </div>
+        <div class="grid g2">
+          <div>
+            <div class="card">
+              <h3>문맥 주입 <span class="src">RAG · 설정집 · 장기기억</span></h3>
+              <ul class="ctx" id="wr-ctx"></ul>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <h3>검수 <span class="src">reviewer agent</span></h3>
+              <ul class="rev" id="wr-chk"></ul>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <h3>사실 기록 → 커밋 <span class="src">chapter commit</span></h3>
+              <div class="facts" id="wr-facts"></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>EP.13 초안 <span class="src">正文/13.md · 발췌</span></h3>
+            <div class="draft" id="wr-draft"></div>
+          </div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn pri" data-go="memory">배포 → 진화의 기억에 기록</button></div>
+      </div>
+    </section>
+
+    <!-- ═══ 6 진화의 기억 ═══ -->
+    <section class="view" data-view="memory">
+      <div class="pagehd"><h1>진화의 기억</h1><p>회차마다 "신호 → 결정 → 결과"가 불변 기록으로 남습니다. 엔진은 다음 결정을 이 기록 위에서 내리고, 집필 시스템은 같은 기록에서 설정을 꺼냅니다.</p></div>
+      <div class="card">
+        <div class="tl">
+          <div class="tli"><div class="hd"><b>EP.10</b><span class="dt">2026-07-21</span><span class="chip b">T-Man 비중 확대</span></div>
+            <div class="flow"><div><span>신호</span>T-Man 언급 급증 +19p</div><div><span>결정</span>T-Man 서브플롯 2장면 추가</div><div><span>결과</span><b class="up">조회 +14%</b> · 완독 68%</div><div><span>기록</span>commit c10 · 사실 6건</div></div></div>
+          <div class="tli"><div class="hd"><b>EP.11</b><span class="dt">2026-08-04</span><span class="chip b">세계관 확장 (지하 도시)</span></div>
+            <div class="flow"><div><span>신호</span>"배경 궁금" 클러스터 840건</div><div><span>결정</span>지하 도시 첫 공개</div><div><span>결과</span>조회 +6% · <b class="dn">완독 −4p</b></div><div><span>기록</span>commit c11 · 신규 설정 4건</div></div>
+            <p class="note">설명 분량이 늘자 완독이 빠짐 — 12화의 3컷 이탈로 이어진 전조.</p></div>
+          <div class="tli"><div class="hd"><b>EP.12</b><span class="dt">2026-08-25</span><span class="chip b">홀독-홀맨 대립 심화</span></div>
+            <div class="flow"><div><span>신호</span>홀독 긍정 74% · 갈등 요청</div><div><span>결정</span>옥상 대치</div><div><span>결과</span>댓글 +31% · <b class="dn">완독 −7p</b></div><div><span>기록</span>commit c12 · 복선 2건 등록</div></div></div>
+          <div class="tli now"><div class="hd"><b>EP.13</b><span class="dt">진행 중</span><span class="chip g" id="m-pick">방향 미정</span></div>
+            <div class="flow" id="m-flow"><div><span>신호</span>홀독 31% · 3컷 이탈 · 홀캣 문의</div><div><span>결정</span>—</div><div><span>결과</span>배포 후 수집</div><div><span>기록</span>—</div></div>
+            <div class="callout">세 회차 기록이 말하는 것: <b>캐릭터 비중 확대는 맞았고, 설명이 늘면 완독이 빠진다.</b> 이 두 줄이 EP.13 결정의 가중치가 됐고, 집필 검수 기준("설명 대사 3줄 초과 시 경고")도 여기서 나왔습니다.</div></div>
+        </div>
+      </div>
+      <div class="sec">Projection Log</div>
+      <div class="card">
+        <table><thead><tr><th>시각</th><th>회차</th><th>동기화</th><th>내용</th></tr></thead><tbody id="m-log">
+          <tr><td class="mono">08-25 14:02</td><td class="mono">c12</td><td>state · 요약 · 색인</td><td>홀독 "옥상에서 홀맨에게 등을 돌림" 사실 등록 · 복선 F-07 (지하 도시 입구) 미회수</td></tr>
+          <tr><td class="mono">08-25 14:02</td><td class="mono">c12</td><td>장기기억</td><td>홀독 성향 "과묵·관찰형" 유지, "결단" 속성 +1</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="foot">
+  목업 — 수치·본문은 예시입니다. 진화 결정: <span class="mono">등록특허 10-2837572</span> · 반응 해석·집필·기억: 공개 오픈소스 구성 요소 · 주식회사 블랙홀맨브로스
+</footer>
+
+<nav class="mtab" aria-label="모바일 메뉴">
+  <button class="on" data-view="react"><b>1</b>반응</button>
+  <button data-view="evolve"><b>3</b>결정</button>
+  <button data-view="plan"><b>4</b>기획</button>
+  <button data-view="write"><b>5</b>집필</button>
+  <button data-view="memory"><b>6</b>기억</button>
+</nav>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+const PROPS=[
+ { id:"A", lab:"PROPOSAL A · 캐릭터 진화", title:"홀독 서브플롯 승격",
+   why:"홀독 언급 <b>31%(+12p)</b>, 긍정 78%, 단독 장면 요청 1,104건. 주인공을 넘어선 첫 회차 — 홀독의 축을 세울 시점.",
+   sig:["홀독 언급 +12p","긍정 78%","단독 장면 요청"], exp:{read:"+6p",cmt:"+18%",risk:"낮음"},
+   pill:"A안 · 홀독 승격",
+   ol:[["1","홀독의 골목","홀독 단독. 도시 하층을 걷다 지하 도시 입구(복선 F-07)를 발견."],["2","홀맨 사무실","홀맨이 홀독의 부재를 눈치챈다. 설명 대사 없이 행동으로."],["3","옥상","홀독과 홀맨 재대치. 12화의 '등을 돌림'을 잇는다. 군중 없음."],["4","카페","T-Man이 홀캣 소식을 한 줄 흘린다 — 14화 포석."]],
+   cons:[["ok","홀독 성향 '과묵·관찰형' — 대사 4줄 이내 유지"],["ok","지하 도시 — 11화 공개 설정만 사용, 신규 설정 0"],["wn","홀캣 언급 — 티저 계획(14화)과 1화 차이. 한 줄 암시까지만 허용"]],
+   fs:[["ok","F-07 지하 도시 입구 — 이번 화에 <b>회수 시작</b>"],["ok","F-05 홀맨의 지도 — 유지"],["wn","F-09 홀캣 티저 — 14화 회수 예정, 이번 화 암시만"]],
+   ctx:[["설정집/홀독.md","과묵·관찰형. 8화 옥상에서 홀맨의 방식에 처음 의문. 12화 등을 돌림."],["설정집/지하도시.md","11화 공개. 입구는 하층 골목 배수로 뒤. 아직 아무도 들어가지 않음."],["장기기억","홀독-홀맨 관계 지수 −2 (대립). 독자 공감 홀독 > 홀맨 (12화)."],["요약/12화","옥상 대치 후 홀독 퇴장. 홀맨은 지도를 태우려다 멈춤."]],
+   chk:[["ok","설정 충돌 없음 — 홀독 대사 3줄, 성향 유지"],["ok","타임라인 — 12화 당일 밤 → 13화 이튿날, 연속"],["ok","복선 F-07 회수 시작 기록됨"],["wn","3장면 옥상 재사용 — 12화와 구도 유사. 조명·시간대 차별화 권고 (비차단)"]],
+   facts:`+ 홀독: 지하 도시 입구 발견 (13화 1장면)\n+ 홀독: 단독 행동 시작 — '관찰'에서 '탐색'으로 속성 전이\n+ 홀맨: 홀독 부재 인지, 추적 결정\n~ F-07 지하 도시 입구: 미회수 → 회수 중\n+ 홀캣: T-Man 대사로 존재 암시 (14화 등장 예정)`,
+   draft:`<div class="ttl">13화. 배수로 뒤</div><p>골목은 비에 젖은 채 잠들어 있었다. 홀독은 가로등 아래를 지나지 않았다. 그가 걷는 쪽은 언제나 그늘이었고, 그늘은 언제나 그를 받아 주었다.</p><p>배수로 철망이 한 뼘쯤 벌어져 있었다. 어제까지는 없던 틈이었다. 홀독은 멈춰 서서 오래 바라보았다. 안쪽에서 바람이 올라왔다. 도시 아래에 또 다른 도시가 숨 쉬고 있다는 것을, 그는 그 바람으로 알았다.</p><p>"내려가 볼 거야?"</p><p>아무도 없었다. 그 목소리는 홀독 자신의 것이었다. 그는 대답하지 않았다. 대답 대신 철망을 조금 더 벌렸다.</p><p>같은 시각, 사무실. 홀맨은 지도를 펴 놓고 있었다. 태우려던 지도였다. 그는 홀독의 자리를 한 번 보았고, 다시 지도를 보았다. 그리고 외투를 집었다.</p>`,
+   memflow:["홀독 서브플롯 승격","예상 완독 +6p · 댓글 +18%","commit c13 · 사실 5건 · F-07 회수 시작"] },
+ { id:"B", lab:"PROPOSAL B · 구조 진화", title:"설명 구조 단축",
+   why:"3컷 이탈이 평균의 <b>2.6배</b>. \"초반이 늘어진다\" 612건. 11화부터 이어진 설명 과다를 행동으로 바꾼다.",
+   sig:["3컷 이탈 ×2.6","'늘어진다' 612건","11화 완독 −4p"], exp:{read:"+9p",cmt:"±0",risk:"낮음"},
+   pill:"B안 · 구조 단축",
+   ol:[["1","홀맨 사무실","설명 대사 전부 삭제. 홀맨이 지도를 태우는 행동 한 컷으로 대체."],["2","골목","홀독 추격 — 짧은 액션. 대사 없음."],["3","카페","T-Man 합류. 다음 회차 갈등을 한 줄로 예고."]],
+   cons:[["ok","삭제된 설명은 6화에서 이미 제시 — 정보 손실 없음"],["ok","홀독 운동 능력 설정과 추격 장면 일치"],["ok","신규 설정 0"]],
+   fs:[["ok","F-05 홀맨의 지도 — <b>회수(소각)</b>"],["wn","F-07 지하 도시 입구 — 이번 화 미언급, 14화로 이월"]],
+   ctx:[["설정집/홀맨.md","지도는 9화부터 들고 다님. 태우려다 멈춘 것이 12화."],["요약/6화","지하 조직의 구조 설명은 6화에서 완료."],["장기기억","독자 이탈은 설명 장면에 집중(11·12화)."]],
+   chk:[["ok","설정 충돌 없음"],["ok","분량 — 전화 대비 −22%, 완독 목표 부합"],["wn","F-07 미언급 — 복선 방치 2화째. 14화 필수 회수로 등록"]],
+   facts:`~ F-05 홀맨의 지도: 유지 → 회수(소각)\n+ 홀맨: 지도 소각 — '망설임' 속성 −1, '결단' +1\n+ 홀독: 골목 추격 (대사 없음)\n! F-07: 2화 연속 미언급 → 14화 필수`,
+   draft:`<div class="ttl">13화. 불</div><p>홀맨은 말하지 않았다. 지도를 펴고, 라이터를 켜고, 모서리부터 불을 붙였다. 종이가 오그라드는 동안 그는 창밖을 보고 있었다.</p><p>골목. 홀독이 달린다. 뒤를 돌아보지 않는다. 그가 돌아보지 않는 이유를 독자는 아직 모른다.</p><p>카페. T-Man이 자리에 앉으며 한마디 했다.</p><p>"둘 다 오늘 밤은 못 자겠네."</p>`,
+   memflow:["설명 구조 단축","예상 완독 +9p · 댓글 ±0","commit c13 · 사실 4건 · F-05 회수"] },
+ { id:"C", lab:"PROPOSAL C · 세계관 진화", title:"홀캣 조기 투입",
+   why:"홀캣 문의 287건 — 기대 신호는 있으나 규모가 작다. 티저 계획(14화)보다 1화 앞당기는 안. 엔진은 <b>보류 후보</b>로 분류.",
+   sig:["홀캣 문의 287건","티저 기대"], exp:{read:"+3p",cmt:"+25%",risk:"중간"},
+   pill:"C안 · 홀캣 조기 투입",
+   ol:[["1","지하 도시 광장","군중 속 홀캣 첫 등장."],["2","홀맨 사무실","홀맨·T-Man 대응 회의."],["3","지하 통로","홀캣 추격."],["4","카페","홀독 합류."]],
+   cons:[["wn","홀캣 등장 시점 — 티저 계획(14화)보다 1화 빠름. 설정집 수정 필요"],["wn","지하 도시 광장 — 11화에 없는 신규 로케이션. 설정 추가 필요"],["ok","홀캣 성격 설정 일치"]],
+   fs:[["wn","F-09 홀캣 티저 — 계획보다 조기 회수"],["ok","F-07 지하 도시 입구 — 회수"]],
+   ctx:[["설정집/홀캣.md","등장 예정 14화. 성격: 경쾌·즉흥. 홀독과 대비."],["설정집/지하도시.md","광장 설정 없음 — 신규 작성 필요."],["장기기억","홀캣 기대 신호 규모 작음(287건). 조기 투입 시 홀독 서사와 경합 위험."]],
+   chk:[["wn","설정집과 충돌 — 홀캣 등장 시점 (차단 아님, 설정집 갱신 필요)"],["wn","신규 로케이션 2곳 — 세계관 문서 선행 작성 필요"],["ok","타임라인 연속"]],
+   facts:`! 설정집/홀캣.md: 등장 14화 → 13화 (갱신 필요)\n+ 지하 도시 광장 (신규 설정)\n+ 홀캣: 첫 등장\n~ F-09: 조기 회수`,
+   draft:`<div class="ttl">13화. 광장</div><p>지하 도시의 광장은 생각보다 밝았다. 홀독이 처음 본 것은 사람들이 아니라, 그 사람들 사이를 고양이처럼 빠져나가는 작은 그림자였다.</p><p>"늦었네."</p><p>그림자가 말했다. 목소리에 웃음이 섞여 있었다.</p>`,
+   memflow:["홀캣 조기 투입","예상 완독 +3p · 댓글 +25%","commit c13 · 신규 설정 2건 · 설정집 갱신"] },
+];
+let pick=null;
+
+function go(v){
+  $$(".view").forEach(s=>s.classList.toggle("on",s.dataset.view===v));
+  $$("button[data-view]").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+  $$(".step").forEach(s=>s.classList.toggle("on",s.dataset.s===v));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(location.hash!=="#"+v) history.replaceState(null,"","#"+v);
+}
+$$("button[data-view]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
+document.addEventListener("click",e=>{ const g=e.target.closest("[data-go]"); if(g) go(g.dataset.go); });
+
+function renderProps(){
+  $("#props").innerHTML=PROPS.map(p=>`
+    <div class="card prop ${pick===p.id?"pick":""}">
+      <span class="stamp">${p.id==="C"?"보류 후보":"권장"}</span>
+      <div class="lab">${p.lab}</div>
+      <h4>${p.title}</h4>
+      <div class="why">${p.why}</div>
+      <div style="margin:8px 0 2px">${p.sig.map(s=>`<span class="chip g">${s}</span>`).join("")}</div>
+      <div class="est">
+        <div><b class="${p.exp.read.startsWith("+")?"up":""}">${p.exp.read}</b><span>예상 완독률</span></div>
+        <div><b>${p.exp.cmt}</b><span>예상 댓글</span></div>
+        <div><b>${p.exp.risk}</b><span>설정 충돌 위험</span></div>
+      </div>
+      <button class="btn ${pick===p.id?"":"pri"}" data-pick="${p.id}">${pick===p.id?"선택됨 ✓":"이 방향으로"}</button>
+    </div>`).join("");
+}
+$("#props").addEventListener("click",e=>{
+  const b=e.target.closest("[data-pick]"); if(!b) return;
+  pick=b.dataset.pick; renderAll();
+  $("#picked-pill").textContent="EP.13 "+PROPS.find(x=>x.id===pick).pill;
+  setTimeout(()=>go("plan"),180);
+});
+
+const li=(c)=>`<li><span class="${c[0]}">${c[0]==="ok"?"✓":"!"}</span><span>${c[1]}</span></li>`;
+function renderPlan(){
+  const p=PROPS.find(x=>x.id===pick);
+  $("#pl-empty").style.display=p?"none":""; $("#pl-body").style.display=p?"":"none";
+  $("#pl-title").textContent=p?`${p.id}안 · ${p.title}`:"방향을 먼저 정하세요";
+  if(!p) return;
+  $("#pl-ol").innerHTML=p.ol.map(o=>`<li><span class="k">장면 ${o[0]}</span><div><b>${o[1]}</b><span class="m">${o[2]}</span></div></li>`).join("");
+  $("#pl-cons").innerHTML=p.cons.map(li).join("");
+  $("#pl-fs").innerHTML=p.fs.map(li).join("");
+}
+function renderWrite(){
+  const p=PROPS.find(x=>x.id===pick);
+  $("#wr-empty").style.display=p?"none":""; $("#wr-body").style.display=p?"":"none";
+  $("#wr-title").textContent=p?`${p.id}안 · ${p.title}`:"방향을 먼저 정하세요";
+  if(!p) return;
+  $("#wr-ctx").innerHTML=p.ctx.map(c=>`<li><span class="src">${c[0]}</span><span>${c[1]}</span></li>`).join("");
+  $("#wr-chk").innerHTML=p.chk.map(li).join("");
+  $("#wr-facts").textContent=p.facts;
+  $("#wr-draft").innerHTML=p.draft;
+  $("#wr-rev").className=p.id==="C"?"block":"done";
+}
+function renderMemory(){
+  const p=PROPS.find(x=>x.id===pick);
+  $("#m-pick").textContent=p?`${p.id}안 · ${p.title}`:"방향 미정";
+  $("#m-flow").innerHTML=`<div><span>신호</span>홀독 31% · 3컷 이탈 · 홀캣 문의</div><div><span>결정</span>${p?p.memflow[0]:"—"}</div><div><span>결과</span>${p?p.memflow[1]+" (예상)":"배포 후 수집"}</div><div><span>기록</span>${p?p.memflow[2]:"—"}</div>`;
+}
+function renderAll(){ renderProps(); renderPlan(); renderWrite(); renderMemory(); }
+renderAll();
+const h=location.hash.slice(1); if(["react","evolve","plan","write","memory"].includes(h)) go(h);
+})();
+</script>
+</body>
+</html>
