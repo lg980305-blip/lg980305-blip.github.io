@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>GOODS — BLACKHOLEMAN BROS</title>
 <style>
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#f4f2ee;color:#111;font-family:Pretendard,Arial,sans-serif}
@@ -54,6 +53,7 @@ radial-gradient(circle at 18% 70%,rgba(116,223,196,.13),transparent 25%),
 .preview{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;color:#555;border-top:1px solid #eee;padding-top:13px}
 
 .feature{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch}
+.feature>*{min-width:0}
 .feature-img{min-height:560px;border-radius:28px;overflow:hidden;background:#ddd}
 .feature-img img{width:100%;height:100%;object-fit:cover}
 .feature-copy{border-radius:28px;background:#111;color:#fff;padding:42px;display:flex;flex-direction:column;justify-content:space-between}
@@ -92,26 +92,73 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
  .hero h1{font-size:17vw}.hero-visual{min-height:400px}
  .grid,.categories{grid-template-columns:1fr}
  .coming{margin:0 20px 50px;padding:30px;flex-direction:column;align-items:flex-start}
+ /* 긴 영문 제목이 그리드 트랙을 밀어내 가로 스크롤이 생기던 문제 */
+ .feature-copy{padding:26px}
+ .feature-copy h3{font-size:clamp(26px,7.4vw,42px)}
+ .feature-img{min-height:320px}
 }
+
+.coming-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+a.pill.notify{background:#111;color:#fff;border-color:#111;text-decoration:none;transition:.2s}
+a.pill.notify:hover{background:#000}
+.feature-copy a.cta{transition:.2s}
+.feature-copy a.cta:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+@media(max-width:620px){.coming-actions{width:100%}.coming-actions .pill{white-space:normal}}
 </style>
 
-<style id="corp-footer-style">
-.corp-footer{border-top:1px solid rgba(255,255,255,.10);background:#05070b;color:rgba(255,255,255,.60);padding:26px 5vw 34px}
-.corp-footer-inner{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
-.corp-brand{font-weight:900;color:#fff;font-size:13px;line-height:1.1}
-.corp-info{font-size:10px;line-height:1.8}
-.corp-copy{font-size:9px;white-space:nowrap;color:rgba(255,255,255,.38)}
-@media(max-width:800px){.corp-footer-inner{grid-template-columns:1fr}.corp-copy{white-space:normal}}
-</style>
 
+<meta name="description" content="블랙홀맨·홀독·홀캣 공식 굿즈 프리뷰. 봉제 인형, 피규어, 문구류 콘셉트를 출시 전 미리 확인하세요.">
+<meta name="author" content="주식회사 블랙홀맨브로스">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/goods.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/goods.html">
+<link rel="alternate" hreflang="en" href="https://lg980305-blip.github.io/en/goods.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/goods.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="SHOP — BLACKHOLEMAN BROS">
+<meta property="og:description" content="블랙홀맨·홀독·홀캣 공식 굿즈 프리뷰. 봉제 인형, 피규어, 문구류 콘셉트를 출시 전 미리 확인하세요.">
+<meta property="og:url" content="https://lg980305-blip.github.io/goods.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="블랙홀맨, 홀독, 홀캣 세 캐릭터가 블랙홀 배경 앞에 서 있는 이미지">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SHOP — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="블랙홀맨·홀독·홀캣 공식 굿즈 프리뷰. 봉제 인형, 피규어, 문구류 콘셉트를 출시 전 미리 확인하세요.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">본문 바로가기</a>
 
 <header>
   <a class="brand" href="index.html">BLACKHOLEMAN<br>BROS</a>
-  <nav><a href="index.html">HOME</a><a href="about.html">ABOUT</a><a href="characters.html">CHARACTERS</a><a href="contents.html">CONTENTS</a><a class="active" href="goods.html">GOODS</a><a href="community.html">COMMUNITY</a></nav>
-  <div class="right">COMING SOON</div>
-</header>
+  <nav aria-label="주요 메뉴"><a href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a href="ai.html">AI LAB</a><a href="app.html">APP</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a class="active" aria-current="page" href="goods.html">SHOP</a><a href="games/index.html">ARCADE</a></nav>
+  <div class="header-right"><a class="langswitch" href="en/goods.html" hreflang="en" lang="en" aria-label="English version">EN</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div></header>
+<span id="main" tabindex="-1"></span>
 
 <section class="hero">
   <div class="hero-copy">
@@ -122,8 +169,8 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
   </div>
   <div class="hero-visual">
     <div class="float-tag">PRE-RELEASE CONCEPT</div>
-    <div class="hero-card h1"><img src="assets/a589b191b12d3238.png" alt=""></div>
-    <div class="hero-card h2"><img src="assets/7421a55243ee5e48.png" alt=""></div>
+    <div class="hero-card h1"><img src="assets/a589b191b12d3238.webp" alt="블랙홀맨브로스 굿즈 라인업 프리뷰 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
+    <div class="hero-card h2"><img src="assets/7421a55243ee5e48.webp" alt="블랙홀맨 봉제 인형 콘셉트 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
   </div>
 </section>
 
@@ -135,35 +182,35 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
 
   <div class="grid">
     <article class="product">
-      <div class="img"><img src="assets/a7aea387244f3d4c.png" alt=""></div>
+      <div class="img"><img src="assets/a7aea387244f3d4c.webp" alt="블랙홀맨 비즈 아트 DIY 크래프트 굿즈 콘셉트 이미지" loading="lazy" decoding="async" width="1400" height="662"></div>
       <div class="info"><div class="topline"><span class="badge">CRAFT</span><span class="price">PRICE TBD</span></div><h3>블랙홀맨 비즈 아트</h3><p>캐릭터 실루엣을 직접 조립하고 소장하는 DIY 크래프트 굿즈.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/1e8e78224777c684.png" alt=""></div>
+      <div class="img"><img src="assets/1e8e78224777c684.webp" alt="홀패밀리 비즈 컬렉션 콘셉트 이미지 — 세 캐릭터 디스플레이 세트" loading="lazy" decoding="async" width="1400" height="662"></div>
       <div class="info"><div class="topline"><span class="badge">COLLECTIBLE</span><span class="price">PRICE TBD</span></div><h3>홀패밀리 비즈 컬렉션</h3><p>세 캐릭터를 하나의 세트로 구성한 디스플레이형 컬렉터블.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/03a21c24c2fa6bd3.png" alt=""></div>
+      <div class="img"><img src="assets/03a21c24c2fa6bd3.webp" alt="캐릭터 캔버스 백과 파우치 콘셉트 이미지" loading="lazy" decoding="async" width="1400" height="662"></div>
       <div class="info"><div class="topline"><span class="badge">LIFESTYLE</span><span class="price">PRICE TBD</span></div><h3>캔버스 백 & 파우치</h3><p>일상에서 자연스럽게 사용할 수 있는 캐릭터 라이프스타일 제품.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/a14e06770c843a5a.png" alt=""></div>
+      <div class="img"><img src="assets/a14e06770c843a5a.webp" alt="블랙홀맨 그래픽 스마트폰 그립 콘셉트 이미지" loading="lazy" decoding="async" width="1400" height="662"></div>
       <div class="info"><div class="topline"><span class="badge">MOBILE</span><span class="price">PRICE TBD</span></div><h3>스마트폰 그립</h3><p>블랙홀맨 그래픽을 활용한 모바일 액세서리 시리즈.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/efa629c37b2aea5b.png" alt=""></div>
+      <div class="img"><img src="assets/efa629c37b2aea5b.webp" alt="블랙홀맨·홀독·홀캣 캐릭터 스티커 컬렉션 콘셉트 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
       <div class="info"><div class="topline"><span class="badge">STATIONERY</span><span class="price">PRICE TBD</span></div><h3>스티커 컬렉션</h3><p>블랙홀맨·홀독·홀캣의 다양한 포즈를 담은 캐릭터 스티커팩.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/7421a55243ee5e48.png" alt=""></div>
+      <div class="img"><img src="assets/7421a55243ee5e48.webp" alt="블랙홀맨 봉제 인형 콘셉트 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
       <div class="info"><div class="topline"><span class="badge">PLUSH</span><span class="price">PRICE TBD</span></div><h3>블랙홀맨 플러시</h3><p>캐릭터의 볼륨과 질감을 실제 오브제로 옮긴 봉제 인형 콘셉트.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/a589b191b12d3238.png" alt=""></div>
+      <div class="img"><img src="assets/a589b191b12d3238.webp" alt="블랙홀맨브로스 굿즈 라인업 프리뷰 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
       <div class="info"><div class="topline"><span class="badge">KEYRING</span><span class="price">PRICE TBD</span></div><h3>아크릴 키링</h3><p>캐릭터 실루엣을 살린 투명 아크릴 키링 시리즈.</p><div class="preview"><span>CONCEPT PREVIEW</span><span>COMING SOON</span></div></div>
     </article>
     <article class="product">
-      <div class="img"><img src="assets/a589b191b12d3238.png" alt=""></div>
+      <div class="img"><img src="assets/a589b191b12d3238.webp" alt="블랙홀맨브로스 굿즈 라인업 프리뷰 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
       <div class="info"><div class="topline"><span class="badge">KEYRING</span><span class="price">PRICE TBD</span></div><h3>공식 프리오더 콘셉트</h3><p>출시 전 컬렉션의 대표 키비주얼로 활용할 수 있는 프리오더 콘셉트.</p><div class="preview"><span>PRE-ORDER IMAGE</span><span>COMING SOON</span></div></div>
     </article>
   </div>
@@ -176,7 +223,7 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
   </div>
 
   <div class="feature">
-    <div class="feature-img"><img src="assets/7421a55243ee5e48.png" alt=""></div>
+    <div class="feature-img"><img src="assets/7421a55243ee5e48.webp" alt="블랙홀맨 봉제 인형 콘셉트 이미지" loading="lazy" decoding="async" width="1054" height="1400"></div>
     <div class="feature-copy">
       <div>
         <div class="small">PRE-RELEASE MODEL / 01</div>
@@ -189,7 +236,7 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
           <div class="spec"><strong>DESIGN</strong><span>Subject to Change</span></div>
         </div>
       </div>
-      <span class="cta">NOTIFY ME LATER →</span>
+      <a class="cta" href="mailto:contact@blackholemanbros.com?subject=%5B%EA%B5%BF%EC%A6%88%5D%20%EC%B6%9C%EC%8B%9C%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%84%B1%ED%95%A8%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EA%B4%80%EC%8B%AC%20%EC%A0%9C%ED%92%88%3A%0A%0A%2A%20%EC%B6%9C%EC%8B%9C%20%EC%86%8C%EC%8B%9D%EC%9D%B4%20%EC%A0%95%ED%95%B4%EC%A7%80%EB%A9%B4%20%EA%B0%80%EC%9E%A5%20%EB%A8%BC%EC%A0%80%20%EC%95%8C%EB%A0%A4%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">출시 알림 받기　→</a>
     </div>
   </div>
 </section>
@@ -213,7 +260,7 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
     <h3>THE FIRST DROP IS COMING.</h3>
     <p>첫 번째 공식 굿즈 컬렉션을 준비하고 있습니다.</p>
   </div>
-  <div class="pill">PRICE & RELEASE DATE — TBD</div>
+  <div class="coming-actions"><a class="pill notify" href="mailto:contact@blackholemanbros.com?subject=%5B%EA%B5%BF%EC%A6%88%5D%20%EC%B6%9C%EC%8B%9C%20%EC%95%8C%EB%A6%BC%20%EC%8B%A0%EC%B2%AD&amp;body=%EC%84%B1%ED%95%A8%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EA%B4%80%EC%8B%AC%20%EC%A0%9C%ED%92%88%3A%0A%0A%2A%20%EC%B6%9C%EC%8B%9C%20%EC%86%8C%EC%8B%9D%EC%9D%B4%20%EC%A0%95%ED%95%B4%EC%A7%80%EB%A9%B4%20%EA%B0%80%EC%9E%A5%20%EB%A8%BC%EC%A0%80%20%EC%95%8C%EB%A0%A4%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">출시 알림 받기　→</a><span class="pill">PRICE &amp; RELEASE DATE — TBD</span></div>
 </section>
 
 
@@ -223,10 +270,19 @@ radial-gradient(circle at 25% 70%,rgba(163,103,255,.25),transparent 30%),
     <div class="corp-info">
       <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
       <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+      <div>문의 <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="en/index.html" hreflang="en" lang="en">ENGLISH</a>
+      </div>
     </div>
     <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
   </div>
 </footer>
 
+<nav class="sitemenu" id="sitemenu" aria-label="모바일 메뉴" hidden><a href="index.html"><span>HOME</span><span class="ko">홈</span></a><a href="about.html"><span>COMPANY</span><span class="ko">회사소개</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">캐릭터</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">기술</span></a><a href="ai.html"><span>AI LAB</span><span class="ko">AI 랩</span></a><a href="app.html"><span>APP</span><span class="ko">앱 목업</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">콘텐츠</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">커뮤니티</span></a><a aria-current="page" href="goods.html"><span>SHOP</span><span class="ko">굿즈샵</span></a><a href="games/index.html"><span>ARCADE</span><span class="ko">아케이드</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="en/goods.html" hreflang="en" lang="en">ENGLISH</a></div></nav>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

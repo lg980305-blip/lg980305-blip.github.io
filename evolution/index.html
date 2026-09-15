@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>반응 주입 연재기</title>
+<meta name="description" content="독자 반응을 읽어 다음 화의 방향을 고르고, 그 방향으로 글까지 쓰는 블랙홀맨브로스 Character Evolution Engine 목업">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#02040a">
+<style>
+:root{
+  --bg:#02040a; --bg2:#080a12; --card:rgba(255,255,255,.045); --card2:rgba(255,255,255,.07); --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --ink:#f2f5fb; --ink2:#b7c0d2; --ink3:#7d8799; --ink4:#535c6d;
+  --blue:#2e9bff; --cyan:#35e0d4; --green:#9de342; --orange:#ffab14; --pink:#ed57ae; --purple:#9b5cff;
+  --grad:linear-gradient(90deg,#1599ff 0%,#7850ff 70%);
+  --hol:#35e0d4; --dog:#9de342; --cat:#ed57ae; --tman:#ffab14; --tbird:#2e9bff;
+  --r:10px; --r2:16px;
+  --mono:'SF Mono',ui-monospace,'Cascadia Mono','Consolas','D2Coding',monospace;
+  --serif:'Noto Serif KR','Nanum Myeongjo','Batang',serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Pretendard,'Pretendard Variable',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic','맑은 고딕',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);font-size:13.5px;line-height:1.55;-webkit-font-smoothing:antialiased;font-feature-settings:'tnum' 1;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(circle at 18% 12%,rgba(46,155,255,.14),transparent 38%),
+  radial-gradient(circle at 82% 88%,rgba(155,92,255,.14),transparent 40%),
+  var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.55;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(255,255,255,.75) 0 .7px,transparent 1px),radial-gradient(circle,rgba(255,255,255,.5) 0 .6px,transparent 1px);
+  background-size:140px 140px,90px 90px;background-position:0 0,40px 60px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+img{max-width:100%;display:block}
+
+/* ── 상단 ── */
+.top{position:sticky;top:0;z-index:20;background:rgba(2,4,10,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .in{display:flex;align-items:center;gap:14px;padding:11px 20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:-.2px}
+.brand img{width:30px;height:30px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(53,224,212,.55))}
+.brand small{font-weight:500;color:var(--ink3);font-size:11.5px;margin-left:2px}
+.ep{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--ink3);flex-wrap:wrap}
+.ep b{color:var(--ink)}
+.pill{padding:4px 10px;border-radius:99px;background:var(--card2);border:1px solid var(--line);font-size:10.5px;font-family:var(--mono);color:var(--ink2)}
+.pill.hot{background:linear-gradient(90deg,rgba(21,153,255,.25),rgba(120,80,255,.25));border-color:rgba(120,140,255,.4);color:#fff}
+.loop{display:flex;padding:0 20px 11px;overflow-x:auto;scrollbar-width:none;gap:2px}
+.loop::-webkit-scrollbar{display:none}
+.step{display:flex;align-items:center;gap:7px;padding:6px 12px;border-radius:99px;font-size:11.5px;color:var(--ink3);white-space:nowrap;border:1px solid transparent}
+.step b{width:18px;height:18px;border-radius:50%;background:var(--card2);display:grid;place-items:center;font-size:10px;font-family:var(--mono);color:var(--ink2)}
+.step .tag{font-size:9.5px;font-family:var(--mono);color:var(--cyan)}
+.step.on{background:var(--card2);border-color:var(--line2);color:#fff}
+.step.on b{background:var(--grad);color:#fff;font-weight:800}
+.step+.step::before{content:"→";color:var(--ink4);margin-right:8px}
+
+/* ── 레이아웃 ── */
+.wrap{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 96px)}
+.rail{border-right:1px solid var(--line);padding:16px 12px;position:sticky;top:96px;height:calc(100vh - 96px);overflow:auto}
+.rgrp{font-size:9.5px;font-weight:750;letter-spacing:1.8px;color:var(--ink4);padding:6px 10px}
+.rlink{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 10px;border-radius:var(--r);font-size:13px;font-weight:600;color:var(--ink2)}
+.rlink:hover{background:var(--card)}
+.rlink.on{background:var(--card2);color:#fff;box-shadow:inset 0 0 0 1px var(--line2)}
+.rlink .n{width:20px;height:20px;border-radius:6px;background:var(--card2);display:grid;place-items:center;font-size:10px;font-family:var(--mono);color:var(--ink3)}
+.rlink.on .n{background:var(--grad);color:#fff}
+.rlink .pt{margin-left:auto;font-size:9.5px;font-family:var(--mono);color:var(--cyan)}
+.rcast{margin-top:16px;padding:12px 10px 0;border-top:1px solid var(--line)}
+.rcast .t{font-size:9.5px;font-weight:750;letter-spacing:1.8px;color:var(--ink4);margin-bottom:8px}
+.rcast .c{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px;color:var(--ink2)}
+.rcast .c img{width:26px;height:26px;object-fit:contain}
+.rcast .c i{margin-left:auto;width:8px;height:8px;border-radius:50%}
+.main{padding:24px 26px 96px;max-width:1200px;width:100%}
+.view{display:none}.view.on{display:block}
+.pagehd{margin-bottom:18px}
+.pagehd h1{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.pagehd p{font-size:13px;color:var(--ink2);margin-top:6px;max-width:780px}
+.sec{font-size:10px;font-weight:750;letter-spacing:1.8px;color:var(--ink4);text-transform:uppercase;margin:22px 0 10px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:16px 18px;backdrop-filter:blur(6px)}
+.card h3{font-size:13px;font-weight:750;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card h3 .src{margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--ink4);font-weight:500}
+.kpi b{display:block;font-size:24px;font-weight:800;letter-spacing:-.6px;font-family:var(--mono)}
+.kpi span{font-size:11.5px;color:var(--ink3)}
+.kpi .d{font-size:11px;font-family:var(--mono);margin-left:6px}
+.up{color:var(--green)}.dn{color:var(--pink)}.wn{color:var(--orange)}
+.note{font-size:11.5px;color:var(--ink3);margin-top:8px;line-height:1.6}
+.note b{color:var(--ink2)}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:99px;font-size:10.5px;font-weight:600;background:var(--card2);color:var(--ink2);margin:2px 4px 2px 0;border:1px solid var(--line)}
+.chip.c{color:var(--cyan)}.chip.g{color:var(--green)}.chip.p{color:var(--pink)}.chip.o{color:var(--orange)}.chip.b{color:var(--blue)}.chip.v{color:var(--purple)}
+
+/* ── 인트로 ── */
+.hero{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;padding:26px 28px;border-radius:22px;overflow:hidden;
+  background:linear-gradient(145deg,rgba(37,42,55,.55),rgba(8,10,16,.7));border:1px solid var(--line2);margin-bottom:22px}
+.hero .halo{position:absolute;right:-40px;top:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(53,224,212,.28),rgba(46,155,255,.08) 45%,transparent 70%);pointer-events:none}
+.hero h2{font-size:24px;font-weight:800;letter-spacing:-.4px;line-height:1.25}
+.hero h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .two{display:grid;gap:12px;margin-top:16px}
+.hero .ex{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.hero .ex .k{font-size:10.5px;font-family:var(--mono);letter-spacing:.4px;margin-bottom:5px}
+.hero .ex .k.a{color:var(--cyan)}.hero .ex .k.b{color:var(--purple)}
+.hero .ex p{font-size:13px;line-height:1.65;color:var(--ink)}
+.hero .art{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:0;min-height:230px}
+.hero .art img{object-fit:contain;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.hero .art .m{width:190px;z-index:2}
+.hero .art .d{width:120px;margin-right:-30px;margin-bottom:6px;z-index:1;filter:drop-shadow(0 12px 24px rgba(0,0,0,.6)) drop-shadow(0 0 14px rgba(157,227,66,.25))}
+.hero .art .c{width:130px;margin-left:-34px;margin-bottom:4px;z-index:1;filter:drop-shadow(0 12px 24px rgba(0,0,0,.6)) drop-shadow(0 0 14px rgba(237,87,174,.25))}
+
+/* ── 차트 ── */
+.bars{display:flex;align-items:flex-end;gap:5px;height:100px;padding-top:6px}
+.bars i{flex:1;background:linear-gradient(180deg,var(--blue),rgba(46,155,255,.35));border-radius:4px 4px 0 0;position:relative;min-width:8px}
+.bars i.hot{background:linear-gradient(180deg,var(--pink),rgba(237,87,174,.35));box-shadow:0 0 14px rgba(237,87,174,.4)}
+.bars i::after{content:attr(data-l);position:absolute;top:100%;left:0;right:0;text-align:center;font-size:9.5px;color:var(--ink4);margin-top:4px;font-family:var(--mono)}
+.crow{display:grid;grid-template-columns:34px 64px 1fr 48px;gap:9px;align-items:center;font-size:12px;margin:7px 0}
+.crow img{width:34px;height:34px;object-fit:contain}
+.crow .tr{height:10px;background:var(--card2);border-radius:99px;overflow:hidden}
+.crow .tr i{display:block;height:100%;border-radius:99px}
+.crow .v{text-align:right;font-family:var(--mono);color:var(--ink2)}
+.cm{display:flex;gap:12px;align-items:flex-start}
+.cm img{width:40px;height:40px;object-fit:contain;flex:none}
+.cm .q{font-size:13px;font-weight:700;line-height:1.4}
+.cm .n{font-size:11px;color:var(--ink3);margin-top:3px}
+.cm .cnt{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink4);white-space:nowrap}
+
+/* ── 특허 4단계 ── */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pipe .st{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:14px 16px;position:relative}
+.pipe .st .no{font-size:10px;font-family:var(--mono);color:var(--ink4);letter-spacing:.5px}
+.pipe .st h4{font-size:13.5px;font-weight:800;margin:4px 0 8px}
+.pipe .st ul{list-style:none;font-size:11.5px;color:var(--ink2);line-height:1.65}
+.pipe .st li::before{content:"·";margin-right:6px;color:var(--ink4)}
+.pipe .st+.st::before{content:"→";position:absolute;left:-13px;top:16px;color:var(--ink4);font-size:15px}
+.pipe .st.core{border-color:rgba(53,224,212,.45);background:linear-gradient(160deg,rgba(53,224,212,.12),var(--card));box-shadow:0 0 30px rgba(53,224,212,.12)}
+.pipe .st.core .no{color:var(--cyan)}
+
+/* ── 제안 카드 ── */
+.prop{position:relative;overflow:hidden;border:1px solid var(--line);transition:transform .15s,border-color .15s,box-shadow .15s;padding-top:14px}
+.prop:hover{transform:translateY(-2px)}
+.prop.pick{border-color:var(--ac);box-shadow:0 0 0 2px var(--ac),0 0 36px color-mix(in srgb,var(--ac) 35%,transparent)}
+.prop .glow{position:absolute;right:-30px;top:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--ac) 30%,transparent),transparent 65%);pointer-events:none}
+.prop .who{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.prop .who img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6)) drop-shadow(0 0 12px color-mix(in srgb,var(--ac) 35%,transparent))}
+.prop .lab{font-size:10px;font-family:var(--mono);color:var(--ac);letter-spacing:.5px}
+.prop h4{font-size:16px;font-weight:800;margin:3px 0 0;letter-spacing:-.2px}
+.prop .why{font-size:12.5px;color:var(--ink2);line-height:1.6}
+.prop .why b{color:var(--ink)}
+.prop .est{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:12px 0;font-size:11px}
+.prop .est div{background:rgba(0,0,0,.28);border-radius:8px;padding:7px 9px;border:1px solid var(--line)}
+.prop .est b{display:block;font-family:var(--mono);font-size:14px}
+.prop .est span{color:var(--ink3);font-size:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:99px;font-size:12.5px;font-weight:700;border:1px solid var(--line2);background:var(--card2);color:#fff}
+.btn.pri{background:var(--grad);border-color:transparent}
+.btn.pri:hover{filter:brightness(1.1)}
+.stamp{position:absolute;top:12px;right:12px;font-size:10px;font-family:var(--mono);padding:4px 9px;border-radius:99px;background:rgba(0,0,0,.35);border:1px solid var(--line);color:var(--ink2);font-weight:700}
+
+/* ── 기획 ── */
+.ol{list-style:none}
+.ol li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+.ol li:last-child{border:0}
+.ol .k{font-family:var(--mono);color:var(--ink4);font-size:10.5px;padding-top:2px}
+.ol b{display:block;font-size:12.5px;margin-bottom:2px}
+.ol .m{color:var(--ink2)}
+.cmd{display:inline-block;font-family:var(--mono);font-size:10.5px;background:rgba(0,0,0,.45);border:1px solid var(--line);color:var(--cyan);padding:2px 8px;border-radius:5px}
+.rev{list-style:none}
+.rev li{display:flex;gap:9px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12px}
+.rev li:last-child{border:0}
+.rev .ok{color:var(--green);font-weight:800}.rev .wn{color:var(--orange);font-weight:800}
+
+/* ── 집필 ── */
+.stp{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:14px}
+.stp div{padding:9px 6px;border-radius:9px;background:var(--card);border:1px solid var(--line);font-size:11px;text-align:center;color:var(--ink3)}
+.stp div b{display:block;font-family:var(--mono);font-size:9.5px;color:var(--ink4);margin-bottom:2px}
+.stp div.done{border-color:rgba(157,227,66,.4);color:var(--green);background:rgba(157,227,66,.08)}
+.stp div.done b{color:var(--green)}
+.stp div.block{border-color:rgba(255,171,20,.5);color:var(--orange);background:rgba(255,171,20,.1)}
+.ctx{list-style:none}
+.ctx li{padding:8px 0;border-bottom:1px dashed var(--line);font-size:12px;display:grid;grid-template-columns:auto 1fr;gap:9px}
+.ctx li:last-child{border:0}
+.ctx .src{font-family:var(--mono);font-size:10px;color:var(--cyan);white-space:nowrap;padding-top:2px}
+.draft{font-family:var(--serif);font-size:14px;line-height:1.95;color:var(--ink);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;max-height:360px;overflow:auto}
+.draft p{margin-bottom:11px}
+.draft .ttl{font-weight:700;font-size:15px;margin-bottom:12px}
+.facts{font-family:var(--mono);font-size:10.5px;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:var(--r);padding:11px 13px;color:var(--ink2);line-height:1.75;white-space:pre-wrap}
+
+/* ── 기억 ── */
+.tl{position:relative;padding-left:58px}
+.tl::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--blue),var(--purple))}
+.tli{position:relative;margin-bottom:18px}
+.tli .av{position:absolute;left:-58px;top:-4px;width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.5);border:2px solid var(--line2);display:grid;place-items:center;overflow:hidden}
+.tli .av img{width:38px;height:38px;object-fit:contain}
+.tli.now .av{border-color:var(--cyan);box-shadow:0 0 18px rgba(53,224,212,.45)}
+.tli .hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tli .hd b{font-size:14px}
+.tli .hd .dt{font-size:10.5px;font-family:var(--mono);color:var(--ink4)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.flow div{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:11.5px}
+.flow div span{display:block;font-size:9.5px;color:var(--ink4);font-family:var(--mono);margin-bottom:3px}
+.callout{border-left:3px solid var(--cyan);background:rgba(53,224,212,.08);color:var(--ink);padding:11px 13px;border-radius:0 10px 10px 0;font-size:12.5px;margin-top:12px;line-height:1.6}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+th{text-align:left;font-weight:600;color:var(--ink4);font-size:10px;padding:7px;border-bottom:1px solid var(--line)}
+td{padding:7px;border-bottom:1px solid var(--line);vertical-align:top}
+td.mono{color:var(--ink3)}
+.foot{border-top:1px solid var(--line);padding:18px 26px;font-size:11px;color:var(--ink4);line-height:1.7}
+.foot .mono{color:var(--ink3)}
+
+.mtab{display:none}
+@media(max-width:860px){
+  .wrap{grid-template-columns:1fr}.rail{display:none}.main{padding:16px 16px 96px}
+  .g2,.g3,.g4,.pipe{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.stp{grid-template-columns:repeat(3,1fr)}
+  .pipe .st+.st::before{display:none}
+  .hero{grid-template-columns:1fr;padding:20px 18px}.hero .art{min-height:170px}.hero .art .m{width:140px}.hero .art .d{width:90px}.hero .art .c{width:100px}
+  .mtab{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;background:rgba(2,4,10,.9);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:30;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  .mtab button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9.5px;font-weight:600;color:var(--ink3);padding:4px 0}
+  .mtab button b{width:22px;height:22px;border-radius:7px;background:var(--card2);display:grid;place-items:center;font-family:var(--mono);font-size:10px}
+  .mtab button.on{color:#fff}.mtab button.on b{background:var(--grad)}
+}
+@media(max-width:460px){.g2,.g3,.g4,.pipe{grid-template-columns:1fr}.top .in{padding:10px 14px}.loop{padding:0 14px 10px}.hero h2{font-size:20px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="in">
+    <div class="brand"><img src="../assets/cd33e0ed67201028.webp" alt="">반응 주입 연재기 <small>Character Evolution Engine · 블랙홀맨브로스</small></div>
+    <div class="ep"><span>작품</span><b>블랙홀맨 시즌 2</b><span class="pill">EP.12 배포 +3일</span><span class="pill hot" id="picked-pill">EP.13 방향 미정</span></div>
+  </div>
+  <div class="loop">
+    <div class="step" data-s="react"><b>1</b>반응 읽기</div>
+    <div class="step" data-s="evolve"><b>2</b>신호 고르기</div>
+    <div class="step" data-s="evolve"><b>3</b>방향 정하기 <span class="tag">특허 10-2837572</span></div>
+    <div class="step" data-s="plan"><b>4</b>줄거리 짜기</div>
+    <div class="step" data-s="write"><b>5</b>글쓰기·검사</div>
+    <div class="step" data-s="memory"><b>6</b>기록</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="rail" aria-label="주 메뉴">
+    <div class="rgrp">이번 화 만들기</div>
+    <button class="rlink on" data-view="react"><span class="n">1</span>반응 읽기</button>
+    <button class="rlink" data-view="evolve"><span class="n">3</span>방향 정하기 <span class="pt">특허</span></button>
+    <button class="rlink" data-view="plan"><span class="n">4</span>줄거리 짜기</button>
+    <button class="rlink" data-view="write"><span class="n">5</span>글쓰기·검사</button>
+    <button class="rlink" data-view="memory"><span class="n">6</span>기록</button>
+    <div class="rcast">
+      <div class="t">등장 캐릭터</div>
+      <div class="c"><img src="../assets/cd33e0ed67201028.webp" alt="">블랙홀맨<i style="background:var(--hol)"></i></div>
+      <div class="c"><img src="../assets/9f36ab4b445c2308.webp" alt="">홀독<i style="background:var(--dog)"></i></div>
+      <div class="c"><img src="../assets/f654843e589a50a7.webp" alt="">홀캣<i style="background:var(--cat)"></i></div>
+      <div class="c"><img src="../assets/tman.webp" alt="">T-Man<i style="background:var(--tman)"></i></div>
+      <div class="c"><img src="../assets/tbird.webp" alt="">T-Bird<i style="background:var(--tbird)"></i></div>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- ═══ 1 반응 읽기 ═══ -->
+    <section class="view on" data-view="react">
+      <div class="hero">
+        <div class="halo"></div>
+        <div>
+          <h2>독자 반응이<br><span>다음 화를 만듭니다.</span></h2>
+          <div class="two">
+            <div class="ex"><div class="k a">특허 10-2837572 · 방향을 정하는 엔진</div>
+              <p>독자들이 어떤 장면에 열광하고 어디서 떠나는지를 읽어, 다음 화에서 <b>어떤 캐릭터와 이야기를 키울지</b> 골라 줍니다.<br>회차가 쌓일수록 "이렇게 하니 반응이 이랬다"는 기록이 남아 점점 더 잘 고릅니다.</p></div>
+            <div class="ex"><div class="k b">반응 주입 연재기 · 이 화면</div>
+              <p>엔진이 고른 방향을 받아 다음 화의 <b>줄거리를 짜고 글까지 써 주는</b> 도구입니다.<br>설정집을 보면서 쓰기 때문에 캐릭터가 갑자기 딴사람이 되지 않고, 쓴 결과는 다시 엔진에게 돌아갑니다.</p></div>
+          </div>
+        </div>
+        <div class="art">
+          <img class="d" src="../assets/9f36ab4b445c2308.webp" alt="홀독">
+          <img class="m" src="../assets/cd33e0ed67201028.webp" alt="블랙홀맨">
+          <img class="c" src="../assets/f654843e589a50a7.webp" alt="홀캣">
+        </div>
+      </div>
+
+      <div class="pagehd"><h1>반응 읽기 — 12화</h1><p>올린 지 3일. 독자들이 어디서 웃고, 어디서 나갔고, 누구 얘기를 제일 많이 했는지 봅니다.</p></div>
+      <div class="grid g4">
+        <div class="card kpi"><b>184,200<span class="d up">+9.4%</span></b><span>본 사람</span></div>
+        <div class="card kpi"><b>61%<span class="d dn">−7p</span></b><span>끝까지 읽은 비율</span></div>
+        <div class="card kpi"><b>4,212<span class="d up">+31%</span></b><span>댓글</span></div>
+        <div class="card kpi"><b>74%<span class="d up">+3p</span></b><span>좋다는 반응</span></div>
+      </div>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="card">
+          <h3>어디서 나갔나 <span class="src">컷별 이탈</span></h3>
+          <div class="bars">
+            <i style="height:12%" data-l="1"></i><i style="height:18%" data-l="2"></i><i class="hot" style="height:88%" data-l="3"></i><i style="height:30%" data-l="4"></i><i style="height:22%" data-l="5"></i><i style="height:26%" data-l="6"></i><i style="height:34%" data-l="7"></i><i style="height:20%" data-l="8"></i><i style="height:16%" data-l="9"></i><i style="height:40%" data-l="10"></i><i style="height:24%" data-l="11"></i><i style="height:14%" data-l="12"></i>
+          </div>
+          <p class="note" style="margin-top:20px"><span class="chip p">신호</span> 3컷(사무실에서 설명하는 장면)에서 평소의 <b>2.6배</b>가 나갔습니다</p>
+        </div>
+        <div class="card">
+          <h3>누구 얘기를 했나 <span class="src">댓글 4,212개</span></h3>
+          <div class="crow"><img src="../assets/9f36ab4b445c2308.webp" alt=""><span>홀독</span><div class="tr"><i style="width:31%;background:var(--dog)"></i></div><span class="v">31%</span></div>
+          <div class="crow"><img src="../assets/cd33e0ed67201028.webp" alt=""><span>블랙홀맨</span><div class="tr"><i style="width:28%;background:var(--hol)"></i></div><span class="v">28%</span></div>
+          <div class="crow"><img src="../assets/tman.webp" alt=""><span>T-Man</span><div class="tr"><i style="width:17%;background:var(--tman)"></i></div><span class="v">17%</span></div>
+          <div class="crow"><img src="../assets/f654843e589a50a7.webp" alt=""><span>홀캣</span><div class="tr"><i style="width:9%;background:var(--cat)"></i></div><span class="v">9%</span></div>
+          <div class="crow"><img src="../assets/tbird.webp" alt=""><span>T-Bird</span><div class="tr"><i style="width:6%;background:var(--tbird)"></i></div><span class="v">6%</span></div>
+          <p class="note"><span class="chip g">신호</span> 홀독 얘기가 <b>31% (+12p)</b> — 주인공보다 많아진 첫 회차</p>
+        </div>
+      </div>
+      <div class="sec">독자들이 많이 한 말</div>
+      <div class="grid g3">
+        <div class="card cm"><img src="../assets/9f36ab4b445c2308.webp" alt=""><div><div class="q">"홀독 더 보고 싶다"</div><div class="n">홀독 혼자 나오는 장면 요청. 8화 옥상 장면 얘기가 계속 나옴.</div></div><span class="cnt">1,104</span></div>
+        <div class="card cm"><img src="../assets/cd33e0ed67201028.webp" alt=""><div><div class="q">"초반이 늘어진다"</div><div class="n">3컷 사무실 설명이 길다. 나간 지점과 정확히 겹침.</div></div><span class="cnt">612</span></div>
+        <div class="card cm"><img src="../assets/f654843e589a50a7.webp" alt=""><div><div class="q">"홀캣은 언제 나와?"</div><div class="n">티저에 나온 홀캣을 기다리는 반응. 아직은 소수.</div></div><span class="cnt">287</span></div>
+      </div>
+      <div style="margin-top:16px"><button class="btn pri" data-go="evolve">이 반응으로 방향 정하기 →</button></div>
+    </section>
+
+    <!-- ═══ 2·3 방향 정하기 (특허) ═══ -->
+    <section class="view" data-view="evolve">
+      <div class="pagehd"><h1>방향 정하기 — 13화</h1><p>반응을 걸러서 신호만 남기고, 그 신호로 "다음 화에서 누굴 키울지"를 고릅니다. 등록특허 10-2837572가 하는 일이 바로 이 구간입니다.</p></div>
+      <div class="pipe">
+        <div class="st"><div class="no">1단계</div><h4>잡음 걸러내기</h4><ul><li>도배·봇 218개 제외</li><li>회차와 상관없는 잡담 1,090개 제외</li><li>남은 진짜 반응 <b>2,904개</b></li></ul></div>
+        <div class="st"><div class="no">2단계</div><h4>신호만 남기기</h4><ul><li>홀독 얘기 +12p · 좋다 78%</li><li>3컷에서 2.6배 이탈</li><li>홀캣 언제 나오냐 287개</li></ul></div>
+        <div class="st core"><div class="no">3단계 · 특허</div><h4>무슨 뜻인지 해석</h4><ul><li>"어떤 캐릭터 장면 반응↑ → 그 캐릭터 비중 늘리기"</li><li>"설명에서 나감 → 설명 줄이기"</li><li>"기대는 있지만 작음 → 아직 보류"</li></ul></div>
+        <div class="st"><div class="no">4단계</div><h4>다음 화 제안</h4><ul><li>방향 3개 만들기</li><li>각각 근거와 예상 반응 붙이기</li><li>고르면 줄거리 단계로</li></ul></div>
+      </div>
+      <div class="sec">엔진이 내놓은 세 가지 방향</div>
+      <div class="grid g3" id="props"></div>
+      <p class="note" style="margin-top:14px">하나를 고르면 그 방향이 그대로 다음 화면의 줄거리 입력이 됩니다.</p>
+    </section>
+
+    <!-- ═══ 4 줄거리 짜기 ═══ -->
+    <section class="view" data-view="plan">
+      <div class="pagehd"><h1>줄거리 짜기 — <span id="pl-title">방향을 먼저 정하세요</span></h1><p>고른 방향이 <span class="cmd">/webnovel-plan 13</span>에 들어가 장면 순서·설정 제약·복선이 나옵니다. 엔진은 글을 쓰지 않고, 집필 도구는 반응을 모릅니다 — 둘을 잇는 게 이 화면입니다.</p></div>
+      <div id="pl-empty" class="card"><p class="note">방향 정하기 화면에서 하나를 고르면 여기에 줄거리가 나타납니다.</p></div>
+      <div id="pl-body" style="display:none">
+        <div class="grid g2">
+          <div class="card"><h3>13화 장면 순서 <span class="src">대강/13화.md</span></h3><ul class="ol" id="pl-ol"></ul></div>
+          <div>
+            <div class="card"><h3>지켜야 할 설정 <span class="src">설정집 조회</span></h3><ul class="rev" id="pl-cons"></ul></div>
+            <div class="card" style="margin-top:14px"><h3>깔아 둔 복선 <span class="src">state.json</span></h3><ul class="rev" id="pl-fs"></ul></div>
+          </div>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn pri" data-go="write">이 줄거리로 글쓰기 →</button><button class="btn" data-go="evolve">방향 다시 고르기</button></div>
+      </div>
+    </section>
+
+    <!-- ═══ 5 글쓰기·검사 ═══ -->
+    <section class="view" data-view="write">
+      <div class="pagehd"><h1>글쓰기·검사 — <span id="wr-title">방향을 먼저 정하세요</span></h1><p><span class="cmd">/webnovel-write 13</span>. 설정집과 지난 화 기억을 꺼내 초안을 쓰고, 설정과 어긋나면 멈춥니다. 통과하면 새로 생긴 사실을 적어 두고 저장합니다.</p></div>
+      <div id="wr-empty" class="card"><p class="note">방향 정하기 화면에서 하나를 고르면 글쓰기 과정이 나타납니다.</p></div>
+      <div id="wr-body" style="display:none">
+        <div class="stp">
+          <div class="done"><b>1</b>준비 확인</div><div class="done"><b>2</b>설정 꺼내기</div><div class="done"><b>3</b>초안</div><div class="done" id="wr-rev"><b>4</b>검사</div><div class="done"><b>5</b>사실 기록</div><div class="done"><b>6</b>저장</div>
+        </div>
+        <div class="grid g2">
+          <div>
+            <div class="card"><h3>꺼내 온 설정 <span class="src">설정집 · 지난 화 기억</span></h3><ul class="ctx" id="wr-ctx"></ul></div>
+            <div class="card" style="margin-top:14px"><h3>검사 결과 <span class="src">reviewer</span></h3><ul class="rev" id="wr-chk"></ul></div>
+            <div class="card" style="margin-top:14px"><h3>새로 생긴 사실 → 저장 <span class="src">chapter commit</span></h3><div class="facts" id="wr-facts"></div></div>
+          </div>
+          <div class="card"><h3>13화 초안 <span class="src">발췌</span></h3><div class="draft" id="wr-draft"></div></div>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn pri" data-go="memory">올리고 기록에 남기기</button></div>
+      </div>
+    </section>
+
+    <!-- ═══ 6 기록 ═══ -->
+    <section class="view" data-view="memory">
+      <div class="pagehd"><h1>기록 — 진화의 기억</h1><p>회차마다 "무슨 반응 → 무슨 결정 → 어떻게 됐나"가 남습니다. 엔진은 이 위에서 다음 결정을 하고, 집필 도구는 여기서 설정을 꺼냅니다.</p></div>
+      <div class="card">
+        <div class="tl">
+          <div class="tli"><div class="av"><img src="../assets/tman.webp" alt=""></div><div class="hd"><b>10화</b><span class="dt">2026-07-21</span><span class="chip o">T-Man 비중 늘림</span></div>
+            <div class="flow"><div><span>반응</span>T-Man 얘기 갑자기 +19p</div><div><span>결정</span>T-Man 장면 2개 추가</div><div><span>결과</span><b class="up">본 사람 +14%</b> · 완독 68%</div><div><span>기록</span>c10 · 새 사실 6개</div></div></div>
+          <div class="tli"><div class="av"><img src="../assets/cd33e0ed67201028.webp" alt=""></div><div class="hd"><b>11화</b><span class="dt">2026-08-04</span><span class="chip c">세계관 넓힘 (지하 도시)</span></div>
+            <div class="flow"><div><span>반응</span>"배경이 궁금하다" 840개</div><div><span>결정</span>지하 도시 첫 공개</div><div><span>결과</span>본 사람 +6% · <b class="dn">완독 −4p</b></div><div><span>기록</span>c11 · 새 설정 4개</div></div>
+            <p class="note">설명이 길어지자 끝까지 읽는 비율이 빠졌다 — 12화 3컷 이탈의 전조.</p></div>
+          <div class="tli"><div class="av"><img src="../assets/9f36ab4b445c2308.webp" alt=""></div><div class="hd"><b>12화</b><span class="dt">2026-08-25</span><span class="chip g">홀독과 홀맨의 갈등</span></div>
+            <div class="flow"><div><span>반응</span>홀독 좋다 74% · 갈등 보고 싶다</div><div><span>결정</span>옥상 대치</div><div><span>결과</span>댓글 +31% · <b class="dn">완독 −7p</b></div><div><span>기록</span>c12 · 복선 2개</div></div></div>
+          <div class="tli now"><div class="av" id="m-av"><img src="../assets/cd33e0ed67201028.webp" alt=""></div><div class="hd"><b>13화</b><span class="dt">진행 중</span><span class="chip c" id="m-pick">방향 미정</span></div>
+            <div class="flow" id="m-flow"><div><span>반응</span>홀독 31% · 3컷 이탈 · 홀캣 문의</div><div><span>결정</span>—</div><div><span>결과</span>올린 뒤 수집</div><div><span>기록</span>—</div></div>
+            <div class="callout">세 회차가 말해 주는 것: <b>캐릭터를 키우면 반응이 오고, 설명이 길면 독자가 나간다.</b> 이 두 줄이 13화 결정의 기준이 됐고, 글 검사 규칙("설명 대사 3줄 넘으면 경고")도 여기서 나왔습니다.</div></div>
+        </div>
+      </div>
+      <div class="sec">저장 로그</div>
+      <div class="card">
+        <table><thead><tr><th>시각</th><th>회차</th><th>어디에</th><th>내용</th></tr></thead><tbody>
+          <tr><td class="mono">08-25 14:02</td><td class="mono">c12</td><td>상태 · 요약 · 검색</td><td>홀독 "옥상에서 홀맨에게 등을 돌림" 기록 · 복선 F-07(지하 도시 입구) 아직 안 풀림</td></tr>
+          <tr><td class="mono">08-25 14:02</td><td class="mono">c12</td><td>장기 기억</td><td>홀독 성격 "말수 적음·관찰형" 유지, "결단력" +1</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="foot">
+  목업 — 숫자와 글은 예시입니다. 방향 결정: <span class="mono">등록특허 10-2837572</span> · 반응 분석·집필·기록: 공개 오픈소스 구성 요소 · 주식회사 블랙홀맨브로스
+</footer>
+
+<nav class="mtab" aria-label="모바일 메뉴">
+  <button class="on" data-view="react"><b>1</b>반응</button>
+  <button data-view="evolve"><b>3</b>방향</button>
+  <button data-view="plan"><b>4</b>줄거리</button>
+  <button data-view="write"><b>5</b>글쓰기</button>
+  <button data-view="memory"><b>6</b>기록</button>
+</nav>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const IMG={hol:"../assets/cd33e0ed67201028.webp",dog:"../assets/9f36ab4b445c2308.webp",cat:"../assets/f654843e589a50a7.webp"};
+
+const PROPS=[
+ { id:"A", ac:"var(--dog)", img:IMG.dog, lab:"방향 A · 캐릭터 키우기", title:"홀독을 두 번째 주인공으로",
+   why:"홀독 얘기가 <b>31%(+12p)</b>, 좋다 78%, 혼자 나오는 장면 요청 1,104개. 주인공보다 많아진 첫 회차 — 홀독의 이야기 줄기를 세울 때.",
+   sig:["홀독 얘기 +12p","좋다 78%","혼자 장면 요청"], exp:{read:"+6p",cmt:"+18%",risk:"낮음"}, stamp:"추천",
+   pill:"A · 홀독 키우기",
+   ol:[["1","홀독의 골목","홀독 혼자. 도시 아래층을 걷다 지하 도시 입구(복선 F-07)를 찾는다."],["2","홀맨 사무실","홀맨이 홀독이 없어진 걸 눈치챈다. 설명 대사 없이 행동으로."],["3","옥상","홀독과 홀맨 다시 마주침. 12화의 '등을 돌림'을 잇는다."],["4","카페","T-Man이 홀캣 소식을 한 줄 흘린다 — 14화 준비."]],
+   cons:[["ok","홀독은 말수가 적다 — 대사 4줄 이내"],["ok","지하 도시는 11화에 나온 설정만 쓴다 — 새 설정 0"],["wn","홀캣 얘기 — 원래 계획(14화)보다 한 화 빠름. 한 줄 암시까지만"]],
+   fs:[["ok","F-07 지하 도시 입구 — 이번 화에 <b>풀기 시작</b>"],["ok","F-05 홀맨의 지도 — 그대로"],["wn","F-09 홀캣 티저 — 14화에 풀 예정, 이번엔 암시만"]],
+   ctx:[["설정집/홀독","말수 적고 관찰형. 8화 옥상에서 홀맨 방식에 처음 의문. 12화 등을 돌림."],["설정집/지하도시","11화 공개. 입구는 아래층 골목 배수로 뒤. 아직 아무도 안 들어감."],["지난 화 기억","홀독-홀맨 사이 −2(대립). 독자 공감은 홀독 > 홀맨."],["12화 요약","옥상 대치 후 홀독 퇴장. 홀맨은 지도를 태우려다 멈춤."]],
+   chk:[["ok","설정 충돌 없음 — 홀독 대사 3줄, 성격 유지"],["ok","시간 순서 — 12화 그날 밤 → 13화 다음 날, 이어짐"],["ok","복선 F-07 풀기 시작 기록됨"],["wn","옥상 장면이 12화와 비슷함 — 시간대·조명을 바꾸라는 권고 (멈추진 않음)"]],
+   facts:`+ 홀독: 지하 도시 입구 발견 (13화 1장면)\n+ 홀독: 혼자 움직이기 시작 — '관찰'에서 '탐색'으로\n+ 홀맨: 홀독 없어진 걸 알고 찾기로 함\n~ F-07 지하 도시 입구: 안 풀림 → 풀리는 중\n+ 홀캣: T-Man 대사로 존재 암시 (14화 등장)`,
+   draft:`<div class="ttl">13화. 배수로 뒤</div><p>골목은 비에 젖은 채 잠들어 있었다. 홀독은 가로등 아래를 지나지 않았다. 그가 걷는 쪽은 언제나 그늘이었고, 그늘은 언제나 그를 받아 주었다.</p><p>배수로 철망이 한 뼘쯤 벌어져 있었다. 어제까지는 없던 틈이었다. 홀독은 멈춰 서서 오래 바라보았다. 안쪽에서 바람이 올라왔다. 도시 아래에 또 다른 도시가 숨 쉬고 있다는 것을, 그는 그 바람으로 알았다.</p><p>"내려가 볼 거야?"</p><p>아무도 없었다. 그 목소리는 홀독 자신의 것이었다. 그는 대답하지 않았다. 대답 대신 철망을 조금 더 벌렸다.</p><p>같은 시각, 사무실. 홀맨은 지도를 펴 놓고 있었다. 태우려던 지도였다. 그는 홀독의 자리를 한 번 보았고, 다시 지도를 보았다. 그리고 외투를 집었다.</p>`,
+   memflow:["홀독을 두 번째 주인공으로","예상 완독 +6p · 댓글 +18%","c13 · 새 사실 5개 · F-07 풀기 시작"] },
+ { id:"B", ac:"var(--hol)", img:IMG.hol, lab:"방향 B · 구조 고치기", title:"설명 장면 줄이기",
+   why:"3컷에서 평소의 <b>2.6배</b>가 나갔다. \"초반이 늘어진다\" 612개. 11화부터 이어진 설명 과다를 행동으로 바꾼다.",
+   sig:["3컷 이탈 ×2.6","'늘어진다' 612개","11화 완독 −4p"], exp:{read:"+9p",cmt:"±0",risk:"낮음"}, stamp:"추천",
+   pill:"B · 설명 줄이기",
+   ol:[["1","홀맨 사무실","설명 대사 전부 삭제. 홀맨이 지도를 태우는 행동 한 컷으로."],["2","골목","홀독 추격 — 짧은 액션. 대사 없음."],["3","카페","T-Man 합류. 다음 화 갈등을 한 줄로 예고."]],
+   cons:[["ok","지운 설명은 6화에서 이미 나옴 — 잃는 정보 없음"],["ok","홀독의 운동 능력 설정과 추격 장면 맞음"],["ok","새 설정 0"]],
+   fs:[["ok","F-05 홀맨의 지도 — <b>풀림(태움)</b>"],["wn","F-07 지하 도시 입구 — 이번 화 언급 없음, 14화로 미룸"]],
+   ctx:[["설정집/홀맨","지도는 9화부터 들고 다님. 태우려다 멈춘 게 12화."],["6화 요약","지하 조직 구조 설명은 6화에서 끝남."],["지난 화 기억","독자가 나가는 건 설명 장면(11·12화)."]],
+   chk:[["ok","설정 충돌 없음"],["ok","분량 — 지난 화보다 −22%, 완독 목표에 맞음"],["wn","F-07 언급 없음 — 복선 방치 2화째. 14화 필수로 등록"]],
+   facts:`~ F-05 홀맨의 지도: 그대로 → 풀림(태움)\n+ 홀맨: 지도 태움 — '망설임' −1, '결단력' +1\n+ 홀독: 골목 추격 (대사 없음)\n! F-07: 2화 연속 언급 없음 → 14화 필수`,
+   draft:`<div class="ttl">13화. 불</div><p>홀맨은 말하지 않았다. 지도를 펴고, 라이터를 켜고, 모서리부터 불을 붙였다. 종이가 오그라드는 동안 그는 창밖을 보고 있었다.</p><p>골목. 홀독이 달린다. 뒤를 돌아보지 않는다. 그가 돌아보지 않는 이유를 독자는 아직 모른다.</p><p>카페. T-Man이 자리에 앉으며 한마디 했다.</p><p>"둘 다 오늘 밤은 못 자겠네."</p>`,
+   memflow:["설명 장면 줄이기","예상 완독 +9p · 댓글 ±0","c13 · 새 사실 4개 · F-05 풀림"] },
+ { id:"C", ac:"var(--cat)", img:IMG.cat, lab:"방향 C · 세계관 넓히기", title:"홀캣을 한 화 일찍 등장",
+   why:"홀캣 언제 나오냐 287개 — 기대는 있지만 아직 작다. 원래 계획(14화)보다 한 화 당기는 안. 엔진은 <b>보류</b>로 분류.",
+   sig:["홀캣 문의 287개","티저 기대"], exp:{read:"+3p",cmt:"+25%",risk:"중간"}, stamp:"보류",
+   pill:"C · 홀캣 조기 등장",
+   ol:[["1","지하 도시 광장","군중 속 홀캣 첫 등장."],["2","홀맨 사무실","홀맨·T-Man 대응 회의."],["3","지하 통로","홀캣 추격."],["4","카페","홀독 합류."]],
+   cons:[["wn","홀캣 등장 시점 — 계획(14화)보다 빠름. 설정집 고쳐야 함"],["wn","지하 도시 광장 — 11화에 없는 새 장소. 설정 추가 필요"],["ok","홀캣 성격은 설정과 맞음"]],
+   fs:[["wn","F-09 홀캣 티저 — 계획보다 일찍 풀림"],["ok","F-07 지하 도시 입구 — 풀림"]],
+   ctx:[["설정집/홀캣","등장 예정 14화. 성격: 가볍고 즉흥적. 홀독과 대비."],["설정집/지하도시","광장 설정 없음 — 새로 써야 함."],["지난 화 기억","홀캣 기대는 아직 작음(287개). 일찍 넣으면 홀독 이야기와 부딪힐 위험."]],
+   chk:[["wn","설정집과 충돌 — 홀캣 등장 시점 (멈추진 않음, 설정집 갱신 필요)"],["wn","새 장소 2곳 — 세계관 문서를 먼저 써야 함"],["ok","시간 순서 이어짐"]],
+   facts:`! 설정집/홀캣: 등장 14화 → 13화 (고쳐야 함)\n+ 지하 도시 광장 (새 설정)\n+ 홀캣: 첫 등장\n~ F-09: 일찍 풀림`,
+   draft:`<div class="ttl">13화. 광장</div><p>지하 도시의 광장은 생각보다 밝았다. 홀독이 처음 본 것은 사람들이 아니라, 그 사람들 사이를 고양이처럼 빠져나가는 작은 그림자였다.</p><p>"늦었네."</p><p>그림자가 말했다. 목소리에 웃음이 섞여 있었다.</p>`,
+   memflow:["홀캣을 한 화 일찍 등장","예상 완독 +3p · 댓글 +25%","c13 · 새 설정 2개 · 설정집 갱신"] },
+];
+let pick=null;
+
+function go(v){
+  $$(".view").forEach(s=>s.classList.toggle("on",s.dataset.view===v));
+  $$("button[data-view]").forEach(b=>b.classList.toggle("on",b.dataset.view===v));
+  $$(".step").forEach(s=>s.classList.toggle("on",s.dataset.s===v));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(location.hash!=="#"+v) history.replaceState(null,"","#"+v);
+}
+$$("button[data-view]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
+document.addEventListener("click",e=>{ const g=e.target.closest("[data-go]"); if(g) go(g.dataset.go); });
+
+function renderProps(){
+  $("#props").innerHTML=PROPS.map(p=>`
+    <div class="card prop ${pick===p.id?"pick":""}" style="--ac:${p.ac}">
+      <div class="glow"></div>
+      <span class="stamp">${p.stamp}</span>
+      <div class="who"><img src="${p.img}" alt=""><div><div class="lab">${p.lab}</div><h4>${p.title}</h4></div></div>
+      <div class="why">${p.why}</div>
+      <div style="margin:9px 0 2px">${p.sig.map(s=>`<span class="chip">${s}</span>`).join("")}</div>
+      <div class="est">
+        <div><b class="${p.exp.read.startsWith("+")?"up":""}">${p.exp.read}</b><span>끝까지 읽을 비율</span></div>
+        <div><b>${p.exp.cmt}</b><span>댓글 예상</span></div>
+        <div><b>${p.exp.risk}</b><span>설정 깨질 위험</span></div>
+      </div>
+      <button class="btn ${pick===p.id?"":"pri"}" data-pick="${p.id}">${pick===p.id?"선택됨 ✓":"이 방향으로"}</button>
+    </div>`).join("");
+}
+$("#props").addEventListener("click",e=>{
+  const b=e.target.closest("[data-pick]"); if(!b) return;
+  pick=b.dataset.pick; renderAll();
+  $("#picked-pill").textContent="13화 "+PROPS.find(x=>x.id===pick).pill;
+  setTimeout(()=>go("plan"),180);
+});
+const li=(c)=>`<li><span class="${c[0]}">${c[0]==="ok"?"✓":"!"}</span><span>${c[1]}</span></li>`;
+function renderPlan(){
+  const p=PROPS.find(x=>x.id===pick);
+  $("#pl-empty").style.display=p?"none":""; $("#pl-body").style.display=p?"":"none";
+  $("#pl-title").textContent=p?`${p.id} · ${p.title}`:"방향을 먼저 정하세요";
+  if(!p) return;
+  $("#pl-ol").innerHTML=p.ol.map(o=>`<li><span class="k">장면 ${o[0]}</span><div><b>${o[1]}</b><span class="m">${o[2]}</span></div></li>`).join("");
+  $("#pl-cons").innerHTML=p.cons.map(li).join(""); $("#pl-fs").innerHTML=p.fs.map(li).join("");
+}
+function renderWrite(){
+  const p=PROPS.find(x=>x.id===pick);
+  $("#wr-empty").style.display=p?"none":""; $("#wr-body").style.display=p?"":"none";
+  $("#wr-title").textContent=p?`${p.id} · ${p.title}`:"방향을 먼저 정하세요";
+  if(!p) return;
+  $("#wr-ctx").innerHTML=p.ctx.map(c=>`<li><span class="src">${c[0]}</span><span>${c[1]}</span></li>`).join("");
+  $("#wr-chk").innerHTML=p.chk.map(li).join("");
+  $("#wr-facts").textContent=p.facts; $("#wr-draft").innerHTML=p.draft;
+  $("#wr-rev").className=p.id==="C"?"block":"done";
+}
+function renderMemory(){
+  const p=PROPS.find(x=>x.id===pick);
+  $("#m-pick").textContent=p?`${p.id} · ${p.title}`:"방향 미정";
+  $("#m-av").innerHTML=`<img src="${p?p.img:IMG.hol}" alt="">`;
+  $("#m-flow").innerHTML=`<div><span>반응</span>홀독 31% · 3컷 이탈 · 홀캣 문의</div><div><span>결정</span>${p?p.memflow[0]:"—"}</div><div><span>결과</span>${p?p.memflow[1]+" (예상)":"올린 뒤 수집"}</div><div><span>기록</span>${p?p.memflow[2]:"—"}</div>`;
+}
+function renderAll(){ renderProps(); renderPlan(); renderWrite(); renderMemory(); }
+renderAll();
+const h=location.hash.slice(1); if(["react","evolve","plan","write","memory"].includes(h)) go(h);
+})();
+</script>
+</body>
+</html>

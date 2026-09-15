@@ -1,0 +1,56 @@
+/* 개인정보처리방침 / 이용약관 등 문서형 페이지 공통 스타일 */
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:#02040a;color:#fff;font-family:Pretendard,Arial,sans-serif;line-height:1.8}
+a{color:inherit}
+:root{--line:rgba(255,255,255,.10);--muted:rgba(255,255,255,.58);--blue:#49a7ff}
+
+header{height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:0 2.6vw;position:sticky;top:0;z-index:80;border-bottom:1px solid var(--line);
+  background:rgba(2,4,9,.78);backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:14px;line-height:.9;
+  text-decoration:none}
+.brandmark{width:36px;height:36px;position:relative;display:inline-block}
+.brandmark:before,.brandmark:after{content:"";position:absolute;inset:2px;border:2px solid #fff;
+  border-radius:50%}
+.brandmark:after{inset:10px}
+header nav{display:flex;gap:26px;font-size:12px;font-weight:750}
+header nav a{opacity:.55;text-decoration:none}
+header nav a:hover,header nav a.active{opacity:1}
+
+.doc{max-width:860px;margin:0 auto;padding:80px 5vw 110px}
+.doc .kicker{font-size:11px;letter-spacing:.22em;color:var(--blue);font-weight:850;margin-bottom:18px}
+.doc h1{font-size:clamp(32px,5.4vw,52px);line-height:1.08;letter-spacing:-.045em;margin:0 0 16px}
+.doc .lead{color:var(--muted);font-size:14px;margin:0 0 14px}
+.doc .meta{font-size:12px;color:rgba(255,255,255,.42);padding-bottom:34px;border-bottom:1px solid var(--line)}
+
+.toc{margin:34px 0 10px;padding:22px 26px;border:1px solid var(--line);border-radius:18px;
+  background:rgba(255,255,255,.025)}
+.toc b{display:block;font-size:11px;letter-spacing:.16em;color:var(--blue);font-weight:850;margin-bottom:12px}
+.toc ol{margin:0;padding-left:20px;font-size:13px;color:rgba(255,255,255,.8)}
+.toc li{padding:3px 0}
+.toc a{text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+.doc h2{font-size:19px;letter-spacing:-.02em;margin:56px 0 14px;padding-top:14px;
+  border-top:1px solid var(--line);scroll-margin-top:96px}
+.doc h3{font-size:15px;margin:26px 0 8px;color:#dfe8ff}
+.doc p,.doc li{font-size:14px;color:rgba(255,255,255,.78)}
+.doc ul,.doc ol{padding-left:22px}
+.doc li{margin:6px 0}
+.doc strong{color:#fff}
+
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+th,td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
+th{background:rgba(255,255,255,.045);font-size:11px;letter-spacing:.1em;color:var(--blue);font-weight:850}
+.table-scroll{overflow-x:auto}
+
+.callout{margin:22px 0;padding:20px 24px;border:1px solid var(--line);border-radius:16px;
+  background:rgba(73,167,255,.06);font-size:13px;color:rgba(255,255,255,.82)}
+
+.backlink{display:inline-block;margin-top:56px;padding:13px 24px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.32);font-size:11px;font-weight:850;letter-spacing:.04em;
+  text-decoration:none}
+
+@media(max-width:1100px){header nav{display:none}}
+@media(max-width:620px){.doc{padding:56px 6vw 80px}.toc{padding:18px 20px}}

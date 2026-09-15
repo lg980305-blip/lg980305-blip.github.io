@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI LAB — BLACKHOLEMAN BROS</title>
+<meta name="description" content="블랙홀맨·홀독·홀캣과 직접 대화하고, Character Evolution Engine이 반응 데이터에서 진화 방향을 뽑아내는 과정을 눈으로 확인하세요. Gemini 기반 AI LAB.">
+<meta name="author" content="주식회사 블랙홀맨브로스">
+<meta name="theme-color" content="#02040a">
+<link rel="canonical" href="https://lg980305-blip.github.io/ai.html">
+<link rel="alternate" hreflang="ko" href="https://lg980305-blip.github.io/ai.html">
+<link rel="alternate" hreflang="x-default" href="https://lg980305-blip.github.io/ai.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BLACKHOLEMAN BROS">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AI LAB — BLACKHOLEMAN BROS">
+<meta property="og:description" content="캐릭터와 직접 대화해 보세요. Gemini로 살아 움직이는 블랙홀맨·홀독·홀캣.">
+<meta property="og:url" content="https://lg980305-blip.github.io/ai.html">
+<meta property="og:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI LAB — BLACKHOLEMAN BROS">
+<meta name="twitter:description" content="캐릭터와 직접 대화해 보세요. Gemini로 살아 움직이는 블랙홀맨·홀독·홀캣.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/assets/og-image.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"></noscript>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:#02040a;color:#fff;font-family:Pretendard,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+header{height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:0 2.6vw;position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(2,4,9,.78);backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:14px;line-height:.9}
+.brandmark{width:36px;height:36px;position:relative;display:inline-block}
+.brandmark:before,.brandmark:after{content:"";position:absolute;inset:2px;border:2px solid #fff;border-radius:50%}
+.brandmark:after{inset:10px}
+header nav{display:flex;gap:26px;font-size:12px;font-weight:750}
+header nav a{opacity:.55}header nav a:hover,header nav a.active{opacity:1}
+</style>
+
+<!-- Google Analytics (GA4) — 사용하려면 아래 주석을 풀고 G-XXXXXXXXXX 를 실제 측정 ID로 바꾸세요.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+<link rel="stylesheet" href="assets/ai.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<header>
+<a class="brand" href="index.html"><span class="brandmark"></span><span>BLACKHOLEMAN<br>BROS</span></a>
+<nav aria-label="주요 메뉴"><a href="about.html">COMPANY</a><a href="characters.html">CHARACTERS</a><a href="technology.html">TECHNOLOGY</a><a class="active" aria-current="page" href="ai.html">AI LAB</a><a href="app.html">APP</a><a href="contents.html">CONTENTS</a><a href="community.html">COMMUNITY</a><a href="goods.html">SHOP</a><a href="games/index.html">ARCADE</a></nav>
+<div class="header-right"><a class="langswitch" href="en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a><a class="contact" href="about.html#contact">CONTACT　→</a><button class="navtoggle" id="navtoggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="sitemenu"><span></span><span></span><span></span></button></div>
+</header>
+<span id="main" tabindex="-1"></span>
+
+<main>
+
+<!-- ========== HERO ========== -->
+<section class="ai-hero">
+  <div class="kicker">POWERED BY GEMINI</div>
+  <h1>TALK TO THE<br><span class="grad">BLACKHOLE.</span></h1>
+  <p>블랙홀맨브로스의 캐릭터는 설정집 속 그림이 아닙니다. 직접 말을 걸어 보세요. 그리고 그 반응이 어떻게 다음 이야기를 결정하는지, Character Evolution Engine이 판단하는 과정을 그대로 보여드립니다.</p>
+  <div class="ai-mode" data-ai-mode>DEMO MODE</div>
+  <p class="ai-note" data-ai-note>※ 서버 연결 상태를 확인하는 중입니다…</p>
+</section>
+
+<!-- ========== 1. 캐릭터 대화 ========== -->
+<section class="ai-sec" id="chat" data-ai-chat>
+  <div class="label">01 / CHARACTER CHAT</div>
+  <h2>캐릭터와 직접 대화하기</h2>
+  <p class="sub">세 캐릭터는 각자 다른 성격, 말투, 관계를 가지고 있습니다. 같은 질문을 해도 돌아오는 대답이 다릅니다.</p>
+
+  <div class="ai-chat-wrap">
+    <div>
+      <div class="ai-picker" data-chat-picker role="group" aria-label="대화할 캐릭터 선택"></div>
+      <div class="ai-picker-meta">
+        <div class="tag" data-chat-tag></div>
+        <div class="desc" data-chat-desc></div>
+      </div>
+    </div>
+
+    <div class="ai-card ai-chat">
+      <div class="ai-log" data-chat-log role="log" aria-live="polite" aria-label="대화 내용"></div>
+      <div class="ai-chips" data-chat-chips></div>
+      <form class="ai-form" data-chat-form>
+        <label class="skip-link" for="chatInput">메시지 입력</label>
+        <input class="ai-input" id="chatInput" data-chat-input type="text"
+               placeholder="캐릭터에게 말을 걸어보세요…" autocomplete="off" maxlength="300">
+        <button class="ai-btn" data-chat-send type="submit">보내기</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. 문의 봇 ========== -->
+<section class="ai-sec" id="ask" data-ai-ask>
+  <div class="label">02 / ASK THE SITE</div>
+  <h2>궁금한 것을 물어보세요</h2>
+  <p class="sub">회사, 기술, 제휴, 굿즈 등 사이트에 담긴 내용을 바탕으로 답변합니다. 정확한 답이 필요한 문의는 언제든 <a href="about.html#contact" style="color:var(--blue);text-decoration:underline">직접 문의</a>로 연결됩니다.</p>
+
+  <div class="ai-card">
+    <div class="ai-ask-chips">
+      <button class="ai-chip" type="button" data-ask-q="보유한 특허가 어떤 기술인가요?">특허가 뭔가요?</button>
+      <button class="ai-chip" type="button" data-ask-q="제휴 문의는 어떻게 하나요?">제휴하고 싶어요</button>
+      <button class="ai-chip" type="button" data-ask-q="캐릭터는 몇 명인가요?">캐릭터 소개</button>
+      <button class="ai-chip" type="button" data-ask-q="투자 관련 자료를 받고 싶습니다">투자 문의</button>
+      <button class="ai-chip" type="button" data-ask-q="굿즈는 언제 살 수 있나요?">굿즈 출시일</button>
+    </div>
+    <form class="ai-form" data-ask-form>
+      <label class="skip-link" for="askInput">질문 입력</label>
+      <input class="ai-input" id="askInput" data-ask-input type="text"
+             placeholder="예: 어떤 기술로 캐릭터가 진화하나요?" autocomplete="off" maxlength="300">
+      <button class="ai-btn" type="submit">질문하기</button>
+    </form>
+    <div class="ai-out" data-ask-out hidden aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ========== 3. 진화 데모 ========== -->
+<section class="ai-sec" id="evolve" data-ai-evolve>
+  <div class="label">03 / EVOLUTION ENGINE</div>
+  <h2>반응이 다음 이야기를 결정하는 순간</h2>
+  <p class="sub">특허 기술(등록번호 10-2837572)의 핵심은 콘텐츠를 만드는 것이 아니라 <strong>무엇을 만들지 결정하는 것</strong>입니다. 수집된 반응 데이터가 어떤 판단으로 이어지는지 직접 실행해 보세요.</p>
+
+  <div class="ai-card">
+    <div class="ai-flow">
+      <div class="ai-step" data-evolve-step><div class="n">STEP 01</div><div class="t">반응 수집</div><div class="d">조회수 · 댓글 · 완주율 · 저장 · 공유</div></div>
+      <div class="ai-step" data-evolve-step><div class="n">STEP 02</div><div class="t">Noise 제거</div><div class="d">왜곡 가능성이 높은 데이터 배제</div></div>
+      <div class="ai-step" data-evolve-step><div class="n">STEP 03</div><div class="t">Signal 추출</div><div class="d">반복되는 유의미한 패턴만 남김</div></div>
+      <div class="ai-step" data-evolve-step><div class="n">STEP 04</div><div class="t">진화 제안</div><div class="d">다음 콘텐츠의 방향과 근거 제시</div></div>
+    </div>
+
+    <button class="ai-btn" type="button" data-evolve-run>엔진 실행하기　→</button>
+
+    <div class="ai-result" data-evolve-result hidden aria-live="polite">
+      <div class="ai-result-row"><b>SIGNAL</b><span data-evolve-signal></span></div>
+      <div class="ai-result-row"><b>ACTION</b><span data-evolve-action></span></div>
+      <div class="ai-result-row"><b>WHY</b><span data-evolve-reason></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. 스토리 생성 ========== -->
+<section class="ai-sec" id="story" data-ai-story>
+  <div class="label">04 / STORY LAB</div>
+  <h2>새로운 에피소드 만들기</h2>
+  <p class="sub">등장 캐릭터와 테마를 고르면 짧은 에피소드가 생성됩니다. 캐릭터 설정과 관계는 Character Knowledge Base에서 가져오므로, 매번 달라도 세계관은 어긋나지 않습니다.</p>
+
+  <div class="ai-card">
+    <div class="ai-cast" role="group" aria-label="등장 캐릭터 선택">
+      <button class="ai-cast-btn on" type="button" aria-pressed="true" data-story-cast="blackholeman"><img src="assets/cd33e0ed67201028.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">블랙홀맨</button>
+      <button class="ai-cast-btn on" type="button" aria-pressed="true" data-story-cast="holdog"><img src="assets/9f36ab4b445c2308.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">홀독</button>
+      <button class="ai-cast-btn on" type="button" aria-pressed="true" data-story-cast="holcat"><img src="assets/f654843e589a50a7.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">홀캣</button>
+    </div>
+    <form class="ai-form" data-story-form>
+      <label class="skip-link" for="storyInput">테마 입력</label>
+      <input class="ai-input" id="storyInput" data-story-input type="text"
+             placeholder="테마를 입력하세요 — 예: 여행, 우주 모험, 일상 코미디" autocomplete="off" maxlength="120">
+      <button class="ai-btn" data-story-btn type="submit">에피소드 생성</button>
+    </form>
+    <div class="ai-story-out" data-story-out hidden aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ========== 연동 안내 ========== -->
+<section class="ai-sec" id="setup">
+  <div class="label">05 / SETUP</div>
+  <h2>Gemini 연결하기</h2>
+  <p class="sub">아래 안내는 사이트 운영자를 위한 것입니다.</p>
+
+  <div class="ai-security">
+    <b>⚠ API 키를 HTML이나 JavaScript에 직접 넣지 마세요.</b><br>
+    이 사이트는 GitHub Pages에서 동작하는 정적 사이트라 서버가 없습니다. 브라우저 코드에 넣은 키는
+    누구나 “페이지 소스 보기”로 확인할 수 있고, 도용되면 요금이 그대로 청구됩니다.
+    반드시 키를 보관할 <b>중계 서버</b>를 하나 두고, 이 페이지는 그 주소만 호출해야 합니다.
+  </div>
+
+  <div class="ai-card" style="margin-top:16px">
+    <p style="font-size:14px;line-height:1.9;color:rgba(255,255,255,.8);margin:0 0 18px">
+      <strong>Vercel에 배포하는 경우</strong> — 코드 수정이 전혀 필요 없습니다.
+      저장소를 Vercel로 배포하면 <code>api/gemini.mjs</code>가 같은 도메인에 함께 올라가고,
+      이 페이지가 자동으로 찾아 연결합니다.
+    </p>
+    <ol style="margin:0;padding-left:20px;font-size:14px;line-height:2.1;color:rgba(255,255,255,.8)">
+      <li><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline">Google AI Studio</a>에서 Gemini API 키를 발급받습니다.</li>
+      <li><a href="https://vercel.com/new" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline">vercel.com/new</a> 에서 이 저장소를 Import 하고 기본값 그대로 Deploy 합니다.</li>
+      <li>Settings → Environment Variables 에 <code>GEMINI_API_KEY</code> 를 추가합니다.</li>
+      <li>Deployments → 맨 위 항목 → Redeploy. 끝입니다.</li>
+    </ol>
+    <p style="font-size:13px;line-height:1.9;color:rgba(255,255,255,.6);margin:20px 0 0">
+      <strong>Cloudflare Workers 를 쓰실 경우</strong>에는 도메인이 달라지므로,
+      <code>assets/ai.js</code> 맨 위 <code>ENDPOINT</code> 에 워커 주소를 적어 주세요.
+      자세한 절차는 <code>server/README.md</code> 에 있습니다.
+    </p>
+    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.9;margin:18px 0 0">
+      자세한 배포 절차와 명령어는 저장소의 <code>server/README.md</code> 에 단계별로 적어 두었습니다.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="corp-footer">
+  <div class="corp-footer-inner">
+    <div class="corp-brand">BLACKHOLEMAN BROS</div>
+    <div class="corp-info">
+      <div>주식회사 블랙홀맨브로스 · 대표자 조미숙 · 사업자등록번호 717-81-03443</div>
+      <div>서울특별시 강남구 선릉로 529, 5층 5249호(역삼동, 함양재빌딩)</div>
+      <div>문의 <a href="mailto:contact@blackholemanbros.com">contact@blackholemanbros.com</a></div>
+      <div class="corp-links">
+        <a href="about.html#contact">CONTACT</a>
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="en/index.html" hreflang="en" lang="en">ENGLISH</a>
+      </div>
+    </div>
+    <div class="corp-copy">© BLACKHOLEMAN BROS. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<nav class="sitemenu" id="sitemenu" aria-label="모바일 메뉴" hidden><a href="index.html"><span>HOME</span><span class="ko">홈</span></a><a href="about.html"><span>COMPANY</span><span class="ko">회사소개</span></a><a href="characters.html"><span>CHARACTERS</span><span class="ko">캐릭터</span></a><a href="technology.html"><span>TECHNOLOGY</span><span class="ko">기술</span></a><a aria-current="page" href="ai.html"><span>AI LAB</span><span class="ko">AI 랩</span></a><a href="app.html"><span>APP</span><span class="ko">앱 목업</span></a><a href="contents.html"><span>CONTENTS</span><span class="ko">콘텐츠</span></a><a href="community.html"><span>COMMUNITY</span><span class="ko">커뮤니티</span></a><a href="goods.html"><span>SHOP</span><span class="ko">굿즈샵</span></a><a href="games/index.html"><span>ARCADE</span><span class="ko">아케이드</span></a><div class="menu-foot"><a href="about.html#contact">CONTACT</a><a href="en/index.html" hreflang="en" lang="en">ENGLISH</a></div></nav>
+
+<script src="assets/ai.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+name: Build APK
+
+# 실행 방법: GitHub 저장소 > Actions 탭 > "Build APK" > Run workflow 버튼
+# 빌드가 끝나면 Releases 페이지에 apk 다운로드 링크가 생깁니다.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '버전 이름 (예: 1.0.0)'
+        required: false
+        default: '1.0.0'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 받기
+        uses: actions/checkout@v4
+
+      - name: JDK 17 준비
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Node 20 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Android SDK 준비
+        uses: android-actions/setup-android@v3
+
+      - name: 필요한 SDK 패키지 설치
+        run: |
+          sdkmanager --install "platforms;android-35" "build-tools;35.0.0" "platform-tools" > /dev/null
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls "$ANDROID_HOME/build-tools"
+
+      - name: Bubblewrap 설치
+        run: npm install -g @bubblewrap/cli@latest
+
+      - name: Bubblewrap 경로 설정
+        run: |
+          mkdir -p ~/.bubblewrap
+          cat > ~/.bubblewrap/config.json <<EOF
+          {
+            "jdkPath": "${JAVA_HOME}",
+            "androidSdkPath": "${ANDROID_HOME}"
+          }
+          EOF
+          cat ~/.bubblewrap/config.json
+
+      # 서명키: Secret 이 있으면 그것을 쓰고, 없으면 데모용 키를 새로 만든다.
+      # (데모 키로 만든 apk 는 빌드할 때마다 키가 달라져 '업데이트 설치'가 안 됩니다.
+      #  계속 쓰실 거라면 아래 안내대로 Secret 에 등록해 두세요.)
+      - name: 서명키 준비
+        id: keystore
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          set -e
+          if [ -n "$KEYSTORE_B64" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > android.keystore
+            echo "pw=$KEYSTORE_PASSWORD" >> "$GITHUB_OUTPUT"
+            echo "mode=secret" >> "$GITHUB_OUTPUT"
+            echo "::notice::등록된 서명키(Secret)를 사용합니다."
+          else
+            keytool -genkeypair -v \
+              -keystore android.keystore \
+              -alias blackholemanbros \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass bhbdemo2026 -keypass bhbdemo2026 \
+              -dname "CN=BLACKHOLEMAN BROS, OU=Dev, O=BLACKHOLEMAN BROS Co Ltd, L=Seoul, C=KR"
+            echo "pw=bhbdemo2026" >> "$GITHUB_OUTPUT"
+            echo "mode=demo" >> "$GITHUB_OUTPUT"
+            echo "::warning::데모용 임시 서명키로 빌드합니다. 계속 배포하실 거면 키를 Secret 에 등록하세요."
+          fi
+
+      - name: TWA 프로젝트 생성
+        env:
+          BUBBLEWRAP_KEYSTORE_PASSWORD: ${{ steps.keystore.outputs.pw }}
+          BUBBLEWRAP_KEY_PASSWORD: ${{ steps.keystore.outputs.pw }}
+        run: |
+          set -e
+          mkdir -p twa
+          cp twa-manifest.json twa/twa-manifest.json
+          cp android.keystore twa/android.keystore
+          cd twa
+          # 버전 반영
+          node -e "
+            const fs=require('fs');
+            const m=JSON.parse(fs.readFileSync('twa-manifest.json','utf8'));
+            m.appVersionName='${{ inputs.version }}';
+            m.appVersionCode=Number(process.env.GITHUB_RUN_NUMBER);
+            m.signingKey={path:'./android.keystore',alias:'blackholemanbros'};
+            // Bubblewrap 은 shortcuts 에 camelCase(shortName) 를 요구한다
+            m.shortcuts=(m.shortcuts||[])
+              .map(s=>({name:s.name, shortName:s.shortName||s.short_name||s.name,
+                        url:s.url, chosenIconUrl:s.chosenIconUrl}))
+              .filter(s=>s.name&&s.shortName&&s.url&&s.chosenIconUrl);
+            fs.writeFileSync('twa-manifest.json',JSON.stringify(m,null,2));
+            console.log('version', m.appVersionName, 'code', m.appVersionCode);
+          "
+          # twa-manifest.json 을 바탕으로 안드로이드 프로젝트를 생성
+          bubblewrap update --skipVersionUpgrade
+          ls -la
+
+      - name: APK 빌드
+        env:
+          BUBBLEWRAP_KEYSTORE_PASSWORD: ${{ steps.keystore.outputs.pw }}
+          BUBBLEWRAP_KEY_PASSWORD: ${{ steps.keystore.outputs.pw }}
+        run: |
+          set -e
+          cd twa
+          bubblewrap build --skipPwaValidation
+          echo "--- 생성된 파일 ---"
+          ls -la *.apk *.aab 2>/dev/null || true
+
+      # 데모 키는 빌드마다 새로 생성되므로 지문이 바뀐다.
+      # assetlinks.json 을 자동으로 맞춰 두어야 앱에서 주소창이 사라진다.
+      - name: assetlinks.json 지문 자동 갱신
+        run: |
+          set -e
+          FP=$(keytool -list -v -keystore android.keystore \
+                 -alias blackholemanbros -storepass '${{ steps.keystore.outputs.pw }}' \
+               | grep "SHA256:" | head -1 | sed 's/.*SHA256: *//' | tr -d ' \r')
+          echo "SHA256 지문: $FP"
+          node -e "
+            const fs=require('fs');
+            const p='.well-known/assetlinks.json';
+            const d=JSON.parse(fs.readFileSync(p,'utf8'));
+            d[0].target.sha256_cert_fingerprints=['$FP'];
+            fs.writeFileSync(p, JSON.stringify(d,null,2)+'\n');
+          "
+          if git diff --quiet -- .well-known/assetlinks.json; then
+            echo "지문 변동 없음"
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .well-known/assetlinks.json
+            git commit -m "chore: update assetlinks.json fingerprint (build #${{ github.run_number }})"
+            git push
+            echo "::notice::assetlinks.json 을 새 서명 지문으로 갱신했습니다."
+          fi
+
+      - name: 빌드 결과 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: blackholemanbros-apk
+          path: |
+            twa/*.apk
+            twa/*.aab
+            android.keystore
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Release 생성 (다운로드 링크)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}-build${{ github.run_number }}
+          name: BLACKHOLEMAN BROS v${{ inputs.version }}
+          files: twa/*.apk
+          body: |
+            ## 설치 방법 (안드로이드)
+
+            아래 `app-release-signed.apk` 를 눌러 내려받은 뒤 파일을 여세요.
+            "출처를 알 수 없는 앱" 경고가 나오면 **설정 → 이 출처 허용**을 켜고 설치하시면 됩니다.
+            (아직 플레이스토어에 올리지 않은 테스트 버전이라 나오는 정상적인 안내입니다.)
+
+            ### 아이폰을 쓰신다면
+            APK는 안드로이드 전용입니다. 아이폰에서는 Safari로
+            https://lg980305-blip.github.io 를 열고 **공유 → 홈 화면에 추가** 하시면 동일하게 앱처럼 동작합니다.
+
+            ---
+            빌드 #${{ github.run_number }} · 서명키: ${{ steps.keystore.outputs.mode }}
+          draft: false
+          prerelease: true
