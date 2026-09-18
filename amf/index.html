@@ -5269,7 +5269,7 @@ function openDrawer(idx){
   <div class="dsec"><div class="sec">기본 프로필</div>
     <div class="card"><div class="cbd">
       <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
-        ${AV(c,"width:52px;height:52px;border-radius:9px;font-size:18px")}
+        ${AV(c,"width:96px;height:128px;border-radius:10px;font-size:18px;flex:none")}
         <div><div style="font-size:17px;font-weight:750">${c.name}</div>
           <div style="font-size:11.5px;color:var(--ink2);margin-top:3px">
             ${c.country} · ${c.city} · ${c.gender==='F'?'여성':'남성'} ${c.age}세</div>
@@ -6363,7 +6363,8 @@ function showCard(s){
   const urgent=s.castingOpen && s.dueLeft<=21;
   const avatars=s.confirmed.slice(0,6).map(i=>{
     const c=ROSTER[i];
-    return `<span class="mono-av" title="${c.name}" style="background:${c.color};width:24px;height:24px;
+    return c.photo ? `<img class="mono-av" title="${c.name}" alt="" src="${c.photo}" style="object-fit:cover;width:24px;height:24px;border:2px solid var(--surface);margin-left:-7px">`
+      : `<span class="mono-av" title="${c.name}" style="background:${c.color};width:24px;height:24px;
       font-size:9px;border:2px solid var(--surface);margin-left:-7px">${c.initials}</span>`;
   }).join('');
   const dd = s.dday===0 ? T('오늘 시작') : s.dday>0 ? 'D−'+s.dday : T('진행 중');

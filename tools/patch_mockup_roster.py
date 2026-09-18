@@ -167,5 +167,15 @@ left = [l for l in s.split('\n') if '480' in l and 'REAL_PEOPLE' not in l and 'b
 print(f'text replacements applied: {applied}/{len(rep)}; lines still containing 480: {len(left)}')
 for l in left[:8]: print('  ', l.strip()[:140])
 
+
+# ── 프로필 드로어: 작은 아바타 대신 3:4 증명사진 크기로, 캐스팅 아바타 스택도 사진으로 ──
+s = s.replace('${AV(c,"width:52px;height:52px;border-radius:9px;font-size:18px")}',
+              '${AV(c,"width:96px;height:128px;border-radius:10px;font-size:18px;flex:none")}')
+s = s.replace("""    return `<span class="mono-av" title="${c.name}" style="background:${c.color};width:24px;height:24px;
+      font-size:9px;border:2px solid var(--surface);margin-left:-7px">${c.initials}</span>`;""",
+              """    return c.photo ? `<img class="mono-av" title="${c.name}" alt="" src="${c.photo}" style="object-fit:cover;width:24px;height:24px;border:2px solid var(--surface);margin-left:-7px">`
+      : `<span class="mono-av" title="${c.name}" style="background:${c.color};width:24px;height:24px;
+      font-size:9px;border:2px solid var(--surface);margin-left:-7px">${c.initials}</span>`;""")
+
 open(OUT, 'w', encoding='utf-8').write(s)
 print(f'wrote {OUT}: {N} people, {NC} countries, {NR} regions, {n_av} avatars, +{len(new_countries)} countries added, {len(s)/1e6:.2f} MB')
