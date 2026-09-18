@@ -188,7 +188,7 @@ try{ const r=JSON.parse(sessionStorage.getItem(HKEY)||'[]'); if(Array.isArray(r)
 const save=()=>{ try{ sessionStorage.setItem(HKEY,JSON.stringify(HIST.slice(-24))); }catch(e){} };
 
 /* ───────── 4. 화면 컨텍스트 수집 (엔진이 이미 계산한 값만) ───────── */
-const curView=()=>{ const b=document.querySelector('.rlink.on'); return b?b.dataset.view:'match'; };
+const curView=()=>{ if(document.body.dataset.view) return document.body.dataset.view; const b=document.querySelector('.rlink.on'); return b?b.dataset.view:'match'; };
 const viewName=v=>{ try{ return T(VIEWS[v][0]); }catch(e){ return v; } };
 
 function briefCtx(){

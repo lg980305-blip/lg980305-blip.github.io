@@ -17,6 +17,7 @@
    API 키는 절대 여기에 넣지 않는다 — 서버 환경변수에만 둔다. */
 window.AMF_AI_CONFIG = window.AMF_AI_CONFIG || { ENDPOINT:'/api/gemini', MODEL:'gemini-flash-latest' };
 </script>
+<script src="shows-data.js"></script>
 <style>
 :root{
   --bg:#F2F4F7; --surface:#FFFFFF; --surface2:#F8FAFC; --surface3:#EEF2F7;
@@ -1398,16 +1399,16 @@ html.promo .drawer,html.promo .scrim{display:none!important}
       <div class="pm-rule"></div>
 
       <ul class="pm-list" id="pmList">
-        <li data-view="match"><span class="n">01</span>
-          <span class="t">매칭 — 브리프 입력, 6축 적합도, 예산 포트폴리오</span></li>
-        <li data-view="shows"><span class="n">02</span>
-          <span class="t">쇼 일정 — 패션위크·박람회, 캐스팅 조건으로 바로 매칭</span></li>
+        <li data-view="home"><span class="n">01</span>
+          <span class="t">추천 — 한 줄 브리프, 추천 크리에이터 카드, 이번 주 쇼 티커</span></li>
+        <li data-view="roster"><span class="n">02</span>
+          <span class="t">크리에이터 — DB · 프로필 · 성장 리포트</span></li>
         <li data-view="board"><span class="n">03</span>
-          <span class="t">캐스팅 보드 — 후보 담기, 예산·순 도달 실시간 재계산</span></li>
-        <li data-view="roster"><span class="n">04</span>
-          <span class="t">크리에이터 — 프로필·성과·리스크 원장</span></li>
-        <li data-view="gov"><span class="n">05</span>
-          <span class="t">거버넌스 — 산식 공개, 감사 추적, 세이프티 알림</span></li>
+          <span class="t">캐스팅 — 보드, 쇼 · 행사 일정 37건, 조건으로 매칭</span></li>
+        <li data-view="dash"><span class="n">04</span>
+          <span class="t">인사이트 — 대시보드 · 트렌드 · 케이스 · 거버넌스 · 알림</span></li>
+        <li data-view="match"><span class="n">05</span>
+          <span class="t">상세 매칭 — 10칸 브리프, 산출 로그, 민감도 분석, 내보내기</span></li>
         <li data-view="plans"><span class="n">06</span>
           <span class="t">구독 · 요금제 — Lite/Pro/Enterprise, 시연용 결제 흐름</span></li>
       </ul>
@@ -2009,10 +2010,7 @@ html.promo .drawer,html.promo .scrim{display:none!important}
          그 조건이 그대로 브리프에 얹혀 매칭 엔진으로 넘어갑니다.</p>
     </div></div>
     <div class="note" style="margin-bottom:14px">
-      <b>일정 고지 —</b> 행사명은 업계에 실재하는 공개 행사를 참고했으나,
-      <b>날짜 · 캐스팅 정원 · 마감일 · 참여 모델은 전부 데모 가정치</b>입니다.
-      실제 일정과 다르며, 실 데이터 연동 시 <span class="mono">buildShows()</span> 한 곳만 교체하면 됩니다.
-    </div>
+      <b>일정 고지 —</b> 행사명 · 날짜 · 도시 · [확정]/[예상] 구분은 2026-09-18 기준 공개 일정(주최 측 발표 및 업계 캘린더)을 참고했습니다. <b>캐스팅 정원 · 예상 마감 · 참여 모델은 데모 가정치</b>이며, [예상] 항목의 날짜는 관례상 시기의 대표 날짜입니다. 일정은 <span class="mono">shows-data.js</span> 한 곳만 고치면 홈 티커와 D-day 가 함께 바뀝니다.</div>
     <div class="kpis" id="showKpis"></div>
     <div class="tabs" id="showRegionTabs" role="tablist"></div>
     <div class="tabs" id="showTypeTabs" role="tablist" style="margin-top:-6px"></div>
@@ -2205,6 +2203,7 @@ let DICT={}, DICT_L={};
 /* ═══════════════ 영문 사전 ═══════════════
    키 = 한국어 원문. 없는 키는 한국어가 그대로 노출된다(조용한 실패 방지). */
 DICT = {
+'예상 마감':'Est. deadline','확정':'Confirmed','예상':'Expected','군':' tier','오트 쿠튀르':'Haute Couture','어워즈':'Awards','행사 · 갈라':'Event · Gala',
 /* ── 내비게이션 · 셸 ── */
 '캠페인 매칭':'Campaign Matching','네트워크 대시보드':'Network Dashboard',
 '크리에이터 DB':'Creator Registry','모델 거버넌스':'Model Governance',
@@ -6158,10 +6157,13 @@ const SHOW_TYPES={
   runway   :{k:'runway',    n:'런웨이',        cls:'b'},
   expo     :{k:'expo',      n:'박람회',        cls:'n'},
   commerce :{k:'commerce',  n:'커머스 이벤트', cls:'g'},
-  editorial:{k:'editorial', n:'에디토리얼',    cls:'gold'}
+  editorial:{k:'editorial', n:'에디토리얼',    cls:'gold'},
+  couture  :{k:'couture',   n:'오트 쿠튀르',   cls:'gold'},
+  awards   :{k:'awards',    n:'어워즈',        cls:'g'},
+  event    :{k:'event',     n:'행사 · 갈라',   cls:'n'}
 };
 /* 행사 카탈로그 — [행사명, 도시, 국가, 유형, 규모, 시작 D+, 기간(일), 주력 카테고리] */
-const SHOW_CATALOG=[
+const SHOW_CATALOG = (window.AMF_SHOWS && window.AMF_SHOWS.length) ? window.AMF_SHOWS : [
  ['Tashkent Fashion Week',        '타슈켄트','우즈베키스탄','runway',   'international',  18, 5,'fashion_cas'],
  ['Almaty Fashion Week',          '알마티',  '카자흐스탄',  'runway',   'international',  34, 4,'fashion_cas'],
  ['Uzbekistan Textile & Fashion Expo','타슈켄트','우즈베키스탄','expo',  'international',  52, 3,'fashion_acc'],
@@ -6203,9 +6205,16 @@ function buildShows(){
   const sr = mulberry32(SEED ^ 0x5807);
   const today = new Date(); today.setHours(0,0,0,0);
   return SHOW_CATALOG.map((row,i)=>{
-    const [name, city, country, type, scale, dplus, days, catKey]=row;
-    const start=new Date(today); start.setDate(start.getDate()+dplus);
-    const end=new Date(start);   end.setDate(end.getDate()+days-1);
+    /* 실제 일정(shows-data.js)은 객체 행: ISO 날짜 · 상태(확정/예상) · 우선순위(1·2·3군).
+       합성 카탈로그는 배열 행: 오늘 기준 D+ 로 날짜를 만든다. */
+    const obj = !Array.isArray(row);
+    const [name, city, country, type, scale, dplus, days, catKey] = obj
+      ? [row.name, row.city, row.country, row.type, row.scale||'international', 0, 0, row.catKey||'fashion_cas']
+      : row;
+    let start, end;
+    if(obj){ start=new Date(row.start+'T00:00:00'); end=new Date(row.end+'T00:00:00'); }
+    else { start=new Date(today); start.setDate(start.getDate()+dplus); end=new Date(start); end.setDate(end.getDate()+days-1); }
+    const daysN = obj ? Math.round((end-start)/86400000)+1 : days;
     const due=new Date(start);   due.setDate(due.getDate()-(scale==='international'?28:18));
     const co=COUNTRIES.find(c=>c.n===country);
     const req=showReq(type,scale);
@@ -6227,13 +6236,17 @@ function buildShows(){
     const dueLeft=Math.round((due-today)/86400000);
     return {
       id:'SHW-'+String(2601+i), name, city, country, type, scale, catKey, req,
-      region: co?co.r:'전 권역',
-      start:ymd(start), end:ymd(end), due:ymd(due), days,
+      region: obj ? (row.region || (co?co.r:'전 권역')) : (co?co.r:'전 권역'),
+      status: obj ? (row.status||'확정') : '확정',
+      tier: obj ? (row.tier||0) : 0,
+      note: obj ? (row.note||'') : '',
+      start:ymd(start), end:ymd(end), due:ymd(due), days:daysN,
       dday, dueLeft, slots, confirmed,
       available: src.length,
-      castingOpen: dueLeft>0 && confirmed.length<slots
+      castingOpen: dueLeft>0 && confirmed.length<slots,
+      ended: end < today
     };
-  }).sort((a,b)=>a.dday-b.dday);
+  }).filter(s=>!s.ended).sort((a,b)=>a.dday-b.dday);
 }
 function rebuildShows(){ SHOWS=buildShows(); }
 rebuildShows();
@@ -6389,9 +6402,12 @@ function showCard(s){
       <div class="shtitle">
         ${s.name}
         <span class="tag ${t.cls}">${T(t.n)}</span>
-        ${s.scale==='international'?`<span class="tag b">${T('국제')}</span>`:''}
+        ${s.status?`<span class="tag ${s.status==='확정'?'g':'y'}">[${T(s.status)}]</span>`:''}
+        ${s.tier?`<span class="tag ${s.tier===1?'gold':s.tier===2?'n':''}">${s.tier}${T('군')}</span>`:''}
+        ${s.scale==='international'&&!s.tier?`<span class="tag b">${T('국제')}</span>`:''}
         ${urgent?`<span class="tag y">${L`마감 D−${s.dueLeft}`}</span>`:''}
       </div>
+      ${s.note?`<div class="shmeta" style="color:var(--ink3)">${s.note}</div>`:''}
       <div class="shmeta">
         ${tCity(s.city)} · ${tCtry(s.country)} · ${tReg(s.region)}
         <span class="sep">·</span> ${T('캐스팅 조건')} <b>${tBody(s.req)}</b>
@@ -6402,7 +6418,7 @@ function showCard(s){
         <span>${T('확정')} <b>${s.confirmed.length}</b></span>
         <span class="${left>0?'':'done'}">${left>0?L`잔여 ${left}석`:T('마감')}</span>
         <span>${T('가용 모델')} <b>${s.available}</b></span>
-        <span class="mono" style="color:var(--ink4)">${T('마감일')} ${s.due.slice(5).replace('-','.')}</span>
+        <span class="mono" style="color:var(--ink4)">${T('예상 마감')} ${s.due.slice(5).replace('-','.')}</span>
       </div>
       ${s.confirmed.length?`<div class="shcrew">${avatars}
         <span style="margin-left:13px;font-size:10.5px;color:var(--ink3)">${
@@ -6418,7 +6434,8 @@ function showCard(s){
 
 /* ═══════════════ ② 권역별 트렌드 ═══════════════ */
 let TREND_REGION='전 권역';
-const REGIONS=['전 권역','중앙아시아','동남아시아','동북아시아','남아시아'];
+const REGIONS=['전 권역','중앙아시아','동남아시아','동북아시아','남아시아','유럽','북미','중동','남미','오세아니아'];
+Object.assign(REGION_EN,{'유럽':'Europe','북미':'North America','중동':'Middle East','남미':'South America','오세아니아':'Oceania'});
 /* 카테고리 모멘텀 = 해당 카테고리 주력 크리에이터의 성장·참여·커머스 실적 합성.
    외부 조사가 아니라 우리 네트워크 실측치에서 직접 집계한다. */
 function trendData(region){
@@ -7815,7 +7832,7 @@ E('crmodal').addEventListener('click',e=>{ if(e.target===E('crmodal')) crClose()
 
 function earn(n,label){ ST.coin+=n; ST.ledger.push({t:label,n,at:Date.now()}); saveST(); crSync(); }
 /* 구독 · 요금제(plans.js)가 월 크레딧을 적립하고 사용자 정보를 읽을 수 있게 최소한만 노출한다 */
-window.amfCredits={ earn:(n,label)=>earn(n,label), balance:()=>ST.coin, user:()=>ST.user };
+window.amfCredits={ earn:(n,label)=>earn(n,label), spend:(kind,label)=>spend(kind,label), balance:()=>ST.coin, user:()=>ST.user };
 function spend(kind,label){
   const c=PRICE[kind]||0;
   if(ST.coin<c){
@@ -8037,6 +8054,7 @@ if(APP_MODE){
 
 </script>
 <script src="plans.js"></script>
+<script src="home.js"></script>
 <script src="assistant.js"></script>
 </body>
 </html>
