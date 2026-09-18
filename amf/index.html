@@ -9,6 +9,14 @@
 <meta name="theme-color" content="#0A1A33">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script>
+/* Gemini 중계 서버 주소.
+   · Vercel 배포: 같은 도메인의 /api/gemini 가 자동으로 붙는다 (기본값).
+   · GitHub Pages: 서버가 없으므로 Cloudflare Worker 주소를 적는다.
+     예) ENDPOINT:'https://bhb-gemini.<계정>.workers.dev'
+   API 키는 절대 여기에 넣지 않는다 — 서버 환경변수에만 둔다. */
+window.AMF_AI_CONFIG = window.AMF_AI_CONFIG || { ENDPOINT:'/api/gemini', MODEL:'gemini-flash-latest' };
+</script>
 <style>
 :root{
   --bg:#F2F4F7; --surface:#FFFFFF; --surface2:#F8FAFC; --surface3:#EEF2F7;
@@ -7393,7 +7401,7 @@ async function sendGrowthReport(){
    ═══════════════════════════════════════════════════════════════════════ */
 const GKEY='amf.cie.gemini.v1';
 const GEM_HOST='https://generativelanguage.googleapis.com/v1beta';
-let GEM={key:'', model:'gemini-2.5-flash'};
+let GEM={key:'', model:(window.AMF_AI_CONFIG&&window.AMF_AI_CONFIG.MODEL)||'gemini-flash-latest'};
 try{ const r=localStorage.getItem(GKEY); if(r) GEM=Object.assign(GEM,JSON.parse(r)||{}); }catch(e){}
 const gemSave=()=>{ try{ localStorage.setItem(GKEY,JSON.stringify(GEM)); }catch(e){} };
 
@@ -7401,7 +7409,7 @@ const gemSave=()=>{ try{ localStorage.setItem(GKEY,JSON.stringify(GEM)); }catch(
    프록시는 API 키를 서버 환경변수에만 두므로 클라이언트가 키를 볼 일이 없다.
    프록시가 없거나 키 미설정이면 '사용자 키 직접 입력' 모드로 되돌아간다. */
 let GEM_PROXY=false;          // 서버에 키가 있는가
-const PROXY_URL='/api/gemini';
+const PROXY_URL=(window.AMF_AI_CONFIG&&window.AMF_AI_CONFIG.ENDPOINT)||'/api/gemini';
 const gemOn=()=>GEM_PROXY || !!(GEM.key && GEM.key.trim());
 async function gemProbe(){
   if(!/^https?:$/.test(location.protocol)) return;   // file:// 이면 프록시가 있을 수 없다
@@ -7448,7 +7456,7 @@ async function gemCall(prompt, opt){
   const o=opt||{};
   if(!gemOn()) throw new Error('NO_KEY');
   const payload={
-    contents:[{role:'user',parts:[{text:prompt}]}],
+    contents: o.contents || [{role:'user',parts:[{text:prompt}]}],
     generationConfig:{
       temperature: o.temperature==null?0.3:o.temperature,
       maxOutputTokens: o.maxTokens||2048
@@ -7535,7 +7543,7 @@ function aiModalOpen(){
     <div class="ai-field">
       <label for="aimModel">${T('모델')}</label>
       <select id="aimModel">
-        ${[GEM.model,'gemini-2.5-flash','gemini-2.5-pro','gemini-2.0-flash']
+        ${[GEM.model,'gemini-flash-latest','gemini-3.8-flash','gemini-3.7-flash','gemini-2.5-flash']
           .filter((v,i,a)=>v&&a.indexOf(v)===i)
           .map(m=>`<option ${m===GEM.model?'selected':''}>${m}</option>`).join('')}
       </select>
@@ -7572,7 +7580,7 @@ function aiModalOpen(){
       if(models.length){
         const sel=$('aimModel'); const cur=GEM.model;
         sel.innerHTML=models.map(m=>`<option ${m===cur?'selected':''}>${m}</option>`).join('');
-        if(models.indexOf(cur)<0){ GEM.model=models.find(m=>/2\.5-flash/.test(m))||models[0]; sel.value=GEM.model; }
+        if(models.indexOf(cur)<0){ GEM.model=models.find(m=>/flash-latest/.test(m))||models.find(m=>/\d-flash$/.test(m))||models[0]; sel.value=GEM.model; }
       }
       gemSave(); gemSync();
       $('aimMsg').innerHTML='<div class="aiwarn" style="background:var(--possoft);border-color:var(--pos);color:var(--pos)">'+
@@ -8024,5 +8032,6 @@ if(APP_MODE){
 })();
 
 </script>
+<script src="assistant.js"></script>
 </body>
 </html>

@@ -127,3 +127,47 @@ window.BHB_AI_CONFIG = window.BHB_AI_CONFIG || {
 - Gemini 무료 등급만 쓰면 **요금이 청구되지 않습니다**. 한도를 넘으면 결제가 되는 게 아니라 요청이 거부됩니다.
 - 유료로 전환하실 경우, Google Cloud 콘솔에서 **예산 알림(Budget alert)** 을 꼭 설정해 두세요.
 - 중계 서버가 `ALLOWED_ORIGIN` 을 검사하므로, 다른 사이트에서 이 서버를 가져다 쓰는 것은 막혀 있습니다.
+
+---
+
+## AMF 커머스 인텔리전스(`/amf/`) 대화형 어시스턴트 연결
+
+`/amf/` 앱에는 화면 상태(브리프·매칭 결과·캐스팅 보드·쇼 일정·세이프티 알림)를 읽고 답하는
+대화형 어시스턴트(`amf/assistant.js`)가 들어 있습니다. 같은 중계 서버를 그대로 씁니다.
+
+| 배포 방식 | 설정 |
+|---|---|
+| **Vercel** | 아무것도 안 해도 됩니다. 같은 도메인의 `/api/gemini` 가 자동으로 붙습니다. |
+| **GitHub Pages** (서버 없음) | 방법 A로 워커를 만든 뒤 `amf/index.html` 상단의 `window.AMF_AI_CONFIG.ENDPOINT` 에 워커 주소를 적습니다. |
+
+```html
+<!-- amf/index.html 상단 -->
+window.AMF_AI_CONFIG = window.AMF_AI_CONFIG || { ENDPOINT:'https://bhb-gemini.<계정>.workers.dev', MODEL:'gemini-flash-latest' };
+```
+
+- `ALLOWED_ORIGIN` 에는 `/amf/` 가 열리는 도메인이 들어 있어야 합니다 (`https://lg980305-blip.github.io`).
+- 서버가 없거나 키가 없으면 앱은 "미연결" 상태가 되고, 상단 ✦ 버튼에서 사용자가 자기 브라우저에만 키를 넣어 쓸 수 있습니다.
+  (공개 사이트라면 이 방식은 시연용으로만 쓰고, 운영은 반드시 서버 프록시로 하세요.)
+- 기본 모델은 `gemini-flash-latest` 별칭입니다. 서버 환경변수 `GEMINI_MODEL` 로 바꿀 수 있습니다.
+  `gemini-2.0-flash` / `gemini-2.5-flash` 는 2026년 중 종료 예정이므로 고정하지 마세요.
+
+**어시스턴트가 하는 일 / 하지 않는 일**
+
+- 순위·점수·예산 편성은 브라우저 안의 결정론 엔진이 계산합니다. AI 는 엔진이 넘겨준 수치만 근거로 설명·제안합니다.
+- "예산을 3천만 원으로 줄이면?" 같은 가정 질문은 AI 가 추정하지 않습니다. AI 가 조건만 요청하면 엔진이 실제로 다시 계산해
+  수치를 돌려주고, AI 는 그 수치로 답합니다.
+- 자연어 조건("우즈벡 20대 여성 스킨케어, 인스타 5명, 예산 5천만")은 폼에 채워 주고, 매칭 실행은 사용자가 누릅니다(크레딧 차감).
+- 로스터 인물의 신체 정보·연락처는 AI 에 보내지 않습니다.
+
+**중계 서버 프로토콜(`/amf/` 전용)**
+
+```
+GET  /api/gemini                              → { "serverKey": true, "defaultModel": "gemini-flash-latest" }
+POST { "action": "models" }                   → Gemini ListModels 응답 그대로
+POST { "action": "generate", "model": "gemini-flash-latest",
+       "payload": { "contents": [...], "systemInstruction": {...}, "generationConfig": {...} } }
+                                              → Gemini generateContent 응답 그대로
+```
+
+서버는 `contents` · `systemInstruction` · `generationConfig`(온도 · 최대 토큰 · JSON 스키마)만 통과시키고,
+대화 40턴 · 본문 200KB · 출력 4,096토큰 상한과 안전 설정을 강제합니다.

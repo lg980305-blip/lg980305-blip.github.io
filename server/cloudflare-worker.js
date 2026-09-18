@@ -13,8 +13,86 @@
                        예: https://lg980305-blip.github.io,https://blackholemanbros.com
    ============================================================ */
 
-const MODEL = 'gemini-2.0-flash';
-const API = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+/* 기본 모델 — 대시보드 변수 GEMINI_MODEL 로 바꿀 수 있다.
+   gemini-2.0/2.5 계열은 2026년 순차 종료 예정이라 'latest' 별칭을 기본값으로 둔다. */
+const DEFAULT_MODEL = 'gemini-flash-latest';
+const HOST = 'https://generativelanguage.googleapis.com/v1beta';
+
+const SAFETY = [
+  { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+  { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+  { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+  { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' }
+];
+
+/* ============================================================
+   AMF CIE (/amf/) 용 "직접 호출" 프로토콜
+   ------------------------------------------------------------
+   /amf/ 앱은 시스템 프롬프트·JSON 스키마를 화면 상태에 맞춰 브라우저에서 만들고,
+   워커는 키만 붙여 Gemini 에 그대로 전달한다. 응답도 Gemini 원형 그대로 돌려준다.
+
+     GET  /                                → { serverKey:true|false, defaultModel }
+     POST { action:'models' }              → Gemini ListModels 응답 그대로
+     POST { action:'generate', model, payload:{ contents, systemInstruction?, generationConfig? } }
+                                           → Gemini generateContent 응답 그대로
+
+   payload 는 sanitizePayload 로 허용 필드만 남기고 크기·토큰 상한을 건다.
+   ============================================================ */
+const MODEL_RE = /^gemini-[a-z0-9.-]{1,40}$/;
+const MAX_BODY = 200_000;
+const MAX_TURNS = 40;
+const MAX_OUT = 4096;
+
+function sanitizePayload(p) {
+  if (!p || typeof p !== 'object' || !Array.isArray(p.contents) || !p.contents.length) return null;
+  if (p.contents.length > MAX_TURNS) return null;
+  const contents = p.contents.map((c) => ({
+    role: c && c.role === 'model' ? 'model' : 'user',
+    parts: (Array.isArray(c && c.parts) ? c.parts : [])
+      .filter((x) => x && typeof x.text === 'string')
+      .map((x) => ({ text: x.text }))
+  })).filter((c) => c.parts.length);
+  if (!contents.length) return null;
+
+  const g = (p.generationConfig && typeof p.generationConfig === 'object') ? p.generationConfig : {};
+  const generationConfig = {
+    temperature: Math.min(2, Math.max(0, Number(g.temperature ?? 0.3) || 0)),
+    maxOutputTokens: Math.min(MAX_OUT, Math.max(16, Number(g.maxOutputTokens ?? 1024) || 1024)),
+    topP: 0.95
+  };
+  if (g.responseMimeType === 'application/json') {
+    generationConfig.responseMimeType = 'application/json';
+    if (g.responseSchema && typeof g.responseSchema === 'object') generationConfig.responseSchema = g.responseSchema;
+  }
+  const out = { contents, generationConfig, safetySettings: SAFETY };
+  const si = p.systemInstruction;
+  if (si && Array.isArray(si.parts)) {
+    const parts = si.parts.filter((x) => x && typeof x.text === 'string').map((x) => ({ text: x.text }));
+    if (parts.length) out.systemInstruction = { parts };
+  }
+  return out;
+}
+
+async function proxyDirect(body, apiKey, model) {
+  if (body.action === 'models') {
+    const r = await fetch(`${HOST}/models?pageSize=100`, { headers: { 'x-goog-api-key': apiKey } });
+    return { status: r.status, json: await r.json().catch(() => ({ error: { message: 'bad upstream json' } })) };
+  }
+  if (body.action === 'generate') {
+    const m = MODEL_RE.test(String(body.model || '')) ? body.model : model;
+    const payload = sanitizePayload(body.payload);
+    if (!payload) return { status: 400, json: { error: { message: 'invalid payload' } } };
+    if (JSON.stringify(payload).length > MAX_BODY) return { status: 413, json: { error: { message: 'payload too large' } } };
+    const r = await fetch(`${HOST}/models/${encodeURIComponent(m)}:generateContent`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+      body: JSON.stringify(payload)
+    });
+    /* Gemini 오류 JSON({error:{code,message,status}})에는 키가 들어 있지 않으므로 그대로 전달한다 */
+    return { status: r.status, json: await r.json().catch(() => ({ error: { message: 'bad upstream json' } })) };
+  }
+  return null;
+}
 
 /* ---------- 캐릭터 페르소나 (서버에만 보관) ---------- */
 const CHARACTERS = {
@@ -156,7 +234,7 @@ function corsHeaders(origin, allowed, ready) {
   const ok = allowed.includes(origin);
   return {
     'Access-Control-Allow-Origin': ok ? origin : allowed[0] || '',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin',
@@ -171,25 +249,41 @@ export default {
     const allowed = (env.ALLOWED_ORIGIN || '').split(',').map((s) => s.trim()).filter(Boolean);
     const origin = request.headers.get('Origin') || '';
     const cors = corsHeaders(origin, allowed, !!env.GEMINI_API_KEY);
+    const json = (obj, status) => new Response(JSON.stringify(obj),
+      { status, headers: { ...cors, 'Content-Type': 'application/json' } });
+    const MODEL = (env.GEMINI_MODEL && MODEL_RE.test(env.GEMINI_MODEL)) ? env.GEMINI_MODEL : DEFAULT_MODEL;
+    const API = `${HOST}/models/${MODEL}:generateContent`;
 
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
+
+    // /amf/ 앱의 상태 확인: 서버에 키가 있는지, 기본 모델은 무엇인지 (비밀이 아니므로 Origin 검사 없음)
+    if (request.method === 'GET') {
+      return json({ serverKey: !!env.GEMINI_API_KEY, defaultModel: MODEL }, 200);
+    }
     if (request.method !== 'POST') {
       return new Response('Method Not Allowed', { status: 405, headers: cors });
     }
     // 허용하지 않은 사이트에서의 호출은 차단 (키 도용 방지)
     if (allowed.length && !allowed.includes(origin)) {
-      return new Response(JSON.stringify({ error: 'origin not allowed' }),
-        { status: 403, headers: { ...cors, 'Content-Type': 'application/json' } });
-    }
-    if (!env.GEMINI_API_KEY) {
-      return new Response(JSON.stringify({ error: 'GEMINI_API_KEY 가 설정되지 않았습니다' }),
-        { status: 500, headers: { ...cors, 'Content-Type': 'application/json' } });
+      return json({ error: 'origin not allowed' }, 403);
     }
 
     let body;
     try { body = await request.json(); }
-    catch { return new Response(JSON.stringify({ error: 'invalid json' }),
-      { status: 400, headers: { ...cors, 'Content-Type': 'application/json' } }); }
+    catch { return json({ error: 'invalid json' }, 400); }
+
+    // /amf/ 직접 호출 프로토콜
+    if (body.action === 'generate' || body.action === 'models') {
+      if (!env.GEMINI_API_KEY) return json({ error: { message: 'GEMINI_API_KEY 가 설정되지 않았습니다' } }, 501);
+      let out;
+      try { out = await proxyDirect(body, env.GEMINI_API_KEY, MODEL); }
+      catch { return json({ error: { message: 'upstream unreachable' } }, 502); }
+      return json(out.json, out.status);
+    }
+
+    if (!env.GEMINI_API_KEY) {
+      return json({ error: 'GEMINI_API_KEY 가 설정되지 않았습니다' }, 500);
+    }
 
     const spec = buildPrompt(body);
     if (!spec) {
@@ -206,12 +300,7 @@ export default {
         maxOutputTokens: spec.maxTokens,
         topP: 0.95
       },
-      safetySettings: [
-        { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-        { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-        { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-        { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' }
-      ]
+      safetySettings: SAFETY
     };
 
     let res;
