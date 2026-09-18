@@ -13,8 +13,7 @@
   "chest_cm": 80,
   "waist_cm": 62,
   "hip_cm": 92,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 2,
@@ -30,8 +29,7 @@
   "chest_cm": 82,
   "waist_cm": 60,
   "hip_cm": 87,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 3,
@@ -47,8 +45,7 @@
   "chest_cm": 93,
   "waist_cm": 75,
   "hip_cm": 93,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 4,
@@ -64,8 +61,7 @@
   "chest_cm": 84,
   "waist_cm": 59,
   "hip_cm": 93,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 5,
@@ -81,8 +77,7 @@
   "chest_cm": 88,
   "waist_cm": 61,
   "hip_cm": 94,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 6,
@@ -98,8 +93,7 @@
   "chest_cm": 82,
   "waist_cm": 59,
   "hip_cm": 88,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 7,
@@ -115,8 +109,7 @@
   "chest_cm": 84,
   "waist_cm": 58,
   "hip_cm": 90,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 8,
@@ -132,8 +125,7 @@
   "chest_cm": 84,
   "waist_cm": 58,
   "hip_cm": 94,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 9,
@@ -149,8 +141,7 @@
   "chest_cm": 80,
   "waist_cm": 59,
   "hip_cm": 86,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 10,
@@ -166,8 +157,7 @@
   "chest_cm": 80,
   "waist_cm": 58,
   "hip_cm": 92,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 11,
@@ -183,8 +173,7 @@
   "chest_cm": 97,
   "waist_cm": 76,
   "hip_cm": 97,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 12,
@@ -200,8 +189,7 @@
   "chest_cm": 97,
   "waist_cm": 79,
   "hip_cm": 90,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 13,
@@ -217,8 +205,7 @@
   "chest_cm": 87,
   "waist_cm": 64,
   "hip_cm": 92,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 14,
@@ -234,8 +221,7 @@
   "chest_cm": 80,
   "waist_cm": 61,
   "hip_cm": 91,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 15,
@@ -251,8 +237,7 @@
   "chest_cm": 101,
   "waist_cm": 79,
   "hip_cm": 91,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 16,
@@ -268,8 +253,7 @@
   "chest_cm": 99,
   "waist_cm": 80,
   "hip_cm": 95,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 17,
@@ -285,8 +269,7 @@
   "chest_cm": 86,
   "waist_cm": 62,
   "hip_cm": 89,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 18,
@@ -302,8 +285,7 @@
   "chest_cm": 84,
   "waist_cm": 59,
   "hip_cm": 89,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 19,
@@ -319,8 +301,7 @@
   "chest_cm": 94,
   "waist_cm": 77,
   "hip_cm": 95,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 20,
@@ -336,8 +317,7 @@
   "chest_cm": 82,
   "waist_cm": 60,
   "hip_cm": 93,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 21,
@@ -353,8 +333,7 @@
   "chest_cm": 81,
   "waist_cm": 61,
   "hip_cm": 93,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 22,
@@ -370,8 +349,7 @@
   "chest_cm": 80,
   "waist_cm": 64,
   "hip_cm": 86,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 23,
@@ -387,8 +365,7 @@
   "chest_cm": 100,
   "waist_cm": 79,
   "hip_cm": 93,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 24,
@@ -404,8 +381,7 @@
   "chest_cm": 85,
   "waist_cm": 64,
   "hip_cm": 89,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 25,
@@ -421,8 +397,7 @@
   "chest_cm": 88,
   "waist_cm": 62,
   "hip_cm": 88,
-  "shoe_mm": 240,
-  "body_fictional": true
+  "shoe_mm": 240
  },
  {
   "no": 26,
@@ -438,8 +413,7 @@
   "chest_cm": 99,
   "waist_cm": 76,
   "hip_cm": 95,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 27,
@@ -455,8 +429,7 @@
   "chest_cm": 87,
   "waist_cm": 62,
   "hip_cm": 90,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 28,
@@ -472,8 +445,7 @@
   "chest_cm": 85,
   "waist_cm": 61,
   "hip_cm": 90,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 29,
@@ -489,8 +461,7 @@
   "chest_cm": 83,
   "waist_cm": 61,
   "hip_cm": 87,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 30,
@@ -506,8 +477,7 @@
   "chest_cm": 84,
   "waist_cm": 63,
   "hip_cm": 89,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 31,
@@ -523,8 +493,7 @@
   "chest_cm": 86,
   "waist_cm": 59,
   "hip_cm": 86,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 32,
@@ -540,8 +509,7 @@
   "chest_cm": 96,
   "waist_cm": 76,
   "hip_cm": 90,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 33,
@@ -557,8 +525,7 @@
   "chest_cm": 102,
   "waist_cm": 80,
   "hip_cm": 98,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 34,
@@ -574,8 +541,7 @@
   "chest_cm": 96,
   "waist_cm": 80,
   "hip_cm": 93,
-  "shoe_mm": 280,
-  "body_fictional": true
+  "shoe_mm": 280
  },
  {
   "no": 35,
@@ -591,8 +557,7 @@
   "chest_cm": 93,
   "waist_cm": 74,
   "hip_cm": 92,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 36,
@@ -608,8 +573,7 @@
   "chest_cm": 93,
   "waist_cm": 75,
   "hip_cm": 98,
-  "shoe_mm": 280,
-  "body_fictional": true
+  "shoe_mm": 280
  },
  {
   "no": 37,
@@ -625,8 +589,7 @@
   "chest_cm": 81,
   "waist_cm": 63,
   "hip_cm": 88,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 38,
@@ -642,8 +605,7 @@
   "chest_cm": 85,
   "waist_cm": 59,
   "hip_cm": 94,
-  "shoe_mm": 240,
-  "body_fictional": true
+  "shoe_mm": 240
  },
  {
   "no": 39,
@@ -659,8 +621,7 @@
   "chest_cm": 85,
   "waist_cm": 61,
   "hip_cm": 88,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 40,
@@ -676,8 +637,7 @@
   "chest_cm": 97,
   "waist_cm": 76,
   "hip_cm": 94,
-  "shoe_mm": 280,
-  "body_fictional": true
+  "shoe_mm": 280
  },
  {
   "no": 41,
@@ -693,8 +653,7 @@
   "chest_cm": 87,
   "waist_cm": 64,
   "hip_cm": 88,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 42,
@@ -710,8 +669,7 @@
   "chest_cm": 101,
   "waist_cm": 76,
   "hip_cm": 92,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 43,
@@ -727,8 +685,7 @@
   "chest_cm": 81,
   "waist_cm": 59,
   "hip_cm": 93,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 44,
@@ -744,8 +701,7 @@
   "chest_cm": 87,
   "waist_cm": 63,
   "hip_cm": 89,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 45,
@@ -761,8 +717,7 @@
   "chest_cm": 84,
   "waist_cm": 59,
   "hip_cm": 94,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 46,
@@ -778,8 +733,7 @@
   "chest_cm": 81,
   "waist_cm": 62,
   "hip_cm": 94,
-  "shoe_mm": 240,
-  "body_fictional": true
+  "shoe_mm": 240
  },
  {
   "no": 47,
@@ -795,8 +749,7 @@
   "chest_cm": 81,
   "waist_cm": 59,
   "hip_cm": 91,
-  "shoe_mm": 240,
-  "body_fictional": true
+  "shoe_mm": 240
  },
  {
   "no": 48,
@@ -812,8 +765,7 @@
   "chest_cm": 84,
   "waist_cm": 60,
   "hip_cm": 91,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 49,
@@ -829,8 +781,7 @@
   "chest_cm": 100,
   "waist_cm": 76,
   "hip_cm": 98,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 50,
@@ -846,8 +797,7 @@
   "chest_cm": 86,
   "waist_cm": 58,
   "hip_cm": 94,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 51,
@@ -863,8 +813,7 @@
   "chest_cm": 85,
   "waist_cm": 61,
   "hip_cm": 92,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 52,
@@ -880,8 +829,7 @@
   "chest_cm": 83,
   "waist_cm": 59,
   "hip_cm": 94,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 53,
@@ -897,8 +845,7 @@
   "chest_cm": 83,
   "waist_cm": 59,
   "hip_cm": 89,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 54,
@@ -914,8 +861,7 @@
   "chest_cm": 84,
   "waist_cm": 64,
   "hip_cm": 92,
-  "shoe_mm": 240,
-  "body_fictional": true
+  "shoe_mm": 240
  },
  {
   "no": 55,
@@ -931,8 +877,7 @@
   "chest_cm": 94,
   "waist_cm": 78,
   "hip_cm": 97,
-  "shoe_mm": 280,
-  "body_fictional": true
+  "shoe_mm": 280
  },
  {
   "no": 56,
@@ -948,8 +893,7 @@
   "chest_cm": 93,
   "waist_cm": 76,
   "hip_cm": 94,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 57,
@@ -965,8 +909,7 @@
   "chest_cm": 93,
   "waist_cm": 73,
   "hip_cm": 95,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 58,
@@ -982,8 +925,7 @@
   "chest_cm": 88,
   "waist_cm": 59,
   "hip_cm": 89,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 59,
@@ -999,8 +941,7 @@
   "chest_cm": 88,
   "waist_cm": 64,
   "hip_cm": 88,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 60,
@@ -1016,8 +957,7 @@
   "chest_cm": 87,
   "waist_cm": 60,
   "hip_cm": 94,
-  "shoe_mm": 235,
-  "body_fictional": true
+  "shoe_mm": 235
  },
  {
   "no": 61,
@@ -1033,8 +973,7 @@
   "chest_cm": 86,
   "waist_cm": 63,
   "hip_cm": 92,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 62,
@@ -1050,8 +989,7 @@
   "chest_cm": 101,
   "waist_cm": 76,
   "hip_cm": 96,
-  "shoe_mm": 285,
-  "body_fictional": true
+  "shoe_mm": 285
  },
  {
   "no": 63,
@@ -1067,8 +1005,7 @@
   "chest_cm": 86,
   "waist_cm": 64,
   "hip_cm": 91,
-  "shoe_mm": 240,
-  "body_fictional": true
+  "shoe_mm": 240
  },
  {
   "no": 64,
@@ -1084,8 +1021,7 @@
   "chest_cm": 95,
   "waist_cm": 63,
   "hip_cm": 94,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 65,
@@ -1101,8 +1037,7 @@
   "chest_cm": 92,
   "waist_cm": 77,
   "hip_cm": 98,
-  "shoe_mm": 280,
-  "body_fictional": true
+  "shoe_mm": 280
  },
  {
   "no": 66,
@@ -1118,8 +1053,7 @@
   "chest_cm": 80,
   "waist_cm": 63,
   "hip_cm": 94,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 67,
@@ -1135,8 +1069,7 @@
   "chest_cm": 87,
   "waist_cm": 68,
   "hip_cm": 95,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 68,
@@ -1152,8 +1085,7 @@
   "chest_cm": 85,
   "waist_cm": 74,
   "hip_cm": 92,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 69,
@@ -1169,8 +1101,7 @@
   "chest_cm": 94,
   "waist_cm": 74,
   "hip_cm": 90,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 70,
@@ -1186,8 +1117,7 @@
   "chest_cm": 89,
   "waist_cm": 67,
   "hip_cm": 96,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 71,
@@ -1203,8 +1133,7 @@
   "chest_cm": 90,
   "waist_cm": 73,
   "hip_cm": 94,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 72,
@@ -1220,8 +1149,7 @@
   "chest_cm": 92,
   "waist_cm": 70,
   "hip_cm": 92,
-  "shoe_mm": 260,
-  "body_fictional": true
+  "shoe_mm": 260
  },
  {
   "no": 73,
@@ -1237,8 +1165,7 @@
   "chest_cm": 96,
   "waist_cm": 69,
   "hip_cm": 88,
-  "shoe_mm": 260,
-  "body_fictional": true
+  "shoe_mm": 260
  },
  {
   "no": 74,
@@ -1254,8 +1181,7 @@
   "chest_cm": 89,
   "waist_cm": 67,
   "hip_cm": 90,
-  "shoe_mm": 260,
-  "body_fictional": true
+  "shoe_mm": 260
  },
  {
   "no": 75,
@@ -1271,8 +1197,7 @@
   "chest_cm": 84,
   "waist_cm": 73,
   "hip_cm": 92,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 76,
@@ -1288,8 +1213,7 @@
   "chest_cm": 96,
   "waist_cm": 65,
   "hip_cm": 88,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 77,
@@ -1305,8 +1229,7 @@
   "chest_cm": 91,
   "waist_cm": 74,
   "hip_cm": 93,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 78,
@@ -1322,8 +1245,7 @@
   "chest_cm": 89,
   "waist_cm": 69,
   "hip_cm": 88,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 79,
@@ -1339,8 +1261,7 @@
   "chest_cm": 90,
   "waist_cm": 74,
   "hip_cm": 89,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 80,
@@ -1356,8 +1277,7 @@
   "chest_cm": 96,
   "waist_cm": 68,
   "hip_cm": 91,
-  "shoe_mm": 275,
-  "body_fictional": true
+  "shoe_mm": 275
  },
  {
   "no": 81,
@@ -1373,8 +1293,7 @@
   "chest_cm": 92,
   "waist_cm": 74,
   "hip_cm": 91,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 82,
@@ -1390,8 +1309,7 @@
   "chest_cm": 94,
   "waist_cm": 64,
   "hip_cm": 89,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 83,
@@ -1407,8 +1325,7 @@
   "chest_cm": 89,
   "waist_cm": 64,
   "hip_cm": 94,
-  "shoe_mm": 260,
-  "body_fictional": true
+  "shoe_mm": 260
  },
  {
   "no": 84,
@@ -1424,8 +1341,7 @@
   "chest_cm": 85,
   "waist_cm": 68,
   "hip_cm": 94,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  },
  {
   "no": 85,
@@ -1441,8 +1357,7 @@
   "chest_cm": 93,
   "waist_cm": 64,
   "hip_cm": 95,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 86,
@@ -1458,8 +1373,7 @@
   "chest_cm": 87,
   "waist_cm": 68,
   "hip_cm": 94,
-  "shoe_mm": 260,
-  "body_fictional": true
+  "shoe_mm": 260
  },
  {
   "no": 87,
@@ -1475,8 +1389,7 @@
   "chest_cm": 93,
   "waist_cm": 63,
   "hip_cm": 90,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 88,
@@ -1492,8 +1405,7 @@
   "chest_cm": 91,
   "waist_cm": 64,
   "hip_cm": 88,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 89,
@@ -1509,8 +1421,7 @@
   "chest_cm": 96,
   "waist_cm": 70,
   "hip_cm": 94,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 90,
@@ -1526,8 +1437,7 @@
   "chest_cm": 84,
   "waist_cm": 69,
   "hip_cm": 95,
-  "shoe_mm": 255,
-  "body_fictional": true
+  "shoe_mm": 255
  },
  {
   "no": 91,
@@ -1543,8 +1453,7 @@
   "chest_cm": 92,
   "waist_cm": 71,
   "hip_cm": 91,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 92,
@@ -1560,8 +1469,7 @@
   "chest_cm": 95,
   "waist_cm": 69,
   "hip_cm": 91,
-  "shoe_mm": 265,
-  "body_fictional": true
+  "shoe_mm": 265
  },
  {
   "no": 93,
@@ -1577,8 +1485,7 @@
   "chest_cm": 90,
   "waist_cm": 64,
   "hip_cm": 94,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 94,
@@ -1594,8 +1501,7 @@
   "chest_cm": 85,
   "waist_cm": 67,
   "hip_cm": 94,
-  "shoe_mm": 270,
-  "body_fictional": true
+  "shoe_mm": 270
  },
  {
   "no": 95,
@@ -1611,8 +1517,7 @@
   "chest_cm": 87,
   "waist_cm": 73,
   "hip_cm": 88,
-  "shoe_mm": 260,
-  "body_fictional": true
+  "shoe_mm": 260
  },
  {
   "no": 96,
@@ -1628,8 +1533,7 @@
   "chest_cm": 86,
   "waist_cm": 67,
   "hip_cm": 91,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 97,
@@ -1645,8 +1549,7 @@
   "chest_cm": 92,
   "waist_cm": 73,
   "hip_cm": 88,
-  "shoe_mm": 250,
-  "body_fictional": true
+  "shoe_mm": 250
  },
  {
   "no": 98,
@@ -1662,7 +1565,6 @@
   "chest_cm": 90,
   "waist_cm": 66,
   "hip_cm": 88,
-  "shoe_mm": 245,
-  "body_fictional": true
+  "shoe_mm": 245
  }
 ]
