@@ -1,0 +1,982 @@
+[
+ {
+  "no": 1,
+  "cat": "모델",
+  "name": "Akbota",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "메인 모델",
+  "photo": "photos/001.webp"
+ },
+ {
+  "no": 2,
+  "cat": "모델",
+  "name": "Ayalaum",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "메인 모델",
+  "photo": "photos/002.webp"
+ },
+ {
+  "no": 3,
+  "cat": "모델",
+  "name": "Kuanysh",
+  "country": "카자흐스탄",
+  "sex": "남",
+  "year": "",
+  "note": "메인 모델",
+  "photo": "photos/003.webp"
+ },
+ {
+  "no": 4,
+  "cat": "모델",
+  "name": "Akbota",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "메인 모델",
+  "photo": "photos/004.webp"
+ },
+ {
+  "no": 5,
+  "cat": "모델",
+  "name": "Kamila Suleymanova",
+  "country": "바시코르토스탄(러시아)",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/005.webp"
+ },
+ {
+  "no": 6,
+  "cat": "모델",
+  "name": "Yannness",
+  "country": "키르기스스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/006.webp"
+ },
+ {
+  "no": 7,
+  "cat": "모델",
+  "name": "Ayla",
+  "country": "키르기스스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/007.webp"
+ },
+ {
+  "no": 8,
+  "cat": "모델",
+  "name": "Akambaeva Saikal",
+  "country": "키르기스스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/008.webp"
+ },
+ {
+  "no": 9,
+  "cat": "모델",
+  "name": "Akbota",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/009.webp"
+ },
+ {
+  "no": 10,
+  "cat": "모델",
+  "name": "Rozaly",
+  "country": "바시코르토스탄(러시아)",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/010.webp"
+ },
+ {
+  "no": 11,
+  "cat": "모델",
+  "name": "Bektur",
+  "country": "키르기스스탄",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/011.webp"
+ },
+ {
+  "no": 12,
+  "cat": "모델",
+  "name": "Kutman",
+  "country": "키르기스스탄",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/012.webp"
+ },
+ {
+  "no": 13,
+  "cat": "모델",
+  "name": "NATALIA",
+  "country": "하바롭스크(러시아)",
+  "sex": "여",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/013.webp"
+ },
+ {
+  "no": 14,
+  "cat": "모델",
+  "name": "NATALIA",
+  "country": "하바롭스크(러시아)",
+  "sex": "여",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/014.webp"
+ },
+ {
+  "no": 15,
+  "cat": "모델",
+  "name": "RAMIN",
+  "country": "하바롭스크(러시아)",
+  "sex": "남",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/015.webp"
+ },
+ {
+  "no": 16,
+  "cat": "모델",
+  "name": "RAMIN",
+  "country": "하바롭스크(러시아)",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/016.webp"
+ },
+ {
+  "no": 17,
+  "cat": "모델",
+  "name": "MIDA",
+  "country": "태국",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/017.webp"
+ },
+ {
+  "no": 18,
+  "cat": "모델",
+  "name": "KWAN",
+  "country": "태국",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/018.webp"
+ },
+ {
+  "no": 19,
+  "cat": "모델",
+  "name": "ZERN",
+  "country": "태국",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/019.webp"
+ },
+ {
+  "no": 20,
+  "cat": "모델",
+  "name": "PIP",
+  "country": "라오스",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/020.webp"
+ },
+ {
+  "no": 21,
+  "cat": "모델",
+  "name": "DARIYA",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/021.webp"
+ },
+ {
+  "no": 22,
+  "cat": "모델",
+  "name": "AIDANA",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/022.webp"
+ },
+ {
+  "no": 23,
+  "cat": "모델",
+  "name": "AMIR",
+  "country": "카자흐스탄",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/023.webp"
+ },
+ {
+  "no": 24,
+  "cat": "모델",
+  "name": "KIKI KHOR",
+  "country": "말레이시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/024.webp"
+ },
+ {
+  "no": 25,
+  "cat": "모델",
+  "name": "NADIA",
+  "country": "말레이시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/025.webp"
+ },
+ {
+  "no": 26,
+  "cat": "모델",
+  "name": "ETHAN",
+  "country": "말레이시아",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/026.webp"
+ },
+ {
+  "no": 27,
+  "cat": "모델",
+  "name": "SILVIA",
+  "country": "인도네시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/027.webp"
+ },
+ {
+  "no": 28,
+  "cat": "모델",
+  "name": "NAZALII",
+  "country": "몽골",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/028.webp"
+ },
+ {
+  "no": 29,
+  "cat": "모델",
+  "name": "SAMIKSHA",
+  "country": "인도",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/029.webp"
+ },
+ {
+  "no": 30,
+  "cat": "모델",
+  "name": "SOMA",
+  "country": "인도",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/030.webp"
+ },
+ {
+  "no": 31,
+  "cat": "모델",
+  "name": "JULIA",
+  "country": "스리랑카",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/031.webp"
+ },
+ {
+  "no": 32,
+  "cat": "모델",
+  "name": "UDAMA",
+  "country": "스리랑카",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/032.webp"
+ },
+ {
+  "no": 33,
+  "cat": "모델",
+  "name": "HAO",
+  "country": "라오스",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/033.webp"
+ },
+ {
+  "no": 34,
+  "cat": "모델",
+  "name": "TERCY",
+  "country": "몽골",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/034.webp"
+ },
+ {
+  "no": 35,
+  "cat": "모델",
+  "name": "YUTARO",
+  "country": "일본",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/035.webp"
+ },
+ {
+  "no": 36,
+  "cat": "모델",
+  "name": "BEKSULTAN",
+  "country": "키르기스스탄",
+  "sex": "남",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/036.webp"
+ },
+ {
+  "no": 37,
+  "cat": "모델",
+  "name": "Aiana Abdaeva",
+  "country": "키르기스스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/037.webp"
+ },
+ {
+  "no": 38,
+  "cat": "모델",
+  "name": "Mariyam Bekmurza",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/038.webp"
+ },
+ {
+  "no": 39,
+  "cat": "모델",
+  "name": "Shugyla Zhaksybekova",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/039.webp"
+ },
+ {
+  "no": 40,
+  "cat": "모델",
+  "name": "Bolat Marjan",
+  "country": "몽골",
+  "sex": "남",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/040.webp"
+ },
+ {
+  "no": 41,
+  "cat": "모델",
+  "name": "Ariana",
+  "country": "투바(러시아)",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/041.webp"
+ },
+ {
+  "no": 42,
+  "cat": "모델",
+  "name": "Nachyn",
+  "country": "투바(러시아)",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/042.webp"
+ },
+ {
+  "no": 43,
+  "cat": "모델",
+  "name": "Aldyn Say",
+  "country": "투바(러시아)",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/043.webp"
+ },
+ {
+  "no": 44,
+  "cat": "모델",
+  "name": "Ulzhan",
+  "country": "카자흐스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/044.webp"
+ },
+ {
+  "no": 45,
+  "cat": "모델",
+  "name": "Mirelle",
+  "country": "인도네시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/045.webp"
+ },
+ {
+  "no": 46,
+  "cat": "모델",
+  "name": "Fabel",
+  "country": "인도네시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/046.webp"
+ },
+ {
+  "no": 47,
+  "cat": "모델",
+  "name": "Diyora",
+  "country": "우즈베키스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/047.webp"
+ },
+ {
+  "no": 48,
+  "cat": "모델",
+  "name": "Alina",
+  "country": "우즈베키스탄",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/048.webp"
+ },
+ {
+  "no": 49,
+  "cat": "모델",
+  "name": "Akmal Aysenov",
+  "country": "우즈베키스탄",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/049.webp"
+ },
+ {
+  "no": 50,
+  "cat": "모델",
+  "name": "Huong Giang",
+  "country": "베트남",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/050.webp"
+ },
+ {
+  "no": 51,
+  "cat": "모델",
+  "name": "Tiara Tai",
+  "country": "말레이시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/051.webp"
+ },
+ {
+  "no": 52,
+  "cat": "모델",
+  "name": "Chloe Angelina",
+  "country": "말레이시아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/052.webp"
+ },
+ {
+  "no": 53,
+  "cat": "모델",
+  "name": "Tungalag",
+  "country": "몽골",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/053.webp"
+ },
+ {
+  "no": 54,
+  "cat": "모델",
+  "name": "Aditi Adhikari",
+  "country": "네팔",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/054.webp"
+ },
+ {
+  "no": 55,
+  "cat": "모델",
+  "name": "Kritagya",
+  "country": "네팔",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/055.webp"
+ },
+ {
+  "no": 56,
+  "cat": "모델",
+  "name": "Bibek Khadka",
+  "country": "네팔",
+  "sex": "남",
+  "year": "",
+  "note": "",
+  "photo": "photos/056.webp"
+ },
+ {
+  "no": 57,
+  "cat": "모델",
+  "name": "Arzylan Dagba",
+  "country": "투바(러시아)",
+  "sex": "남",
+  "year": "",
+  "note": "전통의상",
+  "photo": "photos/057.webp"
+ },
+ {
+  "no": 58,
+  "cat": "모델",
+  "name": "C.Lam",
+  "country": "홍콩",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/058.webp"
+ },
+ {
+  "no": 59,
+  "cat": "모델",
+  "name": "Kol Soksolita",
+  "country": "캄보디아",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/059.webp"
+ },
+ {
+  "no": 60,
+  "cat": "모델",
+  "name": "Tina",
+  "country": "라오스",
+  "sex": "여",
+  "year": "",
+  "note": "",
+  "photo": "photos/060.webp"
+ },
+ {
+  "no": 61,
+  "cat": "역대 수상자",
+  "name": "SARVINOZ",
+  "country": "우즈베키스탄",
+  "sex": "",
+  "year": "2024",
+  "note": "Grand Prize Winner",
+  "photo": "photos/061.webp"
+ },
+ {
+  "no": 62,
+  "cat": "역대 수상자",
+  "name": "심지훈",
+  "country": "한국",
+  "sex": "",
+  "year": "2024",
+  "note": "1st Prize winner – male",
+  "photo": "photos/062.webp"
+ },
+ {
+  "no": 63,
+  "cat": "역대 수상자",
+  "name": "JULIA",
+  "country": "스리랑카",
+  "sex": "",
+  "year": "2024",
+  "note": "1st Prize winner – female",
+  "photo": "photos/063.webp"
+ },
+ {
+  "no": 64,
+  "cat": "역대 수상자",
+  "name": "Kaimook",
+  "country": "태국",
+  "sex": "",
+  "year": "2023",
+  "note": "Grand Prize Winner",
+  "photo": "photos/064.webp"
+ },
+ {
+  "no": 65,
+  "cat": "역대 수상자",
+  "name": "Junhao Qian",
+  "country": "중국",
+  "sex": "",
+  "year": "2023",
+  "note": "1st Prize winner – male",
+  "photo": "photos/065.webp"
+ },
+ {
+  "no": 66,
+  "cat": "역대 수상자",
+  "name": "Tiara Tai",
+  "country": "인도네시아",
+  "sex": "",
+  "year": "2023",
+  "note": "1st Prize winner – female",
+  "photo": "photos/066.webp"
+ },
+ {
+  "no": 67,
+  "cat": "역대 수상자",
+  "name": "Vanessa",
+  "country": "키르기스스탄",
+  "sex": "",
+  "year": "2022",
+  "note": "Grand Prize Winner",
+  "photo": "photos/067.webp"
+ },
+ {
+  "no": 68,
+  "cat": "역대 수상자",
+  "name": "김정욱",
+  "country": "한국",
+  "sex": "",
+  "year": "2022",
+  "note": "1st Prize Winner",
+  "photo": "photos/068.webp"
+ },
+ {
+  "no": 69,
+  "cat": "역대 수상자",
+  "name": "Tiara Tai",
+  "country": "말레이시아",
+  "sex": "",
+  "year": "2022",
+  "note": "1st Prize Winner",
+  "photo": "photos/069.webp"
+ },
+ {
+  "no": 70,
+  "cat": "역대 수상자",
+  "name": "Tungalag Natsagdorj",
+  "country": "몽골",
+  "sex": "",
+  "year": "2021",
+  "note": "Grand Prize Winner",
+  "photo": "photos/070.webp"
+ },
+ {
+  "no": 71,
+  "cat": "역대 수상자",
+  "name": "김정욱",
+  "country": "한국",
+  "sex": "",
+  "year": "2021",
+  "note": "1st Prize Winner",
+  "photo": "photos/071.webp"
+ },
+ {
+  "no": 72,
+  "cat": "역대 수상자",
+  "name": "Margarita",
+  "country": "우즈베키스탄",
+  "sex": "",
+  "year": "2021",
+  "note": "1st Prize Winner",
+  "photo": "photos/072.webp"
+ },
+ {
+  "no": 73,
+  "cat": "역대 수상자",
+  "name": "Chechena Kyrgys",
+  "country": "투바",
+  "sex": "",
+  "year": "2020",
+  "note": "Grand Prize Winner",
+  "photo": "photos/073.webp"
+ },
+ {
+  "no": 74,
+  "cat": "역대 수상자",
+  "name": "Asyraf Dasley",
+  "country": "말레이시아",
+  "sex": "",
+  "year": "2020",
+  "note": "1st Prize Winner",
+  "photo": "photos/074.webp"
+ },
+ {
+  "no": 75,
+  "cat": "역대 수상자",
+  "name": "김세원",
+  "country": "한국",
+  "sex": "",
+  "year": "2020",
+  "note": "1st Prize Winner",
+  "photo": "photos/075.webp"
+ },
+ {
+  "no": 76,
+  "cat": "역대 수상자",
+  "name": "Ayu Ma",
+  "country": "인도네시아",
+  "sex": "",
+  "year": "2019",
+  "note": "Grand Prize Winner",
+  "photo": "photos/076.webp"
+ },
+ {
+  "no": 77,
+  "cat": "역대 수상자",
+  "name": "PALASH",
+  "country": "방글라데시",
+  "sex": "",
+  "year": "2019",
+  "note": "1st Prize Winner",
+  "photo": "photos/077.webp"
+ },
+ {
+  "no": 78,
+  "cat": "역대 수상자",
+  "name": "GUAN RUYI",
+  "country": "중국",
+  "sex": "",
+  "year": "2019",
+  "note": "1st Prize Winner",
+  "photo": "photos/078.webp"
+ },
+ {
+  "no": 79,
+  "cat": "역대 수상자",
+  "name": "MA YI WEN",
+  "country": "중국",
+  "sex": "",
+  "year": "2018",
+  "note": "Grand Prize Winner",
+  "photo": "photos/079.webp"
+ },
+ {
+  "no": 80,
+  "cat": "역대 수상자",
+  "name": "SHIN CHAE-IN",
+  "country": "한국",
+  "sex": "",
+  "year": "2018",
+  "note": "1st Prize Winner",
+  "photo": "photos/080.webp"
+ },
+ {
+  "no": 81,
+  "cat": "역대 수상자",
+  "name": "ISANKA PRAMUDITHA",
+  "country": "스리랑카",
+  "sex": "",
+  "year": "2018",
+  "note": "1st Prize Winner",
+  "photo": "photos/081.webp"
+ },
+ {
+  "no": 82,
+  "cat": "역대 수상자",
+  "name": "JESIEY GIAM",
+  "country": "말레이시아",
+  "sex": "",
+  "year": "2017",
+  "note": "Grand Prize Winner",
+  "photo": "photos/082.webp"
+ },
+ {
+  "no": 83,
+  "cat": "역대 수상자",
+  "name": "MAKMUDOV SHAKHBOZJON",
+  "country": "우즈베키스탄",
+  "sex": "",
+  "year": "2017",
+  "note": "1st Prize Winner",
+  "photo": "photos/083.webp"
+ },
+ {
+  "no": 84,
+  "cat": "역대 수상자",
+  "name": "HU MENG XUAN",
+  "country": "중국",
+  "sex": "",
+  "year": "2017",
+  "note": "1st Prize Winner",
+  "photo": "photos/084.webp"
+ },
+ {
+  "no": 85,
+  "cat": "역대 수상자",
+  "name": "PATCHAPLOY RUEANDALUANG",
+  "country": "태국",
+  "sex": "",
+  "year": "2016",
+  "note": "Grand Prize Winner",
+  "photo": "photos/085.webp"
+ },
+ {
+  "no": 86,
+  "cat": "역대 수상자",
+  "name": "ANKUSH KUKREJA",
+  "country": "인도",
+  "sex": "",
+  "year": "2016",
+  "note": "1st Prize Winner",
+  "photo": "photos/086.webp"
+ },
+ {
+  "no": 87,
+  "cat": "역대 수상자",
+  "name": "ANASTASSIYA CHSHEKOTILOVA",
+  "country": "카자흐스탄",
+  "sex": "",
+  "year": "2016",
+  "note": "1st Prize Winner",
+  "photo": "photos/087.webp"
+ },
+ {
+  "no": 88,
+  "cat": "역대 수상자",
+  "name": "KEZIA MARGARETHA KASENDA",
+  "country": "인도네시아",
+  "sex": "",
+  "year": "2015",
+  "note": "Grand Prize Winner",
+  "photo": "photos/088.webp"
+ },
+ {
+  "no": 89,
+  "cat": "역대 수상자",
+  "name": "TRUONG MY NHAN",
+  "country": "베트남",
+  "sex": "",
+  "year": "2015",
+  "note": "1st Prize Winner",
+  "photo": "photos/089.webp"
+ },
+ {
+  "no": 90,
+  "cat": "역대 수상자",
+  "name": "KIM JIN-SOO",
+  "country": "한국",
+  "sex": "",
+  "year": "2015",
+  "note": "1st Prize Winner",
+  "photo": "photos/090.webp"
+ },
+ {
+  "no": 91,
+  "cat": "역대 수상자",
+  "name": "KY HAN",
+  "country": "베트남",
+  "sex": "",
+  "year": "2014",
+  "note": "1st Prize Winner",
+  "photo": "photos/091.webp"
+ },
+ {
+  "no": 92,
+  "cat": "역대 수상자",
+  "name": "BOBY DWI CAHYO SARTONO",
+  "country": "인도네시아",
+  "sex": "",
+  "year": "2014",
+  "note": "1st Prize Winner",
+  "photo": "photos/092.webp"
+ },
+ {
+  "no": 93,
+  "cat": "역대 수상자",
+  "name": "BOW BOONDAREE",
+  "country": "태국",
+  "sex": "",
+  "year": "2013",
+  "note": "1st Prize Winner",
+  "photo": "photos/093.webp"
+ },
+ {
+  "no": 94,
+  "cat": "역대 수상자",
+  "name": "TUN KO KO",
+  "country": "미얀마",
+  "sex": "",
+  "year": "2013",
+  "note": "1st Prize Winner",
+  "photo": "photos/094.webp"
+ },
+ {
+  "no": 95,
+  "cat": "역대 수상자",
+  "name": "LI PEILIN",
+  "country": "중국",
+  "sex": "",
+  "year": "2012",
+  "note": "1st Prize Winner",
+  "photo": "photos/095.webp"
+ },
+ {
+  "no": 96,
+  "cat": "역대 수상자",
+  "name": "BAYARTOGTOKH DUVA",
+  "country": "몽골",
+  "sex": "",
+  "year": "2012",
+  "note": "1st Prize Winner",
+  "photo": "photos/096.webp"
+ },
+ {
+  "no": 97,
+  "cat": "역대 수상자",
+  "name": "YAN MING MING",
+  "country": "중국",
+  "sex": "",
+  "year": "2011",
+  "note": "1st Prize Winner",
+  "photo": "photos/097.webp"
+ },
+ {
+  "no": 98,
+  "cat": "역대 수상자",
+  "name": "LEE TAE-HWAN",
+  "country": "한국",
+  "sex": "",
+  "year": "2011",
+  "note": "1st Prize Winner",
+  "photo": "photos/098.webp"
+ }
+]

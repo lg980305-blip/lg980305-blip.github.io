@@ -3,7 +3,7 @@
 AMF 모델 사진 -> 증명사진 규격 일괄 정리 도구.
 
 사용법:
-  python3 tools/idphoto.py <입력폴더> <출력폴더> [--size 600x800] [--bg white|none] [--format webp|jpg]
+  python3 tools/idphoto.py <입력폴더> <출력폴더> [--size 600x800] [--bg white|none] [--format webp|jpg] [--natural]
 
 동작:
   1. 얼굴을 찾아 얼굴 중심으로 3:4 비율 크롭 (머리 위 여백, 어깨선까지 포함)
@@ -25,19 +25,56 @@ def load(path):
     return cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
 
 
+try:  # MediaPipe가 있으면 더 정확한 검출기를 우선 사용 (pip install mediapipe==0.10.14)
+    import mediapipe as mp
+    _MP = [mp.solutions.face_detection.FaceDetection(model_selection=m, min_detection_confidence=0.4) for m in (0, 1)]
+except Exception:  # noqa: BLE001
+    _MP = []
+
+
+def detect_face_mp(bgr):
+    if not _MP:
+        return None
+    H, W = bgr.shape[:2]
+    scale = 4.0 if max(H, W) < 400 else 1.0
+    rgb = cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
+    if scale != 1.0:
+        rgb = cv2.resize(rgb, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
+    h, w = rgb.shape[:2]
+    for det in _MP:
+        r = det.process(rgb)
+        if r.detections:
+            best = max(r.detections, key=lambda d: d.location_data.relative_bounding_box.width * d.location_data.relative_bounding_box.height)
+            bb = best.location_data.relative_bounding_box
+            return [int(bb.xmin * w / scale), int(bb.ymin * h / scale), int(bb.width * w / scale), int(bb.height * h / scale)]
+    return None
+
+
 def detect_face(bgr):
-    gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+    """얼굴 박스 (x, y, w, h) 반환. 작은 원본은 검출 전에 확대해서 찾는다."""
+    f = detect_face_mp(bgr)
+    if f is not None:
+        return f
+    H, W = bgr.shape[:2]
+    scale = 1.0
+    if max(H, W) < 600:
+        scale = 600.0 / max(H, W)
+        work = cv2.resize(bgr, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
+    else:
+        work = bgr
+    gray = cv2.cvtColor(work, cv2.COLOR_BGR2GRAY)
     gray = cv2.equalizeHist(gray)
     faces = []
-    for name in ('haarcascade_frontalface_default.xml', 'haarcascade_frontalface_alt2.xml', 'haarcascade_profileface.xml'):
+    for name, nb in (('haarcascade_frontalface_default.xml', 4), ('haarcascade_frontalface_alt2.xml', 3), ('haarcascade_profileface.xml', 4)):
         casc = cv2.CascadeClassifier(cv2.data.haarcascades + name)
-        found = casc.detectMultiScale(gray, scaleFactor=1.08, minNeighbors=5, minSize=(max(30, bgr.shape[1] // 20),) * 2)
+        found = casc.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=nb, minSize=(max(24, work.shape[0] // 12),) * 2)
         if len(found):
             faces.extend(found.tolist())
     if not faces:
         return None
-    # 가장 큰 얼굴 하나 사용
-    return max(faces, key=lambda f: f[2] * f[3])
+    # 가장 큰 얼굴 하나 사용, 원본 좌표로 환산
+    f = max(faces, key=lambda f: f[2] * f[3])
+    return [int(round(v / scale)) for v in f]
 
 
 def crop_box(bgr, face, ratio=3 / 4):
@@ -80,6 +117,17 @@ def white_balance(bgr):
     result[:, :, 1] -= (avg_a - 128) * (result[:, :, 0] / 255.0) * 1.1
     result[:, :, 2] -= (avg_b - 128) * (result[:, :, 0] / 255.0) * 1.1
     return cv2.cvtColor(np.clip(result, 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR)
+
+
+def enhance_natural(bgr):
+    """AI 티가 나지 않도록 최소한만 손대는 보정: 약한 노이즈 제거 + 아주 약한 선명도."""
+    out = cv2.fastNlMeansDenoisingColored(bgr, None, 3, 3, 7, 21)
+    # 화이트밸런스는 절반 강도만 적용해 색이 크게 틀어지지 않게
+    wb = white_balance(out)
+    out = cv2.addWeighted(out, 0.5, wb, 0.5, 0)
+    blur = cv2.GaussianBlur(out, (0, 0), 1.0)
+    out = cv2.addWeighted(out, 1.12, blur, -0.12, 0)
+    return out
 
 
 def enhance(bgr):
@@ -127,9 +175,9 @@ def replace_background(bgr, face, color=(255, 255, 255)):
     return (bgr * alpha + bg * (1 - alpha)).astype(np.uint8)
 
 
-def process(path, size, bg, fmt, outdir):
+def process(path, size, bg, fmt, outdir, natural=False, overrides=None):
     bgr = load(path)
-    face = detect_face(bgr)
+    face = (overrides or {}).get(os.path.basename(path)) or detect_face(bgr)
     x, y, w, h = crop_box(bgr, face)
     crop = bgr[y:y + h, x:x + w]
     face_local = None
@@ -138,8 +186,8 @@ def process(path, size, bg, fmt, outdir):
         face_local = (fx - x, fy - y, fw, fh)
     if bg == 'white':
         crop = replace_background(crop, face_local)
-    crop = cv2.resize(crop, size, interpolation=cv2.INTER_AREA if crop.shape[1] > size[0] else cv2.INTER_CUBIC)
-    crop = enhance(crop)
+    crop = cv2.resize(crop, size, interpolation=cv2.INTER_AREA if crop.shape[1] > size[0] else cv2.INTER_LANCZOS4)
+    crop = enhance_natural(crop) if natural else enhance(crop)
     name = os.path.splitext(os.path.basename(path))[0]
     out = os.path.join(outdir, f'{name}.{fmt}')
     rgb = cv2.cvtColor(crop, cv2.COLOR_BGR2RGB)
@@ -166,6 +214,8 @@ def main():
     ap.add_argument('--size', default='600x800', help='가로x세로 (기본 600x800, 3:4)')
     ap.add_argument('--bg', default='none', choices=['none', 'white'], help='배경 흰색 교체 여부')
     ap.add_argument('--format', default='webp', choices=['webp', 'jpg', 'png'])
+    ap.add_argument('--natural', action='store_true', help='최소 보정 모드 (AI 느낌 없이 자연스럽게)')
+    ap.add_argument('--overrides', help='자동 검출 실패분 수동 얼굴 좌표 JSON: {"파일명": [x, y, w, h]}')
     a = ap.parse_args()
     size = tuple(int(v) for v in a.size.lower().split('x'))
     os.makedirs(a.outdir, exist_ok=True)
@@ -173,9 +223,13 @@ def main():
     if not files:
         print('입력 폴더에 이미지가 없습니다:', a.indir)
         sys.exit(1)
+    overrides = {}
+    if a.overrides:
+        import json
+        overrides = json.load(open(a.overrides, encoding='utf-8'))
     outs, nofaces = [], []
     for f in files:
-        out, ok = process(f, size, a.bg, a.format, a.outdir)
+        out, ok = process(f, size, a.bg, a.format, a.outdir, natural=a.natural, overrides=overrides)
         outs.append(out)
         if not ok:
             nofaces.append(os.path.basename(f))
