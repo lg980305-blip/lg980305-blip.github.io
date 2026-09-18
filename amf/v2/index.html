@@ -2968,7 +2968,7 @@ function openDrawer(idx){
         <span class="dv">${sc.ax[k]}</span></div>`).join('')}
     </div></div></div>`:''}
 
-  <div class="note">인물 정보는 AMF 로스터 기준이며, 팔로워·성과·리스크 지표는 엔진 검증용 <b>시뮬레이션 값</b>입니다.</div>`;
+  <div class="note">본 프로필은 엔진 검증용 <b>시뮬레이션 지표</b>이며, 인물 정보는 AMF 로스터 기준입니다.</div>`;
 
   $('scrim').classList.add('on'); $('drawer').classList.add('on');
 }
@@ -2985,7 +2985,7 @@ function renderGov(){
     <dt>입력 변수</dt><dd class="num">31개 (프로필 9 · 오디언스 9 · 커머스 6 · 품질 3 · 리스크 4)</dd>
     <dt>출력</dt><dd>6축 점수 + 리스크 페널티 + 통합 적합도(0–100)</dd>
     <dt>데이터셋</dt><dd class="mono">r98-c22 · amf-roster</dd>
-    <dt>데이터 성격</dt><dd>AMF 로스터 98인 (이름·국가·사진) · 성과 지표는 시뮬레이션</dd>
+    <dt>데이터 성격</dt><dd>AMF 로스터 98인 (성과 지표는 시뮬레이션)</dd>
     <dt>표본 규모</dt><dd class="num">98인 / 22개국 / 5개 권역</dd>
     <dt>재현성 시드</dt><dd class="mono">${SEED}</dd>
     <dt>갱신 주기</dt><dd>주 1회 배치 (실 데이터 연동 시)</dd>

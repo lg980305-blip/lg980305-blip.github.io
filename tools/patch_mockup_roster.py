@@ -98,38 +98,74 @@ pat = re.compile(r'<div class="mono-av" style="background:\$\{([a-z.]+)\.color\}
 s, n_av = pat.subn(lambda m: '${AV(%s,%s)}' % (m.group(1), json.dumps(m.group(2).lstrip(';'))), s)
 assert n_av >= 6, n_av
 
-# ── 인원·국가 수 문구 ──
+# ── 인원·국가 수 문구 (버전에 따라 있는 것만 교체) ──
 N = len(people); NC = len({p['country'] for p in people})
 NR = len(set(re.findall(r"r:'([^']+)'", s[s.index('const COUNTRIES=['):s.index('];', s.index('const COUNTRIES=['))])))
+NM = sum(1 for p in people if p['cat'] == '모델'); NW = N - NM
+KO_PEOPLE = f"AMF 로스터 {N}인 (성과 지표는 시뮬레이션)"
+EN_PEOPLE = f"{N} AMF roster people (performance simulated)"
 rep = [
+ # 구조
+ ("const ROSTER = buildRoster(480);", "const ROSTER = buildRoster(REAL_PEOPLE);"),
+ ("function buildRosterFresh(n){ rnd = mulberry32(SEED); return buildRoster(n||480); }", "function buildRosterFresh(){ rnd = mulberry32(SEED); return buildRoster(REAL_PEOPLE); }"),
+ ("const fresh=buildRosterFresh(480);", "const fresh=buildRosterFresh();"),
+ ("synthetic:true}", "synthetic:'metrics-only'}"),
+ ("${COUNTRIES.length}개국 · 4개 권역", "${new Set(ROSTER.map(c=>c.country)).size}개국 · ${new Set(ROSTER.map(c=>c.region)).size}개 권역"),
+ ("${COUNTRIES.length}개국", "${new Set(ROSTER.map(c=>c.country)).size}개국"),
+ ("c${COUNTRIES.length} · synthetic", "c${new Set(ROSTER.map(c=>c.country)).size} · amf-roster"),
+ ("creator_registry r240 ·", "creator_registry r${ROSTER.length} ·"),
+ # 긴 문구 먼저
+ ("전량 합성 데이터(가상 480인 / 실존 0인)", KO_PEOPLE),
+ ("크리에이터 데이터 전량 합성 (가상 480인 / 실존 0인)", f"인물 {N}인은 AMF 로스터(이름·국가·사진) · 팔로워·성과·리스크 지표는 엔진 검증용 시뮬레이션"),
+ ("All creator data is synthetic (480 fictional, 0 real).", f"People are the {N} AMF roster members (name, country, photo); follower, performance and risk figures are simulated for engine validation."),
+ ("가상 480인 / 실존 0인 (전량 합성)", KO_PEOPLE),
+ ("480 fictional, 0 real (fully synthetic)", EN_PEOPLE),
+ ("가상 480인 / 실존 0인", KO_PEOPLE),
+ ("480 fictional, 0 real", EN_PEOPLE),
+ ("크리에이터 데이터는 전량 합성(가상 480인/실존 0인)이며,", f"인물 {N}인은 AMF 로스터이며 성과 지표는 시뮬레이션이고,"),
+ ("480인 / 14개국 / 4개 권역", f"{N}인 / {NC}개국 / {NR}개 권역"),
+ ("480 creators / 14 countries / 4 regions", f"{N} creators / {NC} countries / {NR} regions"),
  ("14개국 480인 네트워크", f"{NC}개국 {N}인 네트워크"),
+ ("480 creators across 14 countries", f"{N} creators across {NC} countries"),
+ ("14개국 · 4개 권역", f"{NC}개국 · {NR}개 권역"),
+ ("14 countries · 4 regions", f"{NC} countries · {NR} regions"),
+ ("네트워크 480인 · 14개국 대상 전수 연산", f"네트워크 {N}인 · {NC}개국 대상 전수 연산"),
+ ("네트워크 480인", f"네트워크 {N}인"),
+ ("Reviewing all 480 creators", f"Reviewing all {N} creators"),
+ ("Across all 480 creators", f"Across all {N} creators"),
+ ("크리에이터 480인 합성 프로필 생성", f"AMF 로스터 {N}인 프로필 + 시뮬레이션 지표"),
  ('id="railCount">480<', f'id="railCount">{N}<'),
- ("dataset · r480", f"dataset · r{N}"),
- (f"네트워크 480인 · 14개국 대상 전수 연산", f"네트워크 {N}인 · {NC}개국 대상 전수 연산"),
- ("네트워크 480인을 살펴보는 중", f"네트워크 {N}인을 살펴보는 중"),
- ("네트워크 480인을 한 명씩 살펴보는 중…", f"네트워크 {N}인을 한 명씩 살펴보는 중…"),
- ("3. DATASET       크리에이터 480인 합성 프로필 생성", f"3. DATASET       AMF 로스터 {N}인 프로필 + 시뮬레이션 지표"),
  ("r480-c14 · synthetic", f"r{N}-c{NC} · amf-roster"),
- ("dataset r480-c14", f"dataset r{N}-c{NC}"),
- ("<dt>데이터 성격</dt><dd>가상 480인 / 실존 0인 (전량 합성)</dd>", f"<dt>데이터 성격</dt><dd>AMF 로스터 {N}인 (이름·국가·사진) · 성과 지표는 시뮬레이션</dd>"),
- ("<dd class=\"num\">480인 / 14개국 / 4개 권역</dd>", f"<dd class=\"num\">{N}인 / {NC}개국 / {NR}개 권역</dd>"),
- ("크리에이터 데이터 전량 합성 (가상 480인 / 실존 0인) ·", f"인물 {N}인은 AMF 로스터(이름·국가·사진) · 팔로워·성과·리스크 지표는 엔진 검증용 시뮬레이션 ·"),
- ("data_notice:'Synthetic dataset for engine validation. Not real creator performance.'", "data_notice:'People are from the AMF roster; follower, performance and risk figures are simulated for engine validation.'"),
+ ("r480-c14", f"r{N}-c{NC}"),
+ ("dataset · r480", f"dataset · r{N}"),
+ # 데이터 소스 패널 · 프로필 · 내보내기 문구
+ ("합성 로스터 (실존 0인)", f"AMF 로스터 ({N}인)"),
+ ("Synthetic roster (0 real people)", f"AMF roster ({N} people)"),
+ ("현재 화면의 크리에이터는 전량 합성 데이터입니다.", f"현재 화면의 크리에이터는 AMF 로스터 {N}인이며 성과 지표는 시뮬레이션입니다."),
+ ("Every creator shown is synthetic.", f"Creators shown are the {N} AMF roster members; performance figures are simulated."),
+ ("합성 데이터로 되돌리기", "AMF 로스터로 되돌리기"), ("Revert to synthetic data", "Revert to AMF roster"),
+ ("합성 데이터셋으로 되돌렸습니다", "AMF 로스터로 되돌렸습니다"), ("Reverted to the synthetic dataset", "Reverted to the AMF roster"),
+ ("`<span class=\"tag y\">${T('합성 데이터')}</span>`", "`<span class=\"tag y\">AMF 로스터</span>`"),
+ ("<b>합성 데이터</b>이며 실존 인물의 실적이 아닙니다.", "<b>시뮬레이션 지표</b>이며, 인물 정보는 AMF 로스터 기준입니다."),
  ("본 프로필은 엔진 검증용 <b>합성 데이터</b>이며 실존 인물의 실적이 아닙니다.", "인물 정보는 AMF 로스터 기준이며, 팔로워·성과·리스크 지표는 엔진 검증용 <b>시뮬레이션 값</b>입니다."),
+ ("data_notice:'Synthetic dataset for engine validation. Not real creator performance.'", "data_notice:'People are from the AMF roster; follower, performance and risk figures are simulated for engine validation.'"),
+ ("'Synthetic dataset for engine validation (0 real creators). '", "'People are from the AMF roster; follower, performance and risk figures are simulated. '"),
+ ("'# NOTICE: Synthetic dataset. Rates are unvalidated demo assumptions.'", "'# NOTICE: People from the AMF roster; rates are simulated demo assumptions.'"),
 ]
+applied = 0
 for a, b in rep:
-    assert a in s, a
-    s = s.replace(a, b)
-# 국가·권역 수는 실제 로스터 기준으로 계산
-s = s.replace("${COUNTRIES.length}개국 · 4개 권역", "${new Set(ROSTER.map(c=>c.country)).size}개국 · ${new Set(ROSTER.map(c=>c.region)).size}개 권역")
-s = s.replace("${COUNTRIES.length}개국", "${new Set(ROSTER.map(c=>c.country)).size}개국")
-s = s.replace("creator_registry r240 ·", "creator_registry r${ROSTER.length} ·")
-old_note = re.search(r'<b>데이터 고지 —</b>.*?그대로 동작합니다\.', s, re.S).group(0)
-new_note = (f"<b>데이터 고지 —</b> 본 콘솔의 크리에이터 <b>{N}인</b>은 AMF 로스터(모델 {sum(1 for p in people if p['cat']=='모델')}인 · 역대 수상자 "
-            f"{sum(1 for p in people if p['cat']!='모델')}인)의 실제 이름·국가·사진입니다. "
-            "팔로워·참여율·성과 이력·리스크 지표는 <b>엔진 검증용 시뮬레이션 값</b>으로 고정 시드로 생성되어 언제 열어도 동일하게 재현되며, "
-            "실 데이터 연동 시 이 레이어(<span class=\"mono\">buildRoster()</span>)만 교체하면 엔진·UI는 그대로 동작합니다.")
-s = s.replace(old_note, new_note, 1)
+    if a in s:
+        s = s.replace(a, b); applied += 1
+assert "buildRoster(REAL_PEOPLE)" in s
+m = re.search(r'<b>데이터 고지 —</b>.*?그대로 동작합니다\.', s, re.S)
+if m:
+    new_note = (f"<b>데이터 고지 —</b> 본 콘솔의 크리에이터 <b>{N}인</b>은 AMF 로스터(모델 {NM}인 · 역대 수상자 {NW}인)의 실제 이름·국가·사진입니다. "
+                "팔로워·참여율·성과 이력·리스크 지표는 <b>엔진 검증용 시뮬레이션 값</b>으로 고정 시드로 생성되어 언제 열어도 동일하게 재현되며, "
+                "실 데이터 연동 시 이 레이어(<span class=\"mono\">buildRoster()</span>)만 교체하면 엔진·UI는 그대로 동작합니다.")
+    s = s.replace(m.group(0), new_note, 1)
+left = [l for l in s.split('\n') if '480' in l and 'REAL_PEOPLE' not in l and 'base={S:' not in l]
+print(f'text replacements applied: {applied}/{len(rep)}; lines still containing 480: {len(left)}')
+for l in left[:8]: print('  ', l.strip()[:140])
 
 open(OUT, 'w', encoding='utf-8').write(s)
 print(f'wrote {OUT}: {N} people, {NC} countries, {NR} regions, {n_av} avatars, +{len(new_countries)} countries added, {len(s)/1e6:.2f} MB')
