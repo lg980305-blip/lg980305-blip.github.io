@@ -1408,6 +1408,8 @@ html.promo .drawer,html.promo .scrim{display:none!important}
           <span class="t">크리에이터 — 프로필·성과·리스크 원장</span></li>
         <li data-view="gov"><span class="n">05</span>
           <span class="t">거버넌스 — 산식 공개, 감사 추적, 세이프티 알림</span></li>
+        <li data-view="plans"><span class="n">06</span>
+          <span class="t">구독 · 요금제 — Lite/Pro/Enterprise, 시연용 결제 흐름</span></li>
       </ul>
 
       <div class="pm-rule"></div>
@@ -7812,6 +7814,8 @@ function crClose(){
 E('crmodal').addEventListener('click',e=>{ if(e.target===E('crmodal')) crClose(); });
 
 function earn(n,label){ ST.coin+=n; ST.ledger.push({t:label,n,at:Date.now()}); saveST(); crSync(); }
+/* 구독 · 요금제(plans.js)가 월 크레딧을 적립하고 사용자 정보를 읽을 수 있게 최소한만 노출한다 */
+window.amfCredits={ earn:(n,label)=>earn(n,label), balance:()=>ST.coin, user:()=>ST.user };
 function spend(kind,label){
   const c=PRICE[kind]||0;
   if(ST.coin<c){
@@ -8032,6 +8036,7 @@ if(APP_MODE){
 })();
 
 </script>
+<script src="plans.js"></script>
 <script src="assistant.js"></script>
 </body>
 </html>

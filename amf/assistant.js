@@ -55,7 +55,8 @@ const STR={
       count:'중앙아시아에서 S등급이면서 AQS 80 이상인 크리에이터는 몇 명이야?',
       show:'다가오는 쇼 일정 중 캐스팅 마감이 가장 급한 건?',
       board:'보드 구성의 중복 도달과 리스크를 점검해줘',
-      alert:'지금 가장 시급한 세이프티 알림은?'
+      alert:'지금 가장 시급한 세이프티 알림은?',
+      plan:'우리 팀(마케터 2명, 월 캠페인 10건)에 맞는 요금제는?'
     }
   },
   en:{
@@ -81,7 +82,8 @@ const STR={
       count:'How many S-tier creators in Central Asia have AQS 80 or above?',
       show:'Which upcoming show has the most urgent casting deadline?',
       board:'Check audience overlap and risk on the current board',
-      alert:'What is the most urgent safety alert right now?'
+      alert:'What is the most urgent safety alert right now?',
+      plan:'Which plan fits a team of 2 marketers running 10 campaigns a month?'
     }
   }
 };
@@ -279,6 +281,8 @@ function buildContext(){
   const v=curView();
   const ctx={현재화면:viewName(v)+' ('+v+')', 언어:LANG, 브리프_폼:briefCtx(), 매칭결과:resultCtx(),
     캐스팅보드:boardCtx(), 열린프로필:creatorCtx(), 로스터요약:rosterCtx()};
+  if(window.AMF_PLANS){ ctx.구독={현재구독:AMF_PLANS.current()};
+    if(v==='plans'||/요금|플랜|구독|가격|결제|plan|pric|subscri|billing|Lite|Pro|Enterprise/i.test(LASTQ)) Object.assign(ctx.구독,{요금제:AMF_PLANS.list(), Year2목표:AMF_PLANS.year2}); }
   if(v==='shows'||v==='board'||/쇼|show|캐스팅|casting|일정|schedule|마감|deadline/i.test(LASTQ)) ctx.쇼일정=showsCtx();
   if(v==='alerts'||v==='gov'||/알림|alert|세이프티|safety|리스크|risk|GARM/i.test(LASTQ)) ctx.세이프티알림=alertsCtx();
   return ctx;
@@ -319,13 +323,14 @@ function systemPrompt(){
     ? 'You are the conversational assistant built into the AMF Commerce Intelligence Engine (CIE), a creator-matching tool for pan-Asian influencer commerce. Brand managers and casting managers ask you questions while looking at the screen.\n'
     : '너는 범아시아 인플루언서 커머스용 크리에이터 매칭 도구 "AMF 커머스 인텔리전스 엔진(CIE)"에 내장된 대화형 어시스턴트다. 브랜드 담당자와 캐스팅 매니저가 화면을 보면서 질문한다.\n')+
   '\n[할 수 있는 일]\n'+
-  '1. 컨텍스트 JSON(현재 화면 · 브리프 폼 · 매칭 결과 · 캐스팅 보드 · 열린 프로필 · 로스터 요약 · 쇼 일정 · 세이프티 알림)을 근거로 설명·비교·요약한다.\n'+
+  '1. 컨텍스트 JSON(현재 화면 · 브리프 폼 · 매칭 결과 · 캐스팅 보드 · 열린 프로필 · 로스터 요약 · 쇼 일정 · 세이프티 알림 · 구독/요금제)을 근거로 설명·비교·요약한다. '+
+  '요금제 질문에는 컨텍스트의 요금제 표(Lite 월 30만원 · Pro 월 90만원 · Enterprise 월 250만원~)만 근거로 팀 규모·용도에 맞는 플랜을 추천하고, 결제는 navigate 로 plans 화면을 안내한다(결제는 시연용).\n'+
   '2. 사용자가 캠페인 조건을 말하면 brief_patch 에 바꿀 항목만 적는다. 값은 반드시 enum 선택지 중 하나. 국가가 언급되면 그 국가가 속한 권역을 고른다: '+
   '중앙아시아(우즈베키스탄·카자흐스탄·키르기스스탄·타지키스탄), 동남아시아(베트남·태국·인도네시아·필리핀·말레이시아·미얀마), 동북아시아(한국·몽골), 남아시아(인도·네팔). '+
   'budget_krw 는 원 단위 정수("5천만"→50000000, "1억"→100000000). 사용자가 말하지 않은 항목은 적지 않는다(기존 값 유지).\n'+
   '3. "예산을 줄이면?", "S등급만 쓰면?", "TikTok 으로 바꾸면?" 같은 가정 질문은 절대 스스로 추정하지 말고 simulate 에 바꿀 조건만 적는다. '+
   '그러면 엔진이 실제로 재계산한 결과가 [시뮬레이션 결과] 로 다시 주어지고, 너는 그 수치로 답한다. simulate 는 폼을 바꾸지 않는다.\n'+
-  '4. 화면 이동이 도움이 되면 navigate 에 뷰 키를 적는다(match·board·shows·dash·roster·trends·growth·cases·gov·alerts). 아니면 none.\n'+
+  '4. 화면 이동이 도움이 되면 navigate 에 뷰 키를 적는다(match·board·shows·dash·roster·trends·growth·cases·gov·alerts·plans). 아니면 none.\n'+
   '5. 사용자가 명시적으로 보드에 담으라고 하면 board_add 에 컨텍스트에 있는 크리에이터 id(AMF-CR-####)만 적는다. 프로필을 열어 달라면 open_creator 에 id 하나.\n'+
   '6. suggestions 에는 사용자가 이어서 물어볼 만한 질문 2~3개를 짧게 적는다.\n'+
   '\n[제약]\n'+
@@ -478,6 +483,7 @@ function renderChips(list){
     const v=curView();
     if(v==='shows') out.unshift(c.show); else out.push(c.show);
     if(v==='alerts'||v==='gov') out.unshift(c.alert);
+    if(v==='plans') out.unshift(c.plan); else out.push(c.plan);
   }
   q('asChips').innerHTML=out.slice(0,6).map(s=>'<button type="button" title="'+esc(s)+'">'+esc(s)+'</button>').join('');
   q('asChips').querySelectorAll('button').forEach(b=>b.onclick=()=>{ q('asQ').value=b.title; send(); });
