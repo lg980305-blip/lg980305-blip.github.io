@@ -7,7 +7,14 @@
   "sex": "여",
   "year": "",
   "note": "메인 모델",
-  "photo": "photos/001.webp"
+  "photo": "photos/001.webp",
+  "height_cm": 172,
+  "weight_kg": 59,
+  "chest_cm": 80,
+  "waist_cm": 62,
+  "hip_cm": 92,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 2,
@@ -17,7 +24,14 @@
   "sex": "여",
   "year": "",
   "note": "메인 모델",
-  "photo": "photos/002.webp"
+  "photo": "photos/002.webp",
+  "height_cm": 180,
+  "weight_kg": 63,
+  "chest_cm": 82,
+  "waist_cm": 60,
+  "hip_cm": 87,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 3,
@@ -27,7 +41,14 @@
   "sex": "남",
   "year": "",
   "note": "메인 모델",
-  "photo": "photos/003.webp"
+  "photo": "photos/003.webp",
+  "height_cm": 189,
+  "weight_kg": 72,
+  "chest_cm": 93,
+  "waist_cm": 75,
+  "hip_cm": 93,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 4,
@@ -37,7 +58,14 @@
   "sex": "여",
   "year": "",
   "note": "메인 모델",
-  "photo": "photos/004.webp"
+  "photo": "photos/004.webp",
+  "height_cm": 173,
+  "weight_kg": 60,
+  "chest_cm": 84,
+  "waist_cm": 59,
+  "hip_cm": 93,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 5,
@@ -47,7 +75,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/005.webp"
+  "photo": "photos/005.webp",
+  "height_cm": 176,
+  "weight_kg": 56,
+  "chest_cm": 88,
+  "waist_cm": 61,
+  "hip_cm": 94,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 6,
@@ -57,7 +92,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/006.webp"
+  "photo": "photos/006.webp",
+  "height_cm": 176,
+  "weight_kg": 56,
+  "chest_cm": 82,
+  "waist_cm": 59,
+  "hip_cm": 88,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 7,
@@ -67,7 +109,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/007.webp"
+  "photo": "photos/007.webp",
+  "height_cm": 174,
+  "weight_kg": 55,
+  "chest_cm": 84,
+  "waist_cm": 58,
+  "hip_cm": 90,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 8,
@@ -77,7 +126,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/008.webp"
+  "photo": "photos/008.webp",
+  "height_cm": 176,
+  "weight_kg": 56,
+  "chest_cm": 84,
+  "waist_cm": 58,
+  "hip_cm": 94,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 9,
@@ -87,7 +143,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/009.webp"
+  "photo": "photos/009.webp",
+  "height_cm": 176,
+  "weight_kg": 56,
+  "chest_cm": 80,
+  "waist_cm": 59,
+  "hip_cm": 86,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 10,
@@ -97,7 +160,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/010.webp"
+  "photo": "photos/010.webp",
+  "height_cm": 170,
+  "weight_kg": 57,
+  "chest_cm": 80,
+  "waist_cm": 58,
+  "hip_cm": 92,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 11,
@@ -107,7 +177,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/011.webp"
+  "photo": "photos/011.webp",
+  "height_cm": 189,
+  "weight_kg": 77,
+  "chest_cm": 97,
+  "waist_cm": 76,
+  "hip_cm": 97,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 12,
@@ -117,7 +194,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/012.webp"
+  "photo": "photos/012.webp",
+  "height_cm": 181,
+  "weight_kg": 69,
+  "chest_cm": 97,
+  "waist_cm": 79,
+  "hip_cm": 90,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 13,
@@ -127,7 +211,14 @@
   "sex": "여",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/013.webp"
+  "photo": "photos/013.webp",
+  "height_cm": 174,
+  "weight_kg": 62,
+  "chest_cm": 87,
+  "waist_cm": 64,
+  "hip_cm": 92,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 14,
@@ -137,7 +228,14 @@
   "sex": "여",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/014.webp"
+  "photo": "photos/014.webp",
+  "height_cm": 171,
+  "weight_kg": 54,
+  "chest_cm": 80,
+  "waist_cm": 61,
+  "hip_cm": 91,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 15,
@@ -147,7 +245,14 @@
   "sex": "남",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/015.webp"
+  "photo": "photos/015.webp",
+  "height_cm": 185,
+  "weight_kg": 70,
+  "chest_cm": 101,
+  "waist_cm": 79,
+  "hip_cm": 91,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 16,
@@ -157,7 +262,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/016.webp"
+  "photo": "photos/016.webp",
+  "height_cm": 180,
+  "weight_kg": 65,
+  "chest_cm": 99,
+  "waist_cm": 80,
+  "hip_cm": 95,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 17,
@@ -167,7 +279,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/017.webp"
+  "photo": "photos/017.webp",
+  "height_cm": 175,
+  "weight_kg": 58,
+  "chest_cm": 86,
+  "waist_cm": 62,
+  "hip_cm": 89,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 18,
@@ -177,7 +296,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/018.webp"
+  "photo": "photos/018.webp",
+  "height_cm": 172,
+  "weight_kg": 57,
+  "chest_cm": 84,
+  "waist_cm": 59,
+  "hip_cm": 89,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 19,
@@ -187,7 +313,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/019.webp"
+  "photo": "photos/019.webp",
+  "height_cm": 185,
+  "weight_kg": 71,
+  "chest_cm": 94,
+  "waist_cm": 77,
+  "hip_cm": 95,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 20,
@@ -197,7 +330,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/020.webp"
+  "photo": "photos/020.webp",
+  "height_cm": 173,
+  "weight_kg": 60,
+  "chest_cm": 82,
+  "waist_cm": 60,
+  "hip_cm": 93,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 21,
@@ -207,7 +347,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/021.webp"
+  "photo": "photos/021.webp",
+  "height_cm": 173,
+  "weight_kg": 54,
+  "chest_cm": 81,
+  "waist_cm": 61,
+  "hip_cm": 93,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 22,
@@ -217,7 +364,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/022.webp"
+  "photo": "photos/022.webp",
+  "height_cm": 174,
+  "weight_kg": 58,
+  "chest_cm": 80,
+  "waist_cm": 64,
+  "hip_cm": 86,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 23,
@@ -227,7 +381,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/023.webp"
+  "photo": "photos/023.webp",
+  "height_cm": 188,
+  "weight_kg": 68,
+  "chest_cm": 100,
+  "waist_cm": 79,
+  "hip_cm": 93,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 24,
@@ -237,7 +398,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/024.webp"
+  "photo": "photos/024.webp",
+  "height_cm": 171,
+  "weight_kg": 59,
+  "chest_cm": 85,
+  "waist_cm": 64,
+  "hip_cm": 89,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 25,
@@ -247,7 +415,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/025.webp"
+  "photo": "photos/025.webp",
+  "height_cm": 178,
+  "weight_kg": 61,
+  "chest_cm": 88,
+  "waist_cm": 62,
+  "hip_cm": 88,
+  "shoe_mm": 240,
+  "body_fictional": true
  },
  {
   "no": 26,
@@ -257,7 +432,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/026.webp"
+  "photo": "photos/026.webp",
+  "height_cm": 181,
+  "weight_kg": 71,
+  "chest_cm": 99,
+  "waist_cm": 76,
+  "hip_cm": 95,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 27,
@@ -267,7 +449,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/027.webp"
+  "photo": "photos/027.webp",
+  "height_cm": 172,
+  "weight_kg": 56,
+  "chest_cm": 87,
+  "waist_cm": 62,
+  "hip_cm": 90,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 28,
@@ -277,7 +466,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/028.webp"
+  "photo": "photos/028.webp",
+  "height_cm": 177,
+  "weight_kg": 58,
+  "chest_cm": 85,
+  "waist_cm": 61,
+  "hip_cm": 90,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 29,
@@ -287,7 +483,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/029.webp"
+  "photo": "photos/029.webp",
+  "height_cm": 171,
+  "weight_kg": 52,
+  "chest_cm": 83,
+  "waist_cm": 61,
+  "hip_cm": 87,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 30,
@@ -297,7 +500,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/030.webp"
+  "photo": "photos/030.webp",
+  "height_cm": 169,
+  "weight_kg": 55,
+  "chest_cm": 84,
+  "waist_cm": 63,
+  "hip_cm": 89,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 31,
@@ -307,7 +517,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/031.webp"
+  "photo": "photos/031.webp",
+  "height_cm": 170,
+  "weight_kg": 59,
+  "chest_cm": 86,
+  "waist_cm": 59,
+  "hip_cm": 86,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 32,
@@ -317,7 +534,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/032.webp"
+  "photo": "photos/032.webp",
+  "height_cm": 180,
+  "weight_kg": 68,
+  "chest_cm": 96,
+  "waist_cm": 76,
+  "hip_cm": 90,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 33,
@@ -327,7 +551,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/033.webp"
+  "photo": "photos/033.webp",
+  "height_cm": 180,
+  "weight_kg": 68,
+  "chest_cm": 102,
+  "waist_cm": 80,
+  "hip_cm": 98,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 34,
@@ -337,7 +568,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/034.webp"
+  "photo": "photos/034.webp",
+  "height_cm": 180,
+  "weight_kg": 63,
+  "chest_cm": 96,
+  "waist_cm": 80,
+  "hip_cm": 93,
+  "shoe_mm": 280,
+  "body_fictional": true
  },
  {
   "no": 35,
@@ -347,7 +585,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/035.webp"
+  "photo": "photos/035.webp",
+  "height_cm": 182,
+  "weight_kg": 68,
+  "chest_cm": 93,
+  "waist_cm": 74,
+  "hip_cm": 92,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 36,
@@ -357,7 +602,14 @@
   "sex": "남",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/036.webp"
+  "photo": "photos/036.webp",
+  "height_cm": 185,
+  "weight_kg": 74,
+  "chest_cm": 93,
+  "waist_cm": 75,
+  "hip_cm": 98,
+  "shoe_mm": 280,
+  "body_fictional": true
  },
  {
   "no": 37,
@@ -367,7 +619,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/037.webp"
+  "photo": "photos/037.webp",
+  "height_cm": 175,
+  "weight_kg": 55,
+  "chest_cm": 81,
+  "waist_cm": 63,
+  "hip_cm": 88,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 38,
@@ -377,7 +636,14 @@
   "sex": "여",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/038.webp"
+  "photo": "photos/038.webp",
+  "height_cm": 173,
+  "weight_kg": 59,
+  "chest_cm": 85,
+  "waist_cm": 59,
+  "hip_cm": 94,
+  "shoe_mm": 240,
+  "body_fictional": true
  },
  {
   "no": 39,
@@ -387,7 +653,14 @@
   "sex": "여",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/039.webp"
+  "photo": "photos/039.webp",
+  "height_cm": 180,
+  "weight_kg": 63,
+  "chest_cm": 85,
+  "waist_cm": 61,
+  "hip_cm": 88,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 40,
@@ -397,7 +670,14 @@
   "sex": "남",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/040.webp"
+  "photo": "photos/040.webp",
+  "height_cm": 189,
+  "weight_kg": 76,
+  "chest_cm": 97,
+  "waist_cm": 76,
+  "hip_cm": 94,
+  "shoe_mm": 280,
+  "body_fictional": true
  },
  {
   "no": 41,
@@ -407,7 +687,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/041.webp"
+  "photo": "photos/041.webp",
+  "height_cm": 177,
+  "weight_kg": 60,
+  "chest_cm": 87,
+  "waist_cm": 64,
+  "hip_cm": 88,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 42,
@@ -417,7 +704,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/042.webp"
+  "photo": "photos/042.webp",
+  "height_cm": 190,
+  "weight_kg": 74,
+  "chest_cm": 101,
+  "waist_cm": 76,
+  "hip_cm": 92,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 43,
@@ -427,7 +721,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/043.webp"
+  "photo": "photos/043.webp",
+  "height_cm": 172,
+  "weight_kg": 59,
+  "chest_cm": 81,
+  "waist_cm": 59,
+  "hip_cm": 93,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 44,
@@ -437,7 +738,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/044.webp"
+  "photo": "photos/044.webp",
+  "height_cm": 170,
+  "weight_kg": 54,
+  "chest_cm": 87,
+  "waist_cm": 63,
+  "hip_cm": 89,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 45,
@@ -447,7 +755,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/045.webp"
+  "photo": "photos/045.webp",
+  "height_cm": 178,
+  "weight_kg": 57,
+  "chest_cm": 84,
+  "waist_cm": 59,
+  "hip_cm": 94,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 46,
@@ -457,7 +772,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/046.webp"
+  "photo": "photos/046.webp",
+  "height_cm": 177,
+  "weight_kg": 59,
+  "chest_cm": 81,
+  "waist_cm": 62,
+  "hip_cm": 94,
+  "shoe_mm": 240,
+  "body_fictional": true
  },
  {
   "no": 47,
@@ -467,7 +789,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/047.webp"
+  "photo": "photos/047.webp",
+  "height_cm": 175,
+  "weight_kg": 62,
+  "chest_cm": 81,
+  "waist_cm": 59,
+  "hip_cm": 91,
+  "shoe_mm": 240,
+  "body_fictional": true
  },
  {
   "no": 48,
@@ -477,7 +806,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/048.webp"
+  "photo": "photos/048.webp",
+  "height_cm": 175,
+  "weight_kg": 60,
+  "chest_cm": 84,
+  "waist_cm": 60,
+  "hip_cm": 91,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 49,
@@ -487,7 +823,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/049.webp"
+  "photo": "photos/049.webp",
+  "height_cm": 180,
+  "weight_kg": 67,
+  "chest_cm": 100,
+  "waist_cm": 76,
+  "hip_cm": 98,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 50,
@@ -497,7 +840,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/050.webp"
+  "photo": "photos/050.webp",
+  "height_cm": 176,
+  "weight_kg": 54,
+  "chest_cm": 86,
+  "waist_cm": 58,
+  "hip_cm": 94,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 51,
@@ -507,7 +857,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/051.webp"
+  "photo": "photos/051.webp",
+  "height_cm": 170,
+  "weight_kg": 56,
+  "chest_cm": 85,
+  "waist_cm": 61,
+  "hip_cm": 92,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 52,
@@ -517,7 +874,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/052.webp"
+  "photo": "photos/052.webp",
+  "height_cm": 171,
+  "weight_kg": 59,
+  "chest_cm": 83,
+  "waist_cm": 59,
+  "hip_cm": 94,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 53,
@@ -527,7 +891,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/053.webp"
+  "photo": "photos/053.webp",
+  "height_cm": 171,
+  "weight_kg": 51,
+  "chest_cm": 83,
+  "waist_cm": 59,
+  "hip_cm": 89,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 54,
@@ -537,7 +908,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/054.webp"
+  "photo": "photos/054.webp",
+  "height_cm": 180,
+  "weight_kg": 63,
+  "chest_cm": 84,
+  "waist_cm": 64,
+  "hip_cm": 92,
+  "shoe_mm": 240,
+  "body_fictional": true
  },
  {
   "no": 55,
@@ -547,7 +925,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/055.webp"
+  "photo": "photos/055.webp",
+  "height_cm": 183,
+  "weight_kg": 68,
+  "chest_cm": 94,
+  "waist_cm": 78,
+  "hip_cm": 97,
+  "shoe_mm": 280,
+  "body_fictional": true
  },
  {
   "no": 56,
@@ -557,7 +942,14 @@
   "sex": "남",
   "year": "",
   "note": "",
-  "photo": "photos/056.webp"
+  "photo": "photos/056.webp",
+  "height_cm": 181,
+  "weight_kg": 70,
+  "chest_cm": 93,
+  "waist_cm": 76,
+  "hip_cm": 94,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 57,
@@ -567,7 +959,14 @@
   "sex": "남",
   "year": "",
   "note": "전통의상",
-  "photo": "photos/057.webp"
+  "photo": "photos/057.webp",
+  "height_cm": 181,
+  "weight_kg": 70,
+  "chest_cm": 93,
+  "waist_cm": 73,
+  "hip_cm": 95,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 58,
@@ -577,7 +976,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/058.webp"
+  "photo": "photos/058.webp",
+  "height_cm": 173,
+  "weight_kg": 55,
+  "chest_cm": 88,
+  "waist_cm": 59,
+  "hip_cm": 89,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 59,
@@ -587,7 +993,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/059.webp"
+  "photo": "photos/059.webp",
+  "height_cm": 169,
+  "weight_kg": 57,
+  "chest_cm": 88,
+  "waist_cm": 64,
+  "hip_cm": 88,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 60,
@@ -597,7 +1010,14 @@
   "sex": "여",
   "year": "",
   "note": "",
-  "photo": "photos/060.webp"
+  "photo": "photos/060.webp",
+  "height_cm": 173,
+  "weight_kg": 54,
+  "chest_cm": 87,
+  "waist_cm": 60,
+  "hip_cm": 94,
+  "shoe_mm": 235,
+  "body_fictional": true
  },
  {
   "no": 61,
@@ -607,27 +1027,48 @@
   "sex": "",
   "year": "2024",
   "note": "Grand Prize Winner",
-  "photo": "photos/061.webp"
+  "photo": "photos/061.webp",
+  "height_cm": 173,
+  "weight_kg": 63,
+  "chest_cm": 86,
+  "waist_cm": 63,
+  "hip_cm": 92,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 62,
   "cat": "역대 수상자",
   "name": "심지훈",
   "country": "한국",
-  "sex": "",
+  "sex": "남",
   "year": "2024",
   "note": "1st Prize winner – male",
-  "photo": "photos/062.webp"
+  "photo": "photos/062.webp",
+  "height_cm": 187,
+  "weight_kg": 68,
+  "chest_cm": 101,
+  "waist_cm": 76,
+  "hip_cm": 96,
+  "shoe_mm": 285,
+  "body_fictional": true
  },
  {
   "no": 63,
   "cat": "역대 수상자",
   "name": "JULIA",
   "country": "스리랑카",
-  "sex": "",
+  "sex": "여",
   "year": "2024",
   "note": "1st Prize winner – female",
-  "photo": "photos/063.webp"
+  "photo": "photos/063.webp",
+  "height_cm": 173,
+  "weight_kg": 59,
+  "chest_cm": 86,
+  "waist_cm": 64,
+  "hip_cm": 91,
+  "shoe_mm": 240,
+  "body_fictional": true
  },
  {
   "no": 64,
@@ -637,27 +1078,48 @@
   "sex": "",
   "year": "2023",
   "note": "Grand Prize Winner",
-  "photo": "photos/064.webp"
+  "photo": "photos/064.webp",
+  "height_cm": 176,
+  "weight_kg": 65,
+  "chest_cm": 95,
+  "waist_cm": 63,
+  "hip_cm": 94,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 65,
   "cat": "역대 수상자",
   "name": "Junhao Qian",
   "country": "중국",
-  "sex": "",
+  "sex": "남",
   "year": "2023",
   "note": "1st Prize winner – male",
-  "photo": "photos/065.webp"
+  "photo": "photos/065.webp",
+  "height_cm": 189,
+  "weight_kg": 75,
+  "chest_cm": 92,
+  "waist_cm": 77,
+  "hip_cm": 98,
+  "shoe_mm": 280,
+  "body_fictional": true
  },
  {
   "no": 66,
   "cat": "역대 수상자",
   "name": "Tiara Tai",
   "country": "인도네시아",
-  "sex": "",
+  "sex": "여",
   "year": "2023",
   "note": "1st Prize winner – female",
-  "photo": "photos/066.webp"
+  "photo": "photos/066.webp",
+  "height_cm": 177,
+  "weight_kg": 56,
+  "chest_cm": 80,
+  "waist_cm": 63,
+  "hip_cm": 94,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 67,
@@ -667,7 +1129,14 @@
   "sex": "",
   "year": "2022",
   "note": "Grand Prize Winner",
-  "photo": "photos/067.webp"
+  "photo": "photos/067.webp",
+  "height_cm": 184,
+  "weight_kg": 68,
+  "chest_cm": 87,
+  "waist_cm": 68,
+  "hip_cm": 95,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 68,
@@ -677,7 +1146,14 @@
   "sex": "",
   "year": "2022",
   "note": "1st Prize Winner",
-  "photo": "photos/068.webp"
+  "photo": "photos/068.webp",
+  "height_cm": 184,
+  "weight_kg": 71,
+  "chest_cm": 85,
+  "waist_cm": 74,
+  "hip_cm": 92,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 69,
@@ -687,7 +1163,14 @@
   "sex": "",
   "year": "2022",
   "note": "1st Prize Winner",
-  "photo": "photos/069.webp"
+  "photo": "photos/069.webp",
+  "height_cm": 181,
+  "weight_kg": 64,
+  "chest_cm": 94,
+  "waist_cm": 74,
+  "hip_cm": 90,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 70,
@@ -697,7 +1180,14 @@
   "sex": "",
   "year": "2021",
   "note": "Grand Prize Winner",
-  "photo": "photos/070.webp"
+  "photo": "photos/070.webp",
+  "height_cm": 178,
+  "weight_kg": 65,
+  "chest_cm": 89,
+  "waist_cm": 67,
+  "hip_cm": 96,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 71,
@@ -707,7 +1197,14 @@
   "sex": "",
   "year": "2021",
   "note": "1st Prize Winner",
-  "photo": "photos/071.webp"
+  "photo": "photos/071.webp",
+  "height_cm": 175,
+  "weight_kg": 57,
+  "chest_cm": 90,
+  "waist_cm": 73,
+  "hip_cm": 94,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 72,
@@ -717,7 +1214,14 @@
   "sex": "",
   "year": "2021",
   "note": "1st Prize Winner",
-  "photo": "photos/072.webp"
+  "photo": "photos/072.webp",
+  "height_cm": 178,
+  "weight_kg": 66,
+  "chest_cm": 92,
+  "waist_cm": 70,
+  "hip_cm": 92,
+  "shoe_mm": 260,
+  "body_fictional": true
  },
  {
   "no": 73,
@@ -727,7 +1231,14 @@
   "sex": "",
   "year": "2020",
   "note": "Grand Prize Winner",
-  "photo": "photos/073.webp"
+  "photo": "photos/073.webp",
+  "height_cm": 175,
+  "weight_kg": 60,
+  "chest_cm": 96,
+  "waist_cm": 69,
+  "hip_cm": 88,
+  "shoe_mm": 260,
+  "body_fictional": true
  },
  {
   "no": 74,
@@ -737,7 +1248,14 @@
   "sex": "",
   "year": "2020",
   "note": "1st Prize Winner",
-  "photo": "photos/074.webp"
+  "photo": "photos/074.webp",
+  "height_cm": 172,
+  "weight_kg": 57,
+  "chest_cm": 89,
+  "waist_cm": 67,
+  "hip_cm": 90,
+  "shoe_mm": 260,
+  "body_fictional": true
  },
  {
   "no": 75,
@@ -747,7 +1265,14 @@
   "sex": "",
   "year": "2020",
   "note": "1st Prize Winner",
-  "photo": "photos/075.webp"
+  "photo": "photos/075.webp",
+  "height_cm": 184,
+  "weight_kg": 69,
+  "chest_cm": 84,
+  "waist_cm": 73,
+  "hip_cm": 92,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 76,
@@ -757,7 +1282,14 @@
   "sex": "",
   "year": "2019",
   "note": "Grand Prize Winner",
-  "photo": "photos/076.webp"
+  "photo": "photos/076.webp",
+  "height_cm": 179,
+  "weight_kg": 58,
+  "chest_cm": 96,
+  "waist_cm": 65,
+  "hip_cm": 88,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 77,
@@ -767,7 +1299,14 @@
   "sex": "",
   "year": "2019",
   "note": "1st Prize Winner",
-  "photo": "photos/077.webp"
+  "photo": "photos/077.webp",
+  "height_cm": 181,
+  "weight_kg": 61,
+  "chest_cm": 91,
+  "waist_cm": 74,
+  "hip_cm": 93,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 78,
@@ -777,7 +1316,14 @@
   "sex": "",
   "year": "2019",
   "note": "1st Prize Winner",
-  "photo": "photos/078.webp"
+  "photo": "photos/078.webp",
+  "height_cm": 175,
+  "weight_kg": 60,
+  "chest_cm": 89,
+  "waist_cm": 69,
+  "hip_cm": 88,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 79,
@@ -787,7 +1333,14 @@
   "sex": "",
   "year": "2018",
   "note": "Grand Prize Winner",
-  "photo": "photos/079.webp"
+  "photo": "photos/079.webp",
+  "height_cm": 177,
+  "weight_kg": 58,
+  "chest_cm": 90,
+  "waist_cm": 74,
+  "hip_cm": 89,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 80,
@@ -797,7 +1350,14 @@
   "sex": "",
   "year": "2018",
   "note": "1st Prize Winner",
-  "photo": "photos/080.webp"
+  "photo": "photos/080.webp",
+  "height_cm": 170,
+  "weight_kg": 54,
+  "chest_cm": 96,
+  "waist_cm": 68,
+  "hip_cm": 91,
+  "shoe_mm": 275,
+  "body_fictional": true
  },
  {
   "no": 81,
@@ -807,7 +1367,14 @@
   "sex": "",
   "year": "2018",
   "note": "1st Prize Winner",
-  "photo": "photos/081.webp"
+  "photo": "photos/081.webp",
+  "height_cm": 175,
+  "weight_kg": 60,
+  "chest_cm": 92,
+  "waist_cm": 74,
+  "hip_cm": 91,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 82,
@@ -817,7 +1384,14 @@
   "sex": "",
   "year": "2017",
   "note": "Grand Prize Winner",
-  "photo": "photos/082.webp"
+  "photo": "photos/082.webp",
+  "height_cm": 180,
+  "weight_kg": 61,
+  "chest_cm": 94,
+  "waist_cm": 64,
+  "hip_cm": 89,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 83,
@@ -827,7 +1401,14 @@
   "sex": "",
   "year": "2017",
   "note": "1st Prize Winner",
-  "photo": "photos/083.webp"
+  "photo": "photos/083.webp",
+  "height_cm": 175,
+  "weight_kg": 61,
+  "chest_cm": 89,
+  "waist_cm": 64,
+  "hip_cm": 94,
+  "shoe_mm": 260,
+  "body_fictional": true
  },
  {
   "no": 84,
@@ -837,7 +1418,14 @@
   "sex": "",
   "year": "2017",
   "note": "1st Prize Winner",
-  "photo": "photos/084.webp"
+  "photo": "photos/084.webp",
+  "height_cm": 183,
+  "weight_kg": 62,
+  "chest_cm": 85,
+  "waist_cm": 68,
+  "hip_cm": 94,
+  "shoe_mm": 245,
+  "body_fictional": true
  },
  {
   "no": 85,
@@ -847,7 +1435,14 @@
   "sex": "",
   "year": "2016",
   "note": "Grand Prize Winner",
-  "photo": "photos/085.webp"
+  "photo": "photos/085.webp",
+  "height_cm": 173,
+  "weight_kg": 60,
+  "chest_cm": 93,
+  "waist_cm": 64,
+  "hip_cm": 95,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 86,
@@ -857,7 +1452,14 @@
   "sex": "",
   "year": "2016",
   "note": "1st Prize Winner",
-  "photo": "photos/086.webp"
+  "photo": "photos/086.webp",
+  "height_cm": 186,
+  "weight_kg": 68,
+  "chest_cm": 87,
+  "waist_cm": 68,
+  "hip_cm": 94,
+  "shoe_mm": 260,
+  "body_fictional": true
  },
  {
   "no": 87,
@@ -867,7 +1469,14 @@
   "sex": "",
   "year": "2016",
   "note": "1st Prize Winner",
-  "photo": "photos/087.webp"
+  "photo": "photos/087.webp",
+  "height_cm": 184,
+  "weight_kg": 63,
+  "chest_cm": 93,
+  "waist_cm": 63,
+  "hip_cm": 90,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 88,
@@ -877,7 +1486,14 @@
   "sex": "",
   "year": "2015",
   "note": "Grand Prize Winner",
-  "photo": "photos/088.webp"
+  "photo": "photos/088.webp",
+  "height_cm": 171,
+  "weight_kg": 57,
+  "chest_cm": 91,
+  "waist_cm": 64,
+  "hip_cm": 88,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 89,
@@ -887,7 +1503,14 @@
   "sex": "",
   "year": "2015",
   "note": "1st Prize Winner",
-  "photo": "photos/089.webp"
+  "photo": "photos/089.webp",
+  "height_cm": 184,
+  "weight_kg": 65,
+  "chest_cm": 96,
+  "waist_cm": 70,
+  "hip_cm": 94,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 90,
@@ -897,7 +1520,14 @@
   "sex": "",
   "year": "2015",
   "note": "1st Prize Winner",
-  "photo": "photos/090.webp"
+  "photo": "photos/090.webp",
+  "height_cm": 179,
+  "weight_kg": 65,
+  "chest_cm": 84,
+  "waist_cm": 69,
+  "hip_cm": 95,
+  "shoe_mm": 255,
+  "body_fictional": true
  },
  {
   "no": 91,
@@ -907,7 +1537,14 @@
   "sex": "",
   "year": "2014",
   "note": "1st Prize Winner",
-  "photo": "photos/091.webp"
+  "photo": "photos/091.webp",
+  "height_cm": 185,
+  "weight_kg": 68,
+  "chest_cm": 92,
+  "waist_cm": 71,
+  "hip_cm": 91,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 92,
@@ -917,7 +1554,14 @@
   "sex": "",
   "year": "2014",
   "note": "1st Prize Winner",
-  "photo": "photos/092.webp"
+  "photo": "photos/092.webp",
+  "height_cm": 180,
+  "weight_kg": 68,
+  "chest_cm": 95,
+  "waist_cm": 69,
+  "hip_cm": 91,
+  "shoe_mm": 265,
+  "body_fictional": true
  },
  {
   "no": 93,
@@ -927,7 +1571,14 @@
   "sex": "",
   "year": "2013",
   "note": "1st Prize Winner",
-  "photo": "photos/093.webp"
+  "photo": "photos/093.webp",
+  "height_cm": 173,
+  "weight_kg": 55,
+  "chest_cm": 90,
+  "waist_cm": 64,
+  "hip_cm": 94,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 94,
@@ -937,7 +1588,14 @@
   "sex": "",
   "year": "2013",
   "note": "1st Prize Winner",
-  "photo": "photos/094.webp"
+  "photo": "photos/094.webp",
+  "height_cm": 177,
+  "weight_kg": 61,
+  "chest_cm": 85,
+  "waist_cm": 67,
+  "hip_cm": 94,
+  "shoe_mm": 270,
+  "body_fictional": true
  },
  {
   "no": 95,
@@ -947,7 +1605,14 @@
   "sex": "",
   "year": "2012",
   "note": "1st Prize Winner",
-  "photo": "photos/095.webp"
+  "photo": "photos/095.webp",
+  "height_cm": 173,
+  "weight_kg": 62,
+  "chest_cm": 87,
+  "waist_cm": 73,
+  "hip_cm": 88,
+  "shoe_mm": 260,
+  "body_fictional": true
  },
  {
   "no": 96,
@@ -957,7 +1622,14 @@
   "sex": "",
   "year": "2012",
   "note": "1st Prize Winner",
-  "photo": "photos/096.webp"
+  "photo": "photos/096.webp",
+  "height_cm": 179,
+  "weight_kg": 62,
+  "chest_cm": 86,
+  "waist_cm": 67,
+  "hip_cm": 91,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 97,
@@ -967,7 +1639,14 @@
   "sex": "",
   "year": "2011",
   "note": "1st Prize Winner",
-  "photo": "photos/097.webp"
+  "photo": "photos/097.webp",
+  "height_cm": 178,
+  "weight_kg": 61,
+  "chest_cm": 92,
+  "waist_cm": 73,
+  "hip_cm": 88,
+  "shoe_mm": 250,
+  "body_fictional": true
  },
  {
   "no": 98,
@@ -977,6 +1656,13 @@
   "sex": "",
   "year": "2011",
   "note": "1st Prize Winner",
-  "photo": "photos/098.webp"
+  "photo": "photos/098.webp",
+  "height_cm": 176,
+  "weight_kg": 64,
+  "chest_cm": 90,
+  "waist_cm": 66,
+  "hip_cm": 88,
+  "shoe_mm": 245,
+  "body_fictional": true
  }
 ]
