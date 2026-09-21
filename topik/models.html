@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 모델 점검</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#F2F4F1;--card:#fff;--ink:#152420;--ink2:#4A5C56;--jade:#0F8A73;--line:#DDE3DC;--bad:#C6473F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B120F;--card:#151F1B;--ink:#E8EFEB;--ink2:#A6B7B1;--jade:#27B295;--line:#2A3833;--bad:#E4736A}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif}
+main{max-width:560px;margin:0 auto;padding:32px 16px 60px}
+h1{font-size:21px;margin:0 0 4px}
+p.sub{color:var(--ink2);font-size:13.5px;margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+h2{font-size:15px;margin:0 0 10px}
+.row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.row:last-child{border-bottom:0}
+.name{font-family:"IBM Plex Mono",monospace;word-break:break-all}
+.ok{color:var(--jade);font-weight:600;white-space:nowrap}
+.no{color:var(--bad);font-weight:600;white-space:nowrap}
+button{font:inherit;background:var(--jade);color:#fff;border:0;border-radius:10px;
+  padding:12px 16px;width:100%;font-weight:700;cursor:pointer}
+.note{font-size:12.5px;color:var(--ink2)}
+pre{white-space:pre-wrap;word-break:break-all;font-size:12px;background:var(--bg);
+  padding:10px;border-radius:8px;margin:8px 0 0}
+</style>
+</head>
+<body>
+<main>
+<h1>AI 모델 점검</h1>
+<p class="sub">이 키로 실제 쓸 수 있는 모델과, 지금 응답하는 모델을 확인합니다.</p>
+
+<div class="card">
+  <h2>중계 서버</h2>
+  <div id="server">확인 중…</div>
+</div>
+
+<div class="card">
+  <h2>사용 가능한 모델</h2>
+  <div id="models">불러오는 중…</div>
+</div>
+
+<div class="card">
+  <h2>실제 응답 검사</h2>
+  <p class="note" style="margin:0 0 12px">각 모델에 짧은 질문을 한 번씩 보내 지금 응답하는지 확인합니다. 20초쯤 걸립니다.</p>
+  <button id="run">검사 시작</button>
+  <div id="probe"></div>
+</div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var EP = '/api/gemini', TAG = 'kr.topikasia.app';
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s).replace(/[<>&]/g, function (c) {
+    return ({ '<':'&lt;', '>':'&gt;', '&':'&amp;' })[c]; }); };
+  var usable = [];
+
+  function post(body) {
+    return fetch(EP, { method:'POST',
+      headers:{ 'Content-Type':'application/json', 'X-Topik-App':TAG },
+      body: JSON.stringify(body) });
+  }
+
+  fetch(EP).then(function (r) { return r.json(); }).then(function (j) {
+    $('server').innerHTML = j && j.serverKey
+      ? '<span class="ok">연결됨</span> · 기본 모델 <span class="name">' + esc(j.defaultModel || '-') + '</span>'
+      : '<span class="no">서버에 키가 설정되지 않았습니다</span>';
+    return post({ action: 'models' });
+  }).then(function (r) { return r.json(); }).then(function (j) {
+    if (j.error) throw new Error(j.error.message || '목록을 받지 못했습니다');
+    usable = (j.models || []).filter(function (m) {
+      return (m.supportedGenerationMethods || []).indexOf('generateContent') >= 0;
+    }).map(function (m) { return String(m.name || '').replace(/^models\//, ''); })
+      .filter(function (n) { return /^gemini-/.test(n) && !/embedding|aqa|imagen|-tts|-live|native-audio/.test(n); });
+    $('models').innerHTML = usable.length
+      ? usable.map(function (n) { return '<div class="row"><span class="name">' + esc(n) + '</span></div>'; }).join('')
+        + '<p class="note" style="margin:10px 0 0">' + usable.length + '개</p>'
+      : '<span class="no">쓸 수 있는 모델이 없습니다</span>';
+  }).catch(function (e) {
+    $('models').innerHTML = '<span class="no">' + esc(e.message) + '</span>';
+  });
+
+  $('run').addEventListener('click', async function () {
+    var btn = $('run'); btn.disabled = true; btn.textContent = '검사 중…';
+    var out = $('probe'); out.innerHTML = '';
+    for (var i = 0; i < usable.length; i++) {
+      var name = usable[i];
+      var row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML = '<span class="name">' + esc(name) + '</span><span>…</span>';
+      out.appendChild(row);
+      var t0 = Date.now(), label;
+      try {
+        var r = await post({ action:'generate', model:name, payload:{
+          contents:[{ parts:[{ text:'1+1은?' }] }],
+          generationConfig:{ temperature:0, maxOutputTokens:16 } } });
+        var j = await r.json();
+        var ms = Date.now() - t0;
+        if (r.ok) label = '<span class="ok">정상 ' + ms + 'ms</span>';
+        else label = '<span class="no">' + r.status + ' ' +
+          esc(((j.error && j.error.status) || '').slice(0, 24)) + '</span>';
+      } catch (e) { label = '<span class="no">오류</span>'; }
+      row.lastChild.outerHTML = label;
+    }
+    btn.disabled = false; btn.textContent = '다시 검사';
+  });
+})();
+</script>
+</body>
+</html>
