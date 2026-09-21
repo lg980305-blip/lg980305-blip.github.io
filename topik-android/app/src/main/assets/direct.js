@@ -25,6 +25,8 @@
   function forgetKey() { try { localStorage.removeItem(KEY_STORE); } catch {} }
   var GEMINI_MODEL = 'gemini-flash-lite-latest';
   var EP = 'https://generativelanguage.googleapis.com/v1beta/models/';
+  /* 무료 등급은 특정 모델이 자주 혼잡(503)하다. 같은 모델을 한 번 더, 그다음 예비 모델로 차례로 넘어간다. */
+  var FALLBACKS = ['gemini-flash-latest', 'gemini-flash-lite-latest', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.8-flash'];
 
   /* ── 중계 서버 ── */
   var CONFIG_URL = 'https://lg980305-blip.github.io/apk/config.json';
@@ -91,22 +93,17 @@
     return { ko: '한국어', en: '영어', zh: '중국어', vi: '베트남어' }[l] || '한국어';
   }
 
-  async function gemini(prompt, parts) {
-    var body = { contents: [{ parts: [{ text: prompt }].concat(parts || []) }],
-                 generationConfig: { temperature: 0.3, responseMimeType: 'application/json' } };
-    await ready;
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  /* 한 번의 요청. 결과: { ok:true, json } 또는 { ok:false, status, msg } */
+  async function callOnce(model, body) {
     var url, headers, payload;
     if (PROXY_OK) {
-      /* 중계 서버: 키는 서버가 붙인다 */
       url = PROXY;
       headers = { 'Content-Type': 'application/json', 'X-Topik-App': APP_TAG };
-      payload = { action: 'generate', model: GEMINI_MODEL, payload: body };
-    } else if (PROXY) {
-      /* 서버 주소는 있는데 지금 못 쓰는 상태 → 키를 묻지 않고 이유를 알려 준다 */
-      throw new Error(PROXY_ERR || '서버에 연결할 수 없습니다.');
+      payload = { action: 'generate', model: model, payload: body };
     } else {
-      /* 서버가 아직 설정되지 않음 → 개발자 본인 키로 직접 호출 */
-      url = EP + GEMINI_MODEL + ':generateContent';
+      url = EP + model + ':generateContent';
       headers = { 'Content-Type': 'application/json', 'x-goog-api-key': getKey() };
       payload = body;
     }
@@ -115,24 +112,58 @@
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 30000) : null;
     var r;
     try {
-      r = await fetch(url, {
-        method: 'POST', headers: headers,
-        body: JSON.stringify(payload), signal: ctrl ? ctrl.signal : undefined
-      });
+      r = await fetch(url, { method: 'POST', headers: headers, body: JSON.stringify(payload),
+                             signal: ctrl ? ctrl.signal : undefined });
     } catch (e) {
-      if (e && e.name === 'AbortError') throw new Error('응답이 30초 안에 오지 않았습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.');
-      throw new Error('인터넷에 연결할 수 없습니다.');
+      if (e && e.name === 'AbortError') return { ok: false, status: 0, msg: '응답이 30초 안에 오지 않았습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.' };
+      return { ok: false, status: 0, msg: '인터넷에 연결할 수 없습니다.' };
     } finally { if (timer) clearTimeout(timer); }
     var j = await r.json().catch(function () { return {}; });
     if (!r.ok) {
       var msg = (j.error && j.error.message) || 'AI 요청 실패';
-      /* 키 자체가 거부된 경우에만 지워서 다음에 다시 물어봅니다.
-         (400 은 요청 형식 오류에도 쓰이므로 메시지로 구분합니다) */
       if (!PROXY_OK && (r.status === 401 || r.status === 403 || /api key/i.test(msg))) forgetKey();
       if (PROXY_OK && r.status === 403) msg = '이 앱에서의 요청이 서버에서 거부되었습니다. 관리자에게 알려 주세요.';
       if (PROXY_OK && r.status === 501) msg = '서버에 AI 키가 설정되지 않았습니다. 관리자에게 알려 주세요.';
-      throw new Error(msg);
+      return { ok: false, status: r.status, msg: msg };
     }
+    return { ok: true, json: j };
+  }
+
+  async function gemini(prompt, parts) {
+    var body = { contents: [{ parts: [{ text: prompt }].concat(parts || []) }],
+                 generationConfig: { temperature: 0.3, responseMimeType: 'application/json' } };
+    await ready;
+    if (!PROXY_OK && PROXY) {
+      /* 서버 주소는 있는데 지금 못 쓰는 상태 → 키를 묻지 않고 이유를 알려 준다 */
+      throw new Error(PROXY_ERR || '서버에 연결할 수 없습니다.');
+    }
+
+    /* 혼잡(503) · 한도(429) · 일시 오류(500) 는 같은 모델을 한 번 더, 그다음 예비 모델로.
+       모델 없음(404) 은 바로 다음 모델로. 그 외 오류는 즉시 중단. 전체 45초를 넘기지 않는다. */
+    var chain = [GEMINI_MODEL].concat(FALLBACKS.filter(function (m) { return m !== GEMINI_MODEL; }));
+    var started = Date.now(), last = null, j = null;
+    outer:
+    for (var i = 0; i < chain.length; i++) {
+      for (var attempt = 0; attempt < 2; attempt++) {
+        if (Date.now() - started > 45000) break outer;
+        var res = await callOnce(chain[i], body);
+        if (res.ok) { j = res.json; break outer; }
+        last = res;
+        if (res.status === 404) break;                       // 이 모델은 없음 → 다음 모델
+        if (res.status === 503 || res.status === 429 || res.status === 500) {
+          await sleep(attempt === 0 ? 700 : 1500);
+          continue;                                          // 같은 모델 한 번 더, 그다음 다음 모델
+        }
+        throw new Error(res.msg);                            // 키·형식 오류 등은 재시도 의미 없음
+      }
+    }
+    if (!j) {
+      var m = last ? last.msg : 'AI 요청 실패';
+      if (last && (last.status === 503 || last.status === 429))
+        m = 'AI 서버가 지금 혼잡합니다. 잠시 후 다시 시도해 주세요.';
+      throw new Error(m);
+    }
+
     var cand = j.candidates && j.candidates[0];
     var reason = (cand && cand.finishReason) || (j.promptFeedback && j.promptFeedback.blockReason) || '';
     var txt = cand && cand.content && cand.content.parts && cand.content.parts[0] && cand.content.parts[0].text;

@@ -6,6 +6,8 @@
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
+<script>/* 앱(WebView, file://) 안에서는 항상 폰 레이아웃을 쓴다 — 삼성 화면 줌 설정 등으로 폭이 넓게 잡혀도 데스크톱 목업이 나오지 않게 */
+if (location.protocol === 'file:') document.documentElement.classList.add('app');</script>
 <title>TOPIK ASIA 학습 앱</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5575,5 +5577,16 @@ var MODE = (location.protocol === 'file:') ? 'direct' : 'server';
 </script>
 <script src="direct.js"></script>
 <script src="connect.js"></script>
+
+<style id="app-mode">
+/* ── 앱 모드: 폰 목업 틀을 벗기고 화면 전체를 앱으로 쓴다 (html.app 은 위 스크립트가 붙인다) ── */
+html.app, html.app body{height:100%;margin:0;overflow:hidden;background:var(--surface)}
+html.app .stage{display:block;min-height:0;height:100%;padding:0;gap:0}
+html.app .pitch{display:none}
+html.app .phone{width:100%;height:100%;max-height:none;border-radius:0;padding:0;box-shadow:none;background:var(--surface)}
+html.app .screen{height:100%;border-radius:0}
+html.app .notch, html.app .statusbar{display:none}   /* 안드로이드 실제 상태바가 있으므로 가짜 상태바는 숨긴다 */
+html.app .tabbar{padding-bottom:10px}                /* 홈 표시줄 여백은 앱이 시스템 바 크기만큼 따로 준다 */
+</style>
 </body>
 </html>
