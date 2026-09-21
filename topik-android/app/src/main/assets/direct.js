@@ -151,7 +151,8 @@
         last = res;
         if (res.status === 404) break;                       // 이 모델은 없음 → 다음 모델
         if (res.status === 503 || res.status === 429 || res.status === 500) {
-          await sleep(attempt === 0 ? 700 : 1500);
+          /* 지수 백오프 + 무작위 지터: 모든 기기가 같은 순간에 몰려 다시 실패하는 것을 막는다 */
+          await sleep((attempt === 0 ? 800 : 1600) + Math.random() * 600);
           continue;                                          // 같은 모델 한 번 더, 그다음 다음 모델
         }
         throw new Error(res.msg);                            // 키·형식 오류 등은 재시도 의미 없음
