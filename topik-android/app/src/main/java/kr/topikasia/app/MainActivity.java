@@ -96,10 +96,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if (savedInstanceState == null) {
+        /* 복원에 실패하면(예: 저장 상태가 비어 있음) 빈 화면이 남지 않도록 처음부터 연다 */
+        if (savedInstanceState == null || web.restoreState(savedInstanceState) == null) {
             web.loadUrl(START_URL);
-        } else {
-            web.restoreState(savedInstanceState);
         }
     }
 

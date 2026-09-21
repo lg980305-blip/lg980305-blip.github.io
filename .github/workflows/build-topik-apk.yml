@@ -39,11 +39,14 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Android SDK 준비
-        uses: android-actions/setup-android@v3
-
+      # GitHub 러너에는 Android SDK 가 이미 설치되어 있다 ($ANDROID_HOME).
       - name: SDK 패키지 설치
-        run: sdkmanager --install "platforms;android-35" "build-tools;35.0.0" "platform-tools" > /dev/null
+        run: |
+          set -e
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKM" --licenses > /dev/null 2>&1 || true
+          "$SDKM" --install "platforms;android-35" "build-tools;35.0.0" "platform-tools" > /dev/null
+          echo "sdk.dir=$ANDROID_HOME" > topik-android/local.properties
 
       - name: Gradle 준비
         uses: gradle/actions/setup-gradle@v4
