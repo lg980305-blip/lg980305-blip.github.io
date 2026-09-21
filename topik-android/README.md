@@ -1,8 +1,9 @@
 # TOPIK ASIA 안드로이드 앱 (원본 프로젝트)
 
 `app/src/main/assets/` 의 웹앱을 WebView 로 여는 얇은 껍데기입니다.
-서버를 찾지 않고 곧바로 내장 파일을 열며, AI 요청은 `direct.js` 가 Gemini 에 직접 보냅니다.
-API 키는 앱에 들어 있지 않고 사용자가 처음 한 번 입력해 폰에만 저장됩니다.
+AI 요청은 `direct.js` 가 중계 서버(Vercel `api/gemini.mjs`)로 보내며, 서버 주소는
+`https://lg980305-blip.github.io/apk/config.json` 에서 읽습니다. 사용자는 키를 몰라도 됩니다.
+서버 설정은 `server/README.md` 의 "TOPIK ASIA 안드로이드 앱 연결" 항목을 보세요.
 
 ## 빌드 (자동)
 

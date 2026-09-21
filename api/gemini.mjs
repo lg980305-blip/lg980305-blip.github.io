@@ -43,18 +43,33 @@ const SAFETY = [
    payload 는 아래 sanitizePayload 로 허용 필드만 남기고 크기·토큰 상한을 건다.
    ============================================================ */
 const MODEL_RE = /^gemini-[a-z0-9.-]{1,40}$/;
-const MAX_BODY = 200_000;      // 문자 수 — 컨텍스트 JSON + 대화 12턴이면 넉넉하다
+const MAX_BODY = 200_000;      // 문자 수 — 텍스트만 있을 때. 컨텍스트 JSON + 대화 12턴이면 넉넉하다
+const MAX_BODY_MEDIA = 4_000_000; // 음성·사진(inlineData)이 있을 때. Vercel 요청 상한(4.5MB) 안쪽
 const MAX_TURNS = 40;
 const MAX_OUT = 4096;
+
+/* TOPIK 앱의 발음 평가(음성)·사진 인식에 필요한 첨부 형식만 허용한다 */
+const INLINE_MIME = new Set(['audio/wav', 'audio/webm', 'audio/mp4', 'audio/mpeg', 'audio/ogg',
+                             'image/jpeg', 'image/png', 'image/webp']);
+const B64_RE = /^[A-Za-z0-9+/=]+$/;
+
+function sanitizePart(x) {
+  if (!x || typeof x !== 'object') return null;
+  if (typeof x.text === 'string') return { text: x.text };
+  const d = x.inlineData;
+  if (d && typeof d.data === 'string' && INLINE_MIME.has(String(d.mimeType).toLowerCase().split(';')[0])
+      && d.data.length <= MAX_BODY_MEDIA && B64_RE.test(d.data)) {
+    return { inlineData: { mimeType: String(d.mimeType).toLowerCase().split(';')[0], data: d.data } };
+  }
+  return null;
+}
 
 function sanitizePayload(p) {
   if (!p || typeof p !== 'object' || !Array.isArray(p.contents) || !p.contents.length) return null;
   if (p.contents.length > MAX_TURNS) return null;
   const contents = p.contents.map((c) => ({
     role: c && c.role === 'model' ? 'model' : 'user',
-    parts: (Array.isArray(c && c.parts) ? c.parts : [])
-      .filter((x) => x && typeof x.text === 'string')
-      .map((x) => ({ text: x.text }))
+    parts: (Array.isArray(c && c.parts) ? c.parts : []).map(sanitizePart).filter(Boolean)
   })).filter((c) => c.parts.length);
   if (!contents.length) return null;
 
@@ -86,7 +101,10 @@ async function proxyDirect(body, apiKey) {
     const model = MODEL_RE.test(String(body.model || '')) ? body.model : MODEL;
     const payload = sanitizePayload(body.payload);
     if (!payload) return { status: 400, json: { error: { message: 'invalid payload' } } };
-    if (JSON.stringify(payload).length > MAX_BODY) return { status: 413, json: { error: { message: 'payload too large' } } };
+    const hasMedia = payload.contents.some((c) => c.parts.some((x) => x.inlineData));
+    if (JSON.stringify(payload).length > (hasMedia ? MAX_BODY_MEDIA : MAX_BODY)) {
+      return { status: 413, json: { error: { message: 'payload too large' } } };
+    }
     const r = await fetch(`${HOST}/models/${encodeURIComponent(model)}:generateContent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
@@ -235,14 +253,25 @@ ${SITE_FACTS}
 }
 
 
+/* 안드로이드 앱(WebView 안의 file:// 페이지)은 Origin 이 "null" 로 온다.
+   앱이 붙이는 X-Topik-App 헤더(또는 WebView 가 자동으로 붙이는 X-Requested-With)가
+   앱 패키지명과 같을 때만 허용한다. 비밀은 아니므로 실제 보호는 Google 쪽 할당량 설정에 달려 있다. */
+const APP_PACKAGE = process.env.APP_PACKAGE || 'kr.topikasia.app';
+function isAppRequest(req) {
+  if ((req.headers.origin || '') !== 'null') return false;
+  const tag = req.headers['x-topik-app'] || req.headers['x-requested-with'] || '';
+  return tag === APP_PACKAGE;
+}
+
 export default async function handler(req, res) {
   const allowed = (process.env.ALLOWED_ORIGIN || '').split(',').map(s => s.trim()).filter(Boolean);
   const origin = req.headers.origin || '';
-  const allowOrigin = allowed.includes(origin) ? origin : (allowed[0] || '');
+  const fromApp = isAppRequest(req);
+  const allowOrigin = fromApp ? 'null' : (allowed.includes(origin) ? origin : (allowed[0] || ''));
 
   res.setHeader('Access-Control-Allow-Origin', allowOrigin);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Topik-App');
   res.setHeader('Vary', 'Origin');
   res.setHeader('Cache-Control', 'no-store');
 
@@ -259,8 +288,8 @@ export default async function handler(req, res) {
   }
   if (req.method !== 'POST') return res.status(405).json({ error: 'method not allowed' });
 
-  // 허용하지 않은 사이트에서의 호출은 차단 (키 도용 방지)
-  if (allowed.length && !allowed.includes(origin)) {
+  // 허용하지 않은 사이트에서의 호출은 차단 (키 도용 방지). 안드로이드 앱은 위 isAppRequest 로 통과
+  if (allowed.length && !allowed.includes(origin) && !fromApp) {
     return res.status(403).json({ error: 'origin not allowed' });
   }
 

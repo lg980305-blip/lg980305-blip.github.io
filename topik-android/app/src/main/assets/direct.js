@@ -1,8 +1,11 @@
 /* ============================================================
-   서버 없이 동작하는 AI 연결기 (APK 전용)
+   AI 연결기 (APK 전용)
 
-   맥 서버에 못 붙으면 앱이 구글 Gemini에 직접 요청합니다.
-   서버가 켜져 있으면 그쪽을 먼저 씁니다.
+   1순위: 중계 서버(Vercel, 키는 서버 환경변수에만). 주소는 GitHub Pages 의
+          apk/config.json 에서 읽는다 → 주소가 바뀌어도 APK 를 다시 만들 필요가 없다.
+          사용자는 키를 몰라도 된다.
+   2순위: 중계 서버 주소가 아직 설정되지 않았을 때만, 사용자 본인 키를 한 번 입력받아
+          폰에만 저장하고 Gemini 에 직접 요청한다 (개발자 테스트용).
    ============================================================ */
 (function () {
   'use strict';
@@ -22,6 +25,47 @@
   function forgetKey() { try { localStorage.removeItem(KEY_STORE); } catch {} }
   var GEMINI_MODEL = 'gemini-flash-lite-latest';
   var EP = 'https://generativelanguage.googleapis.com/v1beta/models/';
+
+  /* ── 중계 서버 ── */
+  var CONFIG_URL = 'https://lg980305-blip.github.io/apk/config.json';
+  var APP_TAG = 'kr.topikasia.app';
+  var PROXY = '';          // 중계 서버 주소 (config.json 의 endpoint)
+  var PROXY_OK = false;    // 서버가 살아 있고 키가 설정되어 있는가
+  var PROXY_ERR = '';      // 서버를 못 쓰는 이유 (사용자에게 보여 줄 문구)
+
+  async function fetchJson(url, ms) {
+    var ctrl = (typeof AbortController === 'function') ? new AbortController() : null;
+    var t = ctrl ? setTimeout(function () { ctrl.abort(); }, ms || 8000) : null;
+    try {
+      var r = await fetch(url, { cache: 'no-store', signal: ctrl ? ctrl.signal : undefined });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return await r.json();
+    } finally { if (t) clearTimeout(t); }
+  }
+
+  /* 시작할 때 한 번: config.json → 서버 주소 → 서버 상태(GET) 확인.
+     인터넷이 잠깐 안 되면 마지막으로 성공했던 주소를 폰 저장소에서 꺼내 쓴다. */
+  var ready = (async function () {
+    try { PROXY = localStorage.getItem('ta_proxy') || ''; } catch {}
+    try {
+      var cfg = await fetchJson(CONFIG_URL + '?t=' + Date.now());
+      if (cfg && typeof cfg.endpoint === 'string' && /^https:\/\//.test(cfg.endpoint)) {
+        PROXY = cfg.endpoint.replace(/\/+$/, '');
+        try { localStorage.setItem('ta_proxy', PROXY); } catch {}
+      } else if (cfg && cfg.endpoint === '') {
+        PROXY = '';
+        try { localStorage.removeItem('ta_proxy'); } catch {}
+      }
+    } catch (e) { /* config 를 못 읽으면 저장된 주소로 계속 */ }
+    if (!PROXY) return;
+    try {
+      var st = await fetchJson(PROXY);
+      if (st && st.serverKey) { PROXY_OK = true; if (st.defaultModel) GEMINI_MODEL = st.defaultModel; }
+      else PROXY_ERR = '서버에 AI 키가 아직 설정되지 않았습니다. 관리자에게 알려 주세요.';
+    } catch (e) {
+      PROXY_ERR = '서버에 연결할 수 없습니다. 인터넷 연결을 확인하고 잠시 후 다시 시도해 주세요.';
+    }
+  })();
 
   /* 하루 사용 한도 — 서버가 없으니 앱에서 셉니다 */
   var LIMITS = { tutor: 5, conversation: 5, speech: 5, vision: 6 };
@@ -50,18 +94,33 @@
   async function gemini(prompt, parts) {
     var body = { contents: [{ parts: [{ text: prompt }].concat(parts || []) }],
                  generationConfig: { temperature: 0.3, responseMimeType: 'application/json' } };
-    var key = getKey();
-    /* 통신이 멈추면 무한 대기하지 않도록 20초 제한 */
+    await ready;
+    var url, headers, payload;
+    if (PROXY_OK) {
+      /* 중계 서버: 키는 서버가 붙인다 */
+      url = PROXY;
+      headers = { 'Content-Type': 'application/json', 'X-Topik-App': APP_TAG };
+      payload = { action: 'generate', model: GEMINI_MODEL, payload: body };
+    } else if (PROXY) {
+      /* 서버 주소는 있는데 지금 못 쓰는 상태 → 키를 묻지 않고 이유를 알려 준다 */
+      throw new Error(PROXY_ERR || '서버에 연결할 수 없습니다.');
+    } else {
+      /* 서버가 아직 설정되지 않음 → 개발자 본인 키로 직접 호출 */
+      url = EP + GEMINI_MODEL + ':generateContent';
+      headers = { 'Content-Type': 'application/json', 'x-goog-api-key': getKey() };
+      payload = body;
+    }
+    /* 통신이 멈추면 무한 대기하지 않도록 30초 제한 (음성·사진은 조금 더 걸린다) */
     var ctrl = (typeof AbortController === 'function') ? new AbortController() : null;
-    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 30000) : null;
     var r;
     try {
-      r = await fetch(EP + GEMINI_MODEL + ':generateContent', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
-        body: JSON.stringify(body), signal: ctrl ? ctrl.signal : undefined
+      r = await fetch(url, {
+        method: 'POST', headers: headers,
+        body: JSON.stringify(payload), signal: ctrl ? ctrl.signal : undefined
       });
     } catch (e) {
-      if (e && e.name === 'AbortError') throw new Error('응답이 20초 안에 오지 않았습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.');
+      if (e && e.name === 'AbortError') throw new Error('응답이 30초 안에 오지 않았습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.');
       throw new Error('인터넷에 연결할 수 없습니다.');
     } finally { if (timer) clearTimeout(timer); }
     var j = await r.json().catch(function () { return {}; });
@@ -69,7 +128,9 @@
       var msg = (j.error && j.error.message) || 'AI 요청 실패';
       /* 키 자체가 거부된 경우에만 지워서 다음에 다시 물어봅니다.
          (400 은 요청 형식 오류에도 쓰이므로 메시지로 구분합니다) */
-      if (r.status === 401 || r.status === 403 || /api key/i.test(msg)) forgetKey();
+      if (!PROXY_OK && (r.status === 401 || r.status === 403 || /api key/i.test(msg))) forgetKey();
+      if (PROXY_OK && r.status === 403) msg = '이 앱에서의 요청이 서버에서 거부되었습니다. 관리자에게 알려 주세요.';
+      if (PROXY_OK && r.status === 501) msg = '서버에 AI 키가 설정되지 않았습니다. 관리자에게 알려 주세요.';
       throw new Error(msg);
     }
     var cand = j.candidates && j.candidates[0];

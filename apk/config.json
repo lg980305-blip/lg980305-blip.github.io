@@ -1,0 +1,4 @@
+{
+  "endpoint": "https://lg980305-blip-github-io.vercel.app/api/gemini",
+  "_설명": "TOPIK ASIA 앱이 시작할 때 읽는 중계 서버 주소. Vercel 프로젝트 주소가 다르면 endpoint 만 고쳐 커밋하면 됩니다(APK 재빌드 불필요). 빈 문자열이면 앱은 사용자 본인 키를 물어봅니다."
+}

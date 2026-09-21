@@ -171,3 +171,21 @@ POST { "action": "generate", "model": "gemini-flash-latest",
 
 서버는 `contents` · `systemInstruction` · `generationConfig`(온도 · 최대 토큰 · JSON 스키마)만 통과시키고,
 대화 40턴 · 본문 200KB · 출력 4,096토큰 상한과 안전 설정을 강제합니다.
+
+---
+
+## TOPIK ASIA 안드로이드 앱(`apk/`) 연결
+
+앱은 시작할 때 `https://lg980305-blip.github.io/apk/config.json` 의 `endpoint` 를 읽어
+그 중계 서버로 AI 요청을 보냅니다. 사용자는 키를 몰라도 되고, 키는 서버 환경변수에만 있습니다.
+
+| 할 일 | 방법 |
+|---|---|
+| 서버 만들기 | 위 **방법 B(Vercel)** 그대로. 환경변수는 `GEMINI_API_KEY` 하나면 앱은 동작합니다. |
+| 주소 연결 | Vercel 주소가 `https://lg980305-blip-github-io.vercel.app` 이면 할 일 없음. 다르면 `apk/config.json` 의 `endpoint` 만 고쳐 커밋 (APK 재빌드 불필요). |
+| 확인 | 브라우저에서 `<endpoint>` 를 열어 `{"serverKey":true,...}` 가 보이면 됨. |
+
+- 앱(WebView)의 요청은 `Origin: null` 로 오며, `X-Topik-App: kr.topikasia.app` 헤더가 있을 때만 통과합니다.
+  이 값은 비밀이 아니므로(APK 를 풀면 보임) 실제 보호는 Google AI Studio 의 **할당량·예산 알림** 설정입니다.
+- 앱의 발음 평가·사진 인식을 위해 서버는 `audio/*`·`image/*` 첨부(inlineData, 4MB 이하)를 통과시킵니다.
+- `endpoint` 가 빈 문자열이면 앱은 사용자 본인 키를 물어보는 개발자 테스트 모드로 동작합니다.
