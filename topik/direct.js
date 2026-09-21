@@ -61,7 +61,9 @@
       } catch (e) { /* 같은 주소에 서버가 없으면 아래 config.json 으로 */ }
     }
     try {
-      var cfg = await fetchJson(CONFIG_URL + '?t=' + Date.now());
+      /* 웹에서는 같은 주소의 설정 파일을 먼저 본다 (APK 는 file:// 이라 절대주소를 쓴다) */
+      var cfgUrl = /^https?:$/.test(location.protocol) ? '/apk/config.json' : CONFIG_URL;
+      var cfg = await fetchJson(cfgUrl + '?t=' + Date.now());
       if (cfg && typeof cfg.endpoint === 'string' && /^https:\/\//.test(cfg.endpoint)) {
         PROXY = cfg.endpoint.replace(/\/+$/, '');
         try { localStorage.setItem('ta_proxy', PROXY); } catch {}
