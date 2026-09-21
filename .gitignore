@@ -18,3 +18,8 @@ Thumbs.db
 # Python 캐시
 __pycache__/
 *.pyc
+
+# TOPIK 안드로이드 빌드 산출물
+topik-android/.gradle/
+topik-android/**/build/
+topik-android/local.properties

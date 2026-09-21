@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.application'
+}
+
+/* 버전은 CI 가 환경변수로 넘긴다. 로컬 빌드는 아래 기본값을 쓴다. */
+def envCode = System.getenv('APP_VERSION_CODE')
+def envName = System.getenv('APP_VERSION_NAME')
+
+android {
+    namespace 'kr.topikasia.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'kr.topikasia.app'
+        minSdk 24
+        targetSdk 35
+        versionCode envCode ? envCode.toInteger() : 2
+        versionName envName ?: '0.2.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity:1.9.3'
+}
