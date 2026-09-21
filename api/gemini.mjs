@@ -267,7 +267,11 @@ export default async function handler(req, res) {
   const allowed = (process.env.ALLOWED_ORIGIN || '').split(',').map(s => s.trim()).filter(Boolean);
   const origin = req.headers.origin || '';
   const fromApp = isAppRequest(req);
-  const allowOrigin = fromApp ? 'null' : (allowed.includes(origin) ? origin : (allowed[0] || ''));
+  /* ALLOWED_ORIGIN 을 지정하지 않으면 아래 403 검사도 통과시키므로, CORS 헤더도 요청 출처를 그대로 돌려준다.
+     (헤더를 비우면 브라우저가 무조건 막아서 다른 주소의 페이지가 이 서버를 못 쓴다) */
+  const allowOrigin = fromApp ? 'null'
+    : allowed.length ? (allowed.includes(origin) ? origin : allowed[0])
+    : (origin || '*');
 
   res.setHeader('Access-Control-Allow-Origin', allowOrigin);
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
