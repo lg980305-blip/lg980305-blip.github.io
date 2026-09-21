@@ -5618,5 +5618,47 @@ html.app .screen{height:100%;border-radius:0}
 html.app .notch, html.app .statusbar{display:none}   /* 안드로이드 실제 상태바가 있으므로 가짜 상태바는 숨긴다 */
 html.app .tabbar{padding-bottom:10px}                /* 홈 표시줄 여백은 앱이 시스템 바 크기만큼 따로 준다 */
 </style>
+
+<script>
+/* ── 뒤로가기 처리 ──────────────────────────────────────────
+   화면 전환이 자바스크립트로만 이뤄져 방문 기록에 남지 않으면,
+   뒤로가기를 누르는 순간 앱이 그대로 종료된다.
+   화면을 옮길 때마다 기록을 하나 쌓고, 뒤로가기는 이전 화면으로 되돌린다.
+   (첫 화면에서 뒤로가기를 누르면 앱을 벗어나는 것은 일반적인 동작이라 그대로 둔다) */
+(function () {
+  'use strict';
+  if (!window.history || !history.pushState) return;
+
+  var back = false;   // 뒤로가기로 인한 전환인가 (그때는 기록을 쌓지 않는다)
+
+  function goTo(name) {
+    /* 기존 화면 전환 코드를 그대로 쓰기 위해 data-go 를 가진 요소를 눌러 준다 */
+    var el = document.createElement('span');
+    el.setAttribute('data-go', name);
+    el.style.display = 'none';
+    document.body.appendChild(el);
+    el.click();
+    el.parentNode.removeChild(el);
+  }
+
+  document.addEventListener('click', function (e) {
+    if (back) return;
+    var el = e.target && e.target.closest && e.target.closest('[data-go]');
+    if (!el) return;
+    var name = el.getAttribute('data-go');
+    if (!name) return;
+    if (history.state && history.state.view === name) return;
+    try { history.pushState({ view: name }, '', location.href); } catch (err) {}
+  }, true);
+
+  window.addEventListener('popstate', function (e) {
+    var name = (e.state && e.state.view) || 'home';
+    back = true;
+    try { goTo(name); } finally { back = false; }
+  });
+
+  try { history.replaceState({ view: 'home' }, '', location.href); } catch (err) {}
+})();
+</script>
 </body>
 </html>
