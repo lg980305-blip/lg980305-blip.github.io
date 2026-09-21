@@ -25,8 +25,53 @@
   function forgetKey() { try { localStorage.removeItem(KEY_STORE); } catch {} }
   var GEMINI_MODEL = 'gemini-flash-lite-latest';
   var EP = 'https://generativelanguage.googleapis.com/v1beta/models/';
-  /* 무료 등급은 특정 모델이 자주 혼잡(503)하다. 같은 모델을 한 번 더, 그다음 예비 모델로 차례로 넘어간다. */
-  var FALLBACKS = ['gemini-flash-latest', 'gemini-flash-lite-latest', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.8-flash'];
+  /* 무료 등급은 특정 모델이 자주 혼잡(503)하다. 같은 모델을 한 번 더, 그다음 예비 모델로 넘어간다.
+     예비 목록은 서버에 실제로 쓸 수 있는 모델을 물어 만든다(아래 loadModels). 그 전에는 이 기본값을 쓴다. */
+  var FALLBACKS = ['gemini-flash-lite-latest', 'gemini-flash-latest'];
+  var MODELS_KEY = 'ta_models';      // {day, list} — 하루 한 번만 조회한다
+
+  /* 혼잡할 때 덜 밀리는 순서로 정렬한다.
+     1) lite 계열이 가장 한가하다  2) preview/exp 는 새 모델이라 가장 혼잡하다  3) 이름이 짧은 안정판 우선 */
+  function rankModel(n) {
+    var s = 0;
+    if (/lite/.test(n)) s -= 30;
+    if (/preview|exp|thinking/.test(n)) s += 50;
+    if (/latest/.test(n)) s -= 5;
+    if (/pro/.test(n)) s += 20;        // pro 는 느리고 한도도 빡빡하다
+    return s + n.length * 0.1;
+  }
+
+  /* 서버(중계)를 통해 이 키로 쓸 수 있는 모델 목록을 받아 예비 목록을 만든다.
+     실패하면 기본값을 그대로 쓴다. */
+  async function loadModels() {
+    try {
+      var c = JSON.parse(localStorage.getItem(MODELS_KEY) || '{}');
+      if (c.day === today() && Array.isArray(c.list) && c.list.length) { FALLBACKS = c.list; return; }
+    } catch (e) {}
+    if (!PROXY_OK) return;
+    try {
+      var r = await fetch(PROXY, { method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Topik-App': APP_TAG },
+        body: JSON.stringify({ action: 'models' }) });
+      if (!r.ok) return;
+      var j = await r.json();
+      var list = (j.models || [])
+        .filter(function (m) {
+          var meth = m.supportedGenerationMethods || m.supportedActions || [];
+          return meth.indexOf('generateContent') >= 0;
+        })
+        .map(function (m) { return String(m.name || '').replace(/^models\//, ''); })
+        .filter(function (n) {
+          /* 글·음성·사진을 함께 다루는 일반 모델만. 임베딩·이미지생성·음성합성 전용은 뺀다 */
+          return /^gemini-/.test(n) && !/embedding|aqa|imagen|image-generation|-tts|-live|native-audio/.test(n);
+        });
+      if (!list.length) return;
+      list.sort(function (a, b) { return rankModel(a) - rankModel(b); });
+      list = list.slice(0, 6);
+      FALLBACKS = list;
+      try { localStorage.setItem(MODELS_KEY, JSON.stringify({ day: today(), list: list })); } catch (e) {}
+    } catch (e) { /* 목록을 못 받으면 기본값 유지 */ }
+  }
 
   /* ── 중계 서버 ── */
   var CONFIG_URL = 'https://lg980305-blip.github.io/apk/config.json';
@@ -49,8 +94,22 @@
      인터넷이 잠깐 안 되면 마지막으로 성공했던 주소를 폰 저장소에서 꺼내 쓴다. */
   var ready = (async function () {
     try { PROXY = localStorage.getItem('ta_proxy') || ''; } catch {}
+    /* 웹에서 열렸다면 같은 주소에 중계 서버가 있는지 먼저 본다 (Vercel 배포). 같은 출처라 CORS 가 없다. */
+    if (/^https?:$/.test(location.protocol)) {
+      try {
+        var st0 = await fetchJson('/api/gemini', 5000);
+        if (st0 && st0.serverKey) {
+          PROXY = location.origin + '/api/gemini'; PROXY_OK = true;
+          if (st0.defaultModel) GEMINI_MODEL = st0.defaultModel;
+          loadModels();
+          return;
+        }
+      } catch (e) { /* 같은 주소에 서버가 없으면 아래 config.json 으로 */ }
+    }
     try {
-      var cfg = await fetchJson(CONFIG_URL + '?t=' + Date.now());
+      /* 웹에서는 같은 주소의 설정 파일을 먼저 본다 (APK 는 file:// 이라 절대주소를 쓴다) */
+      var cfgUrl = /^https?:$/.test(location.protocol) ? '/apk/config.json' : CONFIG_URL;
+      var cfg = await fetchJson(cfgUrl + '?t=' + Date.now());
       if (cfg && typeof cfg.endpoint === 'string' && /^https:\/\//.test(cfg.endpoint)) {
         PROXY = cfg.endpoint.replace(/\/+$/, '');
         try { localStorage.setItem('ta_proxy', PROXY); } catch {}
@@ -62,7 +121,7 @@
     if (!PROXY) return;
     try {
       var st = await fetchJson(PROXY);
-      if (st && st.serverKey) { PROXY_OK = true; if (st.defaultModel) GEMINI_MODEL = st.defaultModel; }
+      if (st && st.serverKey) { PROXY_OK = true; if (st.defaultModel) GEMINI_MODEL = st.defaultModel; loadModels(); }
       else PROXY_ERR = '서버에 AI 키가 아직 설정되지 않았습니다. 관리자에게 알려 주세요.';
     } catch (e) {
       PROXY_ERR = '서버에 연결할 수 없습니다. 인터넷 연결을 확인하고 잠시 후 다시 시도해 주세요.';
@@ -145,7 +204,7 @@
     outer:
     for (var i = 0; i < chain.length; i++) {
       for (var attempt = 0; attempt < 2; attempt++) {
-        if (Date.now() - started > 45000) break outer;
+        if (Date.now() - started > 60000) break outer;
         var res = await callOnce(chain[i], body);
         if (res.ok) { j = res.json; break outer; }
         last = res;
@@ -160,8 +219,10 @@
     }
     if (!j) {
       var m = last ? last.msg : 'AI 요청 실패';
-      if (last && (last.status === 503 || last.status === 429))
-        m = 'AI 서버가 지금 혼잡합니다. 잠시 후 다시 시도해 주세요.';
+      if (last && last.status === 429)
+        m = '오늘 무료 사용량을 다 썼거나 요청이 너무 잦습니다. 1~2분 뒤 다시 시도해 주세요.';
+      else if (last && last.status === 503)
+        m = 'AI 서버가 지금 혼잡합니다. 버튼을 한 번 더 눌러 주세요. 계속 이러면 몇 분 뒤에 다시 시도해 주세요.';
       throw new Error(m);
     }
 
@@ -281,7 +342,7 @@ JSON: {"source":"원문","translation":"번역","words":[{"k":"단어","r":"로�
   window.__directForgetKey = forgetKey;
 
   /* 서버가 있어야 하는 기능(실시간 학습방·학습 알림)은 단독 모드에서 숨긴다 */
-  if (location.protocol === 'file:') {
+  if (MODE === 'direct') {
     ['[data-go="live"]', '#push-btn'].forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (el) { el.hidden = true; });
     });
