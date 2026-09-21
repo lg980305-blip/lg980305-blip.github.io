@@ -27,17 +27,28 @@
   var EP = 'https://generativelanguage.googleapis.com/v1beta/models/';
   /* 무료 등급은 특정 모델이 자주 혼잡(503)하다. 같은 모델을 한 번 더, 그다음 예비 모델로 넘어간다.
      예비 목록은 서버에 실제로 쓸 수 있는 모델을 물어 만든다(아래 loadModels). 그 전에는 이 기본값을 쓴다. */
-  var FALLBACKS = ['gemini-flash-lite-latest', 'gemini-flash-latest'];
+  var FALLBACKS = ['gemini-flash-lite-latest', 'gemini-3.5-flash-lite', 'gemini-flash-latest'];
   var MODELS_KEY = 'ta_models';      // {day, list} — 하루 한 번만 조회한다
 
-  /* 혼잡할 때 덜 밀리는 순서로 정렬한다.
-     1) lite 계열이 가장 한가하다  2) preview/exp 는 새 모델이라 가장 혼잡하다  3) 이름이 짧은 안정판 우선 */
+  /* 글로 대화할 수 있는 모델만 남긴다.
+     목록에는 이미지 생성·받아쓰기·로봇·화면조작 전용 모델도 함께 오는데 여기 쓰면 안 된다.
+     2.5 계열은 목록에는 보이지만 신규 키에는 폐기되어 실제로 부르면 404 가 난다. */
+  function usableModel(n) {
+    if (!/^gemini-/.test(n)) return false;
+    if (/embedding|aqa|imagen|-tts|-live|native-audio/.test(n)) return false;
+    if (/-image|transcribe|computer-use|robotics|omni|customtools/.test(n)) return false;
+    if (/^gemini-2\.5-/.test(n)) return false;
+    return true;
+  }
+
+  /* 혼잡할 때 덜 밀리는 순서로 정렬한다. (실측: lite 계열 1초 안팎, 일반 flash 3초 이상)
+     1) lite 계열이 가장 빠르고 한가하다  2) preview 는 새 모델이라 가장 혼잡하다  3) pro 는 느리고 한도가 빡빡하다 */
   function rankModel(n) {
     var s = 0;
     if (/lite/.test(n)) s -= 30;
     if (/preview|exp|thinking/.test(n)) s += 50;
-    if (/latest/.test(n)) s -= 5;
-    if (/pro/.test(n)) s += 20;        // pro 는 느리고 한도도 빡빡하다
+    if (/latest/.test(n)) s -= 3;
+    if (/pro/.test(n)) s += 20;
     return s + n.length * 0.1;
   }
 
@@ -61,10 +72,7 @@
           return meth.indexOf('generateContent') >= 0;
         })
         .map(function (m) { return String(m.name || '').replace(/^models\//, ''); })
-        .filter(function (n) {
-          /* 글·음성·사진을 함께 다루는 일반 모델만. 임베딩·이미지생성·음성합성 전용은 뺀다 */
-          return /^gemini-/.test(n) && !/embedding|aqa|imagen|image-generation|-tts|-live|native-audio/.test(n);
-        });
+        .filter(usableModel);
       if (!list.length) return;
       list.sort(function (a, b) { return rankModel(a) - rankModel(b); });
       list = list.slice(0, 6);
