@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="/topik/manifest.json">
 <meta name="theme-color" content="#F2F4F1" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0B120F" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="TOPIK ASIA">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="/topik/icon-192.png">
 <meta property="og:title" content="TOPIK ASIA 학습 앱">
 <meta property="og:description" content="AI 튜터 · 회화 연습 · 발음 평가 · 사진 번역. 설치 없이 바로 사용하세요.">
 <meta property="og:type" content="website">
@@ -2347,7 +2347,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 </div>
 
-<script src="questions.js"></script>
+<script src="/topik/questions.js"></script>
 <script>
 (function(){
   "use strict";
@@ -4558,12 +4558,28 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
   var QUOTA_MAX = 5, quotaUsed = 2;
 
-  var CHIPS = [
+  /* 추천 질문 — 무엇이든 직접 입력할 수 있고, 아래는 예시다. 열 때마다 섞어서 6개를 보여 준다. */
+  var CHIP_POOL = [
     '이 문제 왜 틀렸어요?',
     '-자마자랑 -는 대로 차이',
     '먹었습니다 vs 먹었어요',
-    '받침 ㄹ 발음이 어려워요'
+    '받침 ㄹ 발음이 어려워요',
+    '은/는 과 이/가 는 언제 써요?',
+    '-아서/어서 와 -니까 차이',
+    '반말과 존댓말 언제 바꿔요?',
+    '-고 있다 와 -아/어 있다 차이',
+    '을/를 생략해도 돼요?',
+    '-겠- 은 어떤 뜻이에요?',
+    'TOPIK 쓰기 첫 문장 어떻게 시작해요?',
+    '한국어 숫자 두 가지 언제 써요?',
+    '-더라고요 는 어떤 느낌이에요?',
+    '못 과 -지 못하다 차이',
+    '높임말에서 자주 하는 실수',
+    '조사 에 와 에서 차이',
+    '-(으)ㄹ 것 같다 와 -나 보다 차이',
+    '면접에서 쓸 수 있는 표현 알려 주세요'
   ];
+  var CHIPS = CHIP_POOL.slice().sort(function(){ return Math.random() - 0.5; }).slice(0, 6);
 
   var QA = [
     { m:['자마자','는 대로','대로'],
@@ -5588,8 +5604,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
    'server' 는 예전 개발용 Express 백엔드를 뜻하며 지금은 쓰지 않는다. */
 var MODE = 'direct';
 </script>
-<script src="direct.js"></script>
-<script src="connect.js"></script>
+<script src="/topik/direct.js"></script>
+<script src="/topik/connect.js"></script>
 
 <style id="app-mode">
 /* ── 앱 모드: 폰 목업 틀을 벗기고 화면 전체를 앱으로 쓴다 (html.app 은 위 스크립트가 붙인다) ── */
