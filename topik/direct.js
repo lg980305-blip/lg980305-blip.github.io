@@ -49,6 +49,17 @@
      인터넷이 잠깐 안 되면 마지막으로 성공했던 주소를 폰 저장소에서 꺼내 쓴다. */
   var ready = (async function () {
     try { PROXY = localStorage.getItem('ta_proxy') || ''; } catch {}
+    /* 웹에서 열렸다면 같은 주소에 중계 서버가 있는지 먼저 본다 (Vercel 배포). 같은 출처라 CORS 가 없다. */
+    if (/^https?:$/.test(location.protocol)) {
+      try {
+        var st0 = await fetchJson('/api/gemini', 5000);
+        if (st0 && st0.serverKey) {
+          PROXY = location.origin + '/api/gemini'; PROXY_OK = true;
+          if (st0.defaultModel) GEMINI_MODEL = st0.defaultModel;
+          return;
+        }
+      } catch (e) { /* 같은 주소에 서버가 없으면 아래 config.json 으로 */ }
+    }
     try {
       var cfg = await fetchJson(CONFIG_URL + '?t=' + Date.now());
       if (cfg && typeof cfg.endpoint === 'string' && /^https:\/\//.test(cfg.endpoint)) {
@@ -281,7 +292,7 @@ JSON: {"source":"원문","translation":"번역","words":[{"k":"단어","r":"로�
   window.__directForgetKey = forgetKey;
 
   /* 서버가 있어야 하는 기능(실시간 학습방·학습 알림)은 단독 모드에서 숨긴다 */
-  if (location.protocol === 'file:') {
+  if (MODE === 'direct') {
     ['[data-go="live"]', '#push-btn'].forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (el) { el.hidden = true; });
     });

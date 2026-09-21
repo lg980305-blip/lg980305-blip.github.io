@@ -3,6 +3,7 @@ package kr.topikasia.app;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,12 +13,18 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 /**
  * TOPIK ASIA — 앱 안에 담긴 웹앱(assets/index.html)을 여는 껍데기.
@@ -39,9 +46,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /* 안드로이드 15(targetSdk 35)부터 앱이 상태바·내비게이션바 밑까지 깔린다(edge-to-edge).
+           웹 화면이 시계에 가리거나 탭바가 홈 버튼 영역에 묻히지 않도록, 시스템 바 크기만큼
+           바깥 컨테이너에 여백을 준다. 키보드가 올라오면 그만큼도 줄인다. */
+        boolean night = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
+                == Configuration.UI_MODE_NIGHT_YES;
+        int paper = Color.parseColor(night ? "#0B120F" : "#F2F4F1");
+
+        FrameLayout root = new FrameLayout(this);
+        root.setBackgroundColor(paper);
         web = new WebView(this);
-        web.setBackgroundColor(Color.parseColor("#F2F4F1"));
-        setContentView(web);
+        web.setBackgroundColor(paper);
+        root.addView(web, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        setContentView(root);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
+            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars()
+                    | WindowInsetsCompat.Type.displayCutout() | WindowInsetsCompat.Type.ime());
+            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
+        WindowInsetsControllerCompat bars = WindowCompat.getInsetsController(getWindow(), root);
+        bars.setAppearanceLightStatusBars(!night);
+        bars.setAppearanceLightNavigationBars(!night);
 
         WebSettings s = web.getSettings();
         s.setJavaScriptEnabled(true);
