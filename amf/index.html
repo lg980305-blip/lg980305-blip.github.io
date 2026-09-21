@@ -7,6 +7,22 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0A1A33">
+<meta name="description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<link rel="canonical" href="https://lg980305-blip.github.io/amf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AMF Entertainment">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AMF 커머스 인텔리전스 — 범아시아 크리에이터 섭외 의사결정 엔진">
+<meta property="og:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta property="og:url" content="https://lg980305-blip.github.io/amf/">
+<meta property="og:image" content="https://lg980305-blip.github.io/amf/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AMF 커머스 인텔리전스 소개 카드와 추천 화면이 표시된 휴대폰">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AMF 커머스 인텔리전스 — 범아시아 크리에이터 섭외 의사결정 엔진">
+<meta name="twitter:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/amf/og-image.png">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>
@@ -1439,6 +1455,7 @@ html.promo .drawer,html.promo .scrim{display:none!important}
         </div>
       </div>
       <p class="pm-hint">화면을 직접 눌러 보세요 · 왼쪽 목록을 누르면 해당 화면으로 이동합니다</p>
+      <p class="pm-hint">휴대폰에서 이 주소를 열면 <b>홈 화면에 앱으로 추가</b>할 수 있습니다</p>
     </div>
 
   </div>
@@ -7423,6 +7440,14 @@ const GEM_HOST='https://generativelanguage.googleapis.com/v1beta';
 let GEM={key:'', model:(window.AMF_AI_CONFIG&&window.AMF_AI_CONFIG.MODEL)||'gemini-flash-latest'};
 try{ const r=localStorage.getItem(GKEY); if(r) GEM=Object.assign(GEM,JSON.parse(r)||{}); }catch(e){}
 const gemSave=()=>{ try{ localStorage.setItem(GKEY,JSON.stringify(GEM)); }catch(e){} };
+/* 공유 링크에 담긴 키: …/amf/?app=1#k=<GEMINI_API_KEY>
+   해시(#) 뒤는 서버로 전송되지 않고 저장소(GitHub Pages)에도 남지 않는다.
+   받은 사람은 설정 없이 AI 를 쓰고, 키는 이 브라우저의 localStorage 에만 저장된다.
+   주소는 그대로 두어 링크를 다시 복사해 전달해도 AI 가 켜진 채로 간다. */
+try{
+  const hk=new URLSearchParams((location.hash||'').replace(/^#/,'')).get('k');
+  if(hk && /^[A-Za-z0-9_.\-]{20,120}$/.test(hk) && hk!==GEM.key){ GEM.key=hk; gemSave(); }
+}catch(e){}
 
 /* 서버 프록시(/api/gemini) 가 있으면 그쪽을 쓴다.
    프록시는 API 키를 서버 환경변수에만 두므로 클라이언트가 키를 볼 일이 없다.
@@ -8055,6 +8080,7 @@ if(APP_MODE){
 </script>
 <script src="plans.js"></script>
 <script src="home.js"></script>
+<script src="install.js"></script>
 <script src="assistant.js"></script>
 </body>
 </html>
