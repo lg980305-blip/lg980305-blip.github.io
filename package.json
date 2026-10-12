@@ -3,6 +3,6 @@
   "private": true,
   "description": "정적 사이트(GitHub Pages) + Vercel 서버리스 API. 거래 로그 API 의 원본은 amf-total-project/ 에 있고, 루트 api/ 는 그것을 그대로 내보낸다.",
   "dependencies": {
-    "@libsql/client": "^0.6.0"
+    "@libsql/client": "^0.15.0"
   }
 }
