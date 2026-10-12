@@ -2,13 +2,13 @@
    AMF CIE — 서비스 워커
    홈 화면에 설치된 앱이 재방문·오프라인에서도 열리도록 캐시한다.
    · 문서(HTML): 네트워크 우선, 실패하면 캐시
-   · 같은 도메인 정적 자원: 캐시 우선
+   · 같은 도메인 스크립트(.js): 네트워크 우선, 실패하면 캐시 · 그 밖의 정적 자원: 캐시 우선
    · /api/ 와 외부 도메인(Gemini 중계 등)은 건드리지 않는다
    캐시 내용을 갈아야 하면 CACHE 버전만 올린다.
    ============================================================ */
-const CACHE='amf-cie-v2';
-const PRECACHE=['./','./index.html','./?app=1','./manifest.json','./shows-data.js',
-  './plans.js','./home.js','./install.js','./assistant.js','./icon-192.png','./icon-512.png'];
+const CACHE='amf-cie-v3';
+const PRECACHE=['./','./index.html','./?app=1','./manifest.json','./shows-data.js?v=20261012b',
+  './plans.js?v=20261012b','./home.js?v=20261012b','./install.js?v=20261012b','./assistant.js?v=20261012b','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE)
@@ -32,6 +32,14 @@ self.addEventListener('fetch',e=>{
       if(res.ok){ const copy=res.clone(); caches.open(CACHE).then(c=>c.put(req,copy)); }
       return res;
     }).catch(()=>caches.match(req).then(hit=>hit||caches.match('./?app=1')||caches.match('./index.html'))));
+    return;
+  }
+  const isJs=/\.js(\?|$)/.test(url.pathname+url.search);
+  if(isJs){   /* 스크립트는 문서처럼 네트워크 우선 — 메뉴 파일이 옛 캐시로 남는 일을 막는다 */
+    e.respondWith(fetch(req).then(res=>{
+      if(res.ok&&res.type==='basic'){ const copy=res.clone(); caches.open(CACHE).then(c=>c.put(req,copy)); }
+      return res;
+    }).catch(()=>caches.match(req)));
     return;
   }
   e.respondWith(caches.match(req).then(hit=>hit||fetch(req).then(res=>{
