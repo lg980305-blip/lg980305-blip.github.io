@@ -29,6 +29,7 @@ console.log('── 검증 ──');
 { const {req,res}=mock('POST',{headers:KEY,body:{campaign_id:CID,step:'6_bogus',actor:'x',payload:{}}}); await events(req,res); ok(res._s===400,'잘못된 step 은 400'); }
 { const {req,res}=mock('POST',{headers:KEY,body:{campaign_id:CID,step:'1_brief',actor:'',payload:{}}}); await events(req,res); ok(res._s===400,'actor 비면 400'); }
 { const {req,res}=mock('POST',{headers:KEY,body:{campaign_id:CID,step:'1_brief',actor:'x',payload:[1]}}); await events(req,res); ok(res._s===400,'payload 배열이면 400'); }
+{ const {req,res}=mock('POST',{headers:KEY,body:{campaign_id:CID,step:'1_brief',actor:'x',payload:{blob:'x'.repeat(70*1024)}}}); await events(req,res); ok(res._s===413,'payload 64KB 넘으면 413'); }
 
 console.log('── 시나리오 1·2·3 ──');
 const steps = [
