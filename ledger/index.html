@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMF 커머스 인텔리전스 콘솔</title>
+<style>
+:root{--bg:#F2F4F7;--surface:#FFF;--ink:#0F172A;--brand:#0B3A6F;--line:#E2E7EF;--r:6px;}
+body{font-family:sans-serif;background:var(--bg);color:var(--ink);margin:0;padding:20px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;max-width:800px;margin:0 auto 16px;box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+button{background:var(--brand);color:#fff;border:none;padding:10px 16px;border-radius:var(--r);cursor:pointer;font-weight:600;}
+button.sec{background:#fff;color:var(--brand);border:1px solid var(--brand);margin-left:8px;}
+pre{background:#F8FAFC;padding:12px;border-radius:var(--r);overflow-x:auto;font-size:12px;}
+.hint{font-size:12px;color:#64748B;margin-top:10px;}
+.toast{padding:10px;margin-bottom:12px;border-radius:var(--r);font-size:13px;display:none;}
+.toast.success{background:#E7F5F0;color:#0E7C5A;display:block;}
+.toast.error{background:#FDEDEA;color:#B42318;display:block;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>AMF 캠페인 매칭 및 거래 로그 시뮬레이터</h2>
+  <div id="toast" class="toast"></div>
+  <p>버튼을 눌러 1단계(Brief)부터 3단계(Selection)까지의 이벤트를 서버(Turso DB)에 기록하고 타임라인을 조회합니다. 여기서 만드는 기록은 모두 <b>TEST-</b>로 시작하는 테스트용이며, 실제 거래 증빙(CAMP-)과 섞이지 않습니다.</p>
+  <button id="btnRun" onclick="runSimulationSequence()">1~3단계 테스트 시나리오 실행하기</button>
+  <button class="sec" onclick="fetchTimeline()">타임라인만 조회</button>
+  <button class="sec" onclick="setWriteKey()">쓰기 키 변경</button>
+  <button class="sec" onclick="openVerify()">감사 검증 페이지</button>
+  <div class="hint">쓰기 키(EVENTS_WRITE_KEY)는 처음 실행할 때 한 번 묻고 이 브라우저 탭에만 보관합니다. 페이지 소스에는 키가 없습니다.</div>
+</div>
+
+<div class="card">
+  <h3>실시간 캠페인 타임라인 조회 결과</h3>
+  <pre id="resultView">아직 조회된 데이터가 없습니다.</pre>
+</div>
+
+<script>
+/* 캠페인 ID — 실행할 때마다 오늘 날짜 + 일련번호로 새로 만든다 (같은 ID 에 3단계가 계속 쌓이지 않게).
+   이 페이지가 만드는 기록은 전부 TEST- 로 시작한다. 실제 거래는 CAMP- 로 기록해 증빙에서 구분한다. */
+function newCampaignId() {
+  const d = new Date(), p = n => String(n).padStart(2, '0');
+  const seq = Number(store.get('amf_seq') || 0) + 1;
+  store.set('amf_seq', seq);
+  return `TEST-${d.getFullYear()}-${p(d.getMonth() + 1)}${p(d.getDate())}-${p(seq)}`;
+}
+/* 시크릿 창 등에서 sessionStorage 가 막혀 있어도 페이지는 동작해야 한다 */
+const store = {
+  get(k) { try { return sessionStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { sessionStorage.setItem(k, v); } catch {} },
+  del(k) { try { sessionStorage.removeItem(k); } catch {} },
+};
+let CAMPAIGN_ID = store.get('amf_last_cid') || '';
+
+/* 쓰기 키는 코드에 적지 않는다. 공개 페이지에 적으면 누구나 가짜 기록을 넣을 수 있다. */
+function getWriteKey() {
+  let k = store.get('amf_write_key');
+  if (!k) { k = (prompt('EVENTS_WRITE_KEY 를 입력하세요 (Vercel 환경변수와 같은 값)') || '').trim(); if (k) store.set('amf_write_key', k); }
+  return k;
+}
+function showToast(message, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = message;
+  t.className = `toast ${isError ? 'error' : 'success'}`;
+}
+function setWriteKey() { store.del('amf_write_key'); getWriteKey(); }
+
+function openVerify() { location.href = 'verify.html' + (CAMPAIGN_ID ? '?id=' + encodeURIComponent(CAMPAIGN_ID) : ''); }
+/* 재전송돼도 한 번만 기록되도록 요청마다 멱등 키를 붙인다 */
+const newKey = () => (crypto.randomUUID ? crypto.randomUUID() : 'k-' + Date.now() + '-' + Math.random().toString(16).slice(2));
+
+async function sendEvent(step, actor, payload) {
+  const res = await fetch('/api/events', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-AMF-Key': getWriteKey(), 'X-Idempotency-Key': newKey() },
+    body: JSON.stringify({ campaign_id: CAMPAIGN_ID, step, actor, payload })
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(`${step} 실패 (HTTP ${res.status}): ${data.error || ''}`);
+  return data;
+}
+
+async function fetchTimeline() {
+  const view = document.getElementById('resultView');
+  if (!CAMPAIGN_ID) { view.textContent = '먼저 시나리오를 실행하세요.'; return; }
+  const res = await fetch(`/api/campaigns/${encodeURIComponent(CAMPAIGN_ID)}`);
+  const data = await res.json();
+  view.textContent = JSON.stringify(data, null, 2);
+  return data;
+}
+
+async function runSimulationSequence() {
+  const view = document.getElementById('resultView'), btn = document.getElementById('btnRun');
+  if (!getWriteKey()) { view.textContent = '쓰기 키가 없어 중단했습니다.'; return; }
+  btn.disabled = true;
+  CAMPAIGN_ID = newCampaignId(); store.set('amf_last_cid', CAMPAIGN_ID);
+  view.textContent = `${CAMPAIGN_ID} 기록 및 조회 중...`;
+  showToast('이벤트를 순차적으로 기록하는 중...');
+  try {
+    // 1단계: 브리프 입력 (주문서)
+    await sendEvent('1_brief', '박채빈', { brand: "LUMEHA", category: "뷰티", budget: 20000000, target_country: "우즈베키스탄" });
+    // 2단계: 엔진 매칭 출력 (추천서)
+    await sendEvent('2_match', 'engine', { recommended: [{ id: "AMF-CR-0001", score: 96.2 }, { id: "AMF-CR-0002", score: 91.8 }] });
+    // 3단계: 크리에이터 선정 및 예측값 (결정) — 5단계 실측과 나란히 비교할 값
+    await sendEvent('3_selection', '박채빈', { selected: ["AMF-CR-0001"], projected_roas: 4.2, projected_reach: 1420000 });
+    // 최종 타임라인 불러오기
+    const data = await fetchTimeline();
+    const a = data && data.audit;
+    showToast(`${CAMPAIGN_ID} — 1→2→3 단계 기록 · 해시 체인 ${a && a.verified ? '검증됨' : '확인 불가'} · 체인 머리 ${a ? a.chain_head.slice(0, 16) + '…' : '-'}`);
+  } catch (e) {
+    view.textContent = String(e.message || e);
+    showToast('오류: ' + (e.message || e), true);
+    if (/401/.test(view.textContent)) store.del('amf_write_key');
+  } finally { btn.disabled = false; }
+}
+</script>
+
+</body>
+</html>
