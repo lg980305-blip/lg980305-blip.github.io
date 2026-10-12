@@ -116,7 +116,7 @@ console.log('── 옛 스키마(해시 열 없음) 마이그레이션 ──')
   old.close();
   const r = spawnSync(process.execPath, [new URL('./migrate.child.mjs', import.meta.url).pathname], { env:{...process.env, TURSO_DATABASE_URL:'file:'+OLD.pathname}, encoding:'utf8' });
   let out=null; try{ out=JSON.parse(r.stdout); }catch{}
-  ok(r.status===0 && out && out.audit.verified===true && out.audit.blocks===2 && out.timeline[0].prev_hash==='0'.repeat(64),'열 추가 + 기존 2행 체인 채움 → verified (새 프로세스에서 확인)');
+  ok(r.status===0 && out && out.audit.verified===true && out.audit.blocks===2 && out.timeline[0].prev_hash==='0'.repeat(64) && out.second_status===200,'열 추가 + 기존 2행 체인 채움 → verified · 동시 요청 2개 모두 200 (새 프로세스)');
   if(!out) console.log(r.stdout, r.stderr); }
 
 console.log('── 영속성 (재기동 흉내) ──');

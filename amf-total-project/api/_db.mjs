@@ -30,9 +30,17 @@ export function eventHash(e) {
     .digest('hex');
 }
 
-let ready = false;
-export async function ensureTable(db) {
-  if (ready) return;
+let ready = false, initPromise = null;
+/* 한 인스턴스에 요청이 동시에 들어와도 초기화(DDL · 마이그레이션)는 한 번만 돈다.
+   실패하면 다음 요청이 다시 시도할 수 있게 잠금을 푼다. */
+export function ensureTable(db) {
+  if (ready) return Promise.resolve();
+  if (!initPromise) {
+    initPromise = initTable(db).catch(err => { initPromise = null; throw err; });
+  }
+  return initPromise;
+}
+async function initTable(db) {
   await db.execute(`
     CREATE TABLE IF NOT EXISTS events (
       id          INTEGER PRIMARY KEY AUTOINCREMENT,
