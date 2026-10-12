@@ -1,6 +1,6 @@
 /* GET /api/campaigns/:id — 한 캠페인의 전체 흐름 (id 오름차순) + 해시 체인 검증 + 예측 대 실측
    ?raw=1 이면 저장된 payload 문자열(payload_json)도 함께 — 감사자가 브라우저에서 해시를 직접 재계산할 때 */
-import { getDb, ensureTable, cors, eventHash, variance, GENESIS } from '../_db.mjs';
+import { getDb, ensureTable, cors, eventHash, variance, GENESIS, errDetail } from '../_db.mjs';
 
 export default async function handler(req, res) {
   if (cors(req, res)) return;
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   const raw = String(req.query.raw || '') === '1';
 
   try {
-    const db = getDb();
+    const db = await getDb();
     await ensureTable(db);
     const r = await db.execute({
       sql: `SELECT id, step, actor, payload, prev_hash, event_hash, created_at
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     console.error('[campaigns] get', err);
-    return res.status(500).json({ error: 'db error' });
+    return res.status(500).json({ error: 'db error', detail: errDetail(err) });
   }
 }
 

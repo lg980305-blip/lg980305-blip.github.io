@@ -1,6 +1,6 @@
 /* GET /api/analytics/drift — 정산까지 간 캠페인의 예측 대 실측 집계
    장부(events)를 읽어 그 자리에서 계산한다. 별도 지표 테이블은 두지 않는다 — 원장과 어긋날 수 없게. */
-import { getDb, ensureTable, cors, variance } from '../_db.mjs';
+import { getDb, ensureTable, cors, variance, errDetail } from '../_db.mjs';
 
 export default async function handler(req, res) {
   if (cors(req, res)) return;
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'method not allowed' });
   }
   try {
-    const db = getDb();
+    const db = await getDb();
     await ensureTable(db);
     const r = await db.execute(`
       SELECT campaign_id, step, payload FROM events
@@ -46,6 +46,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ settled: campaigns.length, by_model, campaigns });
   } catch (err) {
     console.error('[analytics] drift', err);
-    return res.status(500).json({ error: 'db error' });
+    return res.status(500).json({ error: 'db error', detail: errDetail(err) });
   }
 }

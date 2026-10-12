@@ -1,22 +1,31 @@
-import { createClient } from '@libsql/client';
+import { createClient as createWebClient } from '@libsql/client/web';
 import { createHash } from 'node:crypto';
 
 export const STEPS = ['1_brief', '2_match', '3_selection', '4_contract', '5_settle'];
 export const GENESIS = '0'.repeat(64);   /* 캠페인 첫 이벤트의 prev_hash */
 
 let client = null;
-export function getDb() {
+/* Turso(libsql://)는 fetch 만 쓰는 web 클라이언트로 — 서버리스에서 네이티브 모듈이 필요 없다.
+   로컬 파일 DB(file:)는 테스트·개발 전용이라 그때만 node 클라이언트를 불러온다. */
+export async function getDb() {
   if (!client) {
-    const url = process.env.TURSO_DATABASE_URL;
-    if (!url || (!url.startsWith('file:') && !process.env.TURSO_AUTH_TOKEN)) {
-      throw new Error('TURSO_DATABASE_URL / TURSO_AUTH_TOKEN not configured');
+    const url = (process.env.TURSO_DATABASE_URL || '').trim();
+    const authToken = (process.env.TURSO_AUTH_TOKEN || '').trim();
+    if (!url) throw new Error('TURSO_DATABASE_URL not configured');
+    if (url.startsWith('file:')) {
+      const { createClient } = await import('@libsql/client');
+      client = createClient({ url });
+    } else {
+      if (!authToken) throw new Error('TURSO_AUTH_TOKEN not configured');
+      client = createWebClient({ url, authToken });
     }
-    client = createClient({
-      url,
-      authToken: process.env.TURSO_AUTH_TOKEN,
-    });
   }
   return client;
+}
+
+/* 500 응답에 넣는 짧은 원인 — 토큰처럼 보이는 문자열은 지운다 */
+export function errDetail(err) {
+  return String(err && err.message || err).replace(/eyJ[A-Za-z0-9_-]{10,}\.?[A-Za-z0-9_.-]*/g, '<token>').slice(0, 160);
 }
 
 /* 이벤트 해시 — 저장된 문자열을 그대로 JSON 배열로 직렬화해 SHA-256.

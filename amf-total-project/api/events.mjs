@@ -1,7 +1,7 @@
 /* POST /api/events — 거래 단계 기록 (append-only · 해시 체인)
    body: { campaign_id, step, actor, payload }
    header: X-AMF-Key (필수) · X-Idempotency-Key (선택, 재전송 시 같은 키면 한 번만 기록) */
-import { getDb, ensureTable, cors, reqWriteKey, eventHash, STEPS, GENESIS } from './_db.mjs';
+import { getDb, ensureTable, cors, reqWriteKey, eventHash, STEPS, GENESIS, errDetail } from './_db.mjs';
 
 const MAX_PAYLOAD = 64 * 1024;   /* 한 단계 기록 상한. 증거 로그에 파일을 넣는 용도가 아니다 */
 const RETRIES = 3;               /* 같은 순간 다른 기록이 먼저 들어왔을 때 다시 잇는 횟수 */
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
   const idem = String(req.headers['x-idempotency-key'] || '').trim().slice(0, 128) || null;
 
   try {
-    const db = getDb();
+    const db = await getDb();
     await ensureTable(db);
     const cid = campaign_id.trim(), who = actor.trim();
 
@@ -83,6 +83,6 @@ export default async function handler(req, res) {
     return res.status(409).json({ error: 'concurrent write, retry' });
   } catch (err) {
     console.error('[events] insert', err);
-    return res.status(500).json({ error: 'db error' });
+    return res.status(500).json({ error: 'db error', detail: errDetail(err) });
   }
 }

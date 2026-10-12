@@ -1,5 +1,5 @@
 /* GET /api/campaigns — 캠페인별 요약 (최근 활동 순) */
-import { getDb, ensureTable, cors } from '../_db.mjs';
+import { getDb, ensureTable, cors, errDetail } from '../_db.mjs';
 
 export default async function handler(req, res) {
   if (cors(req, res)) return;
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'method not allowed' });
   }
   try {
-    const db = getDb();
+    const db = await getDb();
     await ensureTable(db);
     /* status 는 "가장 최근 이벤트의 단계" — /api/campaigns/:id 의 status 와 같은 뜻.
        (MAX(step) 은 재매칭처럼 뒤로 돌아간 경우를 숨긴다) */
@@ -33,6 +33,6 @@ export default async function handler(req, res) {
     return res.status(200).json(r.rows);
   } catch (err) {
     console.error('[campaigns] list', err);
-    return res.status(500).json({ error: 'db error' });
+    return res.status(500).json({ error: 'db error', detail: errDetail(err) });
   }
 }
