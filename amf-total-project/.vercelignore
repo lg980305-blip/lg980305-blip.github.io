@@ -1,0 +1,4 @@
+# 로컬 전용 — Vercel 배포에 올리지 않는다
+test/
+dev.mjs
+*.db

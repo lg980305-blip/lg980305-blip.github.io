@@ -55,6 +55,20 @@ console.log('── 조회 ──');
 { const {req,res}=mock('GET'); await list(req,res);
   ok(res._s===200 && res._b.length===1 && res._b[0].steps===3 && res._b[0].status==='3_selection','목록: 1건 · 3단계 · status 맞음'); }
 
+console.log('── 재매칭 시 status — 목록과 단일 조회가 같은 뜻이어야 한다 ──');
+const CID2 = 'CAMP-2026-1012-02';
+for (const [step,actor,payload] of [['1_brief','박채빈',{}],['3_selection','박채빈',{projected_roas:3.1}],['2_match','engine',{recommended:[]}]]){
+  const {req,res}=mock('POST',{headers:KEY,body:{campaign_id:CID2,step,actor,payload}}); await events(req,res); ok(res._s===201,`${step} → 201`);
+}
+{ const {req,res}=mock('GET'); await list(req,res);
+  ok(res._b.length===2 && res._b[0].campaign_id===CID2,'목록: 2건 · 최근 활동 캠페인이 먼저');
+  ok(res._b[0].status==='2_match' && res._b[0].steps===3,'목록 status = 가장 최근 이벤트 단계 (2_match)'); }
+{ const {req,res}=mock('GET',{query:{id:CID2}}); await one(req,res); ok(res._b.status==='2_match','단일 조회 status 도 2_match — 목록과 일치'); }
+
+console.log('── 본문이 문자열로 올 때 (Content-Type 누락) ──');
+{ const {req,res}=mock('POST',{headers:KEY,body:JSON.stringify({campaign_id:CID2,step:'4_contract',actor:'박채빈',payload:{amount:1}})}); await events(req,res); ok(res._s===201,'문자열 JSON 본문도 201'); }
+{ const {req,res}=mock('POST',{headers:KEY,body:'{not json'}); await events(req,res); ok(res._s===400,'깨진 문자열 본문은 400'); }
+
 console.log('── 영속성 (재기동 흉내) ──');
 { const fresh = (await import('../api/campaigns/[id].mjs?fresh='+Date.now())).default;
   const {req,res}=mock('GET',{query:{id:CID}}); await fresh(req,res);

@@ -12,12 +12,20 @@ export default async function handler(req, res) {
   }
   if (!reqWriteKey(req, res)) return;
 
-  const { campaign_id, step, actor, payload } = req.body || {};
+  /* Vercel 은 Content-Type 이 application/json 일 때만 본문을 객체로 준다.
+     헤더가 빠진 호출(문자열·Buffer)도 받아 준다. */
+  let body = req.body;
+  if (Buffer.isBuffer(body)) body = body.toString('utf8');
+  if (typeof body === 'string') {
+    try { body = JSON.parse(body); }
+    catch { return res.status(400).json({ error: 'malformed json body' }); }
+  }
+  const { campaign_id, step, actor, payload } = body || {};
   if (typeof campaign_id !== 'string' || !campaign_id.trim() ||
       typeof actor !== 'string' || !actor.trim() ||
       !STEPS.includes(step) ||
       typeof payload !== 'object' || payload === null || Array.isArray(payload)) {
-    return res.status(400).json({ error: 'invalid body' });
+    return res.status(400).json({ error: 'invalid body', expect: { campaign_id: 'string', step: STEPS, actor: 'string', payload: 'object' } });
   }
   const json = JSON.stringify(payload);
   if (json.length > MAX_PAYLOAD) {
