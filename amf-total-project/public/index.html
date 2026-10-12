@@ -26,6 +26,7 @@ pre{background:#F8FAFC;padding:12px;border-radius:var(--r);overflow-x:auto;font-
   <button id="btnRun" onclick="runSimulationSequence()">1~3단계 테스트 시나리오 실행하기</button>
   <button class="sec" onclick="fetchTimeline()">타임라인만 조회</button>
   <button class="sec" onclick="setWriteKey()">쓰기 키 변경</button>
+  <button class="sec" onclick="openVerify()">감사 검증 페이지</button>
   <div class="hint">쓰기 키(EVENTS_WRITE_KEY)는 처음 실행할 때 한 번 묻고 이 브라우저 탭에만 보관합니다. 페이지 소스에는 키가 없습니다.</div>
 </div>
 
@@ -64,10 +65,14 @@ function showToast(message, isError = false) {
 }
 function setWriteKey() { store.del('amf_write_key'); getWriteKey(); }
 
+function openVerify() { location.href = 'verify.html' + (CAMPAIGN_ID ? '?id=' + encodeURIComponent(CAMPAIGN_ID) : ''); }
+/* 재전송돼도 한 번만 기록되도록 요청마다 멱등 키를 붙인다 */
+const newKey = () => (crypto.randomUUID ? crypto.randomUUID() : 'k-' + Date.now() + '-' + Math.random().toString(16).slice(2));
+
 async function sendEvent(step, actor, payload) {
   const res = await fetch('/api/events', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-AMF-Key': getWriteKey() },
+    headers: { 'Content-Type': 'application/json', 'X-AMF-Key': getWriteKey(), 'X-Idempotency-Key': newKey() },
     body: JSON.stringify({ campaign_id: CAMPAIGN_ID, step, actor, payload })
   });
   const data = await res.json();
@@ -81,6 +86,7 @@ async function fetchTimeline() {
   const res = await fetch(`/api/campaigns/${encodeURIComponent(CAMPAIGN_ID)}`);
   const data = await res.json();
   view.textContent = JSON.stringify(data, null, 2);
+  return data;
 }
 
 async function runSimulationSequence() {
@@ -98,8 +104,9 @@ async function runSimulationSequence() {
     // 3단계: 크리에이터 선정 및 예측값 (결정) — 5단계 실측과 나란히 비교할 값
     await sendEvent('3_selection', '박채빈', { selected: ["AMF-CR-0001"], projected_roas: 4.2, projected_reach: 1420000 });
     // 최종 타임라인 불러오기
-    await fetchTimeline();
-    showToast(`${CAMPAIGN_ID} — 1→2→3 단계가 append-only 로 기록되었습니다.`);
+    const data = await fetchTimeline();
+    const a = data && data.audit;
+    showToast(`${CAMPAIGN_ID} — 1→2→3 단계 기록 · 해시 체인 ${a && a.verified ? '검증됨' : '확인 불가'} · 체인 머리 ${a ? a.chain_head.slice(0, 16) + '…' : '-'}`);
   } catch (e) {
     view.textContent = String(e.message || e);
     showToast('오류: ' + (e.message || e), true);

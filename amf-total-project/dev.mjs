@@ -15,6 +15,7 @@ const routes = [
   [/^\/api\/campaigns$/,         () => import('./api/campaigns/index.mjs'),   () => ({})],
   [/^\/api\/campaigns\/([^/]+)$/, () => import('./api/campaigns/[id].mjs'),   m => ({ id: decodeURIComponent(m[1]) })],
   [/^\/api\/gemini$/,            () => import('./api/gemini.mjs'),            () => ({})],
+  [/^\/api\/analytics\/drift$/,  () => import('./api/analytics/drift.mjs'),   () => ({})],
 ];
 
 function wrap(res) {

@@ -15,6 +15,7 @@ export default async function handler(req, res) {
     const r = await db.execute(`
       SELECT e.campaign_id,
              e.step           AS status,
+             e.event_hash     AS chain_head,
              agg.first_at,
              agg.last_at,
              agg.steps
