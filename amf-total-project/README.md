@@ -74,3 +74,9 @@ curl https://<프로젝트>.vercel.app/api/campaigns/CAMP-2026-1012-01
 curl https://<프로젝트>.vercel.app/api/analytics/drift
 # 감사 검증 페이지: https://<프로젝트>.vercel.app/verify.html?id=CAMP-2026-1012-01
 ```
+
+## 저장소 맨 위에서도 돌아간다 (Vercel 프로젝트가 루트를 볼 때)
+
+루트의 `api/events.mjs` · `api/campaigns/*.mjs` · `api/analytics/drift.mjs` 는 이 폴더의 핸들러를 그대로 내보내고,
+루트 `package.json` 이 `@libsql/client` 를 제공한다. 페이지는 `/ledger/` 와 `/ledger/verify.html` 에 복사본이 있다.
+원본을 고칠 때는 이 폴더를 고치고, `ledger/` 의 두 HTML 은 `public/` 에서 다시 복사한다.
