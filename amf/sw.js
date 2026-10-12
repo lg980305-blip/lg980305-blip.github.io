@@ -6,7 +6,7 @@
    · /api/ 와 외부 도메인(Gemini 중계 등)은 건드리지 않는다
    캐시 내용을 갈아야 하면 CACHE 버전만 올린다.
    ============================================================ */
-const CACHE='amf-cie-v1';
+const CACHE='amf-cie-v2';
 const PRECACHE=['./','./index.html','./?app=1','./manifest.json','./shows-data.js',
   './plans.js','./home.js','./install.js','./assistant.js','./icon-192.png','./icon-512.png'];
 

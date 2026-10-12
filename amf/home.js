@@ -348,7 +348,7 @@ q('hmAll').onclick=()=>window.showView('roster');
 const TABS=[
   {k:'home',     n:'추천',       views:['home','match']},
   {k:'creators', n:'크리에이터', views:['roster','growth']},
-  {k:'casting',  n:'캐스팅',     views:['board','shows']},
+  {k:'casting',  n:'캐스팅',     views:['board','shows','cue']},
   {k:'insights', n:'인사이트',   views:['dash','trends','cases','gov','alerts']}
 ];
 const tabOf=v=>TABS.find(t=>t.views.indexOf(v)>=0);
