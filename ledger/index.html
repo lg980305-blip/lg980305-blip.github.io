@@ -27,7 +27,7 @@ pre{background:#F8FAFC;padding:12px;border-radius:var(--r);overflow-x:auto;font-
   <button class="sec" onclick="fetchTimeline()">타임라인만 조회</button>
   <button class="sec" onclick="setWriteKey()">쓰기 키 변경</button>
   <button class="sec" onclick="openVerify()">감사 검증 페이지</button>
-  <div class="hint">쓰기 키(EVENTS_WRITE_KEY)는 처음 실행할 때 한 번 묻고 이 브라우저 탭에만 보관합니다. 페이지 소스에는 키가 없습니다.</div>
+  <div class="hint">쓰기 키(EVENTS_WRITE_KEY)는 처음 실행할 때 한 번 묻고 이 브라우저 탭에만 보관합니다. 페이지 소스에는 키가 없습니다. <span id="ver">빌드 2026-10-13 c</span></div>
 </div>
 
 <div class="card">
@@ -76,7 +76,7 @@ async function sendEvent(step, actor, payload) {
     body: JSON.stringify({ campaign_id: CAMPAIGN_ID, step, actor, payload })
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(`${step} 실패 (HTTP ${res.status}): ${data.error || ''}`);
+  if (!res.ok) throw new Error(`${step} 실패 (HTTP ${res.status}): ${data.error || ''}${data.detail ? ' — ' + data.detail : ''}`);
   return data;
 }
 
