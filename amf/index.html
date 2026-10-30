@@ -2670,6 +2670,8 @@ DICT = {
 'AI 연결 설정 (미연결)':'AI connection settings (not connected)',
 'AI 연결됨 (서버 키) · ':'AI connected (server key) · ',
 'AI 연결됨 (브라우저 키) · ':'AI connected (browser key) · ',
+'AI 연결됨 (링크로 받은 키) · ':'AI connected (key from link) · ',
+'링크에 다른 Gemini 키가 들어 있습니다. 지금 저장된 키를 이 키로 바꿀까요?':'This link contains a different Gemini key. Replace your saved key with it?',
 '키 삭제':'Delete key','저장하고 연결 테스트':'Save and test connection',
 'Gemini 키를 삭제했습니다':'Gemini key deleted','Gemini 연결 완료 · ':'Gemini connected · ',
 '연결 확인 중…':'Checking connection...','브리프를 해석하는 중…':'Interpreting the brief...',
@@ -3303,6 +3305,8 @@ try{
   else LANG=(navigator.language||'ko').toLowerCase().startsWith('ko')?'ko':'en';
 }catch(e){}
 
+/* HTML 이스케이프 — 외부 파일·저장값을 innerHTML 에 넣기 전에 사용 */
+function escH(v){ return String(v==null?'':v).replace(/[&<>"'`]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c])); }
 /* 단순 라벨 */
 function T(ko){
   if(LANG==='ko') return ko;
@@ -5134,20 +5138,20 @@ function renderHist(){
      <th class="r">${T('순 도달')}</th><th class="r">${T('중복도')}</th><th>${T('1위 추천')}</th></tr></thead>
    <tbody>${HIST.map(h=>{
      const isCur = h.run===RUNID;
-     return `<tr class="histrow clk ${isCur?'cur':''}" onclick="loadHistBrief('${h.run}')"
+     return `<tr class="histrow clk ${isCur?'cur':''}" onclick="loadHistBrief('${String(h.run).replace(/[^\w-]/g,'')}')"
        title="클릭하면 이 브리프가 폼에 복원됩니다">
        <td class="mono" style="font-size:10.5px;color:var(--ink3)">
          ${isCur?'<span class="tag b" style="margin-right:5px">현재</span>':''}
          ${new Date(h.at).toISOString().slice(5,16).replace('T',' ')}</td>
-       <td style="white-space:normal;max-width:230px">${h.label}</td>
-       <td><span class="tag n">${h.obj}</span></td>
+       <td style="white-space:normal;max-width:230px">${escH(h.label)}</td>
+       <td><span class="tag n">${escH(h.obj)}</span></td>
        <td class="r num">${MAN(h.budget)}</td>
        <td class="r num">${h.cand} ${isCur?'':d(h.cand,cur.cand)}</td>
        <td class="r num">${PPL(h.n)} ${isCur?'':d(h.n,cur.n)}</td>
        <td class="r num" style="color:var(--brand);font-weight:700">${h.score.toFixed(1)} ${isCur?'':d(h.score,cur.score,1)}</td>
        <td class="r num">${KM(h.net)} ${isCur?'':d(h.net/10000,cur.net/10000,1)}</td>
        <td class="r num" style="color:${h.dup>=40?'var(--neg)':h.dup>=20?'var(--warn)':'var(--pos)'}">${h.dup}% ${isCur?'':d(h.dup,cur.dup,1,true)}</td>
-       <td>${h.top}</td></tr>`}).join('')}
+       <td>${escH(h.top)}</td></tr>`}).join('')}
      <tr style="background:var(--surface2)"><td colspan="10"
        style="white-space:normal;font-size:11px;color:var(--ink2)">
        Δ 값은 <b>${T('현재 실행 대비')}</b> 차이입니다. 이력은 이 브라우저에만 저장되며 최근 12건까지 유지됩니다.
@@ -7194,7 +7198,8 @@ function coerce(field, raw){
     if(typeof v==='string'){ try{ v=JSON.parse(v); }catch(e){ return {ok:false,msg:'JSON 형식 오류'}; } }
     if(typeof v!=='object') return {ok:false, msg:'객체가 아닙니다'};
   }else{
-    v=String(v).trim();
+    /* 보안: 업로드 파일의 자유 텍스트에서 HTML 특수문자를 제거한다 (DOM XSS 방지) */
+    v=String(v).replace(/[<>"'`]/g,'').trim();
     if(!v) return {ok:false, empty:true};
     if(field.enumOf){
       const allowed=field.enumOf();
@@ -7400,7 +7405,7 @@ function renderDataPanel(){
   el.innerHTML=`
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap">
       ${badge}
-      <b style="font-size:13px">${ds.kind==='real'? (ds.name||T('업로드된 로스터')) : T('AMF 로스터 (98인)')}</b>
+      <b style="font-size:13px">${ds.kind==='real'? (escH(ds.name)||T('업로드된 로스터')) : T('AMF 로스터 (98인)')}</b>
       <span style="font-size:11px;color:var(--ink3)">${L`${ds.count}인`}${
         ds.at?' · '+ds.at.slice(0,16).replace('T',' '):''}</span>
     </div>
@@ -7416,12 +7421,12 @@ function renderDataPanel(){
         <b>${T('합성으로 채운 필드 —')}</b> ${T('아래 항목은 업로드 파일에 없어 합성 기본값을 사용합니다. 실측치가 아니므로 결과 해석 시 감안하십시오.')}<br>
         ${fills.map(([k,n])=>`<span class="mono">${k}</span>(${n})`).join(' · ')}</div>`:''}
       ${rep.unknown.length?`<div style="font-size:10.5px;color:var(--ink3);margin-bottom:10px">
-        ${T('스키마에 없어 무시한 열')}: <span class="mono">${rep.unknown.join(', ')}</span></div>`:''}
+        ${T('스키마에 없어 무시한 열')}: <span class="mono">${rep.unknown.map(escH).join(', ')}</span></div>`:''}
       ${rep.rejected.length?`<div class="sec" style="margin:12px 0 7px">${T('거부된 행')}</div>
         <div class="tblwrap" style="max-height:180px;overflow-y:auto"><table>
         <thead><tr><th>${T('행')}</th><th>ID</th><th>${T('사유')}</th></tr></thead>
         <tbody>${rep.rejected.slice(0,50).map(r=>`<tr><td class="mono">${r.row}</td>
-          <td class="mono">${r.id}</td><td style="white-space:normal">${r.why}</td></tr>`).join('')}
+          <td class="mono">${escH(r.id)}</td><td style="white-space:normal">${escH(r.why)}</td></tr>`).join('')}
         </tbody></table></div>`:''}
     ` : `<div style="font-size:11.5px;color:var(--ink2);line-height:1.8;margin-bottom:12px">
         ${T('현재 화면의 크리에이터는 AMF 로스터 98인이며 성과 지표는 시뮬레이션입니다. 실제 로스터 파일(CSV 또는 JSON)을 올리면 엔진·UI는 그대로 두고 데이터만 교체됩니다.')}</div>`}
@@ -7593,11 +7598,21 @@ try{ const r=localStorage.getItem(GKEY); if(r) GEM=Object.assign(GEM,JSON.parse(
 const gemSave=()=>{ try{ localStorage.setItem(GKEY,JSON.stringify(GEM)); }catch(e){} };
 /* 공유 링크에 담긴 키: …/amf/?app=1#k=<GEMINI_API_KEY>
    해시(#) 뒤는 서버로 전송되지 않고 저장소(GitHub Pages)에도 남지 않는다.
-   받은 사람은 설정 없이 AI 를 쓰고, 키는 이 브라우저의 localStorage 에만 저장된다.
-   주소는 그대로 두어 링크를 다시 복사해 전달해도 AI 가 켜진 채로 간다. */
+   보안: 저장된 키가 없을 때만 자동으로 쓰고, 이미 다른 키가 있으면 사용자에게 확인을 받는다.
+   읽은 뒤에는 주소창·방문 기록에 키가 남지 않도록 해시에서 k 를 지운다. */
 try{
-  const hk=new URLSearchParams((location.hash||'').replace(/^#/,'')).get('k');
-  if(hk && /^[A-Za-z0-9_.\-]{20,120}$/.test(hk) && hk!==GEM.key){ GEM.key=hk; gemSave(); }
+  const hp=new URLSearchParams((location.hash||'').replace(/^#/,''));
+  const hk=hp.get('k');
+  if(hk!==null){
+    if(/^[A-Za-z0-9_.\-]{20,120}$/.test(hk) && hk!==GEM.key){
+      if(!GEM.key || confirm(T('링크에 다른 Gemini 키가 들어 있습니다. 지금 저장된 키를 이 키로 바꿀까요?'))){
+        GEM.key=hk; GEM.src='link'; gemSave();
+      }
+    }
+    hp.delete('k');
+    const rest=hp.toString();
+    history.replaceState(null,'',location.pathname+location.search+(rest?'#'+rest:''));
+  }
 }catch(e){}
 
 /* 서버 프록시(/api/gemini) 가 있으면 그쪽을 쓴다.
@@ -7721,7 +7736,7 @@ function gemSync(){
   }
   const b=document.getElementById('aiBtn');
   if(b) b.title = GEM_PROXY ? (T('AI 연결됨 (서버 키) · ')+GEM.model)
-                : gemOn()   ? (T('AI 연결됨 (브라우저 키) · ')+GEM.model)
+                : gemOn()   ? (T(GEM.src==='link'?'AI 연결됨 (링크로 받은 키) · ':'AI 연결됨 (브라우저 키) · ')+GEM.model)
                 : T('AI 연결 설정 (미연결)');
 }
 
@@ -7782,7 +7797,7 @@ function aiModalOpen(){
     const kEl=$('aimKey');
     const k=kEl?kEl.value.trim():'';
     if(!GEM_PROXY && !k){ $('aimMsg').innerHTML=T('<div class="aiwarn">API 키를 입력하세요.</div>'); return; }
-    if(k) GEM.key=k;
+    if(k){ GEM.key=k; GEM.src='user'; }
     GEM.model=$('aimModel').value;
     gemBusy($('aimMsg'),T('연결 확인 중…'));
     try{
