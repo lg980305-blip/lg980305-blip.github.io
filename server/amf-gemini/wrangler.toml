@@ -1,0 +1,28 @@
+# AMF CIE 전용 Gemini 중계 Worker
+# 코드는 ../cloudflare-worker.js 를 그대로 쓴다 (BHB 워커와 같은 코드, 별도 배포).
+# 키는 여기에 쓰지 않는다:  npx wrangler secret put GEMINI_API_KEY
+name = "amf-gemini"
+main = "../cloudflare-worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://lg980305-blip.github.io"
+# Google 이 Cloudflare 출구 IP 를 거절하는 문제를 피하려고 AI Gateway(기본 게이트웨이)를 거쳐 보낸다
+AI_GATEWAY = "default"
+GEMINI_MODEL = "gemini-flash-lite-latest"
+
+# IP 당 분당 20회까지 (무료 Gemini 키 한도 보호)
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }
+
+# 일부 Cloudflare 출구 IP 를 Google 이 '지원하지 않는 지역'으로 판단한다.
+# 실행 위치를 Google 서버 근처(미국 GCP 리전)로 고정한다.
+[placement]
+region = "gcp:us-central1"
+
+# AI Gateway 호출용 바인딩 (워커 계정 권한으로 자동 인증)
+[ai]
+binding = "AI"

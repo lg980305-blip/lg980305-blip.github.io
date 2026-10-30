@@ -73,7 +73,39 @@ function sanitizePayload(p) {
   return out;
 }
 
-async function proxyDirect(body, apiKey, model) {
+/* generateContent 호출 — env.AI 바인딩과 AI_GATEWAY 가 있으면 Cloudflare AI Gateway 를 거친다.
+   (일부 Cloudflare 출구 IP 를 Google 이 '지원하지 않는 지역'으로 거절하는 문제를 피한다.
+    바인딩 호출은 워커 계정 권한으로 자동 인증되므로 별도 토큰이 필요 없다.) */
+async function geminiOnce(env, HOST, apiKey, m, payload, viaGateway) {
+  if (viaGateway) {
+    return env.AI.gateway(env.AI_GATEWAY).run({
+      provider: 'google-ai-studio',
+      endpoint: `v1beta/models/${m}:generateContent`,
+      headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
+      query: payload
+    });
+  }
+  return fetch(`${HOST}/models/${encodeURIComponent(m)}:generateContent`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+    body: JSON.stringify(payload)
+  });
+}
+/* '지원하지 않는 지역(User location is not supported)' 400 은 출구 IP 에 따라 들쭉날쭉하다.
+   그 오류일 때만 경로(게이트웨이 ↔ 직접)를 바꿔 가며 최대 4번까지 다시 시도한다. */
+async function geminiGenerate(env, HOST, apiKey, m, payload) {
+  const hasGw = !!(env && env.AI && env.AI_GATEWAY);
+  let r;
+  for (let i = 0; i < 4; i++) {
+    r = await geminiOnce(env, HOST, apiKey, m, payload, hasGw && i % 2 === 0);
+    if (r.status !== 400) return r;
+    const t = await r.clone().text();
+    if (!/location is not supported/i.test(t)) return r;
+  }
+  return r;
+}
+
+async function proxyDirect(body, apiKey, model, HOST, env) {
   if (body.action === 'models') {
     const r = await fetch(`${HOST}/models?pageSize=100`, { headers: { 'x-goog-api-key': apiKey } });
     return { status: r.status, json: await r.json().catch(() => ({ error: { message: 'bad upstream json' } })) };
@@ -83,11 +115,7 @@ async function proxyDirect(body, apiKey, model) {
     const payload = sanitizePayload(body.payload);
     if (!payload) return { status: 400, json: { error: { message: 'invalid payload' } } };
     if (JSON.stringify(payload).length > MAX_BODY) return { status: 413, json: { error: { message: 'payload too large' } } };
-    const r = await fetch(`${HOST}/models/${encodeURIComponent(m)}:generateContent`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-      body: JSON.stringify(payload)
-    });
+    const r = await geminiGenerate(env, HOST, apiKey, m, payload);
     /* Gemini 오류 JSON({error:{code,message,status}})에는 키가 들어 있지 않으므로 그대로 전달한다 */
     return { status: r.status, json: await r.json().catch(() => ({ error: { message: 'bad upstream json' } })) };
   }
@@ -252,7 +280,11 @@ export default {
     const json = (obj, status) => new Response(JSON.stringify(obj),
       { status, headers: { ...cors, 'Content-Type': 'application/json' } });
     const MODEL = (env.GEMINI_MODEL && MODEL_RE.test(env.GEMINI_MODEL)) ? env.GEMINI_MODEL : DEFAULT_MODEL;
-    const API = `${HOST}/models/${MODEL}:generateContent`;
+    /* GEMINI_HOST 를 주면 그 주소로 보낸다 — 예: Cloudflare AI Gateway
+       (https://gateway.ai.cloudflare.com/v1/<계정ID>/<게이트웨이>/google-ai-studio/v1beta).
+       일부 Cloudflare 출구 IP 를 Google 이 '지원하지 않는 지역'으로 판단할 때 쓴다. */
+    const GEM_HOST = (env.GEMINI_HOST && /^https:\/\/[\w.-]+\//.test(env.GEMINI_HOST)) ? env.GEMINI_HOST.replace(/\/$/, '') : HOST;
+    const API = `${GEM_HOST}/models/${MODEL}:generateContent`;
 
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
 
@@ -268,6 +300,17 @@ export default {
       return json({ error: 'origin not allowed' }, 403);
     }
 
+    // IP 당 호출 제한 — wrangler 설정에 LIMITER 바인딩이 있을 때만 동작 (키 남용·요금 폭주 방지)
+    if (env.LIMITER) {
+      const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+      const { success } = await env.LIMITER.limit({ key: ip });
+      if (!success) return json({ error: { message: '요청이 너무 많습니다. 잠시 뒤에 다시 시도해 주세요.' } }, 429);
+    }
+    // 본문 크기 상한 (스트림을 끝까지 읽기 전에 거른다)
+    if (Number(request.headers.get('Content-Length') || 0) > MAX_BODY) {
+      return json({ error: { message: 'payload too large' } }, 413);
+    }
+
     let body;
     try { body = await request.json(); }
     catch { return json({ error: 'invalid json' }, 400); }
@@ -276,7 +319,7 @@ export default {
     if (body.action === 'generate' || body.action === 'models') {
       if (!env.GEMINI_API_KEY) return json({ error: { message: 'GEMINI_API_KEY 가 설정되지 않았습니다' } }, 501);
       let out;
-      try { out = await proxyDirect(body, env.GEMINI_API_KEY, MODEL); }
+      try { out = await proxyDirect(body, env.GEMINI_API_KEY, MODEL, GEM_HOST, env); }
       catch { return json({ error: { message: 'upstream unreachable' } }, 502); }
       return json(out.json, out.status);
     }

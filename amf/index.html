@@ -31,7 +31,7 @@
    · GitHub Pages: 서버가 없으므로 Cloudflare Worker 주소를 적는다.
      예) ENDPOINT:'https://bhb-gemini.<계정>.workers.dev'
    API 키는 절대 여기에 넣지 않는다 — 서버 환경변수에만 둔다. */
-window.AMF_AI_CONFIG = window.AMF_AI_CONFIG || { ENDPOINT:'/api/gemini', MODEL:'gemini-flash-latest' };
+window.AMF_AI_CONFIG = window.AMF_AI_CONFIG || { ENDPOINT:'https://amf-gemini.amf-gemini.workers.dev', MODEL:'gemini-flash-lite-latest' };
 </script>
 <script src="shows-data.js?v=20261012b"></script>
 <style>
@@ -7620,7 +7620,7 @@ async function sendGrowthReport(){
 const GKEY='amf.cie.gemini.v1';
 const GEM_HOST='https://generativelanguage.googleapis.com/v1beta';
 /* 기본 모델이 혼잡할 때 순서대로 시도하는 예비 모델 */
-const GEM_FALLBACKS=['gemini-flash-latest','gemini-flash-lite-latest','gemini-3.5-flash','gemini-3.5-flash-lite','gemini-3.8-flash'];
+const GEM_FALLBACKS=['gemini-flash-lite-latest','gemini-3.5-flash','gemini-3.5-flash-lite','gemini-flash-latest','gemini-3.8-flash'];
 let GEM={key:'', model:(window.AMF_AI_CONFIG&&window.AMF_AI_CONFIG.MODEL)||'gemini-flash-latest'};
 try{ const r=localStorage.getItem(GKEY); if(r) GEM=Object.assign(GEM,JSON.parse(r)||{}); }catch(e){}
 const gemSave=()=>{ try{ localStorage.setItem(GKEY,JSON.stringify(GEM)); }catch(e){} };
@@ -7713,21 +7713,24 @@ async function gemCall(prompt, opt){
     const model=chain[i];
     for(let attempt=0;attempt<2;attempt++){
       try{
+        /* 응답이 멈춘 모델에서 오래 기다리지 않도록 20초 상한 */
+        const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),20000);
         res = GEM_PROXY
-          ? await fetch(PROXY_URL,{ method:'POST',
+          ? await fetch(PROXY_URL,{ method:'POST', signal:ctl.signal,
               headers:{'Content-Type':'application/json'},
-              body:JSON.stringify({action:'generate', model, payload}) })
+              body:JSON.stringify({action:'generate', model, payload}) }).finally(()=>clearTimeout(tm))
           : await fetch(GEM_HOST+'/models/'+encodeURIComponent(model)+':generateContent',{
               method:'POST',
               headers:{'Content-Type':'application/json','x-goog-api-key':GEM.key.trim()},
               body:JSON.stringify(payload) });
-      }catch(e){ res=null; lastErr=String(e&&e.message||e); await new Promise(r=>setTimeout(r,600)); continue; }
+      }catch(e){ res=null; lastErr=String(e&&e.message||e); if(e&&e.name==='AbortError') break; await new Promise(r=>setTimeout(r,600)); continue; }
       if(res.ok) break;
       let detail='';
       try{ const j=await res.clone().json(); detail=(j.error&&j.error.message)||''; }catch(e){}
       lastErr='HTTP '+res.status+(detail?' · '+detail:'');
       if(res.status===404) break;                                  // 이 모델은 없음 → 다음 모델
-      if(![429,500,502,503,504].includes(res.status)) throw new Error(lastErr);
+      /* '지원하지 않는 지역' 400 은 중계 서버 출구 IP 에 따라 일시적으로 나므로 다시 시도한다 */
+      if(![429,500,502,503,504].includes(res.status) && !/location is not supported/i.test(detail)) throw new Error(lastErr);
       await new Promise(r=>setTimeout(r,700));
     }
     if(res&&res.ok){ if(model!==GEM.model) console.info('[gemini] fallback model:',model); break; }
