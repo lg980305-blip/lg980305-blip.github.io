@@ -6,9 +6,9 @@
    · /api/ 와 외부 도메인(Gemini 중계 등)은 건드리지 않는다
    캐시 내용을 갈아야 하면 CACHE 버전만 올린다.
    ============================================================ */
-const CACHE='amf-cie-v3';
-const PRECACHE=['./','./index.html','./?app=1','./manifest.json','./shows-data.js?v=20261012b',
-  './plans.js?v=20261012b','./home.js?v=20261012b','./install.js?v=20261012b','./assistant.js?v=20261012b','./icon-192.png','./icon-512.png'];
+const CACHE='amf-cie-v4';
+const PRECACHE=['./','./index.html','./?app=1','./manifest.json','./shows-data.js?v=20261030a',
+  './plans.js?v=20261030a','./home.js?v=20261030a','./install.js?v=20261030a','./assistant.js?v=20261030a','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE)

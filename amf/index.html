@@ -33,7 +33,7 @@
    API 키는 절대 여기에 넣지 않는다 — 서버 환경변수에만 둔다. */
 window.AMF_AI_CONFIG = window.AMF_AI_CONFIG || { ENDPOINT:'https://amf-gemini.amf-gemini.workers.dev', MODEL:'gemini-flash-lite-latest' };
 </script>
-<script src="shows-data.js?v=20261012b"></script>
+<script src="shows-data.js?v=20261030a"></script>
 <style>
 :root{
   --bg:#F2F4F7; --surface:#FFFFFF; --surface2:#F8FAFC; --surface3:#EEF2F7;
@@ -7635,6 +7635,13 @@ const GEM_HOST='https://generativelanguage.googleapis.com/v1beta';
 const GEM_FALLBACKS=['gemini-flash-lite-latest','gemini-3.5-flash','gemini-3.5-flash-lite','gemini-flash-latest','gemini-3.8-flash'];
 let GEM={key:'', model:(window.AMF_AI_CONFIG&&window.AMF_AI_CONFIG.MODEL)||'gemini-flash-latest'};
 try{ const r=localStorage.getItem(GKEY); if(r) GEM=Object.assign(GEM,JSON.parse(r)||{}); }catch(e){}
+/* 예전 기본 모델(gemini-flash-latest)은 자주 응답이 멈춘다 — 저장돼 있으면 현재 기본 모델로 옮긴다 */
+try{
+  const cfgModel=window.AMF_AI_CONFIG&&window.AMF_AI_CONFIG.MODEL;
+  if(cfgModel && GEM.model==='gemini-flash-latest' && cfgModel!==GEM.model){
+    GEM.model=cfgModel; localStorage.setItem(GKEY,JSON.stringify(GEM));
+  }
+}catch(e){}
 const gemSave=()=>{ try{ localStorage.setItem(GKEY,JSON.stringify(GEM)); }catch(e){} };
 /* 공유 링크에 담긴 키: …/amf/?app=1#k=<GEMINI_API_KEY>
    해시(#) 뒤는 서버로 전송되지 않고 저장소(GitHub Pages)에도 남지 않는다.
@@ -7725,8 +7732,8 @@ async function gemCall(prompt, opt){
     const model=chain[i];
     for(let attempt=0;attempt<2;attempt++){
       try{
-        /* 응답이 멈춘 모델에서 오래 기다리지 않도록 20초 상한 */
-        const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),20000);
+        /* 응답이 멈춘 모델에서 오래 기다리지 않도록 12초 상한 */
+        const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),12000);
         res = GEM_PROXY
           ? await fetch(PROXY_URL,{ method:'POST', signal:ctl.signal,
               headers:{'Content-Type':'application/json'},
@@ -8894,9 +8901,9 @@ function renderCueClaims(){
   applyLang();
 })();
 </script>
-<script src="plans.js?v=20261012b"></script>
-<script src="home.js?v=20261012b"></script>
-<script src="install.js?v=20261012b"></script>
-<script src="assistant.js?v=20261012b"></script>
+<script src="plans.js?v=20261030a"></script>
+<script src="home.js?v=20261030a"></script>
+<script src="install.js?v=20261030a"></script>
+<script src="assistant.js?v=20261030a"></script>
 </body>
 </html>

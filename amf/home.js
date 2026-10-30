@@ -25,7 +25,7 @@ Object.assign(DICT,{
   'CAMPAIGN BRIEF · 한 줄이면 됩니다':'CAMPAIGN BRIEF · one line is enough',
   '어떤 캠페인인가요?':'What is the campaign?',
   '예) 우즈베키스탄 20대 여성 스킨케어 런칭, 인스타그램 5명, 예산 5천만':'e.g. Skincare launch for women in their 20s in Uzbekistan, 5 creators on Instagram, budget 50M KRW',
-  '추천 받기':'Recommend','고급 조건 +':'Advanced +','카테고리':'Category','권역':'Region','입력한 조건을 반영했습니다: ':'Applied your conditions: ','연령':'Age','성별':'Gender','채널':'Channel','예산':'Budget',
+  '추천 받기':'Recommend','분석 중…':'Analyzing…','고급 조건 +':'Advanced +','카테고리':'Category','권역':'Region','입력한 조건을 반영했습니다: ':'Applied your conditions: ','연령':'Age','성별':'Gender','채널':'Channel','예산':'Budget',
   '추천 크리에이터':'Recommended creators','적합도순':'by fit score','전체 보기 →':'View all →',
   '오늘의 추천':'TODAY\'S PICKS','최고 적합도':'Top fit','순 도달':'Net reach','예산 소진':'Budget used',
   '이번 주 쇼 · 행사':'This week\'s shows','전체 일정 →':'Full calendar →','진행 중':'Live','기준':'as of',
@@ -363,6 +363,8 @@ q('hmForm').addEventListener('submit', async e=>{
   e.preventDefault();
   const text=q('hmText').value.trim();
   const btn=q('hmGo'); btn.disabled=true;
+  const label=btn.textContent;
+  if(text && typeof gemOn==='function' && gemOn()) btn.textContent=T('분석 중…');
   let applied=[];
   try{
     if(text){
@@ -377,7 +379,7 @@ q('hmForm').addEventListener('submit', async e=>{
     bindChips(); renderResults();
     renderLog(text, applied);
     q('hmCards').scrollIntoView({behavior:SB, block:'start'});
-  }finally{ btn.disabled=false; }
+  }finally{ btn.disabled=false; btn.textContent=label; }
 });
 q('hmAll').onclick=()=>window.showView('roster');
 
