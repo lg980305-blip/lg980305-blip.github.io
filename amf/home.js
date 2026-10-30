@@ -75,6 +75,10 @@ const CSS=`
 .hm-chip{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 6px 0 12px;border:1px solid var(--line2);border-radius:999px;background:var(--surface);font-size:12px;font-weight:700;color:var(--ink);cursor:pointer}
 .hm-chip .k{font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:.3px}
 .hm-chip select{border:0;background:transparent;font:inherit;font-size:12px;font-weight:700;color:var(--ink);outline:none;cursor:pointer;max-width:170px}
+.hm-log{display:none;background:var(--navy);color:#B9C6DA;border-radius:12px;padding:11px 15px;font-family:var(--mono);font-size:11.5px;line-height:1.7}
+.hm-log.on{display:block}
+.hm-log b{color:#fff;font-weight:700}
+.hm-log .hl{color:#6EE7B7;font-weight:700}
 .hm-chip.more{border-style:dashed;color:var(--ink2);padding:0 12px}
 .hm-black{position:relative;overflow:hidden;padding:20px 22px;border-radius:20px;background:var(--navy);color:#fff;display:flex;flex-direction:column;gap:12px}
 .hm-black .deco{position:absolute;right:-34px;top:-34px;width:120px;height:120px;border-radius:26px;background:var(--brand);transform:rotate(18deg)}
@@ -191,6 +195,7 @@ sec.innerHTML=`
         <input id="hmText" type="text" placeholder="예) 우즈베키스탄 20대 여성 스킨케어 런칭, 인스타그램 5명, 예산 5천만" autocomplete="off">
         <button class="btn pri" type="submit" id="hmGo">추천 받기</button>
       </form>
+      <div class="hm-log" id="hmLog" aria-live="polite"></div>
       <div class="hm-chips" id="hmChips"></div>
     </div>
     <div class="hm-black" id="hmSummary"></div>
@@ -337,15 +342,32 @@ function renderTicker(){
 function renderResults(){ compute(); renderSummary(); renderCards(); renderPort(); }
 function renderHome(){ bindChips(); renderResults(); renderTicker(); i18nSweep(sec); }
 
+/* 엔진 로그 — 연출이 아니라 방금 실제로 계산된 값만 보여 준다 */
+function renderLog(text, applied){
+  const box=q('hmLog'); if(!box||!CUR) return;
+  const {brief,res}=CUR, ko=!en();
+  const fun=(res.stages||[]).map(s=>`${esc(s.k)} <span class="hl">${s.n}</span>`).join(' → ');
+  const t=res.top[0];
+  box.innerHTML=
+    (text?`<div>✦ <b>${ko?'입력 해석':'Parsed'}</b> ${applied.length?esc(applied.join(' · ')):esc(ko?'인식한 조건 없음 — 현재 조건 칩 기준':'no conditions recognised — using current chips')}</div>`:'')+
+    `<div>✦ <b>${ko?'필터':'Filters'}</b> ${fun}</div>`+
+    `<div>✦ <b>${ko?'결과':'Result'}</b> ${t
+      ? (ko?`적합도 상위 <span class="hl">${res.top.length}</span>명 · 1위 ${esc(t.c.name)} (${esc(tCtry(t.c.country))}, ${t.score}점) · 예산 ${MAN(brief.budget)} 중 ${pct(res.spent,brief.budget)} 사용`
+           :`top <span class="hl">${res.top.length}</span> · #1 ${esc(t.c.name)} (${esc(tCtry(t.c.country))}, ${t.score}) · ${pct(res.spent,brief.budget)} of ${MAN(brief.budget)} used`)
+      : (ko?'조건을 모두 통과한 크리에이터 없음':'no creator passed every filter')}</div>`;
+  box.classList.add('on');
+}
+
 /* ───────── 5. 추천 받기 (AI 한 줄 → 폼 → 재계산) ───────── */
 q('hmForm').addEventListener('submit', async e=>{
   e.preventDefault();
   const text=q('hmText').value.trim();
   const btn=q('hmGo'); btn.disabled=true;
+  let applied=[];
   try{
     if(text){
       /* 규칙 해석을 먼저 적용 — AI 가 없어도 국가·연령·성별 등이 반영된다 */
-      let applied=[];
+      applied=[];
       try{ applied=window.localParseBrief ? window.localParseBrief(text) : []; }catch(err){ console.warn(err); }
       if(typeof gemOn==='function' && gemOn()){
         const ta=q('aiText'); if(ta) ta.value=text;
@@ -353,6 +375,7 @@ q('hmForm').addEventListener('submit', async e=>{
       } else toast(applied.length ? T('입력한 조건을 반영했습니다: ')+applied.join(' · ') : T('AI 미연결 — 조건 칩으로 추천합니다'));
     }
     bindChips(); renderResults();
+    renderLog(text, applied);
     q('hmCards').scrollIntoView({behavior:SB, block:'start'});
   }finally{ btn.disabled=false; }
 });
