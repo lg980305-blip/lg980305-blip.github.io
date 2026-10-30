@@ -1714,6 +1714,8 @@ html.promo .drawer,html.promo .scrim{display:none!important}
 
           <div class="fld"><label for="f_reg">진출 권역</label>
             <select id="f_reg"><option value="전 권역">전 권역</option><option value="중앙아시아">중앙아시아</option><option value="동남아시아">동남아시아</option><option value="동북아시아">동북아시아</option><option value="남아시아">남아시아</option></select></div>
+          <div class="fld"><label for="f_ctry">진출 국가</label>
+            <select id="f_ctry"><option value="국가 무관">국가 무관</option></select></div>
           <div class="fld"><label for="f_plt">주력 채널</label>
             <select id="f_plt"><option value="채널 무관">채널 무관</option><option value="Instagram">Instagram</option><option value="TikTok">TikTok</option><option value="YouTube">YouTube</option></select></div>
           <div class="fld"><label for="f_tier">최소 등급</label>
@@ -1746,7 +1748,7 @@ html.promo .drawer,html.promo .scrim{display:none!important}
                 <div><div class="k">예산 내 후보</div><div class="v num" id="budPool">–</div></div>
               </div>
             </div>
-            <input type="range" id="f_bud" min="5" max="300" step="5" value="20" oninput="updateBudget()"
+            <input type="range" id="f_bud" min="0.5" max="300" step="0.5" value="20" oninput="updateBudget()"
               aria-describedby="budAmt">
             <div class="ticks"><span>500만</span><span>7,500만</span><span>1억5천</span><span>2억2천</span><span>3억</span></div>
           </div>
@@ -2335,7 +2337,8 @@ DICT = {
 
 /* ── 브리프 폼 ── */
 '상품 분야':'Product category','타깃 연령':'Target age','타깃 성별':'Target gender',
-'캠페인 목표':'Campaign objective','진출 권역':'Target region','주력 채널':'Primary platform',
+'캠페인 목표':'Campaign objective','진출 권역':'Target region','진출 국가':'Target country','국가 무관':'Any country','국가':'Country','국가 → ':'Country -> ',
+'등급 · 권역 · 국가 · 주력 채널':'Tier / region / country / platform','주력 채널':'Primary platform',
 '최소 등급':'Minimum tier','추천 인원':'Number of picks','신체 조건':'Physical requirements',
 'AQS 기준':'AQS threshold','예산':'Budget','전체 카테고리':'All categories',
 '전체 등급':'All tiers','전체 유형':'All archetypes','신체 조건 전체':'All physical profiles',
@@ -3429,7 +3432,8 @@ function refillSelects(){
   f_cat.selectedIndex=keep[0]; f_age.selectedIndex=keep[1];
   f_obj.selectedIndex=keep[2]; q_cat.selectedIndex=keep[3];
   [[f_reg,tReg],[q_reg,tReg],[f_sex,tSex],[f_plt,tPlat],[f_tier,tTierS],
-   [f_body,tBody],[q_body,tBody],[q_arch,tArch]].forEach(pair=>{
+   [f_body,tBody],[q_body,tBody],[q_arch,tArch],
+   [window.f_ctry,v=>v==='국가 무관'?T(v):tCtry(v)]].forEach(pair=>{
     const sel=pair[0], fn=pair[1];
     if(!sel) return;
     Array.from(sel.options).forEach(o=>{ o.textContent = fn(o.value); });
@@ -3920,6 +3924,26 @@ function buildRoster(PEOPLE){
   return out;
 }
 const ROSTER = buildRoster(REAL_PEOPLE);
+/* 진출 국가 선택지 — 현재 로스터에 실제로 있는 국가만, COUNTRIES 순서로 */
+/* 브리프의 지역 표시 — 국가를 골랐으면 국가, 아니면 권역 */
+const geoName=b=> (b.country&&b.country!=='국가 무관') ? tCtry(b.country) : tReg(b.region);
+function fillCountryOpts(){
+  const keep=f_ctry.value||'국가 무관';
+  const have=new Set(ROSTER.map(c=>c.country));
+  const list=['국가 무관'].concat(COUNTRIES.filter(c=>have.has(c.n)).map(c=>c.n));
+  f_ctry.innerHTML='';
+  list.forEach(v=>f_ctry.add(new Option(v==='국가 무관'?T(v):tCtry(v), v)));
+  f_ctry.value = list.indexOf(keep)>=0 ? keep : '국가 무관';
+}
+/* 국가와 권역을 서로 맞춘다 — 국가를 고르면 그 권역으로, 다른 권역을 고르면 국가는 해제 */
+function syncCountryRegion(changed){
+  const co=COUNTRY_BY_NAME[f_ctry.value];
+  if(changed==='country'){ if(co && Array.from(f_reg.options).some(o=>o.value===co.r)) f_reg.value=co.r; }
+  else if(co && f_reg.value!==co.r) f_ctry.value='국가 무관';
+}
+fillCountryOpts();
+f_ctry.addEventListener('change',()=>syncCountryRegion('country'));
+f_reg.addEventListener('change',()=>syncCountryRegion('region'));
 function AV(c,st){return c.photo?`<img class="mono-av" src="${c.photo}" alt="" style="object-fit:cover;${st||''}">`:`${AV(c,"${st||''}")}`}
 /* 합성 로스터를 처음 상태 그대로 다시 만든다 (PRNG 를 시드로 되감는다) */
 function buildRosterFresh(){ rnd = mulberry32(SEED); return buildRoster(REAL_PEOPLE); }
@@ -4062,7 +4086,7 @@ function readBrief(ov){
     ageBucket:AGEOPT[ageIdx].b,
     get ageName(){ return N(AGEOPT[ageIdx]); },
     sex:pick('sex',f_sex.value), obj:OBJS[objIdx],
-    region:pick('region',f_reg.value), platform:pick('platform',f_plt.value),
+    region:pick('region',f_reg.value), country:pick('country',f_ctry.value), platform:pick('platform',f_plt.value),
     minTier:pick('minTier',f_tier.value),
     topN:pick('topN',+f_topn.value.replace(/\D/g,'')),
     bodyReq:pick('bodyReq',f_body.value), minAqs:pick('minAqs',+f_aqs.value),
@@ -4097,10 +4121,11 @@ function evaluate(brief, opts){
 
   pool = pool.filter(c=>tierPass(c,brief.minTier) &&
                         (brief.region==='전 권역'||c.region===brief.region) &&
+                        (!brief.country||brief.country==='국가 무관'||c.country===brief.country) &&
                         (brief.platform==='채널 무관'||c.platforms[brief.platform]/c.followers>=0.28) &&
                         bodyPass(c,brief.bodyReq));
   stages.push({k:T('기본 조건 통과'),
-    d:T('등급 · 권역 · 주력 채널')+(brief.bodyReq!=='제한 없음'?' · '+brief.bodyReq:''),
+    d:(brief.country&&brief.country!=='국가 무관'?T('등급 · 권역 · 국가 · 주력 채널')+' ('+tCtry(brief.country)+')':T('등급 · 권역 · 주력 채널'))+(brief.bodyReq!=='제한 없음'?' · '+brief.bodyReq:''),
     n:pool.length});
 
   pool = pool.filter(c=>c.cats[brief.catKey] >= 68);
@@ -4277,7 +4302,7 @@ function updateBudget(){
   $('budCnt').textContent=cnt+'';
   $('budAvg').textContent=KRW(Math.round(won/cnt/100000)*100000);
   $('budPool').textContent=pool.length+'';
-  f_bud.style.setProperty('--p',((m-5)/295*100).toFixed(1)+'%');
+  f_bud.style.setProperty('--p',((m-(+f_bud.min))/((+f_bud.max)-(+f_bud.min))*100).toFixed(1)+'%');
 }
 updateBudget();
 
@@ -4335,7 +4360,7 @@ function runPipeline(){
     [T('데이터셋 로드'), L`creator_registry r${ROSTER.length} · ${new Set(ROSTER.map(c=>c.country)).size}개국`],
     [T('브리프 파싱'),   `${brief.catName} · ${brief.ageName} · ${tSex(brief.sex)} · ${MAN(brief.budget)}`],
     [T('가중치 프로파일 적용'), `profile=${brief.obj.k} · ${AXES.map(a=>a[0]+':'+(brief.obj.w[a[0]]*100).toFixed(0)).join(' ')}`],
-    [T('기본 조건 필터'), L`등급 ${tTierS(brief.minTier)} · 권역 ${tReg(brief.region)} · 채널 ${tPlat(brief.platform)} · 신체 ${tBody(brief.bodyReq)} → ${res.stages[1].n}인`],
+    [T('기본 조건 필터'), L`등급 ${tTierS(brief.minTier)} · 권역 ${geoName(brief)} · 채널 ${tPlat(brief.platform)} · 신체 ${tBody(brief.bodyReq)} → ${res.stages[1].n}인`],
     [T('카테고리 적합도 산출'), L`cat_fit ≥ 68 → ${res.stages[2].n}인`],
     [T('오디언스 대조'), L`age=${brief.ageBucket||'ALL'} gender=${tSex(brief.sex)} · A≥55 → ${res.stages[3].n}인`],
     [T('예산 제약 적용'), L`1인 배분 ${KRW(brief.budget/brief.topN)} · 단가 상한 ${KRW(brief.budget*0.55)} → ${res.stages[4].n}인`],
@@ -4489,7 +4514,7 @@ function renderResult(){
   renderExSum();
 
   $('actInfo').innerHTML=`${T('현재 조건 — ')}<b>${brief.catName}</b> · ${brief.ageName.replace(/\s*\(.*\)/,'')}
-    · ${tSex(brief.sex)} · ${tReg(brief.region)} · ${MAN(brief.budget)}
+    · ${tSex(brief.sex)} · ${geoName(brief)} · ${MAN(brief.budget)}
     ${brief.bodyReq!=='제한 없음'?' · '+tBody(brief.bodyReq):''}`;
 
   /* 예상 성과 시뮬레이션 */
@@ -4595,7 +4620,7 @@ function renderExSum(){
   const {brief,res}=LAST;
   if(!res.top.length){
     const blk=res.stages.slice(1).find(st=>st.n===0);
-    const crit=`<b>${brief.catName} · ${brief.ageName} · ${tSex(brief.sex)} · ${tReg(brief.region)} · ${tTierS(brief.minTier)} · ${MAN(brief.budget)}</b>`;
+    const crit=`<b>${brief.catName} · ${brief.ageName} · ${tSex(brief.sex)} · ${geoName(brief)} · ${tTierS(brief.minTier)} · ${MAN(brief.budget)}</b>`;
     $('exSum').innerHTML=`<p style="font-size:13px;line-height:1.8;color:var(--ink2)">
       ${L`요청하신 조건 ${crit}으로는 네트워크 ${ROSTER.length}인 중 `}<b>${T('조건을 모두 통과한 후보가 없습니다.')}</b>
       ${blk?L` <b>${blk.k}</b> 단계(${blk.d})에서 후보가 0인이 되었으므로, 해당 조건을 우선 완화하십시오.`:''}
@@ -4622,7 +4647,7 @@ function renderExSum(){
   $('exSum').innerHTML=`
   <div class="exgrid">
     <div>
-      <p class="exp">${L`네트워크 <b>${ROSTER.length}</b>인을 대상으로 <b>${brief.catName}</b> · ${brief.ageName.replace(/\s*\(.*\)/,'')} ${tSex(brief.sex)} · ${tReg(brief.region)} · ${tTierS(brief.minTier)} · AQS ${brief.minAqs} 기준으로 연산한 결과, <b>${res.ranked.length}</b>인이 전 조건을 통과했고 이 중 <b>상위 ${res.top.length}</b>인을 추천합니다. 추천군 평균 적합도는 <b>${avg.toFixed(1)}</b>점(최고 ${res.top[0].score}점)이며, 캠페인 목표가 <b>${objShort(brief.obj)}</b>이므로 <b>${tArch(archTop)}</b> 유형이 상위에 배치되었습니다.`}</p>
+      <p class="exp">${L`네트워크 <b>${ROSTER.length}</b>인을 대상으로 <b>${brief.catName}</b> · ${brief.ageName.replace(/\s*\(.*\)/,'')} ${tSex(brief.sex)} · ${geoName(brief)} · ${tTierS(brief.minTier)} · AQS ${brief.minAqs} 기준으로 연산한 결과, <b>${res.ranked.length}</b>인이 전 조건을 통과했고 이 중 <b>상위 ${res.top.length}</b>인을 추천합니다. 추천군 평균 적합도는 <b>${avg.toFixed(1)}</b>점(최고 ${res.top[0].score}점)이며, 캠페인 목표가 <b>${objShort(brief.obj)}</b>이므로 <b>${tArch(archTop)}</b> 유형이 상위에 배치되었습니다.`}</p>
       <p class="exp">${L`예산 <b>${MAN(brief.budget)}</b> 중 <b>${MAN(spend)}</b>(<b>${util.toFixed(0)}%</b>)를 집행해 <b>${res.port.length}</b>인을 편성했습니다. 단순 합산 도달은 ${KM(rs.gross)}이지만 오디언스 중복 ${'<b style="color:'+dupTxt[0]+'">'+rs.dup+'%</b>'}를 제거한 <b>순 도달은 ${KM(rs.net)}</b>(${dupTxt[1]})입니다. 편성 국가는 ${cList} 순입니다.`}</p>
       <p class="exp">${L`추천군의 과거 평균 ROAS는 <b>${histRoas.toFixed(2)}x</b>이며, 보수 할인(85%)과 목표계수를 적용한 <b>예상 ROAS는 ${estRoas.toFixed(2)}x</b>입니다. 오디언스 진정성은 평균 <b>AQS ${Math.round(avgAqs)}</b>, 가짜·비활성 팔로워 비중 <b>${avgFake.toFixed(1)}%</b>로 ${avgFake<15?T('업계 일반 범위(10~20%) 내입니다'):T('주의 구간입니다')}.`}
         ${risky||flagged
@@ -4859,7 +4884,7 @@ function renderSens(){
     .forEach(v=>{ if(v!==snap[10]) trial(T('예산 → ')+MAN(v*1000000), {budgetM:v}) });
   [1,4,6].forEach(i=>{ if(i!==snap[1]) trial(T('연령 → ')+AGEOPT[i].n.replace(/\s*\(.*\)/,''), {ageIdx:i}) });
   [0,1,2].forEach(i=>{ if(i!==snap[2]) trial(T('성별 → ')+f_sex.options[i].text, {sex:f_sex.options[i].value}) });
-  [0,1,2,3,4].forEach(i=>{ if(i!==snap[4]) trial(T('권역 → ')+f_reg.options[i].text, {region:f_reg.options[i].value}) });
+  [0,1,2,3,4].forEach(i=>{ if(i!==snap[4]) trial(T('권역 → ')+f_reg.options[i].text, {region:f_reg.options[i].value, country:'국가 무관'}) });
 
   const changedN=cases.filter(x=>x.changed).length;
   $('sensTbl').innerHTML=`
@@ -5048,15 +5073,17 @@ function resetMatch(){
    그 재현성을 실제로 쓸 수 있게 폼 상태를 URL 해시에 담는다. */
 const SNAP_SELECTS = () => [f_cat,f_age,f_sex,f_obj,f_reg,f_plt,f_tier,f_topn,f_body,f_aqs];
 function formSnapshot(){
-  return SNAP_SELECTS().map(el=>el.selectedIndex).concat([+f_bud.value]);
+  return SNAP_SELECTS().map(el=>el.selectedIndex).concat([Math.max(5,Math.round(+f_bud.value)), f_ctry.selectedIndex, Math.round(+f_bud.value*10)]);
 }
 function applySnapshot(a){
   if(!Array.isArray(a) || a.length<11 || a.some(v=>!Number.isFinite(v))) return false;
   SNAP_SELECTS().forEach((el,i)=>{
     const v=a[i]|0; if(v>=0 && v<el.options.length) el.selectedIndex=v;
   });
-  const bud=a[10]|0;
+  const bud = a.length>12 ? (a[12]|0)/10 : (a[10]|0);
   if(bud>=+f_bud.min && bud<=+f_bud.max) f_bud.value=bud;
+  const ci=a.length>11 ? a[11]|0 : 0;
+  f_ctry.selectedIndex = (ci>=0 && ci<f_ctry.options.length) ? ci : 0;
   updateBudget();
   return true;
 }
@@ -5104,7 +5131,7 @@ function pushHist(){
   HIST = HIST.filter(h=>h.run!==RUNID);
   HIST.unshift(Object.assign({
     run:RUNID, at:Date.now(), snap:LAST.snap, budget:brief.budget,
-    label:[brief.catName, brief.ageName.replace(/\s*\(.*\)/,''), brief.sex, brief.region].join(' · '),
+    label:[brief.catName, brief.ageName.replace(/\s*\(.*\)/,''), brief.sex, (brief.country&&brief.country!=='국가 무관')?brief.country:brief.region].join(' · '),
     obj: objShort(brief.obj)
   }, histStat(res)));
   HIST=HIST.slice(0,12); saveHist();
@@ -7351,6 +7378,7 @@ function resetRoster(){
 }
 /* 데이터가 바뀌면 파생 상태를 전부 다시 만든다 */
 function afterDataChange(){
+  fillCountryOpts();
   rebuildWeekly();
   BOARD=BOARD.filter(i=>i<ROSTER.length); boardSave();
   LAST=null; window.LAST=null;
@@ -7823,6 +7851,120 @@ function setByText(sel,text){
   if(i>=0){ sel.selectedIndex=i; return true; }
   return false;
 }
+/* ── 한 줄 브리프 규칙 해석 (AI 없이도 동작) ──
+   국가·권역·연령·성별·카테고리·채널·인원·예산 키워드를 폼 값으로 옮긴다.
+   AI 가 연결돼 있으면 그 뒤에 AI 해석이 덮어쓴다. 반환값은 적용한 항목 목록. */
+const CTRY_ALIAS={
+  '우즈베키스탄':['우즈베키스탄','우즈벡','우즈베크','uzbekistan','uzbek'],
+  '카자흐스탄':['카자흐스탄','카자흐','kazakhstan','kazakh'],
+  '키르기스스탄':['키르기스스탄','키르기스','키르기즈','kyrgyzstan','kyrgyz'],
+  '타지키스탄':['타지키스탄','타지크','tajikistan','tajik'],
+  '몽골':['몽골','mongolia'],
+  '대한민국':['대한민국','한국','korea'],
+  '베트남':['베트남','vietnam'],
+  '태국':['태국','thailand'],
+  '인도네시아':['인도네시아','인니','indonesia'],
+  '필리핀':['필리핀','philippines'],
+  '말레이시아':['말레이시아','malaysia'],
+  '미얀마':['미얀마','myanmar'],
+  '인도':['인도','india'],
+  '네팔':['네팔','nepal'],
+  '중국':['중국','china'],
+  '일본':['일본','japan'],
+  '홍콩':['홍콩','hong kong'],
+  '라오스':['라오스','laos'],
+  '캄보디아':['캄보디아','cambodia'],
+  '방글라데시':['방글라데시','bangladesh'],
+  '스리랑카':['스리랑카','sri lanka']
+};
+const CAT_ALIAS=[
+  ['beauty_skin',['스킨케어','스킨','기초','skincare','skin care']],
+  ['beauty_make',['메이크업','화장','색조','makeup']],
+  ['fashion_acc',['잡화','액세서리','가방','악세','accessor','bag']],
+  ['fashion_cas',['패션','의류','옷','캐주얼','fashion']],
+  ['health',['건강','헬스','영양제','건기식','supplement','health']],
+  ['food',['푸드','식품','간편식','음식','food']],
+  ['living',['리빙','생활','living']],
+  ['digital',['디지털','가전','전자','digital']],
+  ['baby',['유아','키즈','아기','baby','kids']],
+  ['travel',['여행','레저','travel']],
+  ['beauty_skin',['뷰티','beauty']]
+];
+const budSnap = won => { const m = won<5e6 ? Math.round(won/5e5)*0.5 : Math.round(won/1e6/5)*5;
+  return Math.min(+f_bud.max, Math.max(+f_bud.min, m)); };
+function localParseBrief(text){
+  const t=String(text||'').toLowerCase(), applied=[];
+  /* 새 문장마다 지역·채널·인원·예산(5천만)은 기본값에서 다시 시작한다 (이전 문장의 조건이 남지 않게) */
+  f_ctry.value='국가 무관'; f_reg.value='전 권역'; f_plt.value='채널 무관'; f_topn.value='5'; f_bud.value=50;
+  const has=w=>t.indexOf(w)>=0;
+  /* 국가 — 이름이 겹치는 '인도'/'인도네시아' 는 긴 별칭부터 확인 */
+  const tNoId=t.replace(/인도네시아|indonesia/g,'');   /* '인도'가 '인도네시아'에 걸리지 않게 */
+  const hits=Object.keys(CTRY_ALIAS).filter(n=>CTRY_ALIAS[n].some(a=>(n==='인도'?tNoId:t).indexOf(a)>=0));
+  const avail=hits.filter(n=>Array.from(f_ctry.options).some(o=>o.value===n));
+  if(avail.length===1){
+    f_ctry.value=avail[0]; syncCountryRegion('country');
+    applied.push(T('국가 → ')+tCtry(avail[0]));
+  }else if(avail.length>1){
+    const regs=new Set(avail.map(n=>COUNTRY_BY_NAME[n].r));
+    f_ctry.value='국가 무관';
+    f_reg.value = regs.size===1 ? [...regs][0] : '전 권역';
+    applied.push(T('권역 → ')+tReg(f_reg.value));
+  }else{
+    const R=[['중앙아시아',['중앙아시아','central asia']],['동남아시아',['동남아','southeast asia']],
+             ['동북아시아',['동북아','northeast asia']],['남아시아',['남아시아','south asia']]];
+    const r=R.find(x=>x[1].some(has));
+    if(r){ f_reg.value=r[0]; f_ctry.value='국가 무관'; applied.push(T('권역 → ')+tReg(r[0])); }
+  }
+  /* 연령 */
+  const am=t.match(/(\d)0\s*대/);
+  if(am){
+    const d=+am[1];
+    let idx=-1;
+    if(d===1) idx=1;
+    else if(d===2) idx = has('후반')?3 : has('초반')?2 : -2;
+    else if(d===3) idx = has('후반')?5 : has('초반')?4 : -3;
+    else if(d===4) idx=6;
+    else if(d>=5) idx=7;
+    /* '20대'처럼 초·후반을 말하지 않으면, 조건을 통과하는 인원이 더 많은 쪽을 고른다 */
+    if(idx<0){
+      const pair = idx===-2 ? [2,3] : [4,5];
+      let best=pair[0], bestN=-1;
+      pair.forEach(i=>{ let n=0; try{ n=evaluate(readBrief({ageIdx:i}),{skipPortfolio:true}).ranked.length; }catch(e){}
+        if(n>bestN){ best=i; bestN=n; } });
+      idx=best;
+    }
+    if(idx>=0){ f_age.selectedIndex=idx; applied.push(T('연령 → ')+N(AGEOPT[idx])); }
+  }
+  /* 성별 */
+  const fem=['여성','여자','여심','female','women'].some(has), mal=['남성','남자','male','men'].some(w=>has(w)&&!(w==='men'&&has('women')));
+  if(fem!==mal){ f_sex.value = fem?'여성':'남성'; applied.push(T('성별 → ')+tSex(f_sex.value)); }
+  /* 카테고리 */
+  const cm=CAT_ALIAS.find(x=>x[1].some(has));
+  if(cm){ const i=CATS.findIndex(c=>c.k===cm[0]); if(i>=0){ f_cat.selectedIndex=i; applied.push(T('카테고리')+' → '+N(CATS[i])); } }
+  /* 채널 */
+  const P=[['Instagram',['인스타','instagram','릴스']],['TikTok',['틱톡','tiktok']],['YouTube',['유튜브','youtube','쇼츠']]];
+  const pm=P.find(x=>x[1].some(has));
+  if(pm){ f_plt.value=pm[0]; applied.push(T('채널')+' → '+tPlat(pm[0])); }
+  /* 추천 인원 */
+  const nm=t.match(/(\d+)\s*(명|인)(?!\s*이상)/);
+  if(nm){
+    const n=+nm[1], opts=Array.from(f_topn.options).map(o=>+o.value);
+    const best=opts.reduce((a,b)=>Math.abs(b-n)<Math.abs(a-n)?b:a);
+    f_topn.value=String(best); applied.push(T('추천 인원')+' → '+best);
+  }
+  /* 예산 (원) */
+  let won=0, m;
+  if((m=t.match(/(\d+(?:\.\d+)?)\s*억(?:\s*(\d+)\s*천)?/))) won=(+m[1])*1e8+(m[2]?(+m[2])*1e7:0);
+  else if((m=t.match(/(\d+(?:\.\d+)?)\s*천\s*만/))) won=(+m[1])*1e7;
+  else if((m=t.match(/(\d[\d,]*)\s*만\s*원?/))) won=(+m[1].replace(/,/g,''))*1e4;
+  if(won>0){
+    const mm=budSnap(won);
+    f_bud.value=mm; applied.push(T('예산 → ')+MAN(mm*1e6));
+  }
+  try{ updateBudget(); }catch(e){}
+  return applied;
+}
+window.localParseBrief=localParseBrief;
 async function aiParseBrief(){
   const out=$('aiParseOut');
   const text=($('aiText').value||'').trim();
@@ -7836,6 +7978,7 @@ async function aiParseBrief(){
     sex      :{type:'STRING', enum:optTexts(f_sex)},
     objective:{type:'STRING', enum:optTexts(f_obj)},
     region   :{type:'STRING', enum:optTexts(f_reg)},
+    country  :{type:'STRING', enum:Array.from(f_ctry.options).map(o=>o.value)},
     platform :{type:'STRING', enum:optTexts(f_plt)},
     min_tier :{type:'STRING', enum:optTexts(f_tier)},
     top_n    :{type:'STRING', enum:optTexts(f_topn)},
@@ -7844,7 +7987,7 @@ async function aiParseBrief(){
     budget_krw:{type:'INTEGER'},
     interpretation:{type:'STRING'},
     assumptions:{type:'ARRAY', items:{type:'STRING'}}
-  }, required:['category','age','sex','objective','region','platform','min_tier',
+  }, required:['category','age','sex','objective','region','country','platform','min_tier',
                'top_n','body','aqs','budget_krw','interpretation']};
 
   const system=
@@ -7855,7 +7998,9 @@ async function aiParseBrief(){
     '2. 설명에 없는 조건은 가장 넓은 선택지를 고른다 (예: 권역 미지정 → "전 권역", 채널 미지정 → "채널 무관", 등급 미지정 → "제한 없음", 신체 조건 미지정 → "제한 없음").\n'+
     '3. budget_krw 는 원 단위 정수다. "8천만원"→80000000, "1억"→100000000, "5천만"→50000000.\n'+
     '   예산 언급이 없으면 50000000 을 쓰고 assumptions 에 기재한다.\n'+
-    '4. 국가가 언급되면 그 국가가 속한 권역을 고른다. 중앙아시아(우즈베키스탄·카자흐스탄·키르기스스탄·타지키스탄), '+
+    '4. 입력에 국가명(축약어·오타 포함, 예: "우즈벡"·"우즈베크"→"우즈베키스탄", "인니"→"인도네시아", "카자흐"→"카자흐스탄")이 하나 있으면 '+
+    '반드시 country 에 enum 의 표준 국가명을 넣고, 동시에 region 에 그 국가가 속한 권역을 채운다. '+
+    '국가 없이 권역만 언급되거나 국가가 여러 개면 country 는 "국가 무관". 중앙아시아(우즈베키스탄·카자흐스탄·키르기스스탄·타지키스탄), '+
     '동남아시아(베트남·태국·인도네시아·필리핀·말레이시아·미얀마), 동북아시아(한국·몽골), 남아시아(인도·네팔). '+
     '여러 권역에 걸치면 "전 권역".\n'+
     '5. interpretation 에는 어떻게 해석했는지 한국어 두세 문장으로 쓴다.\n'+
@@ -7875,9 +8020,13 @@ async function aiParseBrief(){
       if(val && setByText(sel,val)) applied.push(label+' → '+val);
       else if(val) missed.push(label+'("'+val+'")');
     });
+    if(d.country && Array.from(f_ctry.options).some(o=>o.value===d.country)){
+      f_ctry.value=d.country; syncCountryRegion('country');
+      if(d.country!=='국가 무관') applied.push(T('진출 국가')+' → '+d.country);
+    }
     const bud=Number(d.budget_krw);
     if(Number.isFinite(bud) && bud>0){
-      const m=Math.min(+f_bud.max, Math.max(+f_bud.min, Math.round(bud/1e6/5)*5));
+      const m=budSnap(bud);
       f_bud.value=m; applied.push(T('예산 → ')+MAN(m*1e6));
     }
     updateBudget();

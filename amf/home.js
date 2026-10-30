@@ -25,7 +25,7 @@ Object.assign(DICT,{
   'CAMPAIGN BRIEF · 한 줄이면 됩니다':'CAMPAIGN BRIEF · one line is enough',
   '어떤 캠페인인가요?':'What is the campaign?',
   '예) 우즈베키스탄 20대 여성 스킨케어 런칭, 인스타그램 5명, 예산 5천만':'e.g. Skincare launch for women in their 20s in Uzbekistan, 5 creators on Instagram, budget 50M KRW',
-  '추천 받기':'Recommend','고급 조건 +':'Advanced +','카테고리':'Category','권역':'Region','연령':'Age','성별':'Gender','채널':'Channel','예산':'Budget',
+  '추천 받기':'Recommend','고급 조건 +':'Advanced +','카테고리':'Category','권역':'Region','입력한 조건을 반영했습니다: ':'Applied your conditions: ','연령':'Age','성별':'Gender','채널':'Channel','예산':'Budget',
   '추천 크리에이터':'Recommended creators','적합도순':'by fit score','전체 보기 →':'View all →',
   '오늘의 추천':'TODAY\'S PICKS','최고 적합도':'Top fit','순 도달':'Net reach','예산 소진':'Budget used',
   '이번 주 쇼 · 행사':'This week\'s shows','전체 일정 →':'Full calendar →','진행 중':'Live','기준':'as of',
@@ -209,7 +209,7 @@ const en=()=>LANG==='en';
 const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 /* ───────── 3. 조건 칩 (기존 폼 select 를 그대로 조종한다) ───────── */
-const BUDGETS=[10,20,30,50,80,100,150,200,300];
+const BUDGETS=[0.5,1,3,5,10,20,30,50,80,100,150,200,300];
 function chipsHTML(){
   const sel=(src,label,trans)=>{
     const s=window[src]; if(!s) return '';
@@ -219,7 +219,7 @@ function chipsHTML(){
   const m=+f_bud.value;
   const bud=`<label class="hm-chip"><span class="k">${T('예산')}</span><select data-src="f_bud" aria-label="${T('예산')}">${
     (BUDGETS.indexOf(m)<0?BUDGETS.concat([m]).sort((a,b)=>a-b):BUDGETS).map(v=>`<option value="${v}" ${v===m?'selected':''}>${MAN(v*1e6)}</option>`).join('')}</select></label>`;
-  return sel('f_cat','카테고리')+sel('f_reg','권역',tReg)+sel('f_age','연령')+sel('f_sex','성별',tSex)+sel('f_plt','채널',tPlat)+bud+
+  return sel('f_cat','카테고리')+sel('f_reg','권역',tReg)+sel('f_ctry','국가',v=>v==='국가 무관'?T(v):tCtry(v))+sel('f_age','연령')+sel('f_sex','성별',tSex)+sel('f_plt','채널',tPlat)+bud+
     `<button type="button" class="hm-chip more" id="hmMore">${T('고급 조건 +')}</button>`;
 }
 function bindChips(){
@@ -228,6 +228,7 @@ function bindChips(){
     const src=s.dataset.src;
     if(src==='f_bud'){ f_bud.value=+s.value; }
     else { window[src].selectedIndex=+s.value; }
+    if(src==='f_ctry'||src==='f_reg'){ try{ syncCountryRegion(src==='f_ctry'?'country':'region'); }catch(e){} bindChips(); }
     try{ updateBudget(); }catch(e){}
     renderResults();
   });
@@ -274,8 +275,18 @@ function renderCards(){
   const {brief,res}=CUR;
   const top=res.top.slice(0,Math.max(5,brief.topN));
   q('hmSub').textContent=en()?`by fit score · ${res.top.length} of ${ROSTER.length}`:`적합도순 · ${ROSTER.length}인 중 ${res.top.length}인`;
-  q('hmCards').innerHTML=top.length?top.map(card).join(''):
-    `<div class="hm-empty">${T('조건에 맞는 크리에이터가 없습니다. 조건을 넓혀 보세요.')}</div>`;
+  /* 비어 있으면 이유를 알려 준다 — 특히 예산이 최저 단가보다 낮은 경우 */
+  const cheapest=ROSTER.reduce((m,c)=>Math.min(m,c.rate),Infinity);
+  const why = brief.budget*0.55 < cheapest
+    ? (en()?`No creator fits a ${MAN(brief.budget)} budget — the lowest rate in the network is ${MAN(cheapest)}.`
+           :`예산 ${MAN(brief.budget)}으로 섭외 가능한 크리에이터가 없습니다 — 현재 네트워크 최저 단가는 ${MAN(cheapest)}입니다.`)
+    : (()=>{ /* 어느 단계에서 0명이 됐는지 알려 준다 */
+        const st=res.stages||[], i=st.findIndex(x=>x.n===0);
+        if(i<=0) return T('조건에 맞는 크리에이터가 없습니다. 조건을 넓혀 보세요.');
+        return en()?`No match: ${st[i-1].n} passed "${st[i-1].k}", but 0 passed "${st[i].k}" (${st[i].d}). Try loosening that condition.`
+                   :`조건에 맞는 크리에이터가 없습니다 — '${st[i-1].k}' ${st[i-1].n}명 중 '${st[i].k}'(${st[i].d})에서 0명이 됐습니다. 이 조건을 넓혀 보세요.`;
+      })();
+  q('hmCards').innerHTML=top.length?top.map(card).join(''):`<div class="hm-empty">${esc(why)}</div>`;
   q('hmCards').querySelectorAll('[data-board]').forEach(b=>b.onclick=()=>{ boardToggle(+b.dataset.board); renderCards(); });
   q('hmCards').querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openDrawer(+b.dataset.open));
 }
@@ -283,7 +294,7 @@ function renderSummary(){
   const {brief,res}=CUR;
   q('hmSummary').innerHTML=`<div class="deco" aria-hidden="true"></div>
     <span class="k">${T('오늘의 추천')}</span>
-    <div class="big"><b class="num">${res.top.length}</b><span>${en()?' picks':'인'} · ${esc(brief.catName)} · ${esc(tReg(brief.region))}</span></div>
+    <div class="big"><b class="num">${res.top.length}</b><span>${en()?' picks':'인'} · ${esc(brief.catName)} · ${esc(geoName(brief))}</span></div>
     <div class="kv">
       <div><div class="l">${T('최고 적합도')}</div><div class="v num">${res.top[0]?res.top[0].score:'–'}</div></div>
       <div><div class="l">${T('순 도달')}</div><div class="v num">${KM(res.reachStat.net)}</div></div>
@@ -333,10 +344,13 @@ q('hmForm').addEventListener('submit', async e=>{
   const btn=q('hmGo'); btn.disabled=true;
   try{
     if(text){
+      /* 규칙 해석을 먼저 적용 — AI 가 없어도 국가·연령·성별 등이 반영된다 */
+      let applied=[];
+      try{ applied=window.localParseBrief ? window.localParseBrief(text) : []; }catch(err){ console.warn(err); }
       if(typeof gemOn==='function' && gemOn()){
         const ta=q('aiText'); if(ta) ta.value=text;
         try{ await aiParseBrief(); }catch(err){ console.warn(err); }
-      } else toast(T('AI 미연결 — 조건 칩으로 추천합니다'));
+      } else toast(applied.length ? T('입력한 조건을 반영했습니다: ')+applied.join(' · ') : T('AI 미연결 — 조건 칩으로 추천합니다'));
     }
     bindChips(); renderResults();
     q('hmCards').scrollIntoView({behavior:SB, block:'start'});
