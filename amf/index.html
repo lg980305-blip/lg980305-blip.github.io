@@ -2934,7 +2934,7 @@ DICT = {
 '편성 인원 전원이 리스크 15 미만이며 어뷰징 플래그가 없습니다.':
  'Every creator in the line-up is below risk 15 with no abuse flags.',
 '주간 성장 리포트':'Weekly growth report',
-'리포트 메일 발송':'Email the report','메일 앱으로 열기':'Open in mail app',
+'리포트 메일 발송':'Email the report','메일 앱으로 열기':'Open in mail app','Gmail로 보내기':'Send via Gmail',' 계정의 Gmail 작성 창을 엽니다':' - opens a Gmail compose window for this account',' Gmail 작성 창을 열었습니다 — 내용을 확인하고 보내기를 누르세요. (그 계정으로 로그인돼 있어야 합니다)':' - Gmail compose opened. Review and press Send (you must be signed in to that account).','팝업이 막혀 기본 메일 앱을 열었습니다.':'Pop-up blocked, so your default mail app opened.',
 '서버를 통해 바로 발송합니다':'Sends directly through the server',
 '서버 발송이 설정되지 않아 메일 앱을 엽니다':'Server sending is not configured, so your mail app opens instead',
 '받는 사람 이메일':'Recipient email','받는 사람 주소를 확인하세요.':'Check the recipient address.',
@@ -7512,9 +7512,11 @@ function renderSchemaTable(){
    없으면 사용자의 메일 앱을 여는 mailto: 로 내려간다.
    → APK(TWA)도 같은 웹앱이므로, 서버만 배포돼 있으면 APK 에서도 그대로 발송된다. */
 const MAIL_URL='/api/email';
+/* 리포트 보내는 계정 — 서버 발송이 없을 때 이 계정의 Gmail 작성 창을 연다 */
+const MAIL_FROM='amfenter@gmail.com';
 let MAIL_READY=false;
 async function mailProbe(){
-  if(!/^https?:$/.test(location.protocol)) return;
+  if(!/^https?:$/.test(location.protocol) || /\.github\.io$/.test(location.hostname)){ mailSync(); return; }
   try{
     const r=await fetch(MAIL_URL); if(!r.ok) return;
     const j=await r.json();
@@ -7525,9 +7527,9 @@ async function mailProbe(){
 function mailSync(){
   const b=document.getElementById('gSendBtn');
   if(!b) return;
-  b.textContent = MAIL_READY ? T('리포트 메일 발송') : T('메일 앱으로 열기');
+  b.textContent = MAIL_READY ? T('리포트 메일 발송') : T('Gmail로 보내기');
   b.title = MAIL_READY ? T('서버를 통해 바로 발송합니다')
-                       : T('서버 발송이 설정되지 않아 메일 앱을 엽니다');
+                       : MAIL_FROM+T(' 계정의 Gmail 작성 창을 엽니다');
 }
 /* 성장 리포트를 발송용 페이로드로 만든다 */
 function growthPayload(c){
@@ -7562,10 +7564,18 @@ function growthPayload(c){
 function mailtoFallback(p, to){
   const lines=[p.subtitle,'', ...p.stats.map(s=>s.k+': '+s.v), '',
     T('권장 조치'), ...p.notes.map(n=>'- '+n)];
-  const url='mailto:'+encodeURIComponent(to||'')+
+  /* amfenter@gmail.com 계정의 Gmail 작성 창 — 받는 사람·제목·본문이 채워진 채로 열린다 */
+  const gmail='https://mail.google.com/mail/?view=cm&fs=1&authuser='+encodeURIComponent(MAIL_FROM)+
+    '&to='+encodeURIComponent(to||'')+'&su='+encodeURIComponent(p.title)+
+    '&body='+encodeURIComponent(lines.join('\n'));
+  /* 'noopener' 를 주면 window.open 이 항상 null 을 돌려주므로, 연 뒤에 opener 를 끊는다 */
+  const w=window.open(gmail,'_blank');
+  if(w){ try{ w.opener=null; }catch(e){} return true; }
+  /* 팝업이 막히면 기본 메일 앱으로 */
+  location.href='mailto:'+encodeURIComponent(to||'')+
     '?subject='+encodeURIComponent(p.title)+
     '&body='+encodeURIComponent(lines.join('\n'));
-  location.href=url;
+  return false;
 }
 async function sendGrowthReport(){
   const idx=+($('growthPick').value||0);
@@ -7574,8 +7584,10 @@ async function sendGrowthReport(){
   const msg=$('gSendMsg');
   const p=growthPayload(c);
   if(!MAIL_READY){
-    mailtoFallback(p, to);
-    msg.innerHTML=`<div class="fhint">${T('메일 앱을 열었습니다. 서버 발송을 쓰려면 Vercel 에 RESEND_API_KEY · MAIL_FROM 을 설정하세요.')}</div>`;
+    const viaGmail=mailtoFallback(p, to);
+    msg.innerHTML=`<div class="fhint">${viaGmail
+      ? mdLite(MAIL_FROM)+T(' Gmail 작성 창을 열었습니다 — 내용을 확인하고 보내기를 누르세요. (그 계정으로 로그인돼 있어야 합니다)')
+      : T('팝업이 막혀 기본 메일 앱을 열었습니다.')}</div>`;
     return;
   }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(to)){
