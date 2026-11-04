@@ -2,7 +2,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
 .amf-home{--ink:#212121;--sub:#6b6b6b;--gray:#f6f6f6;--yellow:#fff27a;font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;color:var(--ink);background:#fff;line-height:1.6;word-break:keep-all;overflow-x:hidden}
-.amf-home:lang(ja),.amf-home:lang(zh-CN),.amf-home:lang(vi){word-break:normal}
+.amf-home:lang(ja),.amf-home:lang(zh-CN),.amf-home:lang(vi),.amf-home:lang(ru){word-break:normal}
 .amf-home *{box-sizing:border-box;margin:0;padding:0}
 .amf-home a{color:inherit;text-decoration:none}
 .amf-home img{display:block;width:100%;height:100%;object-fit:cover}
