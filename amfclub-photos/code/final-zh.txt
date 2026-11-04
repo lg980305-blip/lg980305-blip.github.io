@@ -119,7 +119,7 @@
 <div class="tt-root" lang="zh-CN">
 
   <section class="tt-hero">
-    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Bukchon" class="tt-hero-img" loading="lazy">
+    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
     <div class="tt-hero-in">
       <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
       <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
@@ -135,49 +135,49 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · 2人起</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! 首尔市区游</p>
         <p class="tt-card-price"><b class="tt-olive">01</b> 165,000韩元</p>
       </a>
       <a class="tt-card" href="#tt-p02">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="东林绳结工坊" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg?v=2" alt="东林绳结工坊" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
         <p class="tt-card-meta">10:00 – 17:00 · 4人起</p>
         <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
         <p class="tt-card-kr">艺术与美 · 传统工艺与水疗</p>
         <p class="tt-card-price"><b class="tt-olive">02</b> 485,000韩元</p>
       </a>
       <a class="tt-card" href="#tt-p03">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="现代百货首尔" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="现代百货首尔" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
         <p class="tt-card-meta">15:00 – 20:30 · 4人起</p>
         <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
         <p class="tt-card-kr">现代百货首尔购物 &amp; 烟花游船</p>
         <p class="tt-card-price"><b class="tt-olive">03</b> 115,000韩元</p>
       </a>
       <a class="tt-card" href="#tt-p04">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg?v=2" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
         <p class="tt-card-meta">10:00 – 15:00 · 2人起</p>
         <h3 class="tt-card-title">SEONGSU TREND</h3>
         <p class="tt-card-kr">圣水潮流之旅 &amp; 购物日</p>
         <p class="tt-card-price"><b class="tt-olive">04</b> 250,000韩元起</p>
       </a>
       <a class="tt-card" href="#tt-p05">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="魔幻岛" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg?v=2" alt="魔幻岛" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
         <p class="tt-card-meta">09:00 – 13:00 · 3人起</p>
         <h3 class="tt-card-title">LOTTE WORLD</h3>
         <p class="tt-card-kr">乐天世界野餐日</p>
         <p class="tt-card-price"><b class="tt-olive">05</b> 160,000韩元</p>
       </a>
       <a class="tt-card" href="#tt-p06">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="辣炒年糕·血肠" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg?v=2" alt="辣炒年糕·血肠" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
         <p class="tt-card-meta">13:00 – 16:30 · 2人起</p>
         <h3 class="tt-card-title">K-FOOD MARKET</h3>
         <p class="tt-card-kr">K-Food 市场美食之旅</p>
         <p class="tt-card-price"><b class="tt-olive">06</b> 165,000韩元</p>
       </a>
       <a class="tt-card" href="#tt-p07">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="DMZ瞭望台" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg?v=2" alt="DMZ瞭望台" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
         <p class="tt-card-meta">07:30 – 17:00 · 4人起</p>
         <h3 class="tt-card-title">DMZ &amp; GAMAKSAN</h3>
         <p class="tt-card-kr">DMZ &amp; 脱北者的故事 + 绀岳山吊桥</p>
@@ -195,8 +195,8 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="北村韩屋村" class="" loading="lazy"><figcaption>北村韩屋村</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg" alt="N首尔塔" class="" loading="lazy"><figcaption>N首尔塔</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="北村韩屋村" class="" loading="lazy"><figcaption>北村韩屋村</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N首尔塔" class="" loading="lazy"><figcaption>N首尔塔</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>
@@ -217,8 +217,8 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="东林绳结工坊" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg" alt="绳结手链" class="" loading="lazy"><figcaption>绳结手链</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg?v=2" alt="东林绳结工坊" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg?v=2" alt="绳结手链" class="" loading="lazy"><figcaption>绳结手链</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg?v=2" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 02</p>
@@ -239,8 +239,8 @@
     </article>
     <article class="tt-prog" id="tt-p03">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="现代百货首尔" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="汉江烟花" class="" loading="lazy"><figcaption>汉江烟花</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg" alt="汝矣岛公园" class="" loading="lazy"><figcaption>汝矣岛公园</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="现代百货首尔" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg?v=2" alt="汉江烟花" class="" loading="lazy"><figcaption>汉江烟花</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg?v=2" alt="汝矣岛公园" class="" loading="lazy"><figcaption>汝矣岛公园</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 03</p>
@@ -261,8 +261,8 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg" alt="季节快闪店" class="" loading="lazy"><figcaption>季节快闪店</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg?v=2" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg?v=2" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg?v=2" alt="季节快闪店" class="" loading="lazy"><figcaption>季节快闪店</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 04</p>
@@ -283,8 +283,8 @@
     </article>
     <article class="tt-prog" id="tt-p05">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="魔幻岛" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg" alt="室内探险乐园" class="" loading="lazy"><figcaption>室内探险乐园</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg" alt="魔幻城堡" class="" loading="lazy"><figcaption>魔幻城堡</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg?v=2" alt="魔幻岛" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg?v=2" alt="室内旋转木马" class="" loading="lazy"><figcaption>室内旋转木马</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg?v=2" alt="魔幻城堡" class="" loading="lazy"><figcaption>魔幻城堡</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 05</p>
@@ -305,8 +305,8 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="辣炒年糕·血肠" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg" alt="广藏市场" class="" loading="lazy"><figcaption>广藏市场</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg" alt="绿豆煎饼" class="" loading="lazy"><figcaption>绿豆煎饼</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg?v=2" alt="辣炒年糕·血肠" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg?v=2" alt="广藏市场" class="" loading="lazy"><figcaption>广藏市场</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg?v=2" alt="绿豆煎饼" class="" loading="lazy"><figcaption>绿豆煎饼</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 06</p>
@@ -327,8 +327,8 @@
     </article>
     <article class="tt-prog" id="tt-p07">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="DMZ瞭望台" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg" alt="临津阁" class="" loading="lazy"><figcaption>临津阁</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg" alt="吊桥" class="" loading="lazy"><figcaption>吊桥</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg?v=2" alt="DMZ瞭望台" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg?v=2" alt="临津阁" class="" loading="lazy"><figcaption>临津阁</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg?v=2" alt="吊桥" class="" loading="lazy"><figcaption>吊桥</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 07</p>

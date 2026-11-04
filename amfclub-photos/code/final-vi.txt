@@ -119,7 +119,7 @@
 <div class="tt-root" lang="vi">
 
   <section class="tt-hero">
-    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Bukchon" class="tt-hero-img" loading="lazy">
+    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
     <div class="tt-hero-in">
       <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
       <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
@@ -135,49 +135,49 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · Tối thiểu 2 người</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! Tour thành phố Seoul</p>
         <p class="tt-card-price"><b class="tt-olive">01</b> 165.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p02">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="Xưởng Donglim Maedeup" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg?v=2" alt="Xưởng Donglim Maedeup" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
         <p class="tt-card-meta">10:00 – 17:00 · Tối thiểu 4 người</p>
         <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
         <p class="tt-card-kr">Art &amp; Beauty · Thủ công và Spa</p>
         <p class="tt-card-price"><b class="tt-olive">02</b> 485.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p03">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
         <p class="tt-card-meta">15:00 – 20:30 · Tối thiểu 4 người</p>
         <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
         <p class="tt-card-kr">Mua sắm The Hyundai Seoul &amp; Du thuyền pháo hoa</p>
         <p class="tt-card-price"><b class="tt-olive">03</b> 115.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p04">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg?v=2" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
         <p class="tt-card-meta">10:00 – 15:00 · Tối thiểu 2 người</p>
         <h3 class="tt-card-title">SEONGSU TREND</h3>
         <p class="tt-card-kr">Tour xu hướng Seongsu &amp; Ngày mua sắm</p>
         <p class="tt-card-price"><b class="tt-olive">04</b> Từ 250.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p05">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="Magic Island" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg?v=2" alt="Magic Island" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
         <p class="tt-card-meta">09:00 – 13:00 · Tối thiểu 3 người</p>
         <h3 class="tt-card-title">LOTTE WORLD</h3>
         <p class="tt-card-kr">Ngày dã ngoại Lotte World</p>
         <p class="tt-card-price"><b class="tt-olive">05</b> 160.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p06">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg?v=2" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
         <p class="tt-card-meta">13:00 – 16:30 · Tối thiểu 2 người</p>
         <h3 class="tt-card-title">K-FOOD MARKET</h3>
         <p class="tt-card-kr">Tour chợ ẩm thực K-Food</p>
         <p class="tt-card-price"><b class="tt-olive">06</b> 165.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p07">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="Đài quan sát DMZ" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg?v=2" alt="Đài quan sát DMZ" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
         <p class="tt-card-meta">07:30 – 17:00 · Tối thiểu 4 người</p>
         <h3 class="tt-card-title">DMZ &amp; GAMAKSAN</h3>
         <p class="tt-card-kr">DMZ &amp; Câu chuyện người đào tẩu + Cầu treo Gamaksan</p>
@@ -195,8 +195,8 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Làng Hanok Bukchon" class="" loading="lazy"><figcaption>Làng Hanok Bukchon</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg" alt="Tháp N Seoul" class="" loading="lazy"><figcaption>Tháp N Seoul</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Làng Hanok Bukchon" class="" loading="lazy"><figcaption>Làng Hanok Bukchon</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="Tháp N Seoul" class="" loading="lazy"><figcaption>Tháp N Seoul</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>
@@ -217,8 +217,8 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="Xưởng Donglim Maedeup" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg" alt="Vòng tay thắt nút" class="" loading="lazy"><figcaption>Vòng tay thắt nút</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg?v=2" alt="Xưởng Donglim Maedeup" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg?v=2" alt="Vòng tay thắt nút" class="" loading="lazy"><figcaption>Vòng tay thắt nút</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg?v=2" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 02</p>
@@ -239,8 +239,8 @@
     </article>
     <article class="tt-prog" id="tt-p03">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="Pháo hoa sông Hàn" class="" loading="lazy"><figcaption>Pháo hoa sông Hàn</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg" alt="Công viên Yeouido" class="" loading="lazy"><figcaption>Công viên Yeouido</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg?v=2" alt="Pháo hoa sông Hàn" class="" loading="lazy"><figcaption>Pháo hoa sông Hàn</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg?v=2" alt="Công viên Yeouido" class="" loading="lazy"><figcaption>Công viên Yeouido</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 03</p>
@@ -261,8 +261,8 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg" alt="Cửa hàng pop-up" class="" loading="lazy"><figcaption>Cửa hàng pop-up</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg?v=2" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg?v=2" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg?v=2" alt="Cửa hàng pop-up" class="" loading="lazy"><figcaption>Cửa hàng pop-up</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 04</p>
@@ -283,8 +283,8 @@
     </article>
     <article class="tt-prog" id="tt-p05">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="Magic Island" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg" alt="Adventure trong nhà" class="" loading="lazy"><figcaption>Adventure trong nhà</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg" alt="Magic Castle" class="" loading="lazy"><figcaption>Magic Castle</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg?v=2" alt="Magic Island" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg?v=2" alt="Vòng quay ngựa gỗ" class="" loading="lazy"><figcaption>Vòng quay ngựa gỗ</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg?v=2" alt="Magic Castle" class="" loading="lazy"><figcaption>Magic Castle</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 05</p>
@@ -305,8 +305,8 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg" alt="Chợ Gwangjang" class="" loading="lazy"><figcaption>Chợ Gwangjang</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg" alt="Bindaetteok" class="" loading="lazy"><figcaption>Bindaetteok</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg?v=2" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg?v=2" alt="Chợ Gwangjang" class="" loading="lazy"><figcaption>Chợ Gwangjang</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg?v=2" alt="Bindaetteok" class="" loading="lazy"><figcaption>Bindaetteok</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 06</p>
@@ -327,8 +327,8 @@
     </article>
     <article class="tt-prog" id="tt-p07">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="Đài quan sát DMZ" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg" alt="Imjingak" class="" loading="lazy"><figcaption>Imjingak</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg" alt="Cầu treo" class="" loading="lazy"><figcaption>Cầu treo</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg?v=2" alt="Đài quan sát DMZ" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg?v=2" alt="Imjingak" class="" loading="lazy"><figcaption>Imjingak</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg?v=2" alt="Cầu treo" class="" loading="lazy"><figcaption>Cầu treo</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 07</p>
