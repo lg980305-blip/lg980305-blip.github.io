@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="ko">
-  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-topikasia.jpg" alt="토픽아시아 logo"></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/903a16e6910fb71cfc29952a6629b5cc09cf85b2/amfclub-photos/logo-topikasia.jpg" alt="토픽아시아 logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · 곧 공개됩니다</p><h1>토픽아시아</h1><p class="b-sub">아시아 학습자를 위한 TOPIK 한국어 교육</p><p class="b-desc">한국어능력시험(TOPIK)을 준비하는 아시아 학습자를 위한 교육 브랜드예요. 자세한 과정과 일정은 곧 공개됩니다.</p>
   <div class="b-btns"><a class="b-dark" href="/totium">서울 투어 보기 &#8594;</a><a class="b-line" href="/">메인으로</a></div></div>
 </div>

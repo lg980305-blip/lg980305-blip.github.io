@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="zh-CN">
-  <section class="b-hero" style="background:#2b2b2b;color:#fff"><p class="b-word">BLACKHOLEMAN</p></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/903a16e6910fb71cfc29952a6629b5cc09cf85b2/amfclub-photos/logo-blackholeman.jpg" alt="黑洞人 logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · 即将上线</p><h1>黑洞人</h1><p class="b-sub">黑洞人角色与原创周边</p><p class="b-desc">介绍Blackholeman Bros原创角色黑洞人及其周边。周边商品即将上线。</p>
   <div class="b-btns"><a class="b-dark" href="/totium">查看首尔旅游 &#8594;</a><a class="b-line" href="/">返回首页</a></div></div>
 </div>

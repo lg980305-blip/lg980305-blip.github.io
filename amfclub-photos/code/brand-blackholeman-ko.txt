@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="ko">
-  <section class="b-hero" style="background:#2b2b2b;color:#fff"><p class="b-word">BLACKHOLEMAN</p></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/903a16e6910fb71cfc29952a6629b5cc09cf85b2/amfclub-photos/logo-blackholeman.jpg" alt="블랙홀맨 logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · 곧 공개됩니다</p><h1>블랙홀맨</h1><p class="b-sub">블랙홀맨 캐릭터와 오리지널 굿즈</p><p class="b-desc">블랙홀맨브로스의 오리지널 캐릭터 블랙홀맨과 굿즈를 소개하는 공간이에요. 굿즈는 곧 공개됩니다.</p>
   <div class="b-btns"><a class="b-dark" href="/totium">서울 투어 보기 &#8594;</a><a class="b-line" href="/">메인으로</a></div></div>
 </div>

@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="vi">
-  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-topikasia.jpg" alt="TOPIK Asia logo"></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/903a16e6910fb71cfc29952a6629b5cc09cf85b2/amfclub-photos/logo-topikasia.jpg" alt="TOPIK Asia logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · SẮP RA MẮT</p><h1>TOPIK Asia</h1><p class="b-sub">Khóa học tiếng Hàn TOPIK cho người học châu Á</p><p class="b-desc">Thương hiệu giáo dục dành cho người học châu Á đang chuẩn bị kỳ thi năng lực tiếng Hàn TOPIK. Chi tiết khóa học và lịch học sẽ sớm được công bố.</p>
   <div class="b-btns"><a class="b-dark" href="/totium">Xem tour Seoul &#8594;</a><a class="b-line" href="/">Về trang chủ</a></div></div>
 </div>
