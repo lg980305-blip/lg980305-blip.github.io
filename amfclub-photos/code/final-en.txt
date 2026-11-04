@@ -196,7 +196,7 @@
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Bukchon Hanok Village" class="" loading="lazy"><figcaption>Bukchon Hanok Village</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Gwangjang Market" class="" loading="lazy"><figcaption>Gwangjang Market</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Bukchon Hanok Village" class="" loading="lazy"><figcaption>Bukchon Hanok Village</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg" alt="N Seoul Tower" class="" loading="lazy"><figcaption>N Seoul Tower</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>

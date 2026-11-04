@@ -196,7 +196,7 @@
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Làng Hanok Bukchon" class="" loading="lazy"><figcaption>Làng Hanok Bukchon</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Chợ Gwangjang" class="" loading="lazy"><figcaption>Chợ Gwangjang</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Làng Hanok Bukchon" class="" loading="lazy"><figcaption>Làng Hanok Bukchon</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg" alt="Tháp N Seoul" class="" loading="lazy"><figcaption>Tháp N Seoul</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>
@@ -210,7 +210,7 @@
           <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
         </dl>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>Tham quan Gwanghwamun, suối Cheonggyecheon bằng xe, chùa Jogyesa</li><li>Lễ đổi gác &amp; Cung Gyeongbokgung</li><li>Bảo tàng Dân gian Quốc gia · Ăn trưa</li><li>Làng Hanok Namsangol (thứ Hai đổi sang Bukchon)</li><li>Tháp N Seoul → Chợ Gwangjang</li><li>17:00 Tự do trở về khách sạn</li></ol>
+        <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>Tham quan Gwanghwamun, suối Cheonggyecheon bằng xe, chùa Jogyesa</li><li>Lễ đổi gác &amp; Cung Gyeongbokgung</li><li>Bảo tàng Dân gian Quốc gia · Ăn trưa</li><li>Làng Hanok Namsangol (thứ Hai đổi sang Bukchon)</li><li>Tháp N Seoul → Chợ Gwangjang</li><li>17:00 Trở về khách sạn</li></ol>
         <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>

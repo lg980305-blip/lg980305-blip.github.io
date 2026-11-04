@@ -196,7 +196,7 @@
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="守門将交代式" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="北村韓屋村" class="" loading="lazy"><figcaption>北村韓屋村</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="広蔵市場" class="" loading="lazy"><figcaption>広蔵市場</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="北村韓屋村" class="" loading="lazy"><figcaption>北村韓屋村</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg" alt="Nソウルタワー" class="" loading="lazy"><figcaption>Nソウルタワー</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>
@@ -210,7 +210,7 @@
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>光化門・清渓川を車窓観光、曹渓寺</li><li>守門将交代式 &amp; 景福宮</li><li>国立民俗博物館 · 昼食</li><li>南山コル韓屋村（月曜は北村）</li><li>Nソウルタワー → 広蔵市場</li><li>17:00 ホテルへ自由解散</li></ol>
+        <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>光化門・清渓川を車窓観光、曹渓寺</li><li>守門将交代式 &amp; 景福宮</li><li>国立民俗博物館 · 昼食</li><li>南山コル韓屋村（月曜は北村）</li><li>Nソウルタワー → 広蔵市場</li><li>17:00 ホテルへお送り</li></ol>
         <p class="tt-note">王宮の休館・行事により日程が変わる場合があります · ベジタリアン/ハラールは事前にご相談ください</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>
