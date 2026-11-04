@@ -115,6 +115,25 @@
 .tt-root:lang(vi){font-family:Pretendard,"Be Vietnam Pro","Noto Sans",Arial,sans-serif;word-break:normal}
 .tt-root:lang(ru){font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;word-break:normal}
 .tt-root:lang(ru) .tt-facts div,.tt-root:lang(vi) .tt-facts div,.tt-root:lang(en) .tt-facts div{grid-template-columns:84px minmax(0,1fr)}
+</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap');
+.tt-root{--ink:#2c221c;--sub:#7a6a5e;--line:#e2d6c7;--gray:#efe5d8;--cream:#efe5d8;--yellow:#f8f3ec;--olive:#8a5a3c;background:#f8f3ec!important}
+.tt-root .tt-eyebrow,.tt-root .tt-hero-kicker{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:600;letter-spacing:.18em}
+.tt-root .tt-hero{border-radius:0}
+.tt-root .tt-hero-title{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;color:#f8f3ec;letter-spacing:.04em}
+.tt-root .tt-hero-sub{color:#f8f3ec}
+.tt-root .tt-h2,.tt-root .tt-card-title,.tt-root .tt-prog-title,.tt-root .tt-cta-title{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.01em}
+.tt-root .tt-card-kr,.tt-root .tt-prog-kr{font-family:"Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC",serif;font-weight:500}
+.tt-root .tt-card-img,.tt-root .tt-main,.tt-root .tt-thumbs img,.tt-root .tt-prog,.tt-root .tt-tiers,.tt-root .tt-note,.tt-root .tt-cancel-item,.tt-root .tt-qr,.tt-root .tt-qr-box{border-radius:0}
+.tt-root .tt-prog{background:#f8f3ec;border:1px solid #e2d6c7}
+.tt-root .tt-badge{background:#3a2a21;color:#f8f3ec;border-radius:0;font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.12em}
+.tt-root .tt-route li::before{background:#3a2a21;color:#f8f3ec}
+.tt-root .tt-btn{background:#3a2a21;color:#f8f3ec;border-radius:0;letter-spacing:.02em}
+.tt-root .tt-btn:hover{background:#2c221c}
+.tt-root .tt-q-title b,.tt-root .tt-cancel-item b{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:600}
+.tt-root{font-variant-numeric:lining-nums}
+.tt-root .tt-cta{background:#efe5d8}
+.tt-root .tt-qr{background:#f8f3ec}
 
 </style>
 <div class="tt-root" lang="ru">
