@@ -1,0 +1,381 @@
+<!-- ============================================================
+  AMF CLUB · TOTIUM TRAVEL — Seoul Tour Programs (vi)
+  아임웹 HTML 코드 블록용. 스타일은 .tt-root 안에서만 적용됩니다.
+  - 이미지 src(예: gyeongbok.jpg)를 아임웹에 올린 이미지 주소로 바꾸세요.
+  - BOOKING_URL 을 예약 신청 폼 주소로 바꾸세요. QR은 qr.jpg 자리에 넣으세요.
+============================================================= -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+.tt-root{--ink:#212121;--sub:#6b6b6b;--mute:#9a9a9a;--line:#e4e4e4;--gray:#f6f6f6;--cream:#f5f4e7;--yellow:#fff27a;--olive:#a39318;
+  font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Nanum Gothic",sans-serif;color:var(--ink);background:#fff;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.tt-root *{box-sizing:border-box;margin:0;padding:0}
+.tt-root img{display:block;max-width:100%;width:100%;height:100%;object-fit:cover}
+.tt-root a{color:inherit;text-decoration:none}
+.tt-root a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.tt-root h1,.tt-root h2,.tt-root h3{text-wrap:balance}
+.tt-root .tt-eyebrow{font-family:Poppins,Pretendard,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--sub)}
+.tt-root .tt-olive{color:var(--olive)}
+/* hero */
+.tt-root .tt-hero{position:relative;margin:0 16px;max-width:1400px;border-radius:12px;overflow:hidden;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;background:#222}
+.tt-root .tt-hero-img{position:absolute;inset:0;filter:brightness(.55)}
+.tt-root .tt-hero-in{position:relative;padding:72px 20px}
+.tt-root .tt-hero-kicker{font-family:Poppins,sans-serif;font-weight:600;font-size:13px;letter-spacing:.12em;color:#fff}
+.tt-root .tt-hero-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;color:var(--yellow);font-size:clamp(68px,13vw,150px);line-height:.95;letter-spacing:.01em;margin:14px 0 18px}
+.tt-root .tt-hero-sub{color:var(--yellow);font-size:15px;font-weight:500;line-height:1.55}
+/* sections */
+.tt-root .tt-sec{padding:88px 16px}
+.tt-root .tt-gray{background:var(--gray)}
+.tt-root .tt-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.tt-root .tt-h2{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(26px,4vw,34px);line-height:1.2;margin:8px 0 10px;letter-spacing:-.005em}
+.tt-root .tt-lead{color:var(--sub);font-size:15px}
+.tt-root .tt-left{text-align:left}
+/* card rail */
+.tt-root .tt-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,31%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;max-width:1200px;margin:0 auto;padding-bottom:12px;scrollbar-width:thin}
+.tt-root .tt-card{scroll-snap-align:start;min-width:0;display:block}
+.tt-root .tt-card-img{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ddd}
+.tt-root .tt-arrow{position:absolute;top:12px;right:14px;color:#fff;font-size:26px;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.tt-root .tt-badge{position:absolute;left:0;top:0;background:#111;color:var(--yellow);font-family:Poppins,sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;padding:6px 10px;border-bottom-right-radius:8px}
+.tt-root .tt-card-meta{margin-top:12px;color:var(--mute);font-size:13px;font-variant-numeric:tabular-nums}
+.tt-root .tt-card-title{font-family:Poppins,Pretendard,sans-serif;font-weight:700;font-size:20px;line-height:1.25;margin-top:2px}
+.tt-root .tt-card-kr{font-size:14px;color:var(--sub)}
+.tt-root .tt-card-price{margin-top:4px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+/* program detail */
+.tt-root .tt-progs{display:flex;flex-direction:column;gap:24px;max-width:1200px;margin:0 auto}
+.tt-root .tt-prog{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;background:#fff;border-radius:16px;padding:28px}
+.tt-root .tt-flip .tt-gallery{order:2}
+.tt-root .tt-main{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+.tt-root .tt-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tt-root .tt-thumbs figure{min-width:0}
+.tt-root .tt-thumbs img{aspect-ratio:3/2;height:auto;border-radius:8px}
+.tt-root .tt-thumbs figcaption{font-size:12.5px;color:var(--mute);margin-top:6px}
+.tt-root .tt-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.tt-root .tt-prog-title{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(24px,3vw,30px);line-height:1.15;margin-top:4px}
+.tt-root .tt-prog-kr{font-weight:700;font-size:16px;margin-top:4px}
+.tt-root .tt-desc{color:var(--sub);font-size:15px;margin-top:10px}
+.tt-root .tt-facts{width:100%;margin-top:20px;border-top:1px solid var(--ink)}
+.tt-root .tt-facts div{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.tt-root .tt-facts dt{color:var(--mute)}
+.tt-root .tt-facts dd{font-weight:600;font-variant-numeric:tabular-nums}
+.tt-root .tt-facts small{font-weight:400;color:var(--mute);font-size:12.5px;margin-left:4px}
+.tt-root .tt-tiers{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px;background:var(--cream);border-radius:8px;text-align:center}
+.tt-root .tt-tiers div{padding:10px 4px}
+.tt-root .tt-tiers span{display:block;font-size:12px;color:var(--sub)}
+.tt-root .tt-tiers b{font-size:13.5px;font-variant-numeric:tabular-nums}
+.tt-root .tt-sub{font-weight:700;font-size:15px;margin-top:22px}
+.tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
+.tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
+.tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
+.tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
+.tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+/* faq */
+.tt-root .tt-faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.tt-root .tt-q{padding:22px 4px;border-bottom:1px solid var(--line)}
+.tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
+.tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
+.tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
+.tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
+.tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
+.tt-root .tt-cancel-item b.tt-zero{color:#c0392b}
+.tt-root .tt-cancel-item em{font-style:normal;font-size:13px}
+/* cta */
+.tt-root .tt-cta{background:var(--cream);padding:80px 16px}
+.tt-root .tt-cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.tt-root .tt-cta-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;font-size:clamp(46px,7vw,76px);line-height:1;margin:10px 0 16px}
+.tt-root .tt-qr{width:180px;background:#fff;border-radius:12px;padding:14px;text-align:center}
+.tt-root .tt-qr-box{position:relative;aspect-ratio:1;border:1.5px dashed #c9c9c9;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;color:var(--mute)}
+.tt-root .tt-qr-box img{position:absolute;inset:0;background:#fff}
+.tt-root .tt-qr p{font-size:13px;font-weight:600;margin-top:10px}
+.tt-root .tt-biz{padding:40px 16px 48px;max-width:1000px;margin:0 auto;font-size:13px;color:var(--sub);line-height:1.8}
+.tt-root .tt-biz-name{font-family:Poppins,sans-serif;font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px}
+.tt-root .tt-biz-name span{font-weight:500;color:var(--mute)}
+.tt-root .tt-biz i{font-style:normal;color:#ccc;margin:0 6px}
+.tt-root .tt-biz-todo{color:#c0392b}
+.tt-root .tt-biz-copy{margin-top:10px;color:var(--mute)}
+/* responsive */
+@media (max-width:860px){
+  .tt-root .tt-prog{grid-template-columns:1fr;gap:24px;padding:20px}
+  .tt-root .tt-flip .tt-gallery{order:0}
+  .tt-root .tt-cta-in{grid-template-columns:1fr}
+  .tt-root .tt-qr{margin:0 auto}
+}
+@media (max-width:600px){
+  .tt-root .tt-sec{padding:64px 16px}
+  .tt-root .tt-hero{min-height:380px;border-radius:0;margin:0}
+  .tt-root .tt-rail{grid-auto-columns:78%}
+  .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
+.tt-root:lang(ja){font-family:Pretendard,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(zh-CN){font-family:Pretendard,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(vi){font-family:Pretendard,"Be Vietnam Pro","Noto Sans",Arial,sans-serif;word-break:normal}
+.tt-root:lang(vi) .tt-facts div,.tt-root:lang(en) .tt-facts div{grid-template-columns:84px minmax(0,1fr)}
+
+</style>
+<div class="tt-root" lang="vi">
+
+  <section class="tt-hero">
+    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Bukchon" class="tt-hero-img" loading="lazy">
+    <div class="tt-hero-in">
+      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
+      <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
+      <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. 7 chương trình tham quan Seoul do Totium chuẩn bị<br>dành cho người tham gia Asia Model Festival 2026</p>
+    </div>
+  </section>
+
+  <section class="tt-sec">
+    <div class="tt-head">
+      <p class="tt-eyebrow">PROGRAMS</p>
+      <h2 class="tt-h2">FIND YOUR TOUR</h2>
+      <p class="tt-lead">Mỗi chương trình là một sản phẩm riêng. Bạn chỉ cần chọn chương trình mình muốn và đăng ký.</p>
+    </div>
+    <div class="tt-rail">
+      <a class="tt-card" href="#tt-p01">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <p class="tt-card-meta">09:00 – 17:30 · Tối thiểu 2 người</p>
+        <h3 class="tt-card-title">HELLO SEOUL</h3>
+        <p class="tt-card-kr">Hello Seoul! Tour thành phố Seoul</p>
+        <p class="tt-card-price"><b class="tt-olive">01</b> 165.000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p02">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="Xưởng Donglim Maedeup" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
+        <p class="tt-card-meta">10:00 – 17:00 · Tối thiểu 4 người</p>
+        <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
+        <p class="tt-card-kr">Art &amp; Beauty · Thủ công và Spa</p>
+        <p class="tt-card-price"><b class="tt-olive">02</b> 485.000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p03">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <p class="tt-card-meta">15:00 – 20:30 · Tối thiểu 4 người</p>
+        <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-card-kr">Mua sắm The Hyundai Seoul &amp; Du thuyền pháo hoa</p>
+        <p class="tt-card-price"><b class="tt-olive">03</b> 115.000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p04">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
+        <p class="tt-card-meta">10:00 – 15:00 · Tối thiểu 2 người</p>
+        <h3 class="tt-card-title">SEONGSU TREND</h3>
+        <p class="tt-card-kr">Tour xu hướng Seongsu &amp; Ngày mua sắm</p>
+        <p class="tt-card-price"><b class="tt-olive">04</b> Từ 250.000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p05">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="Magic Island" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
+        <p class="tt-card-meta">09:00 – 13:00 · Tối thiểu 3 người</p>
+        <h3 class="tt-card-title">LOTTE WORLD</h3>
+        <p class="tt-card-kr">Ngày dã ngoại Lotte World</p>
+        <p class="tt-card-price"><b class="tt-olive">05</b> 160.000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p06">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <p class="tt-card-meta">13:00 – 16:30 · Tối thiểu 2 người</p>
+        <h3 class="tt-card-title">K-FOOD MARKET</h3>
+        <p class="tt-card-kr">Tour chợ ẩm thực K-Food</p>
+        <p class="tt-card-price"><b class="tt-olive">06</b> 165.000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p07">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="Đài quan sát DMZ" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
+        <p class="tt-card-meta">07:30 – 17:00 · Tối thiểu 4 người</p>
+        <h3 class="tt-card-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-card-kr">DMZ &amp; Câu chuyện người đào tẩu + Cầu treo Gamaksan</p>
+        <p class="tt-card-price"><b class="tt-olive">07</b> 145.000 KRW</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="tt-sec tt-gray">
+    <div class="tt-head">
+      <p class="tt-eyebrow">DETAILS</p>
+      <h2 class="tt-h2">PROGRAM DETAILS</h2>
+      <p class="tt-lead">Xem lịch trình và giá của từng chương trình. Giá tính theo mỗi người.</p>
+    </div>
+    <div class="tt-progs">
+    <article class="tt-prog" id="tt-p01">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Làng Hanok Bukchon" class="" loading="lazy"><figcaption>Làng Hanok Bukchon</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Chợ Gwangjang" class="" loading="lazy"><figcaption>Chợ Gwangjang</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 01</p>
+        <h3 class="tt-prog-title">HELLO SEOUL</h3>
+        <p class="tt-prog-kr">Hello Seoul! Tour thành phố Seoul</p>
+        <p class="tt-desc">Lịch sử và diện mạo hiện đại của Seoul trong một ngày: cung điện, cảnh quan thành phố và chợ Gwangjang.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>165.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>09:00 – 17:30</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 2 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
+        </dl>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>Tham quan Gwanghwamun, suối Cheonggyecheon bằng xe, chùa Jogyesa</li><li>Lễ đổi gác &amp; Cung Gyeongbokgung</li><li>Bảo tàng Dân gian Quốc gia · Ăn trưa</li><li>Làng Hanok Namsangol (thứ Hai đổi sang Bukchon)</li><li>Tháp N Seoul → Chợ Gwangjang</li><li>17:00 Tự do trở về khách sạn</li></ol>
+        <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p02">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="Xưởng Donglim Maedeup" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg" alt="Vòng tay thắt nút" class="" loading="lazy"><figcaption>Vòng tay thắt nút</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 02</p>
+        <h3 class="tt-prog-title">ART &amp; BEAUTY</h3>
+        <p class="tt-prog-kr">Art &amp; Beauty · Thủ công và Spa</p>
+        <p class="tt-desc">Dạo bước qua Insadong và Bukchon, học thắt nút truyền thống cùng nghệ nhân 50 năm kinh nghiệm, rồi thư giãn tại spa L&#x27;Occitane trong khách sạn JW Marriott.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>485.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>10:00 – 17:00</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 4 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
+        </dl>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>10:00 Đón khách</li><li>10:30 Dạo Insadong &amp; Bukchon cùng hướng dẫn viên</li><li>12:00 Trải nghiệm thắt nút cùng nghệ nhân tại Donglim Maedeup</li><li>13:00 Bữa trưa món Hàn</li><li>14:30 Massage 60 phút tại spa L&#x27;Occitane</li><li>16:30 Tự do hoặc về khách sạn</li></ol>
+        <p class="tt-note">Chọn spa 90 phút: +90.000 KRW · Spa có thể đổi sang nơi cùng hạng tùy tình trạng đặt chỗ</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p03">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="Pháo hoa sông Hàn" class="" loading="lazy"><figcaption>Pháo hoa sông Hàn</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg" alt="Công viên Yeouido" class="" loading="lazy"><figcaption>Công viên Yeouido</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 03</p>
+        <h3 class="tt-prog-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-prog-kr">Mua sắm The Hyundai Seoul &amp; Du thuyền pháo hoa</p>
+        <p class="tt-desc">Bắt đầu tại The Hyundai Seoul, biểu tượng mua sắm phong cách sống, và kết thúc buổi tối trên sông Hàn với biểu diễn, bữa tối và pháo hoa.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>115.000 KRW / kèm bữa tối 170.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>15:00 – 20:30</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 4 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Ga Yeouido, cửa số 3</dd></div>
+        </dl>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>15:00 Tập trung tại ga Yeouido, cửa số 3</li><li>15:10 Mua sắm &amp; tự do tại The Hyundai Seoul</li><li>16:30 Dạo công viên Yeouido</li><li>17:30 Di chuyển đến bến Seoul Cruise</li><li>18:30 2 giờ biểu diễn, bữa tối &amp; pháo hoa</li><li>20:30 Kết thúc</li></ol>
+        <p class="tt-note">Bắt buộc mang hộ chiếu · Hoàn tiền toàn bộ hoặc đổi ngày nếu du thuyền thay đổi do thời tiết xấu</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p04">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg" alt="Cửa hàng pop-up" class="" loading="lazy"><figcaption>Cửa hàng pop-up</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 04</p>
+        <h3 class="tt-prog-title">SEONGSU TREND</h3>
+        <p class="tt-prog-kr">Tour xu hướng Seongsu &amp; Ngày mua sắm</p>
+        <p class="tt-desc">Khám phá Seongsu, nơi nhà máy và kho cũ trở thành cửa hàng concept, pop-up và quán cà phê, để thấy thời trang và làm đẹp mới nhất của Seoul.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>Từ 250.000 KRW (từ 4 người) <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>10:00 – 15:00</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 2 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Ga Seongsu</dd></div>
+        </dl><div class="tt-tiers"><div><span>1 người</span><b>800.000 KRW</b></div><div><span>2 người</span><b>450.000 KRW</b></div><div><span>3 người</span><b>300.000 KRW</b></div><div><span>Từ 4 người</span><b>250.000 KRW</b></div></div>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>10:00 Tập trung tại ga Seongsu</li><li>Olive Young N · Gentle Monster · Musinsa</li><li>Các cửa hàng xu hướng như Nyunyu, Igu Home, Daelim Changgo</li><li>Cửa hàng pop-up theo mùa &amp; select shop</li><li>11:30 Brunch &amp; quán cà phê</li><li>15:00 Kết thúc tại Seoul Forest hoặc Olive Young N</li></ol>
+        <p class="tt-note">Bao gồm bữa ăn · Chi phí cà phê tự trả · Có thể đề nghị trước cửa hàng pop-up muốn ghé</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p05">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="Magic Island" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg" alt="Adventure trong nhà" class="" loading="lazy"><figcaption>Adventure trong nhà</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg" alt="Magic Castle" class="" loading="lazy"><figcaption>Magic Castle</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 05</p>
+        <h3 class="tt-prog-title">LOTTE WORLD</h3>
+        <p class="tt-prog-kr">Ngày dã ngoại Lotte World</p>
+        <p class="tt-desc">Khu Adventure trong nhà và Magic Island trên hồ Seokchon. Buổi sáng vui chơi công viên giải trí ở Seoul bất kể thời tiết.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>160.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>09:00 – 13:00</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 3 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
+        </dl>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>10:00 Vào Lotte World · Vé trọn ngày</li><li>Tự do vui chơi tại Adventure &amp; Magic Island</li><li>13:30 Về khách sạn, hoặc ở lại và tự về</li></ol>
+        <p class="tt-note">Bao gồm hướng dẫn viên, xe, vé vào cổng và đưa đón</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p06">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg" alt="Chợ Gwangjang" class="" loading="lazy"><figcaption>Chợ Gwangjang</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg" alt="Bindaetteok" class="" loading="lazy"><figcaption>Bindaetteok</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 06</p>
+        <h3 class="tt-prog-title">K-FOOD MARKET</h3>
+        <p class="tt-prog-kr">Tour chợ ẩm thực K-Food</p>
+        <p class="tt-desc">Ăn, uống và gặp gỡ như người bản địa. Tour trọn gói gồm 10 món ăn cùng makgeolli và somaek.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>165.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>13:00 – 16:30</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 2 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
+        </dl>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>13:00 Đón tại khách sạn</li><li>Bossam &amp; makgeolli</li><li>Tham quan chợ Gwangjang · bindaetteok, gimbap, tteokbokki</li><li>Món ăn vặt &amp; somaek</li><li>16:30 Kết thúc gần ga Jongno 5-ga</li></ol>
+        <p class="tt-note">Mang giấy tờ tùy thân vì có đồ uống có cồn · Báo trước dị ứng hoặc chế độ ăn khi đặt tour</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p07">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="Đài quan sát DMZ" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg" alt="Imjingak" class="" loading="lazy"><figcaption>Imjingak</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg" alt="Cầu treo" class="" loading="lazy"><figcaption>Cầu treo</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 07</p>
+        <h3 class="tt-prog-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-prog-kr">DMZ &amp; Câu chuyện người đào tẩu + Cầu treo Gamaksan</p>
+        <p class="tt-desc">Tận mắt thấy ranh giới chia cắt, nghe câu chuyện của người đào tẩu Bắc Triều Tiên, rồi đi bộ qua cầu treo Gamaksan giữa cảnh thu.</p>
+        <dl class="tt-facts">
+          <div><dt>Giá</dt><dd>145.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Thời gian</dt><dd>07:30 – 17:00</dd></div>
+          <div><dt>Số người</dt><dd>Tối thiểu 4 người</dd></div>
+          <div><dt>Điểm hẹn</dt><dd>Ga City Hall, cửa số 7</dd></div>
+        </dl>
+        <p class="tt-sub">Lịch trình</p>
+        <ol class="tt-route"><li>07:30 Tập trung tại ga City Hall, cửa số 7</li><li>Hỏi đáp cùng người đào tẩu Bắc Triều Tiên</li><li>Imjingak · Cầu Thống Nhất · Kiểm tra giấy tờ</li><li>Nhà chiếu phim DMZ · Đường hầm số 3</li><li>Đài quan sát Dora · Làng Thống Nhất</li><li>Cầu treo Gamaksan (khứ hồi 40–50 phút)</li><li>17:00 Kết thúc tại ga City Hall</li></ol>
+        <p class="tt-note">Bắt buộc hộ chiếu/giấy tờ tùy thân · Có tuyến thay thế tùy tình hình quân sự, thời tiết · Nghỉ thứ Hai và ngày lễ</p>
+        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="tt-sec">
+    <div class="tt-head">
+      <p class="tt-eyebrow">NOTICE</p>
+      <h2 class="tt-h2">BEFORE YOU BOOK</h2>
+      <p class="tt-lead">Vui lòng đọc kỹ trước khi đặt tour.</p>
+    </div>
+    <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>Có đón tại khách sạn không?</p><p class="tt-q-a">Miễn phí đón cho khách sạn ở trung tâm Seoul (bên trong 4 cổng thành cổ). Khu vực khác tính thêm phí đưa đón theo khoảng cách. Chương trình 03, 04 và 07 tập trung tại địa điểm chỉ định.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Cần đặt trước bao lâu?</p><p class="tt-q-a">Hạn đặt là một tuần trước ngày tour. Đơn được tiếp nhận khi bạn đặt cọc 10%, phần còn lại thanh toán khi tour được xác nhận.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Thanh toán như thế nào?</p><p class="tt-q-a">Bạn có thể thanh toán bằng thẻ hoặc tiền mặt. Giá hiển thị tính theo mỗi người, chưa gồm 10% VAT.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Có thể đăng ký nhiều chương trình không?</p><p class="tt-q-a">Có. Mỗi chương trình là một sản phẩm riêng, bạn chỉ cần ghi tất cả chương trình và ngày mong muốn vào đơn đăng ký.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Cần mang theo gì?</p><p class="tt-q-a">Chương trình 03 và 07 cần mang hộ chiếu, chương trình 06 cần giấy tờ tùy thân (có đồ uống có cồn). Vui lòng báo trước nhu cầu ăn chay, halal hoặc dị ứng khi đặt tour.</p></div>
+      <div class="tt-q"><p class="tt-q-title"><b>Q</b>Hủy tour có được hoàn tiền không?</p>
+        <p class="tt-q-a">Tiền hoàn lại được tính theo giờ khởi hành của tour như bảng dưới. Sau khi đặt tour được xác nhận, khoản đặt cọc 10% sẽ không được hoàn lại; nếu không thanh toán phần còn lại sau khi xác nhận, khoản đặt cọc cũng không được hoàn lại.</p>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>Trước 72 giờ</span><b class="">50%</b><em>hoàn tiền</em></div><div class="tt-cancel-item"><span>Trước 48 giờ</span><b class="">30%</b><em>hoàn tiền</em></div><div class="tt-cancel-item"><span>Trước 24 giờ</span><b class="tt-zero">0%</b><em>không hoàn tiền</em></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tt-cta" id="tt-booking">
+    <div class="tt-cta-in">
+      <div>
+        <p class="tt-eyebrow">RESERVATION</p>
+        <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
+        <p class="tt-lead tt-left">Hãy cho chúng tôi biết chương trình, ngày, số người và khách sạn của bạn. Nhân viên sẽ xác nhận và gửi hướng dẫn đặt cọc.</p>
+        <a class="tt-btn tt-btn-lg" href="#tt-booking">Đặt tour ngay &#8599;</a>
+      </div>
+      <div class="tt-qr">
+        <div class="tt-qr-box"><span>QR</span></div>
+        <p>Quét mã để đặt tour</p>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,381 @@
+<!-- ============================================================
+  AMF CLUB · TOTIUM TRAVEL — Seoul Tour Programs (zh-CN)
+  아임웹 HTML 코드 블록용. 스타일은 .tt-root 안에서만 적용됩니다.
+  - 이미지 src(예: gyeongbok.jpg)를 아임웹에 올린 이미지 주소로 바꾸세요.
+  - BOOKING_URL 을 예약 신청 폼 주소로 바꾸세요. QR은 qr.jpg 자리에 넣으세요.
+============================================================= -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+.tt-root{--ink:#212121;--sub:#6b6b6b;--mute:#9a9a9a;--line:#e4e4e4;--gray:#f6f6f6;--cream:#f5f4e7;--yellow:#fff27a;--olive:#a39318;
+  font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Nanum Gothic",sans-serif;color:var(--ink);background:#fff;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.tt-root *{box-sizing:border-box;margin:0;padding:0}
+.tt-root img{display:block;max-width:100%;width:100%;height:100%;object-fit:cover}
+.tt-root a{color:inherit;text-decoration:none}
+.tt-root a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.tt-root h1,.tt-root h2,.tt-root h3{text-wrap:balance}
+.tt-root .tt-eyebrow{font-family:Poppins,Pretendard,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--sub)}
+.tt-root .tt-olive{color:var(--olive)}
+/* hero */
+.tt-root .tt-hero{position:relative;margin:0 16px;max-width:1400px;border-radius:12px;overflow:hidden;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;background:#222}
+.tt-root .tt-hero-img{position:absolute;inset:0;filter:brightness(.55)}
+.tt-root .tt-hero-in{position:relative;padding:72px 20px}
+.tt-root .tt-hero-kicker{font-family:Poppins,sans-serif;font-weight:600;font-size:13px;letter-spacing:.12em;color:#fff}
+.tt-root .tt-hero-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;color:var(--yellow);font-size:clamp(68px,13vw,150px);line-height:.95;letter-spacing:.01em;margin:14px 0 18px}
+.tt-root .tt-hero-sub{color:var(--yellow);font-size:15px;font-weight:500;line-height:1.55}
+/* sections */
+.tt-root .tt-sec{padding:88px 16px}
+.tt-root .tt-gray{background:var(--gray)}
+.tt-root .tt-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.tt-root .tt-h2{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(26px,4vw,34px);line-height:1.2;margin:8px 0 10px;letter-spacing:-.005em}
+.tt-root .tt-lead{color:var(--sub);font-size:15px}
+.tt-root .tt-left{text-align:left}
+/* card rail */
+.tt-root .tt-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,31%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;max-width:1200px;margin:0 auto;padding-bottom:12px;scrollbar-width:thin}
+.tt-root .tt-card{scroll-snap-align:start;min-width:0;display:block}
+.tt-root .tt-card-img{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ddd}
+.tt-root .tt-arrow{position:absolute;top:12px;right:14px;color:#fff;font-size:26px;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.tt-root .tt-badge{position:absolute;left:0;top:0;background:#111;color:var(--yellow);font-family:Poppins,sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;padding:6px 10px;border-bottom-right-radius:8px}
+.tt-root .tt-card-meta{margin-top:12px;color:var(--mute);font-size:13px;font-variant-numeric:tabular-nums}
+.tt-root .tt-card-title{font-family:Poppins,Pretendard,sans-serif;font-weight:700;font-size:20px;line-height:1.25;margin-top:2px}
+.tt-root .tt-card-kr{font-size:14px;color:var(--sub)}
+.tt-root .tt-card-price{margin-top:4px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+/* program detail */
+.tt-root .tt-progs{display:flex;flex-direction:column;gap:24px;max-width:1200px;margin:0 auto}
+.tt-root .tt-prog{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;background:#fff;border-radius:16px;padding:28px}
+.tt-root .tt-flip .tt-gallery{order:2}
+.tt-root .tt-main{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+.tt-root .tt-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tt-root .tt-thumbs figure{min-width:0}
+.tt-root .tt-thumbs img{aspect-ratio:3/2;height:auto;border-radius:8px}
+.tt-root .tt-thumbs figcaption{font-size:12.5px;color:var(--mute);margin-top:6px}
+.tt-root .tt-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.tt-root .tt-prog-title{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(24px,3vw,30px);line-height:1.15;margin-top:4px}
+.tt-root .tt-prog-kr{font-weight:700;font-size:16px;margin-top:4px}
+.tt-root .tt-desc{color:var(--sub);font-size:15px;margin-top:10px}
+.tt-root .tt-facts{width:100%;margin-top:20px;border-top:1px solid var(--ink)}
+.tt-root .tt-facts div{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.tt-root .tt-facts dt{color:var(--mute)}
+.tt-root .tt-facts dd{font-weight:600;font-variant-numeric:tabular-nums}
+.tt-root .tt-facts small{font-weight:400;color:var(--mute);font-size:12.5px;margin-left:4px}
+.tt-root .tt-tiers{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px;background:var(--cream);border-radius:8px;text-align:center}
+.tt-root .tt-tiers div{padding:10px 4px}
+.tt-root .tt-tiers span{display:block;font-size:12px;color:var(--sub)}
+.tt-root .tt-tiers b{font-size:13.5px;font-variant-numeric:tabular-nums}
+.tt-root .tt-sub{font-weight:700;font-size:15px;margin-top:22px}
+.tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
+.tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
+.tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
+.tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
+.tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+/* faq */
+.tt-root .tt-faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.tt-root .tt-q{padding:22px 4px;border-bottom:1px solid var(--line)}
+.tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
+.tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
+.tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
+.tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
+.tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
+.tt-root .tt-cancel-item b.tt-zero{color:#c0392b}
+.tt-root .tt-cancel-item em{font-style:normal;font-size:13px}
+/* cta */
+.tt-root .tt-cta{background:var(--cream);padding:80px 16px}
+.tt-root .tt-cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.tt-root .tt-cta-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;font-size:clamp(46px,7vw,76px);line-height:1;margin:10px 0 16px}
+.tt-root .tt-qr{width:180px;background:#fff;border-radius:12px;padding:14px;text-align:center}
+.tt-root .tt-qr-box{position:relative;aspect-ratio:1;border:1.5px dashed #c9c9c9;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;color:var(--mute)}
+.tt-root .tt-qr-box img{position:absolute;inset:0;background:#fff}
+.tt-root .tt-qr p{font-size:13px;font-weight:600;margin-top:10px}
+.tt-root .tt-biz{padding:40px 16px 48px;max-width:1000px;margin:0 auto;font-size:13px;color:var(--sub);line-height:1.8}
+.tt-root .tt-biz-name{font-family:Poppins,sans-serif;font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px}
+.tt-root .tt-biz-name span{font-weight:500;color:var(--mute)}
+.tt-root .tt-biz i{font-style:normal;color:#ccc;margin:0 6px}
+.tt-root .tt-biz-todo{color:#c0392b}
+.tt-root .tt-biz-copy{margin-top:10px;color:var(--mute)}
+/* responsive */
+@media (max-width:860px){
+  .tt-root .tt-prog{grid-template-columns:1fr;gap:24px;padding:20px}
+  .tt-root .tt-flip .tt-gallery{order:0}
+  .tt-root .tt-cta-in{grid-template-columns:1fr}
+  .tt-root .tt-qr{margin:0 auto}
+}
+@media (max-width:600px){
+  .tt-root .tt-sec{padding:64px 16px}
+  .tt-root .tt-hero{min-height:380px;border-radius:0;margin:0}
+  .tt-root .tt-rail{grid-auto-columns:78%}
+  .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
+.tt-root:lang(ja){font-family:Pretendard,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(zh-CN){font-family:Pretendard,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(vi){font-family:Pretendard,"Be Vietnam Pro","Noto Sans",Arial,sans-serif;word-break:normal}
+.tt-root:lang(vi) .tt-facts div,.tt-root:lang(en) .tt-facts div{grid-template-columns:84px minmax(0,1fr)}
+
+</style>
+<div class="tt-root" lang="zh-CN">
+
+  <section class="tt-hero">
+    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Bukchon" class="tt-hero-img" loading="lazy">
+    <div class="tt-hero-in">
+      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
+      <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
+      <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. 为2026亚洲模特节参与者<br>Totium精心准备的7条首尔旅游线路</p>
+    </div>
+  </section>
+
+  <section class="tt-sec">
+    <div class="tt-head">
+      <p class="tt-eyebrow">PROGRAMS</p>
+      <h2 class="tt-h2">FIND YOUR TOUR</h2>
+      <p class="tt-lead">每个项目都是独立运营的产品，只需选择您想参加的项目报名即可。</p>
+    </div>
+    <div class="tt-rail">
+      <a class="tt-card" href="#tt-p01">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <p class="tt-card-meta">09:00 – 17:30 · 2人起</p>
+        <h3 class="tt-card-title">HELLO SEOUL</h3>
+        <p class="tt-card-kr">Hello Seoul! 首尔市区游</p>
+        <p class="tt-card-price"><b class="tt-olive">01</b> 165,000韩元</p>
+      </a>
+      <a class="tt-card" href="#tt-p02">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="东林绳结工坊" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
+        <p class="tt-card-meta">10:00 – 17:00 · 4人起</p>
+        <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
+        <p class="tt-card-kr">艺术与美 · 传统工艺与水疗</p>
+        <p class="tt-card-price"><b class="tt-olive">02</b> 485,000韩元</p>
+      </a>
+      <a class="tt-card" href="#tt-p03">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="现代百货首尔" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <p class="tt-card-meta">15:00 – 20:30 · 4人起</p>
+        <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-card-kr">现代百货首尔购物 &amp; 烟花游船</p>
+        <p class="tt-card-price"><b class="tt-olive">03</b> 115,000韩元</p>
+      </a>
+      <a class="tt-card" href="#tt-p04">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
+        <p class="tt-card-meta">10:00 – 15:00 · 2人起</p>
+        <h3 class="tt-card-title">SEONGSU TREND</h3>
+        <p class="tt-card-kr">圣水潮流之旅 &amp; 购物日</p>
+        <p class="tt-card-price"><b class="tt-olive">04</b> 250,000韩元起</p>
+      </a>
+      <a class="tt-card" href="#tt-p05">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="魔幻岛" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
+        <p class="tt-card-meta">09:00 – 13:00 · 3人起</p>
+        <h3 class="tt-card-title">LOTTE WORLD</h3>
+        <p class="tt-card-kr">乐天世界野餐日</p>
+        <p class="tt-card-price"><b class="tt-olive">05</b> 160,000韩元</p>
+      </a>
+      <a class="tt-card" href="#tt-p06">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="辣炒年糕·血肠" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <p class="tt-card-meta">13:00 – 16:30 · 2人起</p>
+        <h3 class="tt-card-title">K-FOOD MARKET</h3>
+        <p class="tt-card-kr">K-Food 市场美食之旅</p>
+        <p class="tt-card-price"><b class="tt-olive">06</b> 165,000韩元</p>
+      </a>
+      <a class="tt-card" href="#tt-p07">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="DMZ瞭望台" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
+        <p class="tt-card-meta">07:30 – 17:00 · 4人起</p>
+        <h3 class="tt-card-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-card-kr">DMZ &amp; 脱北者的故事 + 绀岳山吊桥</p>
+        <p class="tt-card-price"><b class="tt-olive">07</b> 145,000韩元</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="tt-sec tt-gray">
+    <div class="tt-head">
+      <p class="tt-eyebrow">DETAILS</p>
+      <h2 class="tt-h2">PROGRAM DETAILS</h2>
+      <p class="tt-lead">请查看各项目的行程与价格。价格均为每人价格。</p>
+    </div>
+    <div class="tt-progs">
+    <article class="tt-prog" id="tt-p01">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="北村韩屋村" class="" loading="lazy"><figcaption>北村韩屋村</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="广藏市场" class="" loading="lazy"><figcaption>广藏市场</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 01</p>
+        <h3 class="tt-prog-title">HELLO SEOUL</h3>
+        <p class="tt-prog-kr">Hello Seoul! 首尔市区游</p>
+        <p class="tt-desc">一天领略首尔的历史与今日城市风貌。王宫、城市景观到广藏市场，一次走遍的经典线路。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>165,000韩元 <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>09:00 – 17:30</dd></div>
+          <div><dt>人数</dt><dd>2人起</dd></div>
+          <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
+        </dl>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>09:00 酒店接人</li><li>车游光化门·清溪川，参观曹溪寺</li><li>守门将换岗仪式 &amp; 景福宫</li><li>国立民俗博物馆 · 午餐</li><li>南山谷韩屋村（周一改为北村）</li><li>N首尔塔 → 广藏市场</li><li>17:00 自由返回酒店</li></ol>
+        <p class="tt-note">如遇王宫闭馆或活动，行程可能变动 · 素食/清真请提前告知</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p02">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="东林绳结工坊" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg" alt="绳结手链" class="" loading="lazy"><figcaption>绳结手链</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 02</p>
+        <h3 class="tt-prog-title">ART &amp; BEAUTY</h3>
+        <p class="tt-prog-kr">艺术与美 · 传统工艺与水疗</p>
+        <p class="tt-desc">漫步仁寺洞与北村小巷，跟随有50年经验的匠人学习韩国传统绳结，之后在JW万豪酒店的欧舒丹水疗放松身心。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>485,000韩元 <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>10:00 – 17:00</dd></div>
+          <div><dt>人数</dt><dd>4人起</dd></div>
+          <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
+        </dl>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>10:00 接人</li><li>10:30 导游带领漫步仁寺洞·北村</li><li>12:00 东林绳结工坊匠人绳结体验</li><li>13:00 韩式午餐</li><li>14:30 欧舒丹水疗60分钟按摩</li><li>16:30 自由活动或返回酒店</li></ol>
+        <p class="tt-note">选择90分钟水疗需加90,000韩元 · 视预约情况可能更换为同级水疗</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p03">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="现代百货首尔" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="汉江烟花" class="" loading="lazy"><figcaption>汉江烟花</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg" alt="汝矣岛公园" class="" loading="lazy"><figcaption>汝矣岛公园</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 03</p>
+        <h3 class="tt-prog-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-prog-kr">现代百货首尔购物 &amp; 烟花游船</p>
+        <p class="tt-desc">从生活方式购物地标现代百货首尔出发，在汉江上欣赏演出、享用晚餐、观看烟花，度过首尔之夜。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>115,000韩元 / 含晚餐170,000韩元 <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>15:00 – 20:30</dd></div>
+          <div><dt>人数</dt><dd>4人起</dd></div>
+          <div><dt>集合</dt><dd>汝矣岛站3号出口</dd></div>
+        </dl>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>15:00 汝矣岛站3号出口集合</li><li>15:10 现代百货首尔购物 &amp; 自由活动</li><li>16:30 汝矣岛公园散步</li><li>17:30 前往首尔游船码头</li><li>18:30 2小时演出·晚餐·烟花秀</li><li>20:30 行程结束</li></ol>
+        <p class="tt-note">必须携带护照 · 因天气原因变更航行时可全额退款或改期</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p04">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg" alt="季节快闪店" class="" loading="lazy"><figcaption>季节快闪店</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 04</p>
+        <h3 class="tt-prog-title">SEONGSU TREND</h3>
+        <p class="tt-prog-kr">圣水潮流之旅 &amp; 购物日</p>
+        <p class="tt-desc">在由工厂和仓库改造成买手店、快闪店和咖啡馆的圣水洞，感受首尔当下的时尚与美妆。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>250,000韩元起（4人以上） <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>10:00 – 15:00</dd></div>
+          <div><dt>人数</dt><dd>2人起</dd></div>
+          <div><dt>集合</dt><dd>圣水站集合</dd></div>
+        </dl><div class="tt-tiers"><div><span>1人</span><b>800,000韩元</b></div><div><span>2人</span><b>450,000韩元</b></div><div><span>3人</span><b>300,000韩元</b></div><div><span>4人以上</span><b>250,000韩元</b></div></div>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>10:00 圣水站集合</li><li>Olive Young N · Gentle Monster · 无信社</li><li>NYUNYU · iGu Home · 大林仓库等潮流店</li><li>季节快闪店 &amp; 买手店</li><li>11:30 早午餐·咖啡馆探访</li><li>15:00 在首尔林或Olive Young N结束</li></ol>
+        <p class="tt-note">含餐 · 咖啡费用自理 · 想去的快闪店可提前告知</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p05">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg" alt="魔幻岛" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg" alt="室内探险乐园" class="" loading="lazy"><figcaption>室内探险乐园</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg" alt="魔幻城堡" class="" loading="lazy"><figcaption>魔幻城堡</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 05</p>
+        <h3 class="tt-prog-title">LOTTE WORLD</h3>
+        <p class="tt-prog-kr">乐天世界野餐日</p>
+        <p class="tt-desc">室内探险乐园与石村湖上的魔幻岛。不受天气影响，尽情享受首尔主题乐园的上午时光。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>160,000韩元 <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>09:00 – 13:00</dd></div>
+          <div><dt>人数</dt><dd>3人起</dd></div>
+          <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
+        </dl>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>09:00 酒店接人</li><li>10:00 进入乐天世界 · 通票</li><li>探险乐园 &amp; 魔幻岛自由游玩</li><li>13:30 返回酒店，或继续游玩后自行返回</li></ol>
+        <p class="tt-note">含导游、车辆、门票及接送</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p06">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg" alt="辣炒年糕·血肠" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg" alt="广藏市场" class="" loading="lazy"><figcaption>广藏市场</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg" alt="绿豆煎饼" class="" loading="lazy"><figcaption>绿豆煎饼</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 06</p>
+        <h3 class="tt-prog-title">K-FOOD MARKET</h3>
+        <p class="tt-prog-kr">K-Food 市场美食之旅</p>
+        <p class="tt-desc">与当地人一起吃、喝、交流。包含10种美食及马格利酒、烧啤的全包式旅游。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>165,000韩元 <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>13:00 – 16:30</dd></div>
+          <div><dt>人数</dt><dd>2人起</dd></div>
+          <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
+        </dl>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>13:00 酒店接人</li><li>菜包肉 &amp; 马格利酒</li><li>广藏市场游 · 绿豆煎饼、紫菜包饭、辣炒年糕</li><li>小吃 &amp; 烧啤体验</li><li>16:30 在钟路5街站附近结束</li></ol>
+        <p class="tt-note">含酒类，请携带身份证件 · 过敏或饮食限制请在预订时告知</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p07">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg" alt="DMZ瞭望台" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg" alt="临津阁" class="" loading="lazy"><figcaption>临津阁</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg" alt="吊桥" class="" loading="lazy"><figcaption>吊桥</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 07</p>
+        <h3 class="tt-prog-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-prog-kr">DMZ &amp; 脱北者的故事 + 绀岳山吊桥</p>
+        <p class="tt-desc">走进分断现场，聆听脱北者的亲身经历，再到绀岳山吊桥漫步秋日风景的一天。</p>
+        <dl class="tt-facts">
+          <div><dt>价格</dt><dd>145,000韩元 <small>每人 · 不含增值税</small></dd></div>
+          <div><dt>时间</dt><dd>07:30 – 17:00</dd></div>
+          <div><dt>人数</dt><dd>4人起</dd></div>
+          <div><dt>集合</dt><dd>市厅站7号出口</dd></div>
+        </dl>
+        <p class="tt-sub">行程</p>
+        <ol class="tt-route"><li>07:30 市厅站7号出口集合</li><li>与脱北者问答交流</li><li>临津阁 · 统一大桥 · 身份核查</li><li>DMZ影像馆 · 第三地道</li><li>都罗瞭望台 · 统一村</li><li>绀岳山吊桥（往返40~50分钟）</li><li>17:00 市厅站解散</li></ol>
+        <p class="tt-note">须携带护照/身份证件 · 视军事、天气情况改为替代路线 · 周一及公休日停运</p>
+        <a class="tt-btn" href="#tt-booking">预订此项目</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="tt-sec">
+    <div class="tt-head">
+      <p class="tt-eyebrow">NOTICE</p>
+      <h2 class="tt-h2">BEFORE YOU BOOK</h2>
+      <p class="tt-lead">预订前请务必确认。</p>
+    </div>
+    <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>提供酒店接送吗？</p><p class="tt-q-a">首尔市中心（四大门以内）的酒店免费接送。其他地区按距离另收接送费。03、04、07项目在指定地点集合。</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>需要提前多久预订？</p><p class="tt-q-a">旅游日前一周截止。支付10%定金即完成报名，行程确认后支付尾款。</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>如何付款？</p><p class="tt-q-a">可使用银行卡或现金支付。所示价格为每人价格，另加10%增值税。</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>可以同时报名多个项目吗？</p><p class="tt-q-a">可以。每个项目都是独立产品，请在报名表中填写所有想参加的项目和日期。</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>需要携带什么？</p><p class="tt-q-a">03、07项目请携带护照，06项目请携带身份证件（含酒类）。素食、清真或过敏需求请在预订时告知。</p></div>
+      <div class="tt-q"><p class="tt-q-title"><b>Q</b>取消后可以退款吗？</p>
+        <p class="tt-q-a">按旅游出发时间计算，按下列比例退款。预订确认后取消，10%定金不予退还；确认后未支付尾款的，定金同样不予退还。</p>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>72小时前</span><b class="">50%</b><em>退款</em></div><div class="tt-cancel-item"><span>48小时前</span><b class="">30%</b><em>退款</em></div><div class="tt-cancel-item"><span>24小时前</span><b class="tt-zero">0%</b><em>不予退款</em></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tt-cta" id="tt-booking">
+    <div class="tt-cta-in">
+      <div>
+        <p class="tt-eyebrow">RESERVATION</p>
+        <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
+        <p class="tt-lead tt-left">请留下您想参加的项目、日期、人数和入住酒店，工作人员确认后会告知定金支付方式。</p>
+        <a class="tt-btn tt-btn-lg" href="#tt-booking">立即预订 &#8599;</a>
+      </div>
+      <div class="tt-qr">
+        <div class="tt-qr-box"><span>QR</span></div>
+        <p>扫码立即预订</p>
+      </div>
+    </div>
+  </section>
+</div>
