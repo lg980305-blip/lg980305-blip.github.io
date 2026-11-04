@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="zh-CN">
-  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/903a16e6910fb71cfc29952a6629b5cc09cf85b2/amfclub-photos/logo-topikasia.jpg" alt="TOPIK亚洲 logo"></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/2a251d2e80c4e63755afb74cc6c6a1db1d85ea65/amfclub-photos/brand-topikasia.png" alt="TOPIK亚洲 logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · 即将上线</p><h1>TOPIK亚洲</h1><p class="b-sub">面向亚洲学习者的TOPIK韩语教育</p><p class="b-desc">为准备韩国语能力考试(TOPIK)的亚洲学习者打造的教育品牌。课程与日程即将公布。</p>
   <div class="b-btns"><a class="b-dark" href="/totium">查看首尔旅游 &#8594;</a><a class="b-line" href="/">返回首页</a></div></div>
 </div>

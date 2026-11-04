@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="zh-CN">
-  <section class="b-hero" style="background:#fff27a;color:#111"><p class="b-word">INFLUENCER<br>AMF</p></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/2a251d2e80c4e63755afb74cc6c6a1db1d85ea65/amfclub-photos/brand-amfent.png" alt="网红AMF logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · 即将上线</p><h1>网红AMF</h1><p class="b-sub">模特与网红创作者计划</p><p class="b-desc">与亚洲模特节合作的模特与网红创作者计划。参与方式即将公布。</p>
   <div class="b-btns"><a class="b-dark" href="/totium">查看首尔旅游 &#8594;</a><a class="b-line" href="/">返回首页</a></div></div>
 </div>

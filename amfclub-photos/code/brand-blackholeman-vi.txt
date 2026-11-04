@@ -17,7 +17,7 @@
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
 <div class="amf-brand" lang="vi">
-  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/903a16e6910fb71cfc29952a6629b5cc09cf85b2/amfclub-photos/logo-blackholeman.jpg" alt="Blackholeman logo"></section>
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/2a251d2e80c4e63755afb74cc6c6a1db1d85ea65/amfclub-photos/brand-blackhole.png" alt="Blackholeman logo"></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · SẮP RA MẮT</p><h1>Blackholeman</h1><p class="b-sub">Nhân vật Blackholeman và sản phẩm chính hãng</p><p class="b-desc">Nơi giới thiệu Blackholeman, nhân vật gốc của Blackholeman Bros, cùng các sản phẩm. Sản phẩm sẽ sớm ra mắt.</p>
   <div class="b-btns"><a class="b-dark" href="/totium">Xem tour Seoul &#8594;</a><a class="b-line" href="/">Về trang chủ</a></div></div>
 </div>
