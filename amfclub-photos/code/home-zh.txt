@@ -45,39 +45,11 @@
 .amf-home .step p{font-size:14px;color:#cfcfcf}
 @media(max-width:860px){.amf-home .steps{grid-template-columns:1fr}}
 </style>
-<style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap');
-.amf-home{--ink:#2c221c;--sub:#7a6a5e;--gray:#efe5d8;--yellow:#f8f3ec;background:#f8f3ec}
-.amf-home .h-hero{border-radius:0;background:#3a2a21;width:100%;max-width:none}
-.amf-home .h-hero img{filter:saturate(.85) brightness(.9)!important}
-.amf-home .h-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,42,33,.55),rgba(58,42,33,.35) 45%,rgba(58,42,33,.75))}
-.amf-home .h-in{z-index:1}
-.amf-home .h-lang{z-index:2}
-.amf-home .h-kick,.amf-home .eyebrow{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:600;letter-spacing:.18em}
-.amf-home .h-title{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;color:#f8f3ec;letter-spacing:.06em;font-size:clamp(64px,12vw,150px);line-height:.95}
-.amf-home .h-sub{font-family:"Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC",serif}
-.amf-home .btn{background:transparent;color:#f8f3ec;border:1px solid #f8f3ec;border-radius:0;font-weight:500;letter-spacing:.04em}
-.amf-home .btn:hover{background:#f8f3ec;color:#3a2a21}
-.amf-home .h-lang a{border-radius:0;font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.08em}
-.amf-home .h-lang a.on{background:#f8f3ec;color:#3a2a21;border-color:#f8f3ec}
-.amf-home .h2{color:#3a2a21}
-.amf-home .h2,.amf-home .card h3{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.01em}
-.amf-home .card-img{border-radius:0}
-.amf-home .card-img span{background:#3a2a21;color:#f8f3ec;border-radius:0;font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.12em}
-.amf-home .card-logo{border-color:#e2d6c7;background:#fffdf9!important}
-.amf-home .card-logo img{mix-blend-mode:multiply}
-.amf-home .card-word b{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.02em;font-size:min(40px,11cqw)}
-.amf-home{font-variant-numeric:lining-nums}
-.amf-home .btn-dark{background:#3a2a21;color:#f8f3ec;border-radius:0;font-weight:500;letter-spacing:.04em}
-.amf-home .step{background:#fffdf9;color:#2c221c;border:1px solid #e2d6c7;border-top:3px solid #3a2a21;border-radius:0}
-.amf-home .step b{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;color:#8a5a3c}
-.amf-home .step h3{color:#3a2a21}
-.amf-home .step p{color:#7a6a5e}
-</style>
 <div class="amf-home" lang="zh-CN">
   <section class="h-hero"><nav class="h-lang"><a href="https://amfclub.imweb.me/">KO</a><a href="https://amfclub-en.imweb.me/">EN</a><a href="https://amfclub-jp.imweb.me/">日本語</a><a href="https://amfclub-cn.imweb.me/" class="on">中文</a><a href="https://amfclub-vn.imweb.me/">VI</a><a href="https://amfclub.imweb.me/ru">RU</a></nav><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="Seoul"><div class="h-in">
     <p class="h-kick">ASIA MODEL FESTIVAL 2026 · SEOUL</p><h1 class="h-title">AMF<br>CLUB</h1><p class="h-sub">与亚洲模特节一起的旅行、学习、内容与角色。<br>在AMF CLUB一站式体验。</p>
     <a class="btn" href="/totium">查看首尔旅游 &#8594;</a></div></section>
-  <section class="sec"><div class="head"><p class="eyebrow">BRANDS</p><h2 class="h2">AMF CLUB FAMILY</h2><p class="lead">组成AMF CLUB的四个品牌</p></div><div class="grid"><a class="card" href="/totium"><div class="card-img card-logo" style="background:#fbfaf6"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-totium.jpg" alt="Totium logo"><i style="color:#111">&#8599;</i></div><h3>Totium</h3><p>为节庆参与者打造的高端首尔旅游</p></a><a class="card" href="/topikasia"><div class="card-img card-logo" style="background:#ffffff"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-topikasia.jpg" alt="TOPIK亚洲 logo"><i style="color:#111">&#8599;</i></div><h3>TOPIK亚洲</h3><p>面向亚洲学习者的TOPIK韩语教育</p></a><a class="card" href="/influencer-amf"><div class="card-img card-word" style="background:#d9c4a8;color:#2c221c"><b>INFLUENCER<br>AMF</b><i style="color:#2c221c">&#8599;</i></div><h3>网红AMF</h3><p>模特与网红创作者计划</p></a><a class="card" href="/blackholeman"><div class="card-img card-word" style="background:#2c221c;color:#f8f3ec"><b>BLACKHOLEMAN</b><i style="color:#f8f3ec">&#8599;</i></div><h3>黑洞人</h3><p>黑洞人角色与原创周边</p></a></div></section>
+  <section class="sec"><div class="head"><p class="eyebrow">BRANDS</p><h2 class="h2">AMF CLUB FAMILY</h2><p class="lead">组成AMF CLUB的四个品牌</p></div><div class="grid"><a class="card" href="/totium"><div class="card-img card-logo" style="background:#fbfaf6"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-totium.jpg" alt="Totium logo"><i style="color:#111">&#8599;</i></div><h3>Totium</h3><p>为节庆参与者打造的高端首尔旅游</p></a><a class="card" href="/topikasia"><div class="card-img card-logo" style="background:#ffffff"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-topikasia.jpg" alt="TOPIK亚洲 logo"><i style="color:#111">&#8599;</i></div><h3>TOPIK亚洲</h3><p>面向亚洲学习者的TOPIK韩语教育</p></a><a class="card" href="/influencer-amf"><div class="card-img card-word" style="background:#fff27a;color:#111"><b>INFLUENCER<br>AMF</b><i style="color:#111">&#8599;</i></div><h3>网红AMF</h3><p>模特与网红创作者计划</p></a><a class="card" href="/blackholeman"><div class="card-img card-word" style="background:#2b2b2b;color:#fff"><b>BLACKHOLEMAN</b><i style="color:#fff">&#8599;</i></div><h3>黑洞人</h3><p>黑洞人角色与原创周边</p></a></div></section>
   <section class="sec gray"><div class="head"><p class="eyebrow">TOTIUM TRAVEL</p><h2 class="h2">SEOUL TOURS</h2><p class="lead">参与者最喜爱的首尔旅游</p></div><div class="grid tours"><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="首尔市区游"><span>TOTIUM</span></div><h3>HELLO SEOUL</h3><p>首尔市区游</p><p class="price">165,000韩元</p></a><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="购物 &amp; 烟花游船"><span>TOTIUM</span></div><h3>THE HYUNDAI & CRUISE</h3><p>购物 &amp; 烟花游船</p><p class="price">115,000韩元起</p></a><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="圣水潮流之旅"><span>TOTIUM</span></div><h3>SEONGSU TREND</h3><p>圣水潮流之旅</p><p class="price">250,000韩元起</p></a></div><div class="center"><a class="btn-dark" href="/totium">查看全部旅游 &#8594;</a></div></section>
   <section class="sec"><div class="head"><p class="eyebrow">预订流程</p><h2 class="h2">三步完成预订</h2></div><div class="steps"><div class="step"><b>01</b><h3>选择项目</h3><p>从7个旅游项目中只选您想要的，每个项目单独预订。</p></div><div class="step"><b>02</b><h3>提交申请</h3><p>告诉我们项目、日期、人数和酒店，工作人员会为您确认。</p></div><div class="step"><b>03</b><h3>支付定金</h3><p>支付10%定金即可受理，旅游确定后支付尾款。</p></div></div><div class="center"><a class="btn-dark" href="/totium#tt-booking">立即预订 &#8594;</a></div></section>
 </div>

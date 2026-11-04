@@ -16,21 +16,8 @@
 .amf-brand .b-btns a{display:inline-flex;font-weight:700;font-size:15px;padding:13px 24px;border-radius:8px}
 .amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
 </style>
-<style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap');
-.amf-brand{background:#f8f3ec;color:#2c221c}
-.amf-brand .b-hero{border-radius:0;border-color:#e2d6c7}
-.amf-brand .b-hero img{mix-blend-mode:multiply}
-.amf-brand .b-word{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.04em}
-.amf-brand .b-kick{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.18em;color:#7a6a5e}
-.amf-brand{font-variant-numeric:lining-nums}
-.amf-brand h1{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500}
-.amf-brand .b-desc{color:#7a6a5e}
-.amf-brand .b-btns a{border-radius:0;font-weight:500}
-.amf-brand .b-dark{background:#3a2a21;color:#f8f3ec}
-.amf-brand .b-line{border-color:#3a2a21;color:#3a2a21}
-</style>
 <div class="amf-brand" lang="ja">
-  <section class="b-hero" style="background:#3a2a21;color:#f8f3ec"><p class="b-word">BLACKHOLEMAN</p></section>
+  <section class="b-hero" style="background:#2b2b2b;color:#fff"><p class="b-word">BLACKHOLEMAN</p></section>
   <div class="b-in"><p class="b-kick">AMF CLUB · 近日公開</p><h1>ブラックホールマン</h1><p class="b-sub">ブラックホールマンのキャラクターとオリジナルグッズ</p><p class="b-desc">ブラックホールマンブロスのオリジナルキャラクター、ブラックホールマンとグッズを紹介します。グッズは近日公開予定です。</p>
   <div class="b-btns"><a class="b-dark" href="/totium">ソウルツアーを見る &#8594;</a><a class="b-line" href="/">トップへ</a></div></div>
 </div>

@@ -15,14 +15,6 @@
 .amf-foot-copy{margin-top:14px;font-size:12.5px;color:#8f8b78}
 @media(max-width:600px){.amf-foot-in{padding:48px 16px 40px}.amf-foot-biz i{display:none}.amf-foot-biz span{display:block}}
 </style>
-<style>/*hanok*/@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap');
-.amf-foot{background:#3a2a21!important;color:#f8f3ec!important;--sub:#cbbcaa;--line:#5a473b}
-.amf-foot-logo{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif!important;font-weight:500;letter-spacing:.06em}
-.amf-foot-brands span{background:transparent!important;color:#f8f3ec!important;border:1px solid #6b574a;border-radius:0!important;font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif!important;letter-spacing:.12em}
-.amf-foot-biz i{color:#6b574a!important}
-.amf-foot{font-variant-numeric:lining-nums}
-.amf-foot-copy{color:#a8988a!important}
-</style>
 <footer class="amf-foot" lang="ko"><div class="amf-foot-in">
   <p class="amf-foot-logo">AMF CLUB</p>
   <p class="amf-foot-tag">여행 · 굿즈 · 페스티벌 라이프스타일</p>
