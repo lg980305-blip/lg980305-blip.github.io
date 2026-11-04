@@ -1,0 +1,25 @@
+<!-- AMF CLUB footer (vi) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600&display=swap');
+.amf-foot{--ink:#212121;--sub:#6b6b6b;--line:#dcd9c6;background:#f5f4e7;color:var(--ink);font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;line-height:1.7;word-break:keep-all}
+.amf-foot *{box-sizing:border-box;margin:0;padding:0}
+.amf-foot a{color:inherit;text-decoration:none}
+.amf-foot-in{max-width:1200px;margin:0 auto;padding:64px 16px 48px}
+.amf-foot-logo{font-family:Anton,"Black Tie",Impact,sans-serif;font-size:clamp(44px,6vw,64px);line-height:1;letter-spacing:.01em}
+.amf-foot-tag{margin-top:10px;font-size:15px;color:var(--sub)}
+.amf-foot-brands{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.amf-foot-brands span{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:.06em;background:#111;color:#fff27a;padding:6px 10px;border-radius:6px}
+.amf-foot-biz{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+.amf-foot-biz i{font-style:normal;color:#c4c0a8;margin:0 8px}
+.amf-foot-links{display:flex;gap:18px;margin-top:12px;font-size:13.5px;font-weight:600}
+.amf-foot-copy{margin-top:14px;font-size:12.5px;color:#8f8b78}
+@media(max-width:600px){.amf-foot-in{padding:48px 16px 40px}.amf-foot-biz i{display:none}.amf-foot-biz span{display:block}}
+</style>
+<footer class="amf-foot" lang="vi"><div class="amf-foot-in">
+  <p class="amf-foot-logo">AMF CLUB</p>
+  <p class="amf-foot-tag">Du lịch · Hàng lưu niệm · Phong cách lễ hội</p>
+  <div class="amf-foot-brands"><span>TOTIUM TRAVEL</span><span>BLACKHOLEMAN</span></div>
+  <div class="amf-foot-biz"><p><span>Công ty TNHH Blackholeman Bros</span><i>|</i><span>Giám đốc Cho Misook</span><i>|</i><span>Mã số ĐKKD 717-81-03443</span></p><p>Tầng 5, phòng 5249, 529 Seolleung-ro, Gangnam-gu, Seoul, Hàn Quốc</p><p>Lịch trình và điểm tham quan có thể thay đổi tùy tình hình thực tế.</p></div>
+  <div class="amf-foot-links"><a href="/?mode=privacy">Chính sách bảo mật</a><a href="/?mode=policy">Điều khoản sử dụng</a></div>
+  <p class="amf-foot-copy">© 2026 AMF CLUB. All Rights Reserved.</p>
+</div></footer>

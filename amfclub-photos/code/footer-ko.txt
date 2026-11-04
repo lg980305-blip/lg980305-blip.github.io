@@ -1,0 +1,25 @@
+<!-- AMF CLUB footer (ko) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600&display=swap');
+.amf-foot{--ink:#212121;--sub:#6b6b6b;--line:#dcd9c6;background:#f5f4e7;color:var(--ink);font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;line-height:1.7;word-break:keep-all}
+.amf-foot *{box-sizing:border-box;margin:0;padding:0}
+.amf-foot a{color:inherit;text-decoration:none}
+.amf-foot-in{max-width:1200px;margin:0 auto;padding:64px 16px 48px}
+.amf-foot-logo{font-family:Anton,"Black Tie",Impact,sans-serif;font-size:clamp(44px,6vw,64px);line-height:1;letter-spacing:.01em}
+.amf-foot-tag{margin-top:10px;font-size:15px;color:var(--sub)}
+.amf-foot-brands{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.amf-foot-brands span{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:.06em;background:#111;color:#fff27a;padding:6px 10px;border-radius:6px}
+.amf-foot-biz{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+.amf-foot-biz i{font-style:normal;color:#c4c0a8;margin:0 8px}
+.amf-foot-links{display:flex;gap:18px;margin-top:12px;font-size:13.5px;font-weight:600}
+.amf-foot-copy{margin-top:14px;font-size:12.5px;color:#8f8b78}
+@media(max-width:600px){.amf-foot-in{padding:48px 16px 40px}.amf-foot-biz i{display:none}.amf-foot-biz span{display:block}}
+</style>
+<footer class="amf-foot" lang="ko"><div class="amf-foot-in">
+  <p class="amf-foot-logo">AMF CLUB</p>
+  <p class="amf-foot-tag">여행 · 굿즈 · 페스티벌 라이프스타일</p>
+  <div class="amf-foot-brands"><span>TOTIUM TRAVEL</span><span>BLACKHOLEMAN</span></div>
+  <div class="amf-foot-biz"><p><span>상호 주식회사 블랙홀맨브로스</span><i>|</i><span>대표 조미숙</span><i>|</i><span>사업자등록번호 717-81-03443</span></p><p>서울특별시 강남구 선릉로 529, 5층 5249호 (역삼동, 함양재빌딩)</p><p>투어 일정과 방문지는 현지 사정에 따라 변경될 수 있습니다.</p></div>
+  <div class="amf-foot-links"><a href="/?mode=privacy">개인정보처리방침</a><a href="/?mode=policy">이용약관</a></div>
+  <p class="amf-foot-copy">© 2026 AMF CLUB. All Rights Reserved.</p>
+</div></footer>
