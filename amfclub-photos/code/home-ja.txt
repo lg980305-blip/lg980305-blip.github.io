@@ -47,7 +47,11 @@
 </style>
 <style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap');
 .amf-home{--ink:#2c221c;--sub:#7a6a5e;--gray:#efe5d8;--yellow:#f8f3ec;background:#f8f3ec}
-.amf-home .h-hero{border-radius:0}
+.amf-home .h-hero{border-radius:0;background:#3a2a21;width:100%;max-width:none}
+.amf-home .h-hero img{filter:saturate(.85) brightness(.9)!important}
+.amf-home .h-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(58,42,33,.55),rgba(58,42,33,.35) 45%,rgba(58,42,33,.75))}
+.amf-home .h-in{z-index:1}
+.amf-home .h-lang{z-index:2}
 .amf-home .h-kick,.amf-home .eyebrow{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:600;letter-spacing:.18em}
 .amf-home .h-title{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;color:#f8f3ec;letter-spacing:.06em;font-size:clamp(64px,12vw,150px);line-height:.95}
 .amf-home .h-sub{font-family:"Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC",serif}
@@ -55,16 +59,19 @@
 .amf-home .btn:hover{background:#f8f3ec;color:#3a2a21}
 .amf-home .h-lang a{border-radius:0;font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.08em}
 .amf-home .h-lang a.on{background:#f8f3ec;color:#3a2a21;border-color:#f8f3ec}
+.amf-home .h2{color:#3a2a21}
 .amf-home .h2,.amf-home .card h3{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.01em}
 .amf-home .card-img{border-radius:0}
 .amf-home .card-img span{background:#3a2a21;color:#f8f3ec;border-radius:0;font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.12em}
-.amf-home .card-logo{border-color:#e2d6c7}
+.amf-home .card-logo{border-color:#e2d6c7;background:#fffdf9!important}
+.amf-home .card-logo img{mix-blend-mode:multiply}
 .amf-home .card-word b{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.02em;font-size:min(40px,11cqw)}
 .amf-home{font-variant-numeric:lining-nums}
 .amf-home .btn-dark{background:#3a2a21;color:#f8f3ec;border-radius:0;font-weight:500;letter-spacing:.04em}
-.amf-home .step{background:#3a2a21;color:#f8f3ec;border-radius:0}
-.amf-home .step b{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;color:#c9a77c}
-.amf-home .step p{color:#d8cbbb}
+.amf-home .step{background:#fffdf9;color:#2c221c;border:1px solid #e2d6c7;border-top:3px solid #3a2a21;border-radius:0}
+.amf-home .step b{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;color:#8a5a3c}
+.amf-home .step h3{color:#3a2a21}
+.amf-home .step p{color:#7a6a5e}
 </style>
 <div class="amf-home" lang="ja">
   <section class="h-hero"><nav class="h-lang"><a href="https://amfclub.imweb.me/">KO</a><a href="https://amfclub-en.imweb.me/">EN</a><a href="https://amfclub-jp.imweb.me/" class="on">日本語</a><a href="https://amfclub-cn.imweb.me/">中文</a><a href="https://amfclub-vn.imweb.me/">VI</a><a href="https://amfclub.imweb.me/ru">RU</a></nav><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="Seoul"><div class="h-in">

@@ -19,6 +19,7 @@
 <style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&display=swap');
 .amf-brand{background:#f8f3ec;color:#2c221c}
 .amf-brand .b-hero{border-radius:0;border-color:#e2d6c7}
+.amf-brand .b-hero img{mix-blend-mode:multiply}
 .amf-brand .b-word{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;font-weight:500;letter-spacing:.04em}
 .amf-brand .b-kick{font-family:"Cormorant Garamond","Noto Serif KR","Noto Serif JP","Noto Serif SC","Songti SC","Apple SD Gothic Neo",serif;letter-spacing:.18em;color:#7a6a5e}
 .amf-brand{font-variant-numeric:lining-nums}
