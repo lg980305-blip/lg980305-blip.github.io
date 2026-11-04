@@ -1,0 +1,43 @@
+<!-- AMF CLUB home (zh) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+.amf-home{--ink:#212121;--sub:#6b6b6b;--gray:#f6f6f6;--yellow:#fff27a;font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;color:var(--ink);background:#fff;line-height:1.6;word-break:keep-all;overflow-x:hidden}
+.amf-home:lang(ja),.amf-home:lang(zh-CN),.amf-home:lang(vi){word-break:normal}
+.amf-home *{box-sizing:border-box;margin:0;padding:0}
+.amf-home a{color:inherit;text-decoration:none}
+.amf-home img{display:block;width:100%;height:100%;object-fit:cover}
+.amf-home .h-hero{position:relative;margin:0 auto;width:calc(100% - 32px);max-width:1400px;min-height:560px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:#111}
+.amf-home .h-hero img{position:absolute;inset:0;filter:brightness(.5)}
+.amf-home .h-in{position:relative;padding:80px 20px}
+.amf-home .h-kick{font-family:Poppins,sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;color:#fff}
+.amf-home .h-title{font-family:Anton,"Black Tie",Impact,sans-serif;font-weight:400;color:var(--yellow);font-size:clamp(76px,15vw,180px);line-height:.92;margin:16px 0 20px}
+.amf-home .h-sub{color:#fff;font-size:16px;line-height:1.7}
+.amf-home .btn{display:inline-flex;align-items:center;gap:8px;margin-top:28px;background:var(--yellow);color:#111;font-weight:700;font-size:15px;padding:14px 26px;border-radius:8px}
+.amf-home .sec{padding:88px 16px}
+.amf-home .gray{background:var(--gray)}
+.amf-home .head{text-align:center;max-width:640px;margin:0 auto 40px}
+.amf-home .eyebrow{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--sub)}
+.amf-home .h2{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(26px,4vw,34px);margin:8px 0 10px;line-height:1.2}
+.amf-home .lead{color:var(--sub);font-size:15px}
+.amf-home .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1200px;margin:0 auto}
+.amf-home .card{display:block;min-width:0}
+.amf-home .card-img{position:relative;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#ddd}
+.amf-home .card-img span{position:absolute;left:0;top:0;background:#111;color:var(--yellow);font:700 11px Poppins,sans-serif;letter-spacing:.06em;padding:6px 10px;border-bottom-right-radius:8px}
+.amf-home .card-img i{position:absolute;right:14px;top:10px;color:#fff;font-style:normal;font-size:26px}
+.amf-home .card h3{font-family:Poppins,Pretendard,sans-serif;font-weight:700;font-size:19px;margin-top:12px}
+.amf-home .card p{font-size:14px;color:var(--sub)}
+.amf-home .tours{grid-template-columns:repeat(3,minmax(0,1fr))}
+.amf-home .tours .card-img{aspect-ratio:4/3}
+.amf-home .price{font-weight:700;font-size:15px;margin-top:2px}
+.amf-home .center{text-align:center;margin-top:36px}
+.amf-home .btn-dark{display:inline-flex;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 24px;border-radius:8px}
+@media(max-width:860px){.amf-home .grid{grid-template-columns:repeat(2,minmax(0,1fr))}.amf-home .tours{grid-template-columns:1fr}}
+@media(max-width:600px){.amf-home .h-hero{width:100%;border-radius:0;min-height:460px}.amf-home .sec{padding:64px 16px}}
+</style>
+<div class="amf-home" lang="zh-CN">
+  <section class="h-hero"><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="Seoul"><div class="h-in">
+    <p class="h-kick">ASIA MODEL FESTIVAL 2026 · SEOUL</p><h1 class="h-title">AMF<br>CLUB</h1><p class="h-sub">与亚洲模特节一起的旅行、学习、内容与角色。<br>在AMF CLUB一站式体验。</p>
+    <a class="btn" href="/totium">查看首尔旅游 &#8594;</a></div></section>
+  <section class="sec"><div class="head"><p class="eyebrow">BRANDS</p><h2 class="h2">AMF CLUB FAMILY</h2><p class="lead">组成AMF CLUB的四个品牌</p></div><div class="grid"><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg" alt="Totium"><span>TOTIUM</span><i>&#8599;</i></div><h3>Totium</h3><p>为节庆参与者打造的高端首尔旅游</p></a><a class="card" href="/topikasia"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg" alt="TOPIK亚洲"><span>TOPIK ASIA</span><i>&#8599;</i></div><h3>TOPIK亚洲</h3><p>面向亚洲学习者的TOPIK韩语教育</p></a><a class="card" href="/influencer-amf"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg" alt="网红AMF"><span>INFLUENCER AMF</span><i>&#8599;</i></div><h3>网红AMF</h3><p>模特与网红创作者计划</p></a><a class="card" href="/blackholeman"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg" alt="黑洞人"><span>BLACKHOLEMAN</span><i>&#8599;</i></div><h3>黑洞人</h3><p>黑洞人角色与原创周边</p></a></div></section>
+  <section class="sec gray"><div class="head"><p class="eyebrow">TOTIUM TRAVEL</p><h2 class="h2">SEOUL TOURS</h2><p class="lead">参与者最喜爱的首尔旅游</p></div><div class="grid tours"><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg" alt="首尔市区游"><span>TOTIUM</span></div><h3>HELLO SEOUL</h3><p>首尔市区游</p><p class="price">165,000韩元</p></a><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg" alt="购物 &amp; 烟花游船"><span>TOTIUM</span></div><h3>THE HYUNDAI & CRUISE</h3><p>购物 &amp; 烟花游船</p><p class="price">115,000韩元起</p></a><a class="card" href="/totium"><div class="card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg" alt="圣水潮流之旅"><span>TOTIUM</span></div><h3>SEONGSU TREND</h3><p>圣水潮流之旅</p><p class="price">250,000韩元起</p></a></div><div class="center"><a class="btn-dark" href="/totium">查看全部旅游 &#8594;</a></div></section>
+</div>
