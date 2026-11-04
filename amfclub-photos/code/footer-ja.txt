@@ -18,7 +18,7 @@
 <footer class="amf-foot" lang="ja"><div class="amf-foot-in">
   <p class="amf-foot-logo">AMF CLUB</p>
   <p class="amf-foot-tag">トラベル · グッズ · フェスティバルライフスタイル</p>
-  <div class="amf-foot-brands"><span>TOTIUM TRAVEL</span><span>BLACKHOLEMAN</span></div>
+  <div class="amf-foot-brands"><span>TOTIUM</span><span>TOPIK ASIA</span><span>INFLUENCER AMF</span><span>BLACKHOLEMAN</span></div>
   <div class="amf-foot-biz"><p><span>株式会社ブラックホールマンブロス</span><i>|</i><span>代表 チョ・ミスク</span><i>|</i><span>事業者登録番号 717-81-03443</span></p><p>ソウル特別市 江南区 宣陵路 529, 5階 5249号</p><p>ツアーの日程・訪問地は現地の状況により変更となる場合があります。</p></div>
   <div class="amf-foot-links"><a href="/?mode=privacy">個人情報処理方針</a><a href="/?mode=policy">利用規約</a></div>
   <p class="amf-foot-copy">© 2026 AMF CLUB. All Rights Reserved.</p>

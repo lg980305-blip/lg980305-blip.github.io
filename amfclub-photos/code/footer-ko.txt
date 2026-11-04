@@ -18,7 +18,7 @@
 <footer class="amf-foot" lang="ko"><div class="amf-foot-in">
   <p class="amf-foot-logo">AMF CLUB</p>
   <p class="amf-foot-tag">여행 · 굿즈 · 페스티벌 라이프스타일</p>
-  <div class="amf-foot-brands"><span>TOTIUM TRAVEL</span><span>BLACKHOLEMAN</span></div>
+  <div class="amf-foot-brands"><span>TOTIUM</span><span>TOPIK ASIA</span><span>INFLUENCER AMF</span><span>BLACKHOLEMAN</span></div>
   <div class="amf-foot-biz"><p><span>상호 주식회사 블랙홀맨브로스</span><i>|</i><span>대표 조미숙</span><i>|</i><span>사업자등록번호 717-81-03443</span></p><p>서울특별시 강남구 선릉로 529, 5층 5249호 (역삼동, 함양재빌딩)</p><p>투어 일정과 방문지는 현지 사정에 따라 변경될 수 있습니다.</p></div>
   <div class="amf-foot-links"><a href="/?mode=privacy">개인정보처리방침</a><a href="/?mode=policy">이용약관</a></div>
   <p class="amf-foot-copy">© 2026 AMF CLUB. All Rights Reserved.</p>

@@ -18,7 +18,7 @@
 <footer class="amf-foot" lang="vi"><div class="amf-foot-in">
   <p class="amf-foot-logo">AMF CLUB</p>
   <p class="amf-foot-tag">Du lịch · Hàng lưu niệm · Phong cách lễ hội</p>
-  <div class="amf-foot-brands"><span>TOTIUM TRAVEL</span><span>BLACKHOLEMAN</span></div>
+  <div class="amf-foot-brands"><span>TOTIUM</span><span>TOPIK ASIA</span><span>INFLUENCER AMF</span><span>BLACKHOLEMAN</span></div>
   <div class="amf-foot-biz"><p><span>Công ty TNHH Blackholeman Bros</span><i>|</i><span>Giám đốc Cho Misook</span><i>|</i><span>Mã số ĐKKD 717-81-03443</span></p><p>Tầng 5, phòng 5249, 529 Seolleung-ro, Gangnam-gu, Seoul, Hàn Quốc</p><p>Lịch trình và điểm tham quan có thể thay đổi tùy tình hình thực tế.</p></div>
   <div class="amf-foot-links"><a href="/?mode=privacy">Chính sách bảo mật</a><a href="/?mode=policy">Điều khoản sử dụng</a></div>
   <p class="amf-foot-copy">© 2026 AMF CLUB. All Rights Reserved.</p>

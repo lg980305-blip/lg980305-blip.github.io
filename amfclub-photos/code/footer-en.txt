@@ -18,7 +18,7 @@
 <footer class="amf-foot" lang="en"><div class="amf-foot-in">
   <p class="amf-foot-logo">AMF CLUB</p>
   <p class="amf-foot-tag">Travel · Goods · Festival Lifestyle</p>
-  <div class="amf-foot-brands"><span>TOTIUM TRAVEL</span><span>BLACKHOLEMAN</span></div>
+  <div class="amf-foot-brands"><span>TOTIUM</span><span>TOPIK ASIA</span><span>INFLUENCER AMF</span><span>BLACKHOLEMAN</span></div>
   <div class="amf-foot-biz"><p><span>Blackholeman Bros Co., Ltd.</span><i>|</i><span>CEO Misook Cho</span><i>|</i><span>Business Reg. No. 717-81-03443</span></p><p>5F #5249, 529 Seolleung-ro, Gangnam-gu, Seoul, Korea</p><p>Tour schedules and stops may change depending on local conditions.</p></div>
   <div class="amf-foot-links"><a href="/?mode=privacy">Privacy Policy</a><a href="/?mode=policy">Terms of Use</a></div>
   <p class="amf-foot-copy">© 2026 AMF CLUB. All Rights Reserved.</p>
