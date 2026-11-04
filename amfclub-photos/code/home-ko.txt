@@ -24,7 +24,7 @@
 .amf-home .card-img{position:relative;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#ddd}
 .amf-home .card-img span{position:absolute;left:0;top:0;background:#111;color:var(--yellow);font:700 11px Poppins,sans-serif;letter-spacing:.06em;padding:6px 10px;border-bottom-right-radius:8px}
 .amf-home .card-img i{position:absolute;right:14px;top:10px;color:#fff;font-style:normal;font-size:26px}
-.amf-home .card-word{display:flex;align-items:flex-end;padding:20px}.amf-home .card-word b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(28px,3vw,44px);line-height:.95;overflow-wrap:anywhere}
+.amf-home .card-word{container-type:inline-size;display:flex;align-items:flex-end;padding:20px}.amf-home .card-word b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(24px,3vw,44px);font-size:min(44px,13cqw);line-height:.95;overflow-wrap:anywhere}
 .amf-home .card-logo{border:1px solid #ececec}.amf-home .card-logo img{object-fit:contain;padding:12%}
 .amf-home .card h3{font-family:Poppins,Pretendard,sans-serif;font-weight:700;font-size:19px;margin-top:12px}
 .amf-home .card p{font-size:14px;color:var(--sub)}
