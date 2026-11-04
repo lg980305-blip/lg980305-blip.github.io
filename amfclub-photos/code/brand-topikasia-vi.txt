@@ -1,0 +1,23 @@
+<!-- AMF CLUB brand topikasia (vi) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+.amf-brand{font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;color:#212121;background:#fff;line-height:1.6;word-break:keep-all;padding:24px 16px 96px}
+.amf-brand:lang(ja),.amf-brand:lang(zh-CN),.amf-brand:lang(vi),.amf-brand:lang(ru){word-break:normal}
+.amf-brand *{box-sizing:border-box;margin:0;padding:0}.amf-brand a{text-decoration:none}
+.amf-brand .b-hero{max-width:1200px;margin:0 auto;border-radius:12px;min-height:420px;display:flex;align-items:center;justify-content:center;padding:48px 24px;text-align:center;border:1px solid #ececec}
+.amf-brand .b-hero img{max-width:min(420px,80%);max-height:260px;object-fit:contain;display:block;margin:0 auto}
+.amf-brand .b-word{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(52px,10vw,128px);line-height:.95}
+.amf-brand .b-in{max-width:640px;margin:48px auto 0;text-align:center}
+.amf-brand .b-kick{font:600 13px Poppins,sans-serif;letter-spacing:.14em;color:#6b6b6b}
+.amf-brand h1{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(28px,4vw,38px);margin:8px 0 6px;line-height:1.2}
+.amf-brand .b-sub{font-weight:600;font-size:17px}
+.amf-brand .b-desc{color:#6b6b6b;font-size:15px;margin-top:14px}
+.amf-brand .b-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.amf-brand .b-btns a{display:inline-flex;font-weight:700;font-size:15px;padding:13px 24px;border-radius:8px}
+.amf-brand .b-dark{background:#000;color:#fff}.amf-brand .b-line{border:1px solid #111;color:#111}
+</style>
+<div class="amf-brand" lang="vi">
+  <section class="b-hero" style="background:#ffffff;color:#111"><img src="https://raw.githubusercontent.com/lg980305-blip/lg980305-blip.github.io/42bf4fdfd371b2a71480e5ca6556ac902d94342a/amfclub-photos/logo-topikasia.jpg" alt="TOPIK Asia logo"></section>
+  <div class="b-in"><p class="b-kick">AMF CLUB · SẮP RA MẮT</p><h1>TOPIK Asia</h1><p class="b-sub">Khóa học tiếng Hàn TOPIK cho người học châu Á</p><p class="b-desc">Thương hiệu giáo dục dành cho người học châu Á đang chuẩn bị kỳ thi năng lực tiếng Hàn TOPIK. Chi tiết khóa học và lịch học sẽ sớm được công bố.</p>
+  <div class="b-btns"><a class="b-dark" href="/totium">Xem tour Seoul &#8594;</a><a class="b-line" href="/">Về trang chủ</a></div></div>
+</div>
