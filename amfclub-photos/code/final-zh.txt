@@ -169,7 +169,7 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · 2人起</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! 首尔市区游</p>
@@ -230,7 +230,7 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="守门将换岗仪式" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="守门将换岗仪式" class="" loading="lazy"><figcaption>守门将换岗仪式</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N首尔塔" class="" loading="lazy"><figcaption>N首尔塔</figcaption></figure></div>
       </div>
       <div class="tt-info">
@@ -247,7 +247,7 @@
         </dl>
         <p class="tt-sub">行程</p>
         <ol class="tt-route"><li>09:00 酒店接人</li><li>车游光化门·清溪川，参观曹溪寺</li><li>守门将换岗仪式 &amp; 景福宫</li><li>国立民俗博物馆 · 午餐</li><li>南山谷韩屋村（周一改为北村）</li><li>N首尔塔 → 广藏市场</li><li>17:00 返回酒店</li></ol>
-        <p class="tt-note">如遇王宫闭馆或活动，行程可能变动 · 素食/清真请提前告知</p>
+        <p class="tt-note">如遇王宫闭馆或活动，行程可能变动 · 素食/清真请提前告知 · 不含韩服租赁</p>
         <a class="tt-btn" href="https://amfclub.imweb.me/25">预订此项目</a>
       </div>
     </article>

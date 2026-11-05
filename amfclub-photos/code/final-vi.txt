@@ -169,7 +169,7 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · Tối thiểu 2 người</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! Tour thành phố Seoul</p>
@@ -230,7 +230,7 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><figcaption>Lễ đổi gác Hoàng cung</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="Tháp N Seoul" class="" loading="lazy"><figcaption>Tháp N Seoul</figcaption></figure></div>
       </div>
       <div class="tt-info">
@@ -247,7 +247,7 @@
         </dl>
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>Tham quan Gwanghwamun, suối Cheonggyecheon bằng xe, chùa Jogyesa</li><li>Lễ đổi gác &amp; Cung Gyeongbokgung</li><li>Bảo tàng Dân gian Quốc gia · Ăn trưa</li><li>Làng Hanok Namsangol (thứ Hai đổi sang Bukchon)</li><li>Tháp N Seoul → Chợ Gwangjang</li><li>17:00 Trở về khách sạn</li></ol>
-        <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal</p>
+        <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal · Không bao gồm thuê hanbok</p>
         <a class="tt-btn" href="https://amfclub.imweb.me/25">Đặt chương trình này</a>
       </div>
     </article>

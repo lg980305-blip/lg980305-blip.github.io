@@ -169,7 +169,7 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · Min. 2 people</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! City Tour</p>
@@ -230,7 +230,7 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Royal Guard Ceremony" class="" loading="lazy"><figcaption>Royal Guard Ceremony</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N Seoul Tower" class="" loading="lazy"><figcaption>N Seoul Tower</figcaption></figure></div>
       </div>
       <div class="tt-info">
@@ -247,7 +247,7 @@
         </dl>
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>09:00 Hotel pickup</li><li>Gwanghwamun &amp; Cheonggyecheon by car, Jogyesa Temple</li><li>Royal Guard Changing Ceremony &amp; Gyeongbokgung Palace</li><li>National Folk Museum · Lunch</li><li>Namsangol Hanok Village (Bukchon on Mondays)</li><li>N Seoul Tower → Gwangjang Market</li><li>17:00 Return to hotel</li></ol>
-        <p class="tt-note">Schedule may change if palaces are closed or hosting events · Request vegetarian/halal meals in advance</p>
+        <p class="tt-note">Schedule may change if palaces are closed or hosting events · Request vegetarian/halal meals in advance · Hanbok rental not included</p>
         <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>

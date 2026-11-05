@@ -170,7 +170,7 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Смена королевской стражи" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Смена королевской стражи" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · От 2 человек</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! Обзорный тур</p>
@@ -231,7 +231,7 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Смена королевской стражи" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Смена королевской стражи" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Смена королевской стражи" class="" loading="lazy"><figcaption>Смена королевской стражи</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="Башня N Seoul Tower" class="" loading="lazy"><figcaption>Башня N Seoul Tower</figcaption></figure></div>
       </div>
       <div class="tt-info">
@@ -248,7 +248,7 @@
         </dl>
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>09:00 Трансфер из отеля</li><li>Кванхвамун и Чхонгечхон на машине, храм Чогеса</li><li>Смена королевской стражи и дворец Кёнбоккун</li><li>Национальный фольклорный музей · Обед</li><li>Деревня ханоков Намсангол (по понедельникам — Пукчон)</li><li>N Seoul Tower → рынок Кванджан</li><li>17:00 Возвращение в отель</li></ol>
-        <p class="tt-note">Программа может измениться, если дворцы закрыты или проводят мероприятия · Вегетарианское/халяльное питание — по запросу заранее</p>
+        <p class="tt-note">Программа может измениться, если дворцы закрыты или проводят мероприятия · Вегетарианское/халяльное питание — по запросу заранее · Прокат ханбока не включён</p>
         <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>

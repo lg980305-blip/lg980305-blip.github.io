@@ -169,7 +169,7 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="수문장 교대식" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="수문장 교대식" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · 최소 2인</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! 서울 시티투어</p>
@@ -230,7 +230,7 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="수문장 교대식" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="수문장 교대식" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="수문장 교대식" class="" loading="lazy"><figcaption>수문장 교대식</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N서울타워" class="" loading="lazy"><figcaption>N서울타워</figcaption></figure></div>
       </div>
       <div class="tt-info">
@@ -247,7 +247,7 @@
         </dl>
         <p class="tt-sub">일정</p>
         <ol class="tt-route"><li>09:00 호텔 픽업</li><li>광화문·청계천 차량 관광, 조계사</li><li>수문장 교대식 &amp; 경복궁</li><li>국립민속박물관 · 점심 식사</li><li>남산골한옥마을 (월요일은 북촌)</li><li>N서울타워 → 광장시장</li><li>17:00 호텔 복귀</li></ol>
-        <p class="tt-note">궁궐 휴관·행사에 따라 일정 변경 가능 · 채식/할랄 사전 요청</p>
+        <p class="tt-note">궁궐 휴관·행사에 따라 일정 변경 가능 · 채식/할랄 사전 요청 · 한복 대여는 포함되지 않습니다</p>
         <a class="tt-btn" href="/25">이 프로그램 예약하기</a>
       </div>
     </article>
