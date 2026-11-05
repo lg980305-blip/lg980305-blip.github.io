@@ -74,7 +74,7 @@
 .tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
 .tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
 .tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
-.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
 .tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
 .tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
 .tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
@@ -107,6 +107,7 @@
   .tt-root .tt-rail{grid-auto-columns:78%}
   .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-cancel{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tt-root .tt-btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
@@ -359,7 +360,7 @@
     <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>Do you offer hotel pickup?</p><p class="tt-q-a">Pickup is included for hotels inside Seoul&#x27;s old city gates (central Seoul). Other areas have an extra pickup/drop-off fee based on distance. Programs 03, 04 and 07 meet at a set location.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>How far in advance do I need to book?</p><p class="tt-q-a">Bookings close one week before the tour date. Your request is received once you pay a 10% deposit, and the balance is due once the tour is confirmed.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>How do I pay?</p><p class="tt-q-a">You can pay by card or cash. Prices shown are per person and exclude 10% VAT.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Can I book more than one program?</p><p class="tt-q-a">Yes. Each program is a separate product, so just list every program and date you want on the booking form.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>What should I bring?</p><p class="tt-q-a">Bring your passport for programs 03 and 07, and an ID for program 06 (alcohol included). Let us know about vegetarian, halal or allergy needs when you book.</p></div>
       <div class="tt-q"><p class="tt-q-title"><b>Q</b>Can I get a refund if I cancel?</p>
         <p class="tt-q-a">Refunds are based on the tour&#x27;s departure time, as shown below. After your booking is confirmed, the 10% deposit is non-refundable, and it is also forfeited if the balance is not paid after confirmation.</p>
-        <div class="tt-cancel"><div class="tt-cancel-item"><span>72 hours before</span><b class="">50%</b><em>refund</em></div><div class="tt-cancel-item"><span>48 hours before</span><b class="">30%</b><em>refund</em></div><div class="tt-cancel-item"><span>24 hours before</span><b class="tt-zero">0%</b><em>no refund</em></div></div>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>72+ hours before</span><b class="">90%</b><em>refund (minus deposit)</em></div><div class="tt-cancel-item"><span>72–48 hours before</span><b class="">50%</b><em>refund</em></div><div class="tt-cancel-item"><span>48–24 hours before</span><b class="">30%</b><em>refund</em></div><div class="tt-cancel-item"><span>Within 24 hours</span><b class="tt-zero">0%</b><em>no refund</em></div></div>
       </div>
     </div>
   </section>

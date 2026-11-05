@@ -74,7 +74,7 @@
 .tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
 .tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
 .tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
-.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
 .tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
 .tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
 .tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
@@ -107,6 +107,7 @@
   .tt-root .tt-rail{grid-auto-columns:78%}
   .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-cancel{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tt-root .tt-btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
@@ -359,7 +360,7 @@
     <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>Có đón tại khách sạn không?</p><p class="tt-q-a">Miễn phí đón cho khách sạn ở trung tâm Seoul (bên trong 4 cổng thành cổ). Khu vực khác tính thêm phí đưa đón theo khoảng cách. Chương trình 03, 04 và 07 tập trung tại địa điểm chỉ định.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Cần đặt trước bao lâu?</p><p class="tt-q-a">Hạn đặt là một tuần trước ngày tour. Đơn được tiếp nhận khi bạn đặt cọc 10%, phần còn lại thanh toán khi tour được xác nhận.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Thanh toán như thế nào?</p><p class="tt-q-a">Bạn có thể thanh toán bằng thẻ hoặc tiền mặt. Giá hiển thị tính theo mỗi người, chưa gồm 10% VAT.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Có thể đăng ký nhiều chương trình không?</p><p class="tt-q-a">Có. Mỗi chương trình là một sản phẩm riêng, bạn chỉ cần ghi tất cả chương trình và ngày mong muốn vào đơn đăng ký.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Cần mang theo gì?</p><p class="tt-q-a">Chương trình 03 và 07 cần mang hộ chiếu, chương trình 06 cần giấy tờ tùy thân (có đồ uống có cồn). Vui lòng báo trước nhu cầu ăn chay, halal hoặc dị ứng khi đặt tour.</p></div>
       <div class="tt-q"><p class="tt-q-title"><b>Q</b>Hủy tour có được hoàn tiền không?</p>
         <p class="tt-q-a">Tiền hoàn lại được tính theo giờ khởi hành của tour như bảng dưới. Sau khi đặt tour được xác nhận, khoản đặt cọc 10% sẽ không được hoàn lại; nếu không thanh toán phần còn lại sau khi xác nhận, khoản đặt cọc cũng không được hoàn lại.</p>
-        <div class="tt-cancel"><div class="tt-cancel-item"><span>Trước 72 giờ</span><b class="">50%</b><em>hoàn tiền</em></div><div class="tt-cancel-item"><span>Trước 48 giờ</span><b class="">30%</b><em>hoàn tiền</em></div><div class="tt-cancel-item"><span>Trước 24 giờ</span><b class="tt-zero">0%</b><em>không hoàn tiền</em></div></div>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>Trước hơn 72 giờ</span><b class="">90%</b><em>hoàn tiền (trừ tiền cọc)</em></div><div class="tt-cancel-item"><span>Trước 72–48 giờ</span><b class="">50%</b><em>hoàn tiền</em></div><div class="tt-cancel-item"><span>Trước 48–24 giờ</span><b class="">30%</b><em>hoàn tiền</em></div><div class="tt-cancel-item"><span>Trong vòng 24 giờ</span><b class="tt-zero">0%</b><em>không hoàn tiền</em></div></div>
       </div>
     </div>
   </section>

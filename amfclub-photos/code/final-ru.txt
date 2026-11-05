@@ -74,7 +74,7 @@
 .tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
 .tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
 .tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
-.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
 .tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
 .tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
 .tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
@@ -107,6 +107,7 @@
   .tt-root .tt-rail{grid-auto-columns:78%}
   .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-cancel{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tt-root .tt-btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
@@ -360,7 +361,7 @@
     <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>Есть ли трансфер из отеля?</p><p class="tt-q-a">Трансфер включён для отелей в центре Сеула (в пределах старых городских ворот). Для других районов взимается доплата в зависимости от расстояния. Для программ 03, 04 и 07 сбор в назначенном месте.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>За сколько нужно бронировать?</p><p class="tt-q-a">Бронирование закрывается за неделю до даты тура. Заявка принимается после предоплаты 10%, остаток оплачивается после подтверждения тура.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Как можно оплатить?</p><p class="tt-q-a">Картой или наличными. Цены указаны за человека, без НДС 10%.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Можно забронировать несколько программ?</p><p class="tt-q-a">Да. Каждая программа — отдельный продукт: просто укажите в форме все нужные программы и даты.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Что взять с собой?</p><p class="tt-q-a">Паспорт для программ 03 и 07, удостоверение личности для программы 06 (включён алкоголь). Сообщите о вегетарианском или халяльном питании и аллергиях при бронировании.</p></div>
       <div class="tt-q"><p class="tt-q-title"><b>Q</b>Можно ли вернуть деньги при отмене?</p>
         <p class="tt-q-a">Возврат рассчитывается от времени начала тура, как указано ниже. После подтверждения брони предоплата 10% не возвращается; она также удерживается, если остаток не оплачен после подтверждения.</p>
-        <div class="tt-cancel"><div class="tt-cancel-item"><span>За 72 часа</span><b class="">50%</b><em>возврат</em></div><div class="tt-cancel-item"><span>За 48 часов</span><b class="">30%</b><em>возврат</em></div><div class="tt-cancel-item"><span>За 24 часа</span><b class="tt-zero">0%</b><em>без возврата</em></div></div>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>Более 72 ч</span><b class="">90%</b><em>возврат (кроме предоплаты)</em></div><div class="tt-cancel-item"><span>За 72–48 ч</span><b class="">50%</b><em>возврат</em></div><div class="tt-cancel-item"><span>За 48–24 ч</span><b class="">30%</b><em>возврат</em></div><div class="tt-cancel-item"><span>Менее 24 ч</span><b class="tt-zero">0%</b><em>без возврата</em></div></div>
       </div>
     </div>
   </section>
