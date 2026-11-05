@@ -69,6 +69,27 @@
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+.tt-root .tt-pnav{display:none}
+.tt-root.tt-js .tt-details{display:none}
+.tt-root.tt-js.tt-view-detail .tt-details{display:block;padding-top:40px}
+.tt-root.tt-js.tt-view-detail .tt-hero,.tt-root.tt-js.tt-view-detail .tt-sec-programs,.tt-root.tt-js.tt-view-detail .tt-sec-faq,.tt-root.tt-js.tt-view-detail .tt-details>.tt-head{display:none}
+.tt-root.tt-js .tt-details .tt-prog{display:none}
+.tt-root.tt-js .tt-details .tt-prog.tt-on{display:grid}
+.tt-root.tt-js .tt-pnav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto 20px}
+.tt-root .tt-pnav-back{font-size:14px;font-weight:600;color:var(--ink)}
+.tt-root .tt-pnav-list{display:flex;gap:6px;flex-wrap:wrap}
+.tt-root .tt-pnav-list a{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--ink)}
+.tt-root .tt-pnav-list a.tt-on{background:var(--ink);color:var(--yellow)}
+.tt-root .tt-contact{margin-top:28px;padding-top:22px;border-top:1px solid rgba(33,33,33,.12);max-width:520px}
+.tt-root .tt-contact>p{font-size:13px;color:var(--sub);margin-bottom:12px}
+.tt-root .tt-contact-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tt-root .tt-ci{display:flex;align-items:center;gap:10px;min-width:0;padding:12px;border-radius:10px;background:#fff;border:1px solid transparent;color:var(--ink);transition:border-color .2s}
+.tt-root a.tt-ci:hover{border-color:var(--ink)}
+.tt-root .tt-ci-ic{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.tt-root .tt-ci-ic svg{width:16px;height:16px;fill:var(--yellow)}
+.tt-root .tt-ci-tx{min-width:0;line-height:1.3}
+.tt-root .tt-ci-tx b{display:block;font-size:13.5px;font-weight:700}
+.tt-root .tt-ci-tx span{display:block;font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* faq */
 .tt-root .tt-faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
 .tt-root .tt-q{padding:22px 4px;border-bottom:1px solid var(--line)}
@@ -130,7 +151,7 @@
     </div>
   </section>
 
-  <section class="tt-sec">
+  <section class="tt-sec tt-sec-programs" id="tt-programs">
     <div class="tt-head">
       <p class="tt-eyebrow">PROGRAMS</p>
       <h2 class="tt-h2">FIND YOUR TOUR</h2>
@@ -149,7 +170,7 @@
         <p class="tt-card-meta">10:00 – 17:00 · 4名様から</p>
         <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
         <p class="tt-card-kr">アート＆ビューティー · 伝統工芸とスパ</p>
-        <p class="tt-card-price"><b class="tt-olive">02</b> 485,000ウォン</p>
+        <p class="tt-card-price"><b class="tt-olive">02</b> 500,000ウォン</p>
       </a>
       <a class="tt-card" href="#tt-p03">
         <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="ザ・現代ソウル" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
@@ -189,7 +210,8 @@
     </div>
   </section>
 
-  <section class="tt-sec tt-gray">
+  <section class="tt-sec tt-gray tt-details">
+    <nav class="tt-pnav"><a class="tt-pnav-back" href="#tt-programs">&#8592; すべてのプログラム</a><div class="tt-pnav-list"><a href="#tt-p01">01</a><a href="#tt-p02">02</a><a href="#tt-p03">03</a><a href="#tt-p04">04</a><a href="#tt-p05">05</a><a href="#tt-p06">06</a><a href="#tt-p07">07</a></div></nav>
     <div class="tt-head">
       <p class="tt-eyebrow">DETAILS</p>
       <h2 class="tt-h2">PROGRAM DETAILS</h2>
@@ -216,7 +238,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>光化門・清渓川を車窓観光、曹渓寺</li><li>守門将交代式 &amp; 景福宮</li><li>国立民俗博物館 · 昼食</li><li>南山コル韓屋村（月曜は北村）</li><li>Nソウルタワー → 広蔵市場</li><li>17:00 ホテルへお送り</li></ol>
         <p class="tt-note">王宮の休館・行事により日程が変わる場合があります · ベジタリアン/ハラールは事前にご相談ください</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
@@ -230,7 +252,7 @@
         <p class="tt-prog-kr">アート＆ビューティー · 伝統工芸とスパ</p>
         <p class="tt-desc">仁寺洞・北村の路地を歩き、50年のキャリアを持つ職人に伝統の結び（メドゥプ）を習い、JWマリオットのロクシタンスパでくつろぐ一日。</p>
         <dl class="tt-facts">
-          <div><dt>料金</dt><dd>485,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
+          <div><dt>料金</dt><dd>500,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>10:00 – 17:00</dd></div>
           <div class="tt-date-row"><dt>開催日</dt><dd>11/22（日）・11/29（日）</dd></div>
           <div><dt>人数</dt><dd>4名様から</dd></div>
@@ -239,7 +261,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>10:00 お迎え</li><li>10:30 仁寺洞・北村をガイドと散策</li><li>12:00 トンリムメドゥプで職人による結び体験<span class="tt-route-d">50年のキャリアを持つ職人から学ぶメドゥプ体験。メドゥプは何本もの糸を撚り合わせ、繊細な形を作り出す韓国の伝統工芸です。</span></li><li>13:00 韓国料理の昼食</li><li>14:30 ロクシタンスパで60分マッサージ<span class="tt-route-d">JWマリオット内のスパで、Kビューティーとプレミアムマッサージを体験。リラクシングまたはディープティシュー60分が基本、90分は9万ウォン追加。</span></li><li>16:30 自由時間またはホテルへ</li></ol>
         <p class="tt-note">スパ90分は+90,000ウォン · 予約状況により同等クラスのスパに変更となる場合があります</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p03">
@@ -262,7 +284,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>15:00 汝矣島駅3番出口集合</li><li>15:10 ザ・現代ソウルでショッピング＆自由時間<span class="tt-route-d">ソウルの最新ライフスタイル、ファッション、グルメ、アート、建築を一か所で体験できる複合文化空間です。</span></li><li>16:30 汝矣島公園を散策<span class="tt-route-d">金融・ビジネスの中心地、汝矣島の真ん中にある都市公園。高層ビルと大型ショッピングモールの間で自然と休息を楽しめます。</span></li><li>17:30 ソウルクルーズ乗り場へ移動<span class="tt-route-d">漢江の上でディナー、音楽、花火ショーを一緒に楽しめる唯一のクルーズです。</span></li><li>18:30 公演・ディナー・花火ショー（2時間）<span class="tt-route-d">2時間にわたる公演とディナー、ソウルの夜景。花火で締めくくる思い出の時間です。</span></li><li>20:30 解散</li></ol>
         <p class="tt-note">パスポート必携 · 悪天候で運航が変更になった場合は全額返金または日程変更</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
@@ -285,7 +307,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>10:00 聖水駅集合</li><li>オリーブヤングN · ジェントルモンスター · ムシンサ<span class="tt-route-d">今ソウルで一番ホットな街。古い工場や倉庫がカフェ、セレクトショップ、ファッションブランド、ポップアップストアに生まれ変わり、ソウルの感性あふれるライフスタイルに出会えます。</span></li><li>NYUNYU · iGu Home · 大林倉庫などのトレンドショップ</li><li>シーズンのポップアップストア＆セレクトショップ</li><li>11:30 ブランチ・カフェ巡り</li><li>15:00 ソウルの森またはオリーブヤングNで解散<span class="tt-route-d">オリーブヤングN：2024年11月にオープンしたKビューティーのランドマーク。約4,600㎡の超大型ビューティー空間で、フロアごとに異なるコンセプトで多彩なブランドと製品を体験できます。</span></li></ol>
         <p class="tt-note">食事付き · カフェ代は各自負担 · 行きたいポップアップは事前にリクエストできます</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p05">
@@ -308,7 +330,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>10:00 ロッテワールド入場 · フリーパス</li><li>アドベンチャー＆マジックアイランドで自由に<span class="tt-route-d">室内テーマパーク「アドベンチャー」と屋外の「マジックアイランド」からなる複合エンターテインメントスポット。天候を問わない室内アトラクションから石村湖を背景にした屋外施設まで、幅広い年代で楽しめます。</span></li><li>13:30 ホテルへ、または残って自由解散</li></ol>
         <p class="tt-note">ガイド・車両・入場料・送迎込み</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
@@ -331,7 +353,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>13:00 ホテルお迎え</li><li>ポッサム＆マッコリ</li><li>広蔵市場ツアー · ピンデトック、キンパ、トッポッキ<span class="tt-route-d">ソウルの伝統市場文化を肌で感じられる代表的なグルメスポット。ピンデトック、キンパ、トッポッキなど多彩な屋台グルメと活気ある雰囲気を楽しめます。</span></li><li>粉食＆ソメク体験</li><li>16:30 鍾路5街駅付近で解散</li></ol>
         <p class="tt-note">酒類を含むため身分証必携 · アレルギー・食事制限はご予約時にお知らせください</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p07">
@@ -354,13 +376,13 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>07:30 市庁駅7番出口集合</li><li>脱北者との質疑応答</li><li>臨津閣 · 統一大橋 · 身分確認<span class="tt-route-d">臨津閣：朝鮮戦争と南北分断の歴史を伝える象徴的な場所で、戦争の跡と平和への願いを感じられます。統一大橋：民間人出入統制区域への入口です。</span></li><li>DMZ映像館 · 第3トンネル<span class="tt-route-d">DMZ映像館・展示館：DMZの成り立ち、朝鮮戦争、南北分断の背景を映像と展示で学びます。第3トンネル：北朝鮮が南侵目的で掘ったと確認された地下軍事施設で、1978年に発見されました。</span></li><li>都羅展望台 · 統一村<span class="tt-route-d">都羅展望台：北朝鮮の村や松岳山一帯まで見渡せる代表的なDMZ展望スポット。統一村：民間人出入統制区域内にある村で、住民の特別な暮らしを垣間見られます。</span></li><li>紺岳山吊り橋（往復40〜50分）<span class="tt-route-d">DMZ周辺で一番人気のハイキングスポットです。</span></li><li>17:00 市庁駅で解散</li></ol>
         <p class="tt-note">パスポート・身分証必携 · 軍事・天候の状況により代替コースで運営 · 月曜・祝日休み</p>
-        <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
       </div>
     </article>
     </div>
   </section>
 
-  <section class="tt-sec">
+  <section class="tt-sec tt-sec-faq">
     <div class="tt-head">
       <p class="tt-eyebrow">NOTICE</p>
       <h2 class="tt-h2">BEFORE YOU BOOK</h2>
@@ -380,12 +402,21 @@
         <p class="tt-eyebrow">RESERVATION</p>
         <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
         <p class="tt-lead tt-left">ご希望のプログラム、日付、人数、宿泊先をお知らせください。担当者が確認のうえ、予約金のご案内をお送りします。</p>
-        <a class="tt-btn tt-btn-lg" href="#tt-booking">予約を申し込む &#8599;</a>
+        <a class="tt-btn tt-btn-lg" href="https://amfclub.imweb.me/totium-booking">予約を申し込む &#8599;</a>
+        <div class="tt-contact"><p>ご質問は担当者へ直接どうぞ。</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="IDで検索"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>電話</b><span>+82 10-2047-3178</span></span></a></div></div>
       </div>
       <div class="tt-qr">
-        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-ja.png?v=1" alt="QR"></div>
+        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-ja.png?v=2" alt="QR"></div>
         <p>スキャンしてすぐ予約</p>
       </div>
     </div>
   </section>
 </div>
+<script>
+(function(){var r=document.currentScript&&document.currentScript.parentNode.querySelector('.tt-root')||document.querySelector('.tt-root');if(!r)return;r.classList.add('tt-js');
+function show(){var h=(location.hash||'').slice(1),m=/^tt-p0[1-7]$/.test(h);r.classList.toggle('tt-view-detail',m);
+[].forEach.call(r.querySelectorAll('.tt-prog,.tt-pnav-list a'),function(e){e.classList.toggle('tt-on',e.id===h||e.getAttribute('href')==='#'+h)});
+if(m){var t=r.querySelector('.tt-details');setTimeout(function(){window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset-90)},0)}
+else if(h==='tt-programs'){var p=r.querySelector('.tt-sec-programs');setTimeout(function(){window.scrollTo(0,p.getBoundingClientRect().top+window.pageYOffset-90)},0)}}
+window.addEventListener('hashchange',show);show();})();
+</script>

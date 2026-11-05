@@ -69,6 +69,27 @@
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+.tt-root .tt-pnav{display:none}
+.tt-root.tt-js .tt-details{display:none}
+.tt-root.tt-js.tt-view-detail .tt-details{display:block;padding-top:40px}
+.tt-root.tt-js.tt-view-detail .tt-hero,.tt-root.tt-js.tt-view-detail .tt-sec-programs,.tt-root.tt-js.tt-view-detail .tt-sec-faq,.tt-root.tt-js.tt-view-detail .tt-details>.tt-head{display:none}
+.tt-root.tt-js .tt-details .tt-prog{display:none}
+.tt-root.tt-js .tt-details .tt-prog.tt-on{display:grid}
+.tt-root.tt-js .tt-pnav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto 20px}
+.tt-root .tt-pnav-back{font-size:14px;font-weight:600;color:var(--ink)}
+.tt-root .tt-pnav-list{display:flex;gap:6px;flex-wrap:wrap}
+.tt-root .tt-pnav-list a{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--ink)}
+.tt-root .tt-pnav-list a.tt-on{background:var(--ink);color:var(--yellow)}
+.tt-root .tt-contact{margin-top:28px;padding-top:22px;border-top:1px solid rgba(33,33,33,.12);max-width:520px}
+.tt-root .tt-contact>p{font-size:13px;color:var(--sub);margin-bottom:12px}
+.tt-root .tt-contact-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tt-root .tt-ci{display:flex;align-items:center;gap:10px;min-width:0;padding:12px;border-radius:10px;background:#fff;border:1px solid transparent;color:var(--ink);transition:border-color .2s}
+.tt-root a.tt-ci:hover{border-color:var(--ink)}
+.tt-root .tt-ci-ic{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.tt-root .tt-ci-ic svg{width:16px;height:16px;fill:var(--yellow)}
+.tt-root .tt-ci-tx{min-width:0;line-height:1.3}
+.tt-root .tt-ci-tx b{display:block;font-size:13.5px;font-weight:700}
+.tt-root .tt-ci-tx span{display:block;font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* faq */
 .tt-root .tt-faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
 .tt-root .tt-q{padding:22px 4px;border-bottom:1px solid var(--line)}
@@ -130,7 +151,7 @@
     </div>
   </section>
 
-  <section class="tt-sec">
+  <section class="tt-sec tt-sec-programs" id="tt-programs">
     <div class="tt-head">
       <p class="tt-eyebrow">PROGRAMS</p>
       <h2 class="tt-h2">FIND YOUR TOUR</h2>
@@ -149,7 +170,7 @@
         <p class="tt-card-meta">10:00 – 17:00 · Tối thiểu 4 người</p>
         <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
         <p class="tt-card-kr">Art &amp; Beauty · Thủ công và Spa</p>
-        <p class="tt-card-price"><b class="tt-olive">02</b> 485.000 KRW</p>
+        <p class="tt-card-price"><b class="tt-olive">02</b> 500.000 KRW</p>
       </a>
       <a class="tt-card" href="#tt-p03">
         <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="The Hyundai Seoul" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
@@ -189,7 +210,8 @@
     </div>
   </section>
 
-  <section class="tt-sec tt-gray">
+  <section class="tt-sec tt-gray tt-details">
+    <nav class="tt-pnav"><a class="tt-pnav-back" href="#tt-programs">&#8592; Tất cả chương trình</a><div class="tt-pnav-list"><a href="#tt-p01">01</a><a href="#tt-p02">02</a><a href="#tt-p03">03</a><a href="#tt-p04">04</a><a href="#tt-p05">05</a><a href="#tt-p06">06</a><a href="#tt-p07">07</a></div></nav>
     <div class="tt-head">
       <p class="tt-eyebrow">DETAILS</p>
       <h2 class="tt-h2">PROGRAM DETAILS</h2>
@@ -216,7 +238,7 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>Tham quan Gwanghwamun, suối Cheonggyecheon bằng xe, chùa Jogyesa</li><li>Lễ đổi gác &amp; Cung Gyeongbokgung</li><li>Bảo tàng Dân gian Quốc gia · Ăn trưa</li><li>Làng Hanok Namsangol (thứ Hai đổi sang Bukchon)</li><li>Tháp N Seoul → Chợ Gwangjang</li><li>17:00 Trở về khách sạn</li></ol>
         <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
@@ -230,7 +252,7 @@
         <p class="tt-prog-kr">Art &amp; Beauty · Thủ công và Spa</p>
         <p class="tt-desc">Dạo bước qua Insadong và Bukchon, học thắt nút truyền thống cùng nghệ nhân 50 năm kinh nghiệm, rồi thư giãn tại spa L&#x27;Occitane trong khách sạn JW Marriott.</p>
         <dl class="tt-facts">
-          <div><dt>Giá</dt><dd>485.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
+          <div><dt>Giá</dt><dd>500.000 KRW <small>mỗi người · chưa gồm VAT</small></dd></div>
           <div><dt>Thời gian</dt><dd>10:00 – 17:00</dd></div>
           <div class="tt-date-row"><dt>Ngày</dt><dd>CN 22/11, CN 29/11</dd></div>
           <div><dt>Số người</dt><dd>Tối thiểu 4 người</dd></div>
@@ -239,7 +261,7 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>10:00 Đón khách</li><li>10:30 Dạo Insadong &amp; Bukchon cùng hướng dẫn viên</li><li>12:00 Trải nghiệm thắt nút cùng nghệ nhân tại Donglim Maedeup<span class="tt-route-d">Học thắt nút cùng nghệ nhân 50 năm kinh nghiệm. Maedeup là nghề thủ công truyền thống Hàn Quốc, xoắn và đan nhiều sợi dây thành những hình dáng tinh xảo.</span></li><li>13:00 Bữa trưa món Hàn</li><li>14:30 Massage 60 phút tại spa L&#x27;Occitane<span class="tt-route-d">Spa trong khách sạn JW Marriott, trải nghiệm K-beauty và massage cao cấp. Massage thư giãn hoặc mô sâu 60 phút; chọn 90 phút thêm 90.000 won.</span></li><li>16:30 Tự do hoặc về khách sạn</li></ol>
         <p class="tt-note">Chọn spa 90 phút: +90.000 KRW · Spa có thể đổi sang nơi cùng hạng tùy tình trạng đặt chỗ</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p03">
@@ -262,7 +284,7 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>15:00 Tập trung tại ga Yeouido, cửa số 3</li><li>15:10 Mua sắm &amp; tự do tại The Hyundai Seoul<span class="tt-route-d">Không gian văn hóa phức hợp, nơi trải nghiệm phong cách sống, thời trang, ẩm thực, nghệ thuật và kiến trúc mới nhất của Seoul.</span></li><li>16:30 Dạo công viên Yeouido<span class="tt-route-d">Công viên giữa trung tâm tài chính Yeouido, nơi tận hưởng thiên nhiên và nghỉ ngơi giữa những tòa nhà cao tầng và trung tâm mua sắm.</span></li><li>17:30 Di chuyển đến bến Seoul Cruise<span class="tt-route-d">Du thuyền duy nhất trên sông Hàn kết hợp bữa tối, âm nhạc và màn pháo hoa.</span></li><li>18:30 2 giờ biểu diễn, bữa tối &amp; pháo hoa<span class="tt-route-d">Hai giờ biểu diễn, bữa tối và ngắm cảnh đêm Seoul, khép lại bằng pháo hoa đáng nhớ.</span></li><li>20:30 Kết thúc</li></ol>
         <p class="tt-note">Bắt buộc mang hộ chiếu · Hoàn tiền toàn bộ hoặc đổi ngày nếu du thuyền thay đổi do thời tiết xấu</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
@@ -285,7 +307,7 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>10:00 Tập trung tại ga Seongsu</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Khu phố sôi động nhất Seoul hiện nay. Nhà máy và nhà kho cũ trở thành quán cà phê, cửa hàng tuyển chọn, thương hiệu thời trang và cửa hàng pop-up, hội tụ phong cách sống tinh tế của Seoul.</span></li><li>Các cửa hàng xu hướng như Nyunyu, Igu Home, Daelim Changgo</li><li>Cửa hàng pop-up theo mùa &amp; select shop</li><li>11:30 Brunch &amp; quán cà phê</li><li>15:00 Kết thúc tại Seoul Forest hoặc Olive Young N<span class="tt-route-d">Olive Young N: biểu tượng K-beauty khai trương tháng 11/2024. Không gian làm đẹp khổng lồ khoảng 4.600 m², mỗi tầng một concept với rất nhiều thương hiệu và sản phẩm.</span></li></ol>
         <p class="tt-note">Bao gồm bữa ăn · Chi phí cà phê tự trả · Có thể đề nghị trước cửa hàng pop-up muốn ghé</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p05">
@@ -308,7 +330,7 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>10:00 Vào Lotte World · Vé trọn ngày</li><li>Tự do vui chơi tại Adventure &amp; Magic Island<span class="tt-route-d">Tổ hợp giải trí gồm công viên trong nhà &#x27;Adventure&#x27; và khu ngoài trời &#x27;Magic Island&#x27;. Từ trò chơi trong nhà không lo thời tiết đến khu ngoài trời bên hồ Seokchon, phù hợp mọi lứa tuổi.</span></li><li>13:30 Về khách sạn, hoặc ở lại và tự về</li></ol>
         <p class="tt-note">Bao gồm hướng dẫn viên, xe, vé vào cổng và đưa đón</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
@@ -331,7 +353,7 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>13:00 Đón tại khách sạn</li><li>Bossam &amp; makgeolli</li><li>Tham quan chợ Gwangjang · bindaetteok, gimbap, tteokbokki<span class="tt-route-d">Điểm ẩm thực tiêu biểu để cảm nhận văn hóa chợ truyền thống Seoul. Thưởng thức bindaetteok, gimbap, tteokbokki giữa không khí chợ nhộn nhịp.</span></li><li>Món ăn vặt &amp; somaek</li><li>16:30 Kết thúc gần ga Jongno 5-ga</li></ol>
         <p class="tt-note">Mang giấy tờ tùy thân vì có đồ uống có cồn · Báo trước dị ứng hoặc chế độ ăn khi đặt tour</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p07">
@@ -354,13 +376,13 @@
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>07:30 Tập trung tại ga City Hall, cửa số 7</li><li>Hỏi đáp cùng người đào tẩu Bắc Triều Tiên</li><li>Imjingak · Cầu Thống Nhất · Kiểm tra giấy tờ<span class="tt-route-d">Imjingak: địa điểm biểu tượng của Chiến tranh Triều Tiên và sự chia cắt, nơi cảm nhận dấu vết chiến tranh và khát vọng hòa bình. Cầu Thống Nhất: cửa ngõ vào khu vực hạn chế dân sự.</span></li><li>Nhà chiếu phim DMZ · Đường hầm số 3<span class="tt-route-d">Nhà chiếu phim &amp; triển lãm DMZ: tìm hiểu sự hình thành DMZ, Chiến tranh Triều Tiên và bối cảnh chia cắt qua phim và hiện vật. Đường hầm số 3: đường hầm quân sự do Triều Tiên đào nhằm xâm nhập, phát hiện năm 1978.</span></li><li>Đài quan sát Dora · Làng Thống Nhất<span class="tt-route-d">Đài quan sát Dora: điểm ngắm DMZ nổi tiếng, nhìn sang làng Triều Tiên và núi Songak. Làng Thống Nhất: ngôi làng trong khu vực hạn chế dân sự với nếp sống đặc biệt.</span></li><li>Cầu treo Gamaksan (khứ hồi 40–50 phút)<span class="tt-route-d">Điểm đi bộ đường dài đẹp nhất gần DMZ.</span></li><li>17:00 Kết thúc tại ga City Hall</li></ol>
         <p class="tt-note">Bắt buộc hộ chiếu/giấy tờ tùy thân · Có tuyến thay thế tùy tình hình quân sự, thời tiết · Nghỉ thứ Hai và ngày lễ</p>
-        <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Đặt chương trình này</a>
       </div>
     </article>
     </div>
   </section>
 
-  <section class="tt-sec">
+  <section class="tt-sec tt-sec-faq">
     <div class="tt-head">
       <p class="tt-eyebrow">NOTICE</p>
       <h2 class="tt-h2">BEFORE YOU BOOK</h2>
@@ -380,12 +402,21 @@
         <p class="tt-eyebrow">RESERVATION</p>
         <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
         <p class="tt-lead tt-left">Hãy cho chúng tôi biết chương trình, ngày, số người và khách sạn của bạn. Nhân viên sẽ xác nhận và gửi hướng dẫn đặt cọc.</p>
-        <a class="tt-btn tt-btn-lg" href="#tt-booking">Đặt tour ngay &#8599;</a>
+        <a class="tt-btn tt-btn-lg" href="https://amfclub.imweb.me/totium-booking">Đặt tour ngay &#8599;</a>
+        <div class="tt-contact"><p>Có thắc mắc? Nhắn trực tiếp người phụ trách.</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="Tìm theo ID"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>Điện thoại</b><span>+82 10-2047-3178</span></span></a></div></div>
       </div>
       <div class="tt-qr">
-        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-vi.png?v=1" alt="QR"></div>
+        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-vi.png?v=2" alt="QR"></div>
         <p>Quét mã để đặt tour</p>
       </div>
     </div>
   </section>
 </div>
+<script>
+(function(){var r=document.currentScript&&document.currentScript.parentNode.querySelector('.tt-root')||document.querySelector('.tt-root');if(!r)return;r.classList.add('tt-js');
+function show(){var h=(location.hash||'').slice(1),m=/^tt-p0[1-7]$/.test(h);r.classList.toggle('tt-view-detail',m);
+[].forEach.call(r.querySelectorAll('.tt-prog,.tt-pnav-list a'),function(e){e.classList.toggle('tt-on',e.id===h||e.getAttribute('href')==='#'+h)});
+if(m){var t=r.querySelector('.tt-details');setTimeout(function(){window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset-90)},0)}
+else if(h==='tt-programs'){var p=r.querySelector('.tt-sec-programs');setTimeout(function(){window.scrollTo(0,p.getBoundingClientRect().top+window.pageYOffset-90)},0)}}
+window.addEventListener('hashchange',show);show();})();
+</script>
