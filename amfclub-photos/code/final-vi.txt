@@ -30,8 +30,18 @@
 .tt-root .tt-lead{color:var(--sub);font-size:15px}
 .tt-root .tt-left{text-align:left}
 /* card rail */
-.tt-root .tt-rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 16px;max-width:1200px;margin:0 auto}
-@media (max-width:900px){.tt-root .tt-rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}}
+.tt-root .tt-railwrap{position:relative;max-width:1200px;margin:0 auto}
+.tt-root .tt-rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:14px;scrollbar-width:none}
+.tt-root .tt-rail::-webkit-scrollbar{display:none}
+@media (max-width:900px){.tt-root .tt-rail{grid-auto-columns:42%}}
+@media (max-width:600px){.tt-root .tt-rail{grid-auto-columns:78%}}
+.tt-root .tt-rail-btn{position:absolute;top:calc(50% - 60px);width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,.18);font-size:20px;line-height:44px;text-align:center;cursor:pointer;z-index:2;transition:opacity .2s}
+.tt-root .tt-rail-btn.tt-prev{left:-22px}.tt-root .tt-rail-btn.tt-next{right:-22px}
+.tt-root .tt-rail-btn[disabled]{opacity:0;pointer-events:none}
+@media (max-width:600px){.tt-root .tt-rail-btn{display:none}}
+.tt-root .tt-rail-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.tt-root .tt-rail-dots i{width:6px;height:6px;border-radius:50%;background:#d6d6d6;transition:all .2s}
+.tt-root .tt-rail-dots i.tt-on{width:18px;border-radius:3px;background:var(--ink)}
 .tt-root .tt-card{scroll-snap-align:start;min-width:0;display:block}
 .tt-root .tt-card-img{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ddd}
 .tt-root .tt-arrow{position:absolute;top:12px;right:14px;color:#fff;font-size:26px;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.4)}
@@ -167,9 +177,10 @@
       <h2 class="tt-h2">FIND YOUR TOUR</h2>
       <p class="tt-lead">Mỗi chương trình là một sản phẩm riêng. Bạn chỉ cần chọn chương trình mình muốn và đăng ký.</p>
     </div>
+    <div class="tt-railwrap"><button type="button" class="tt-rail-btn tt-prev" aria-label="prev">&#8592;</button><button type="button" class="tt-rail-btn tt-next" aria-label="next">&#8594;</button>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · Tối thiểu 2 người</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! Tour thành phố Seoul</p>
@@ -217,7 +228,7 @@
         <p class="tt-card-kr">DMZ &amp; Câu chuyện người đào tẩu + Cầu treo Gamaksan</p>
         <p class="tt-card-price"><b class="tt-olive">07</b> 145.000 KRW</p>
       </a>
-    </div>
+    </div><div class="tt-rail-dots"></div></div>
   </section>
 
   <section class="tt-sec tt-gray tt-details">
@@ -230,7 +241,7 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/hanbok.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Lễ đổi gác Hoàng cung" class="" loading="lazy"><figcaption>Lễ đổi gác Hoàng cung</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="Tháp N Seoul" class="" loading="lazy"><figcaption>Tháp N Seoul</figcaption></figure></div>
       </div>
       <div class="tt-info">
@@ -247,7 +258,7 @@
         </dl>
         <p class="tt-sub">Lịch trình</p>
         <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>Tham quan Gwanghwamun, suối Cheonggyecheon bằng xe, chùa Jogyesa</li><li>Lễ đổi gác &amp; Cung Gyeongbokgung</li><li>Bảo tàng Dân gian Quốc gia · Ăn trưa</li><li>Làng Hanok Namsangol (thứ Hai đổi sang Bukchon)</li><li>Tháp N Seoul → Chợ Gwangjang</li><li>17:00 Trở về khách sạn</li></ol>
-        <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal · Không bao gồm thuê hanbok</p>
+        <p class="tt-note">Lịch trình có thể thay đổi khi cung điện đóng cửa hoặc có sự kiện · Báo trước nếu cần suất ăn chay/halal</p>
         <a class="tt-btn" href="https://amfclub.imweb.me/25">Đặt chương trình này</a>
       </div>
     </article>
@@ -437,5 +448,10 @@ r.addEventListener('click',function(ev){var c=ev.target.closest&&ev.target.close
 if(/kakao/.test(h)&&!mob){ev.preventDefault();pop.classList.add('tt-on')}
 else if(/^tel:/.test(h)&&!mob){ev.preventDefault();copy('+82 10-2047-3178','+82 10-2047-3178')}
 else if(!h){copy('totium2026','WhatsApp @totium2026')}});
+var rl=r.querySelector('.tt-rail'),pv=r.querySelector('.tt-prev'),nx=r.querySelector('.tt-next'),dots=r.querySelector('.tt-rail-dots');
+if(rl){rl.scrollLeft=0;var cards=rl.querySelectorAll('.tt-card');dots.innerHTML=Array.prototype.map.call(cards,function(){return '<i></i>'}).join('');
+function upd(){var w=cards[0].getBoundingClientRect().width+16,i=Math.round(rl.scrollLeft/w),max=rl.scrollWidth-rl.clientWidth-4;pv.disabled=rl.scrollLeft<4;nx.disabled=rl.scrollLeft>=max;[].forEach.call(dots.children,function(d,k){d.classList.toggle('tt-on',k===Math.min(i,cards.length-1))})}
+function go(d){var w=cards[0].getBoundingClientRect().width+16;rl.scrollBy({left:d*w,behavior:'smooth'})}
+pv.addEventListener('click',function(e){e.preventDefault();go(-1)});nx.addEventListener('click',function(e){e.preventDefault();go(1)});rl.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);setTimeout(upd,50)}
 window.addEventListener('hashchange',show);window.addEventListener('popstate',show);show();})();
 </script>
