@@ -124,7 +124,7 @@
   <section class="tt-hero">
     <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
     <div class="tt-hero-in">
-      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
+      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL · 2026.11.06 – 11.30</p>
       <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
       <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. 为2026亚洲模特节参与者<br>Totium精心准备的7条首尔旅游线路</p>
     </div>
@@ -209,6 +209,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>165,000韩元 <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>09:00 – 17:30</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>每天（周二除外）</dd></div>
           <div><dt>人数</dt><dd>2人起</dd></div>
           <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
         </dl>
@@ -231,6 +232,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>485,000韩元 <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>10:00 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>11月22日（周日）、29日（周日）</dd></div>
           <div><dt>人数</dt><dd>4人起</dd></div>
           <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
         </dl>
@@ -253,6 +255,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>115,000韩元 / 含晚餐170,000韩元 <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>15:00 – 20:30</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>11月21日（周六）、28日（周六）</dd></div>
           <div><dt>人数</dt><dd>4人起</dd></div>
           <div><dt>集合</dt><dd>汝矣岛站3号出口</dd></div>
         </dl>
@@ -275,6 +278,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>250,000韩元起（4人以上） <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>10:00 – 15:00</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>11月26日（周四）、27日（周五）、29日（周日）</dd></div>
           <div><dt>人数</dt><dd>2人起</dd></div>
           <div><dt>集合</dt><dd>圣水站集合</dd></div>
         </dl><div class="tt-tiers"><div><span>1人</span><b>800,000韩元</b></div><div><span>2人</span><b>450,000韩元</b></div><div><span>3人</span><b>300,000韩元</b></div><div><span>4人以上</span><b>250,000韩元</b></div></div>
@@ -297,6 +301,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>160,000韩元 <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>09:00 – 13:00</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>每天</dd></div>
           <div><dt>人数</dt><dd>3人起</dd></div>
           <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
         </dl>
@@ -319,6 +324,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>165,000韩元 <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>13:00 – 16:30</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>每天</dd></div>
           <div><dt>人数</dt><dd>2人起</dd></div>
           <div><dt>集合</dt><dd>市中心酒店接送</dd></div>
         </dl>
@@ -341,6 +347,7 @@
         <dl class="tt-facts">
           <div><dt>价格</dt><dd>145,000韩元 <small>每人 · 不含增值税</small></dd></div>
           <div><dt>时间</dt><dd>07:30 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>日期</dt><dd>11月18日（周三）、19日（周四）、20日（周五）、22日（周日）、29日（周日）</dd></div>
           <div><dt>人数</dt><dd>4人起</dd></div>
           <div><dt>集合</dt><dd>市厅站7号出口</dd></div>
         </dl>

@@ -124,7 +124,7 @@
   <section class="tt-hero">
     <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
     <div class="tt-hero-in">
-      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
+      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL · 2026.11.06 – 11.30</p>
       <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
       <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. アジアモデルフェスティバル2026参加者のために<br>トティウムが用意した7つのソウルツアー</p>
     </div>
@@ -209,6 +209,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>165,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>09:00 – 17:30</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>毎日（火曜日を除く）</dd></div>
           <div><dt>人数</dt><dd>2名様から</dd></div>
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
@@ -231,6 +232,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>485,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>10:00 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>11/22（日）・11/29（日）</dd></div>
           <div><dt>人数</dt><dd>4名様から</dd></div>
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
@@ -253,6 +255,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>115,000ウォン / ディナー付き170,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>15:00 – 20:30</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>11/21（土）・11/28（土）</dd></div>
           <div><dt>人数</dt><dd>4名様から</dd></div>
           <div><dt>集合</dt><dd>汝矣島駅3番出口</dd></div>
         </dl>
@@ -275,6 +278,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>250,000ウォン〜（4名様以上） <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>10:00 – 15:00</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>11/26（木）・27（金）・29（日）</dd></div>
           <div><dt>人数</dt><dd>2名様から</dd></div>
           <div><dt>集合</dt><dd>聖水駅集合</dd></div>
         </dl><div class="tt-tiers"><div><span>1名</span><b>800,000ウォン</b></div><div><span>2名</span><b>450,000ウォン</b></div><div><span>3名</span><b>300,000ウォン</b></div><div><span>4名以上</span><b>250,000ウォン</b></div></div>
@@ -297,6 +301,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>160,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>09:00 – 13:00</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>毎日</dd></div>
           <div><dt>人数</dt><dd>3名様から</dd></div>
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
@@ -319,6 +324,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>165,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>13:00 – 16:30</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>毎日</dd></div>
           <div><dt>人数</dt><dd>2名様から</dd></div>
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
@@ -341,6 +347,7 @@
         <dl class="tt-facts">
           <div><dt>料金</dt><dd>145,000ウォン <small>お一人様 · 税(VAT)別</small></dd></div>
           <div><dt>時間</dt><dd>07:30 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>開催日</dt><dd>11/18（水）・19（木）・20（金）・22（日）・29（日）</dd></div>
           <div><dt>人数</dt><dd>4名様から</dd></div>
           <div><dt>集合</dt><dd>市庁駅7番出口</dd></div>
         </dl>

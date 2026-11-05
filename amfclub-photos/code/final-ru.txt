@@ -125,7 +125,7 @@
   <section class="tt-hero">
     <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
     <div class="tt-hero-in">
-      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
+      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL · 2026.11.06 – 11.30</p>
       <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
       <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. Семь туров по Сеулу<br>от Totium для участников Asia Model Festival 2026</p>
     </div>
@@ -210,6 +210,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>165 000 KRW <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>09:00 – 17:30</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>Ежедневно, кроме вторника</dd></div>
           <div><dt>Группа</dt><dd>От 2 человек</dd></div>
           <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
         </dl>
@@ -232,6 +233,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>485 000 KRW <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>10:00 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>22 и 29 ноября (вс)</dd></div>
           <div><dt>Группа</dt><dd>От 4 человек</dd></div>
           <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
         </dl>
@@ -254,6 +256,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>115 000 KRW / с ужином 170 000 KRW <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>15:00 – 20:30</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>21 и 28 ноября (сб)</dd></div>
           <div><dt>Группа</dt><dd>От 4 человек</dd></div>
           <div><dt>Встреча</dt><dd>Станция Ёыидо, выход 3</dd></div>
         </dl>
@@ -276,6 +279,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>От 250 000 KRW (от 4 человек) <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>10:00 – 15:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>26 (чт), 27 (пт) и 29 (вс) ноября</dd></div>
           <div><dt>Группа</dt><dd>От 2 человек</dd></div>
           <div><dt>Встреча</dt><dd>Станция Сонсу</dd></div>
         </dl><div class="tt-tiers"><div><span>1 человек</span><b>800 000 KRW</b></div><div><span>2 человека</span><b>450 000 KRW</b></div><div><span>3 человека</span><b>300 000 KRW</b></div><div><span>4+ человек</span><b>250 000 KRW</b></div></div>
@@ -298,6 +302,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>160 000 KRW <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>09:00 – 13:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>Ежедневно</dd></div>
           <div><dt>Группа</dt><dd>От 3 человек</dd></div>
           <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
         </dl>
@@ -320,6 +325,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>165 000 KRW <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>13:00 – 16:30</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>Ежедневно</dd></div>
           <div><dt>Группа</dt><dd>От 2 человек</dd></div>
           <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
         </dl>
@@ -342,6 +348,7 @@
         <dl class="tt-facts">
           <div><dt>Цена</dt><dd>145 000 KRW <small>за человека · без НДС</small></dd></div>
           <div><dt>Время</dt><dd>07:30 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>18 (ср), 19 (чт), 20 (пт), 22 (вс) и 29 (вс) ноября</dd></div>
           <div><dt>Группа</dt><dd>От 4 человек</dd></div>
           <div><dt>Встреча</dt><dd>Станция City Hall, выход 7</dd></div>
         </dl>

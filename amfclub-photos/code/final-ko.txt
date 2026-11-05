@@ -124,7 +124,7 @@
   <section class="tt-hero">
     <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
     <div class="tt-hero-in">
-      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL</p>
+      <p class="tt-hero-kicker">AMF CLUB · TOTIUM TRAVEL · 2026.11.06 – 11.30</p>
       <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
       <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. 아시아 모델 페스티벌 2026 참가자를 위해<br>토티움이 준비한 7가지 서울 투어 프로그램</p>
     </div>
@@ -209,6 +209,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>165,000원 <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>09:00 – 17:30</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>매일 (화요일 제외)</dd></div>
           <div><dt>인원</dt><dd>최소 2인</dd></div>
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
@@ -231,6 +232,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>485,000원 <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>10:00 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>11/22(일), 11/29(일)</dd></div>
           <div><dt>인원</dt><dd>최소 4인</dd></div>
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
@@ -253,6 +255,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>115,000원 / 디너 포함 170,000원 <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>15:00 – 20:30</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>11/21(토), 11/28(토)</dd></div>
           <div><dt>인원</dt><dd>최소 4인</dd></div>
           <div><dt>미팅</dt><dd>여의도역 3번 출구</dd></div>
         </dl>
@@ -275,6 +278,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>250,000원~ (4인 이상) <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>10:00 – 15:00</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>11/26(목), 27(금), 29(일)</dd></div>
           <div><dt>인원</dt><dd>최소 2인</dd></div>
           <div><dt>미팅</dt><dd>성수역 미팅</dd></div>
         </dl><div class="tt-tiers"><div><span>1인</span><b>800,000원</b></div><div><span>2인</span><b>450,000원</b></div><div><span>3인</span><b>300,000원</b></div><div><span>4인 이상</span><b>250,000원</b></div></div>
@@ -297,6 +301,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>160,000원 <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>09:00 – 13:00</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>매일</dd></div>
           <div><dt>인원</dt><dd>최소 3인</dd></div>
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
@@ -319,6 +324,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>165,000원 <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>13:00 – 16:30</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>매일</dd></div>
           <div><dt>인원</dt><dd>최소 2인</dd></div>
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
@@ -341,6 +347,7 @@
         <dl class="tt-facts">
           <div><dt>요금</dt><dd>145,000원 <small>1인 · VAT 별도</small></dd></div>
           <div><dt>시간</dt><dd>07:30 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>운영일</dt><dd>11/18(수), 19(목), 20(금), 22(일), 29(일)</dd></div>
           <div><dt>인원</dt><dd>최소 4인</dd></div>
           <div><dt>미팅</dt><dd>시청역 7번 출구</dd></div>
         </dl>
