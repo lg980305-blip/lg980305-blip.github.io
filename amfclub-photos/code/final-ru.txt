@@ -239,7 +239,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>09:00 Трансфер из отеля</li><li>Кванхвамун и Чхонгечхон на машине, храм Чогеса</li><li>Смена королевской стражи и дворец Кёнбоккун</li><li>Национальный фольклорный музей · Обед</li><li>Деревня ханоков Намсангол (по понедельникам — Пукчон)</li><li>N Seoul Tower → рынок Кванджан</li><li>17:00 Возвращение в отель</li></ol>
         <p class="tt-note">Программа может измениться, если дворцы закрыты или проводят мероприятия · Вегетарианское/халяльное питание — по запросу заранее</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
@@ -262,7 +262,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>10:00 Трансфер</li><li>10:30 Прогулка с гидом по Инсадону и Пукчону</li><li>12:00 Мастер-класс по плетению узлов в Donglim Maedeup<span class="tt-route-d">Мастер-класс по узелковому плетению у мастера с 50-летним опытом. Мэдып — традиционное корейское ремесло: из переплетённых шнуров создают изящные узоры.</span></li><li>13:00 Корейский обед</li><li>14:30 Массаж 60 минут в спа L&#x27;Occitane<span class="tt-route-d">Спа в отеле JW Marriott: K-beauty и премиальный массаж. Расслабляющий или глубокий массаж 60 минут включён; 90 минут — доплата 90 000 вон.</span></li><li>16:30 Свободное время или возвращение в отель</li></ol>
         <p class="tt-note">Спа 90 минут: +90 000 KRW · Спа может быть заменён на аналогичный по уровню в зависимости от наличия мест</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p03">
@@ -285,7 +285,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>15:00 Встреча у станции Ёыидо, выход 3</li><li>15:10 Шопинг и свободное время в The Hyundai Seoul<span class="tt-route-d">Культурный комплекс, где в одном месте собраны новейший стиль жизни Сеула, мода, гастрономия, искусство и архитектура.</span></li><li>16:30 Прогулка по парку Ёыидо<span class="tt-route-d">Городской парк в центре Ёыйдо, финансового района Сеула: природа и отдых среди небоскрёбов и торговых центров.</span></li><li>17:30 Переход к причалу Seoul Cruise<span class="tt-route-d">Единственный круиз по реке Ханган, где сочетаются ужин, музыка и фейерверк.</span></li><li>18:30 Двухчасовой круиз: шоу, ужин и фейерверк<span class="tt-route-d">Два часа шоу, ужина и ночных видов Сеула, а в финале — фейерверк.</span></li><li>20:30 Окончание тура</li></ol>
         <p class="tt-note">Нужен паспорт · При отмене круиза из-за погоды — полный возврат или перенос даты</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
@@ -308,7 +308,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>10:00 Встреча у станции Сонсу</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Самый модный район Сеула. Старые фабрики и склады превратились в кафе, мультибрендовые магазины, модные бренды и поп-апы — весь стиль жизни Сеула в одном месте.</span></li><li>Трендовые магазины: Nyunyu, Igu Home, Daelim Changgo</li><li>Сезонные поп-апы и мультибрендовые магазины</li><li>11:30 Бранч и прогулка по кафе</li><li>15:00 Окончание у Сеульского леса или Olive Young N<span class="tt-route-d">Olive Young N: K-beauty-флагман, открытый в ноябре 2024 года. Огромное пространство около 4600 м², на каждом этаже своя концепция и множество брендов и продуктов.</span></li></ol>
         <p class="tt-note">Питание включено · Кафе оплачиваются отдельно · Заранее сообщите, какие поп-апы хотите посетить</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p05">
@@ -331,7 +331,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>09:00 Трансфер из отеля</li><li>10:00 Вход в Lotte World · Билет на весь день</li><li>Свободное время в Adventure и Magic Island<span class="tt-route-d">Развлекательный комплекс из крытого парка «Adventure» и открытого «Magic Island». От всепогодных аттракционов до площадок у озера Сокчхон — интересно в любом возрасте.</span></li><li>13:30 Возвращение в отель или остаться и вернуться самостоятельно</li></ol>
         <p class="tt-note">Гид, транспорт, входной билет и трансфер включены</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
@@ -354,7 +354,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>13:00 Трансфер из отеля</li><li>Поссам и макколли</li><li>Рынок Кванджан · пиндэтток, кимпаб, ттокпокки<span class="tt-route-d">Главный гастрономический рынок Сеула. Уличная еда — пиндэттоқ, кимпаб, ттокпокки — и живая атмосфера традиционного рынка.</span></li><li>Уличная еда и сомэк</li><li>16:30 Окончание у станции Чонно 5-га</li></ol>
         <p class="tt-note">Возьмите удостоверение личности (включён алкоголь) · Сообщите об аллергиях и ограничениях в питании при бронировании</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p07">
@@ -377,7 +377,7 @@
         <p class="tt-sub">Маршрут</p>
         <ol class="tt-route"><li>07:30 Встреча у станции City Hall, выход 7</li><li>Вопросы и ответы с перебежчиком из КНДР</li><li>Имджингак · Мост объединения · Проверка документов<span class="tt-route-d">Имджингак: символическое место Корейской войны и раскола страны — следы войны и надежда на мир. Мост Объединения: въезд в зону ограниченного доступа для гражданских.</span></li><li>Кинозал DMZ · Третий туннель<span class="tt-route-d">Кинозал и выставка DMZ: фильмы и экспонаты о том, как возникли DMZ, Корейская война и раскол. Третий туннель: подземный военный туннель, вырытый КНДР для вторжения, обнаружен в 1978 году.</span></li><li>Обсерватория Дора · Деревня объединения<span class="tt-route-d">Обсерватория Дора: главная смотровая площадка DMZ с видом на сёла КНДР и гору Сонгаксан. Деревня Объединения: посёлок в зоне ограниченного доступа с особым укладом жизни.</span></li><li>Подвесной мост Камаксан (40–50 мин туда и обратно)<span class="tt-route-d">Лучшее место для прогулок в горах рядом с DMZ.</span></li><li>17:00 Окончание у станции City Hall</li></ol>
         <p class="tt-note">Нужен паспорт/удостоверение · Маршрут может измениться по военным или погодным причинам · Не проводится по понедельникам и праздникам</p>
-        <a class="tt-btn" href="/totium-booking">Забронировать</a>
+        <a class="tt-btn" href="/25">Забронировать</a>
       </div>
     </article>
     </div>
@@ -403,11 +403,11 @@
         <p class="tt-eyebrow">RESERVATION</p>
         <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
         <p class="tt-lead tt-left">Укажите программу, дату, количество человек и ваш отель. Наша команда подтвердит бронь и пришлёт реквизиты для предоплаты.</p>
-        <a class="tt-btn tt-btn-lg" href="/totium-booking">Забронировать тур &#8599;</a>
+        <a class="tt-btn tt-btn-lg" href="/25">Забронировать тур &#8599;</a>
         <div class="tt-contact"><p>Есть вопросы? Напишите менеджеру напрямую.</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="Найдите по ID"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>Телефон</b><span>+82 10-2047-3178</span></span></a></div></div>
       </div>
       <div class="tt-qr">
-        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-ru.png?v=2" alt="QR"></div>
+        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-ru.png?v=3" alt="QR"></div>
         <p>Отсканируйте для брони</p>
       </div>
     </div>

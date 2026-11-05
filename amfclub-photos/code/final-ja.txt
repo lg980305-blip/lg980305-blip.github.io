@@ -238,7 +238,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>光化門・清渓川を車窓観光、曹渓寺</li><li>守門将交代式 &amp; 景福宮</li><li>国立民俗博物館 · 昼食</li><li>南山コル韓屋村（月曜は北村）</li><li>Nソウルタワー → 広蔵市場</li><li>17:00 ホテルへお送り</li></ol>
         <p class="tt-note">王宮の休館・行事により日程が変わる場合があります · ベジタリアン/ハラールは事前にご相談ください</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
@@ -261,7 +261,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>10:00 お迎え</li><li>10:30 仁寺洞・北村をガイドと散策</li><li>12:00 トンリムメドゥプで職人による結び体験<span class="tt-route-d">50年のキャリアを持つ職人から学ぶメドゥプ体験。メドゥプは何本もの糸を撚り合わせ、繊細な形を作り出す韓国の伝統工芸です。</span></li><li>13:00 韓国料理の昼食</li><li>14:30 ロクシタンスパで60分マッサージ<span class="tt-route-d">JWマリオット内のスパで、Kビューティーとプレミアムマッサージを体験。リラクシングまたはディープティシュー60分が基本、90分は9万ウォン追加。</span></li><li>16:30 自由時間またはホテルへ</li></ol>
         <p class="tt-note">スパ90分は+90,000ウォン · 予約状況により同等クラスのスパに変更となる場合があります</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p03">
@@ -284,7 +284,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>15:00 汝矣島駅3番出口集合</li><li>15:10 ザ・現代ソウルでショッピング＆自由時間<span class="tt-route-d">ソウルの最新ライフスタイル、ファッション、グルメ、アート、建築を一か所で体験できる複合文化空間です。</span></li><li>16:30 汝矣島公園を散策<span class="tt-route-d">金融・ビジネスの中心地、汝矣島の真ん中にある都市公園。高層ビルと大型ショッピングモールの間で自然と休息を楽しめます。</span></li><li>17:30 ソウルクルーズ乗り場へ移動<span class="tt-route-d">漢江の上でディナー、音楽、花火ショーを一緒に楽しめる唯一のクルーズです。</span></li><li>18:30 公演・ディナー・花火ショー（2時間）<span class="tt-route-d">2時間にわたる公演とディナー、ソウルの夜景。花火で締めくくる思い出の時間です。</span></li><li>20:30 解散</li></ol>
         <p class="tt-note">パスポート必携 · 悪天候で運航が変更になった場合は全額返金または日程変更</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
@@ -307,7 +307,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>10:00 聖水駅集合</li><li>オリーブヤングN · ジェントルモンスター · ムシンサ<span class="tt-route-d">今ソウルで一番ホットな街。古い工場や倉庫がカフェ、セレクトショップ、ファッションブランド、ポップアップストアに生まれ変わり、ソウルの感性あふれるライフスタイルに出会えます。</span></li><li>NYUNYU · iGu Home · 大林倉庫などのトレンドショップ</li><li>シーズンのポップアップストア＆セレクトショップ</li><li>11:30 ブランチ・カフェ巡り</li><li>15:00 ソウルの森またはオリーブヤングNで解散<span class="tt-route-d">オリーブヤングN：2024年11月にオープンしたKビューティーのランドマーク。約4,600㎡の超大型ビューティー空間で、フロアごとに異なるコンセプトで多彩なブランドと製品を体験できます。</span></li></ol>
         <p class="tt-note">食事付き · カフェ代は各自負担 · 行きたいポップアップは事前にリクエストできます</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p05">
@@ -330,7 +330,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>10:00 ロッテワールド入場 · フリーパス</li><li>アドベンチャー＆マジックアイランドで自由に<span class="tt-route-d">室内テーマパーク「アドベンチャー」と屋外の「マジックアイランド」からなる複合エンターテインメントスポット。天候を問わない室内アトラクションから石村湖を背景にした屋外施設まで、幅広い年代で楽しめます。</span></li><li>13:30 ホテルへ、または残って自由解散</li></ol>
         <p class="tt-note">ガイド・車両・入場料・送迎込み</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
@@ -353,7 +353,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>13:00 ホテルお迎え</li><li>ポッサム＆マッコリ</li><li>広蔵市場ツアー · ピンデトック、キンパ、トッポッキ<span class="tt-route-d">ソウルの伝統市場文化を肌で感じられる代表的なグルメスポット。ピンデトック、キンパ、トッポッキなど多彩な屋台グルメと活気ある雰囲気を楽しめます。</span></li><li>粉食＆ソメク体験</li><li>16:30 鍾路5街駅付近で解散</li></ol>
         <p class="tt-note">酒類を含むため身分証必携 · アレルギー・食事制限はご予約時にお知らせください</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p07">
@@ -376,7 +376,7 @@
         <p class="tt-sub">日程</p>
         <ol class="tt-route"><li>07:30 市庁駅7番出口集合</li><li>脱北者との質疑応答</li><li>臨津閣 · 統一大橋 · 身分確認<span class="tt-route-d">臨津閣：朝鮮戦争と南北分断の歴史を伝える象徴的な場所で、戦争の跡と平和への願いを感じられます。統一大橋：民間人出入統制区域への入口です。</span></li><li>DMZ映像館 · 第3トンネル<span class="tt-route-d">DMZ映像館・展示館：DMZの成り立ち、朝鮮戦争、南北分断の背景を映像と展示で学びます。第3トンネル：北朝鮮が南侵目的で掘ったと確認された地下軍事施設で、1978年に発見されました。</span></li><li>都羅展望台 · 統一村<span class="tt-route-d">都羅展望台：北朝鮮の村や松岳山一帯まで見渡せる代表的なDMZ展望スポット。統一村：民間人出入統制区域内にある村で、住民の特別な暮らしを垣間見られます。</span></li><li>紺岳山吊り橋（往復40〜50分）<span class="tt-route-d">DMZ周辺で一番人気のハイキングスポットです。</span></li><li>17:00 市庁駅で解散</li></ol>
         <p class="tt-note">パスポート・身分証必携 · 軍事・天候の状況により代替コースで運営 · 月曜・祝日休み</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">このプログラムを予約する</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">このプログラムを予約する</a>
       </div>
     </article>
     </div>
@@ -402,11 +402,11 @@
         <p class="tt-eyebrow">RESERVATION</p>
         <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
         <p class="tt-lead tt-left">ご希望のプログラム、日付、人数、宿泊先をお知らせください。担当者が確認のうえ、予約金のご案内をお送りします。</p>
-        <a class="tt-btn tt-btn-lg" href="https://amfclub.imweb.me/totium-booking">予約を申し込む &#8599;</a>
+        <a class="tt-btn tt-btn-lg" href="https://amfclub.imweb.me/25">予約を申し込む &#8599;</a>
         <div class="tt-contact"><p>ご質問は担当者へ直接どうぞ。</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="IDで検索"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>電話</b><span>+82 10-2047-3178</span></span></a></div></div>
       </div>
       <div class="tt-qr">
-        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-ja.png?v=2" alt="QR"></div>
+        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-ja.png?v=3" alt="QR"></div>
         <p>スキャンしてすぐ予約</p>
       </div>
     </div>

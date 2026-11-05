@@ -238,7 +238,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>09:00 Hotel pickup</li><li>Gwanghwamun &amp; Cheonggyecheon by car, Jogyesa Temple</li><li>Royal Guard Changing Ceremony &amp; Gyeongbokgung Palace</li><li>National Folk Museum · Lunch</li><li>Namsangol Hanok Village (Bukchon on Mondays)</li><li>N Seoul Tower → Gwangjang Market</li><li>17:00 Return to hotel</li></ol>
         <p class="tt-note">Schedule may change if palaces are closed or hosting events · Request vegetarian/halal meals in advance</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p02">
@@ -261,7 +261,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>10:00 Pickup</li><li>10:30 Guided walk through Insadong &amp; Bukchon</li><li>12:00 Traditional knot workshop at Donglim Maedeup<span class="tt-route-d">Learn knotting from a master with 50 years of experience. Maedeup is a traditional Korean craft that twists and weaves strands of cord into delicate forms.</span></li><li>13:00 Korean lunch</li><li>14:30 60-minute massage at L&#x27;Occitane spa<span class="tt-route-d">A spa inside JW Marriott offering K-beauty and premium massage. Relaxing or deep-tissue massage, 60 minutes included; 90 minutes for an extra KRW 90,000.</span></li><li>16:30 Free time or return to hotel</li></ol>
         <p class="tt-note">90-minute spa option: +KRW 90,000 · The spa may change to one of the same grade depending on availability</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p03">
@@ -284,7 +284,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>15:00 Meet at Yeouido Station, Exit 3</li><li>15:10 Shopping &amp; free time at The Hyundai Seoul<span class="tt-route-d">A cultural complex where you can experience Seoul&#x27;s latest lifestyle, fashion, food, art and architecture in one place.</span></li><li>16:30 Walk in Yeouido Park<span class="tt-route-d">A city park in the heart of Yeouido, Seoul&#x27;s financial district, offering nature and rest between skyscrapers and shopping malls.</span></li><li>17:30 Move to the Seoul Cruise pier<span class="tt-route-d">The only cruise on the Han River that combines dinner, music and a fireworks show.</span></li><li>18:30 Two-hour cruise with show, dinner &amp; fireworks<span class="tt-route-d">Two hours of live shows, dinner and Seoul&#x27;s night view, ending with fireworks.</span></li><li>20:30 Tour ends</li></ol>
         <p class="tt-note">Passport required · Full refund or date change if the cruise is changed due to bad weather</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p04">
@@ -307,7 +307,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>10:00 Meet at Seongsu Station</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Seoul&#x27;s hottest neighborhood right now. Old factories and warehouses reborn as cafés, select shops, fashion brands and pop-up stores show Seoul&#x27;s stylish lifestyle in one place.</span></li><li>Trend shops such as Nyunyu, Igu Home, Daelim Changgo</li><li>Seasonal pop-up stores &amp; select shops</li><li>11:30 Brunch &amp; café hopping</li><li>15:00 Finish at Seoul Forest or Olive Young N<span class="tt-route-d">Olive Young N: a K-beauty landmark opened in November 2024. A huge beauty space of about 4,600 m², with a different concept on each floor and a wide range of brands and products.</span></li></ol>
         <p class="tt-note">Meal included · Café costs paid individually · Tell us in advance about pop-ups you want to visit</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p05">
@@ -330,7 +330,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>09:00 Hotel pickup</li><li>10:00 Enter Lotte World · All-day pass</li><li>Free time at Adventure &amp; Magic Island<span class="tt-route-d">An entertainment complex combining the indoor &#x27;Adventure&#x27; park and the outdoor &#x27;Magic Island&#x27;. From all-weather indoor rides to outdoor attractions on Seokchon Lake, it&#x27;s fun for all ages.</span></li><li>13:30 Return to hotel, or stay longer and return on your own</li></ol>
         <p class="tt-note">Guide, vehicle, admission and pickup included</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
@@ -353,7 +353,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>13:00 Hotel pickup</li><li>Bossam &amp; makgeolli</li><li>Gwangjang Market tour · bindaetteok, gimbap, tteokbokki<span class="tt-route-d">Seoul&#x27;s signature food market, full of traditional market life. Enjoy street food like bindaetteok, gimbap and tteokbokki in a lively atmosphere.</span></li><li>Street snacks &amp; somaek</li><li>16:30 Finish near Jongno 5-ga Station</li></ol>
         <p class="tt-note">Bring ID as alcohol is included · Tell us about allergies or dietary needs when you book</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     <article class="tt-prog" id="tt-p07">
@@ -376,7 +376,7 @@
         <p class="tt-sub">Itinerary</p>
         <ol class="tt-route"><li>07:30 Meet at City Hall Station, Exit 7</li><li>Q&amp;A with a North Korean defector</li><li>Imjingak · Unification Bridge · ID check<span class="tt-route-d">Imjingak: a symbolic site of the Korean War and division, where traces of war meet hopes for peace. Unification Bridge: the gateway into the Civilian Control Zone.</span></li><li>DMZ Theater · Third Tunnel<span class="tt-route-d">DMZ Theater &amp; Exhibition: films and exhibits on how the DMZ, the Korean War and the division came about. Third Tunnel: an underground military tunnel dug by North Korea for invasion, discovered in 1978.</span></li><li>Dora Observatory · Unification Village<span class="tt-route-d">Dora Observatory: the best-known DMZ viewpoint, looking out over North Korean villages and Mt. Songaksan. Unification Village: a village inside the Civilian Control Zone with a unique way of life.</span></li><li>Gamaksan suspension bridge (40–50 min round trip)<span class="tt-route-d">The best hiking spot near the DMZ.</span></li><li>17:00 Tour ends at City Hall Station</li></ol>
         <p class="tt-note">Passport/ID required · Alternative route if military or weather conditions require · Closed Mondays and public holidays</p>
-        <a class="tt-btn" href="https://amfclub.imweb.me/totium-booking">Book this program</a>
+        <a class="tt-btn" href="https://amfclub.imweb.me/25">Book this program</a>
       </div>
     </article>
     </div>
@@ -402,11 +402,11 @@
         <p class="tt-eyebrow">RESERVATION</p>
         <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
         <p class="tt-lead tt-left">Tell us the program, date, number of people and your hotel. Our team will confirm and send you the deposit details.</p>
-        <a class="tt-btn tt-btn-lg" href="https://amfclub.imweb.me/totium-booking">Book now &#8599;</a>
+        <a class="tt-btn tt-btn-lg" href="https://amfclub.imweb.me/25">Book now &#8599;</a>
         <div class="tt-contact"><p>Questions? Message our tour manager directly.</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="Search this ID"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>Phone</b><span>+82 10-2047-3178</span></span></a></div></div>
       </div>
       <div class="tt-qr">
-        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-en.png?v=2" alt="QR"></div>
+        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/qr/qr-totium-en.png?v=3" alt="QR"></div>
         <p>Scan to book</p>
       </div>
     </div>
