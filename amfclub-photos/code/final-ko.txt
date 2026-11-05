@@ -69,6 +69,16 @@
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+.tt-root .tt-ci{cursor:pointer}
+.tt-root .tt-pop{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px}
+.tt-root .tt-pop.tt-on{display:flex}
+.tt-root .tt-pop-box{background:#fff;border-radius:16px;padding:24px;max-width:300px;width:100%;text-align:center}
+.tt-root .tt-pop-box img{width:200px;height:200px;margin:0 auto 12px}
+.tt-root .tt-pop-box p{font-size:13.5px;color:var(--sub);line-height:1.6}
+.tt-root .tt-pop-box b{display:block;font-size:16px;margin-bottom:10px;color:var(--ink)}
+.tt-root .tt-pop-box button{margin-top:14px;border:0;background:var(--ink);color:#fff;font-weight:600;padding:10px 22px;border-radius:8px;cursor:pointer}
+.tt-root .tt-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:14px;padding:10px 18px;border-radius:8px;z-index:99999;opacity:0;transition:opacity .2s;pointer-events:none}
+.tt-root .tt-toast.tt-on{opacity:1}
 .tt-root .tt-pnav{display:none}
 .tt-root.tt-js .tt-details{display:none}
 .tt-root.tt-js.tt-view-detail .tt-details{display:block;padding-top:40px}
@@ -411,6 +421,7 @@
       </div>
     </div>
   </section>
+<div class="tt-pop" id="tt-kakao-pop"><div class="tt-pop-box"><b>KakaoTalk · coolibiza</b><img src="https://lg980305-blip.github.io/amfclub-photos/qr/kakao-coolibiza.png?v=1" alt="KakaoTalk QR"><p>휴대폰 카메라로 스캔하면 카카오톡 친구 추가 화면이 열립니다.</p><button type="button" class="tt-pop-close">닫기</button></div></div><div class="tt-toast" id="tt-toast"></div>
 </div>
 <script>
 (function(){var r=document.currentScript&&document.currentScript.parentNode.querySelector('.tt-root')||document.querySelector('.tt-root');if(!r)return;r.classList.add('tt-js');
@@ -419,5 +430,12 @@ function show(){var h=(location.hash||'').slice(1),m=/^tt-p0[1-7]$/.test(h);r.cl
 if(m){var t=r.querySelector('.tt-details');setTimeout(function(){window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset-90)},0)}
 else if(h==='tt-programs'){var p=r.querySelector('.tt-sec-programs');setTimeout(function(){window.scrollTo(0,p.getBoundingClientRect().top+window.pageYOffset-90)},0)}}
 r.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href^="#tt-p"],a[href="#tt-programs"]');if(!a)return;ev.preventDefault();ev.stopPropagation();var h=a.getAttribute('href');if(location.hash!==h){history.pushState(null,'',h)}show()},true);
+var mob=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent),pop=r.querySelector('#tt-kakao-pop'),toast=r.querySelector('#tt-toast'),tt;
+function say(m){toast.textContent=m;toast.classList.add('tt-on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('tt-on')},1600)}
+function copy(t,label){try{navigator.clipboard.writeText(t).then(function(){say('복사했어요: '+label)},function(){say(label)})}catch(e){say(label)}}
+r.addEventListener('click',function(ev){var c=ev.target.closest&&ev.target.closest('.tt-ci');if(ev.target.closest&&ev.target.closest('.tt-pop-close')||ev.target===pop){pop.classList.remove('tt-on');return}if(!c)return;var h=c.getAttribute('href')||'';
+if(/kakao/.test(h)&&!mob){ev.preventDefault();pop.classList.add('tt-on')}
+else if(/^tel:/.test(h)&&!mob){ev.preventDefault();copy('+82 10-2047-3178','+82 10-2047-3178')}
+else if(!h){copy('totium2026','WhatsApp @totium2026')}});
 window.addEventListener('hashchange',show);window.addEventListener('popstate',show);show();})();
 </script>
