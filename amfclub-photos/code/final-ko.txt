@@ -65,6 +65,7 @@
 .tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
 .tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
 .tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-route .tt-route-d{display:block;font-size:13px;line-height:1.65;color:var(--sub);margin-top:3px;word-break:keep-all}
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
@@ -233,7 +234,7 @@
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
         <p class="tt-sub">일정</p>
-        <ol class="tt-route"><li>10:00 차량 픽업</li><li>10:30 인사동·북촌 가이드 산책</li><li>12:00 동림매듭 장인 매듭 체험</li><li>13:00 한식 점심</li><li>14:30 록시땅 스파 60분 마사지</li><li>16:30 자유시간 또는 호텔 귀환</li></ol>
+        <ol class="tt-route"><li>10:00 차량 픽업</li><li>10:30 인사동·북촌 가이드 산책</li><li>12:00 동림매듭 장인 매듭 체험<span class="tt-route-d">50년 경력의 장인에게 배우는 매듭 체험. 매듭은 여러 가닥의 실을 꼬고 엮어 섬세한 형태를 만드는 한국 전통 공예입니다.</span></li><li>13:00 한식 점심</li><li>14:30 록시땅 스파 60분 마사지<span class="tt-route-d">JW메리어트 안의 스파로, K-뷰티와 프리미엄 마사지를 경험할 수 있습니다. 릴랙싱 또는 딥티슈 마사지 60분 기본, 90분 선택 시 9만 원 추가.</span></li><li>16:30 자유시간 또는 호텔 귀환</li></ol>
         <p class="tt-note">스파 90분 선택 시 +90,000원 · 예약 상황에 따라 동급 스파로 변경 가능</p>
         <a class="tt-btn" href="#tt-booking">이 프로그램 예약하기</a>
       </div>
@@ -255,7 +256,7 @@
           <div><dt>미팅</dt><dd>여의도역 3번 출구</dd></div>
         </dl>
         <p class="tt-sub">일정</p>
-        <ol class="tt-route"><li>15:00 여의도역 3번 출구 미팅</li><li>15:10 더현대 서울 쇼핑 &amp; 자유시간</li><li>16:30 여의도 공원 산책</li><li>17:30 서울크루즈 선착장 이동</li><li>18:30 공연·디너·불꽃쇼 2시간</li><li>20:30 일정 종료</li></ol>
+        <ol class="tt-route"><li>15:00 여의도역 3번 출구 미팅</li><li>15:10 더현대 서울 쇼핑 &amp; 자유시간<span class="tt-route-d">서울의 최신 라이프스타일과 패션, 미식, 예술, 건축을 한 공간에서 경험할 수 있는 복합문화공간입니다.</span></li><li>16:30 여의도 공원 산책<span class="tt-route-d">금융·비즈니스 중심지 여의도 한복판의 도심 공원으로, 고층 빌딩과 대형 쇼핑몰 사이에서 자연과 휴식을 즐길 수 있습니다.</span></li><li>17:30 서울크루즈 선착장 이동<span class="tt-route-d">한강 위에서 디너와 음악, 불꽃쇼를 함께 즐기는 유일한 상품입니다.</span></li><li>18:30 공연·디너·불꽃쇼 2시간<span class="tt-route-d">2시간 동안 이어지는 공연과 디너, 서울의 야경 감상. 불꽃놀이로 마무리하는 추억의 시간입니다.</span></li><li>20:30 일정 종료</li></ol>
         <p class="tt-note">여권 지참 필수 · 기상 악화로 운항 변경 시 전액 환불 또는 날짜 변경</p>
         <a class="tt-btn" href="#tt-booking">이 프로그램 예약하기</a>
       </div>
@@ -277,7 +278,7 @@
           <div><dt>미팅</dt><dd>성수역 미팅</dd></div>
         </dl><div class="tt-tiers"><div><span>1인</span><b>800,000원</b></div><div><span>2인</span><b>450,000원</b></div><div><span>3인</span><b>300,000원</b></div><div><span>4인 이상</span><b>250,000원</b></div></div>
         <p class="tt-sub">일정</p>
-        <ol class="tt-route"><li>10:00 성수역 미팅</li><li>올리브영N · 젠틀몬스터 · 무신사</li><li>뉴뉴 · 이구홈 · 대림창고 등 트렌드 숍</li><li>시즌 팝업스토어 &amp; 편집숍</li><li>11:30 브런치·카페 탐방</li><li>15:00 서울숲 또는 올리브영N에서 종료</li></ol>
+        <ol class="tt-route"><li>10:00 성수역 미팅</li><li>올리브영N · 젠틀몬스터 · 무신사<span class="tt-route-d">지금 서울에서 가장 핫한 동네. 오래된 공장과 창고가 카페, 편집숍, 패션 브랜드, 팝업스토어로 다시 태어나, 서울의 감각적인 라이프스타일을 한자리에서 만날 수 있습니다.</span></li><li>뉴뉴 · 이구홈 · 대림창고 등 트렌드 숍</li><li>시즌 팝업스토어 &amp; 편집숍</li><li>11:30 브런치·카페 탐방</li><li>15:00 서울숲 또는 올리브영N에서 종료<span class="tt-route-d">올리브영N: 2024년 11월 문을 연 K-뷰티 랜드마크. 1,400평 규모의 초대형 뷰티 공간으로, 층마다 다른 콘셉트로 다양한 브랜드와 제품을 경험할 수 있습니다.</span></li></ol>
         <p class="tt-note">식사 포함 · 카페 비용 개인 부담 · 꼭 가고 싶은 팝업은 미리 요청 가능</p>
         <a class="tt-btn" href="#tt-booking">이 프로그램 예약하기</a>
       </div>
@@ -299,7 +300,7 @@
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
         <p class="tt-sub">일정</p>
-        <ol class="tt-route"><li>09:00 호텔 픽업</li><li>10:00 롯데월드 입장 · 자유이용권</li><li>어드벤처 &amp; 매직아일랜드 자유 이용</li><li>13:30 호텔 귀환 또는 더 머물고 자유 귀환</li></ol>
+        <ol class="tt-route"><li>09:00 호텔 픽업</li><li>10:00 롯데월드 입장 · 자유이용권</li><li>어드벤처 &amp; 매직아일랜드 자유 이용<span class="tt-route-d">실내 테마파크 &#x27;어드벤처&#x27;와 야외 공간 &#x27;매직아일랜드&#x27;가 어우러진 복합 엔터테인먼트 명소. 날씨와 상관없는 실내 어트랙션부터 석촌호수를 배경으로 한 야외 놀이시설까지, 모든 연령대가 함께 즐길 수 있습니다.</span></li><li>13:30 호텔 귀환 또는 더 머물고 자유 귀환</li></ol>
         <p class="tt-note">가이드·차량·입장료·픽업 포함</p>
         <a class="tt-btn" href="#tt-booking">이 프로그램 예약하기</a>
       </div>
@@ -321,7 +322,7 @@
           <div><dt>미팅</dt><dd>4대문 안 호텔 픽업</dd></div>
         </dl>
         <p class="tt-sub">일정</p>
-        <ol class="tt-route"><li>13:00 호텔 픽업</li><li>보쌈 &amp; 막걸리</li><li>광장시장 투어 · 빈대떡, 김밥, 떡볶이</li><li>분식 &amp; 소맥 체험</li><li>16:30 종로5가역 부근 종료</li></ol>
+        <ol class="tt-route"><li>13:00 호텔 픽업</li><li>보쌈 &amp; 막걸리</li><li>광장시장 투어 · 빈대떡, 김밥, 떡볶이<span class="tt-route-d">서울의 전통시장 문화를 생생하게 느낄 수 있는 대표 미식 명소. 빈대떡, 김밥, 떡볶이 등 다양한 길거리 음식과 활기찬 시장 분위기를 즐길 수 있습니다.</span></li><li>분식 &amp; 소맥 체험</li><li>16:30 종로5가역 부근 종료</li></ol>
         <p class="tt-note">주류 포함으로 신분증 지참 · 알레르기·식이 제한은 예약 시 알려주세요</p>
         <a class="tt-btn" href="#tt-booking">이 프로그램 예약하기</a>
       </div>
@@ -343,7 +344,7 @@
           <div><dt>미팅</dt><dd>시청역 7번 출구</dd></div>
         </dl>
         <p class="tt-sub">일정</p>
-        <ol class="tt-route"><li>07:30 시청역 7번 출구 미팅</li><li>탈북민 질의응답</li><li>임진각 · 통일대교 · 신분 확인</li><li>DMZ 영상관 · 제3땅굴</li><li>도라전망대 · 통일촌</li><li>감악산 출렁다리 (왕복 40~50분)</li><li>17:00 시청역 해산</li></ol>
+        <ol class="tt-route"><li>07:30 시청역 7번 출구 미팅</li><li>탈북민 질의응답</li><li>임진각 · 통일대교 · 신분 확인<span class="tt-route-d">임진각: 한국전쟁과 남북 분단의 역사를 간직한 상징적인 장소로, 전쟁의 흔적과 평화를 향한 염원을 함께 느낄 수 있습니다. 통일대교: 민간인 출입통제구역으로 들어가는 관문입니다.</span></li><li>DMZ 영상관 · 제3땅굴<span class="tt-route-d">DMZ 영상관·전시관: DMZ의 형성과 한국전쟁, 남북 분단의 배경을 영상과 전시로 살펴보며 분단의 현실과 평화의 의미를 이해합니다. 제3땅굴: 북한이 남침을 목적으로 만든 것으로 확인된 지하 군사시설로, 1978년에 발견되었습니다.</span></li><li>도라전망대 · 통일촌<span class="tt-route-d">도라전망대: 북한 마을과 송악산 일대까지 내다볼 수 있는 대표 DMZ 전망 명소. 통일촌: 민간인 출입통제구역 안에 자리한 마을로, 주민들의 특별한 생활 모습을 엿볼 수 있습니다.</span></li><li>감악산 출렁다리 (왕복 40~50분)<span class="tt-route-d">DMZ 인근 최고의 하이킹 명소입니다.</span></li><li>17:00 시청역 해산</li></ol>
         <p class="tt-note">여권·신분증 필수 · 군사·기상 상황에 따라 대체 코스 운영 · 월요일·공휴일 휴무</p>
         <a class="tt-btn" href="#tt-booking">이 프로그램 예약하기</a>
       </div>

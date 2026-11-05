@@ -65,6 +65,7 @@
 .tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
 .tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
 .tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-route .tt-route-d{display:block;font-size:13px;line-height:1.65;color:var(--sub);margin-top:3px;word-break:keep-all}
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
@@ -233,7 +234,7 @@
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>10:00 お迎え</li><li>10:30 仁寺洞・北村をガイドと散策</li><li>12:00 トンリムメドゥプで職人による結び体験</li><li>13:00 韓国料理の昼食</li><li>14:30 ロクシタンスパで60分マッサージ</li><li>16:30 自由時間またはホテルへ</li></ol>
+        <ol class="tt-route"><li>10:00 お迎え</li><li>10:30 仁寺洞・北村をガイドと散策</li><li>12:00 トンリムメドゥプで職人による結び体験<span class="tt-route-d">50年のキャリアを持つ職人から学ぶメドゥプ体験。メドゥプは何本もの糸を撚り合わせ、繊細な形を作り出す韓国の伝統工芸です。</span></li><li>13:00 韓国料理の昼食</li><li>14:30 ロクシタンスパで60分マッサージ<span class="tt-route-d">JWマリオット内のスパで、Kビューティーとプレミアムマッサージを体験。リラクシングまたはディープティシュー60分が基本、90分は9万ウォン追加。</span></li><li>16:30 自由時間またはホテルへ</li></ol>
         <p class="tt-note">スパ90分は+90,000ウォン · 予約状況により同等クラスのスパに変更となる場合があります</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>
@@ -255,7 +256,7 @@
           <div><dt>集合</dt><dd>汝矣島駅3番出口</dd></div>
         </dl>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>15:00 汝矣島駅3番出口集合</li><li>15:10 ザ・現代ソウルでショッピング＆自由時間</li><li>16:30 汝矣島公園を散策</li><li>17:30 ソウルクルーズ乗り場へ移動</li><li>18:30 公演・ディナー・花火ショー（2時間）</li><li>20:30 解散</li></ol>
+        <ol class="tt-route"><li>15:00 汝矣島駅3番出口集合</li><li>15:10 ザ・現代ソウルでショッピング＆自由時間<span class="tt-route-d">ソウルの最新ライフスタイル、ファッション、グルメ、アート、建築を一か所で体験できる複合文化空間です。</span></li><li>16:30 汝矣島公園を散策<span class="tt-route-d">金融・ビジネスの中心地、汝矣島の真ん中にある都市公園。高層ビルと大型ショッピングモールの間で自然と休息を楽しめます。</span></li><li>17:30 ソウルクルーズ乗り場へ移動<span class="tt-route-d">漢江の上でディナー、音楽、花火ショーを一緒に楽しめる唯一のクルーズです。</span></li><li>18:30 公演・ディナー・花火ショー（2時間）<span class="tt-route-d">2時間にわたる公演とディナー、ソウルの夜景。花火で締めくくる思い出の時間です。</span></li><li>20:30 解散</li></ol>
         <p class="tt-note">パスポート必携 · 悪天候で運航が変更になった場合は全額返金または日程変更</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>
@@ -277,7 +278,7 @@
           <div><dt>集合</dt><dd>聖水駅集合</dd></div>
         </dl><div class="tt-tiers"><div><span>1名</span><b>800,000ウォン</b></div><div><span>2名</span><b>450,000ウォン</b></div><div><span>3名</span><b>300,000ウォン</b></div><div><span>4名以上</span><b>250,000ウォン</b></div></div>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>10:00 聖水駅集合</li><li>オリーブヤングN · ジェントルモンスター · ムシンサ</li><li>NYUNYU · iGu Home · 大林倉庫などのトレンドショップ</li><li>シーズンのポップアップストア＆セレクトショップ</li><li>11:30 ブランチ・カフェ巡り</li><li>15:00 ソウルの森またはオリーブヤングNで解散</li></ol>
+        <ol class="tt-route"><li>10:00 聖水駅集合</li><li>オリーブヤングN · ジェントルモンスター · ムシンサ<span class="tt-route-d">今ソウルで一番ホットな街。古い工場や倉庫がカフェ、セレクトショップ、ファッションブランド、ポップアップストアに生まれ変わり、ソウルの感性あふれるライフスタイルに出会えます。</span></li><li>NYUNYU · iGu Home · 大林倉庫などのトレンドショップ</li><li>シーズンのポップアップストア＆セレクトショップ</li><li>11:30 ブランチ・カフェ巡り</li><li>15:00 ソウルの森またはオリーブヤングNで解散<span class="tt-route-d">オリーブヤングN：2024年11月にオープンしたKビューティーのランドマーク。約4,600㎡の超大型ビューティー空間で、フロアごとに異なるコンセプトで多彩なブランドと製品を体験できます。</span></li></ol>
         <p class="tt-note">食事付き · カフェ代は各自負担 · 行きたいポップアップは事前にリクエストできます</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>
@@ -299,7 +300,7 @@
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>10:00 ロッテワールド入場 · フリーパス</li><li>アドベンチャー＆マジックアイランドで自由に</li><li>13:30 ホテルへ、または残って自由解散</li></ol>
+        <ol class="tt-route"><li>09:00 ホテルお迎え</li><li>10:00 ロッテワールド入場 · フリーパス</li><li>アドベンチャー＆マジックアイランドで自由に<span class="tt-route-d">室内テーマパーク「アドベンチャー」と屋外の「マジックアイランド」からなる複合エンターテインメントスポット。天候を問わない室内アトラクションから石村湖を背景にした屋外施設まで、幅広い年代で楽しめます。</span></li><li>13:30 ホテルへ、または残って自由解散</li></ol>
         <p class="tt-note">ガイド・車両・入場料・送迎込み</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>
@@ -321,7 +322,7 @@
           <div><dt>集合</dt><dd>ソウル中心部ホテル送迎</dd></div>
         </dl>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>13:00 ホテルお迎え</li><li>ポッサム＆マッコリ</li><li>広蔵市場ツアー · ピンデトック、キンパ、トッポッキ</li><li>粉食＆ソメク体験</li><li>16:30 鍾路5街駅付近で解散</li></ol>
+        <ol class="tt-route"><li>13:00 ホテルお迎え</li><li>ポッサム＆マッコリ</li><li>広蔵市場ツアー · ピンデトック、キンパ、トッポッキ<span class="tt-route-d">ソウルの伝統市場文化を肌で感じられる代表的なグルメスポット。ピンデトック、キンパ、トッポッキなど多彩な屋台グルメと活気ある雰囲気を楽しめます。</span></li><li>粉食＆ソメク体験</li><li>16:30 鍾路5街駅付近で解散</li></ol>
         <p class="tt-note">酒類を含むため身分証必携 · アレルギー・食事制限はご予約時にお知らせください</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>
@@ -343,7 +344,7 @@
           <div><dt>集合</dt><dd>市庁駅7番出口</dd></div>
         </dl>
         <p class="tt-sub">日程</p>
-        <ol class="tt-route"><li>07:30 市庁駅7番出口集合</li><li>脱北者との質疑応答</li><li>臨津閣 · 統一大橋 · 身分確認</li><li>DMZ映像館 · 第3トンネル</li><li>都羅展望台 · 統一村</li><li>紺岳山吊り橋（往復40〜50分）</li><li>17:00 市庁駅で解散</li></ol>
+        <ol class="tt-route"><li>07:30 市庁駅7番出口集合</li><li>脱北者との質疑応答</li><li>臨津閣 · 統一大橋 · 身分確認<span class="tt-route-d">臨津閣：朝鮮戦争と南北分断の歴史を伝える象徴的な場所で、戦争の跡と平和への願いを感じられます。統一大橋：民間人出入統制区域への入口です。</span></li><li>DMZ映像館 · 第3トンネル<span class="tt-route-d">DMZ映像館・展示館：DMZの成り立ち、朝鮮戦争、南北分断の背景を映像と展示で学びます。第3トンネル：北朝鮮が南侵目的で掘ったと確認された地下軍事施設で、1978年に発見されました。</span></li><li>都羅展望台 · 統一村<span class="tt-route-d">都羅展望台：北朝鮮の村や松岳山一帯まで見渡せる代表的なDMZ展望スポット。統一村：民間人出入統制区域内にある村で、住民の特別な暮らしを垣間見られます。</span></li><li>紺岳山吊り橋（往復40〜50分）<span class="tt-route-d">DMZ周辺で一番人気のハイキングスポットです。</span></li><li>17:00 市庁駅で解散</li></ol>
         <p class="tt-note">パスポート・身分証必携 · 軍事・天候の状況により代替コースで運営 · 月曜・祝日休み</p>
         <a class="tt-btn" href="#tt-booking">このプログラムを予約する</a>
       </div>

@@ -65,6 +65,7 @@
 .tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
 .tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
 .tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-route .tt-route-d{display:block;font-size:13px;line-height:1.65;color:var(--sub);margin-top:3px;word-break:keep-all}
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
@@ -233,7 +234,7 @@
           <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
         </dl>
         <p class="tt-sub">Itinerary</p>
-        <ol class="tt-route"><li>10:00 Pickup</li><li>10:30 Guided walk through Insadong &amp; Bukchon</li><li>12:00 Traditional knot workshop at Donglim Maedeup</li><li>13:00 Korean lunch</li><li>14:30 60-minute massage at L&#x27;Occitane spa</li><li>16:30 Free time or return to hotel</li></ol>
+        <ol class="tt-route"><li>10:00 Pickup</li><li>10:30 Guided walk through Insadong &amp; Bukchon</li><li>12:00 Traditional knot workshop at Donglim Maedeup<span class="tt-route-d">Learn knotting from a master with 50 years of experience. Maedeup is a traditional Korean craft that twists and weaves strands of cord into delicate forms.</span></li><li>13:00 Korean lunch</li><li>14:30 60-minute massage at L&#x27;Occitane spa<span class="tt-route-d">A spa inside JW Marriott offering K-beauty and premium massage. Relaxing or deep-tissue massage, 60 minutes included; 90 minutes for an extra KRW 90,000.</span></li><li>16:30 Free time or return to hotel</li></ol>
         <p class="tt-note">90-minute spa option: +KRW 90,000 · The spa may change to one of the same grade depending on availability</p>
         <a class="tt-btn" href="#tt-booking">Book this program</a>
       </div>
@@ -255,7 +256,7 @@
           <div><dt>Meeting</dt><dd>Yeouido Station, Exit 3</dd></div>
         </dl>
         <p class="tt-sub">Itinerary</p>
-        <ol class="tt-route"><li>15:00 Meet at Yeouido Station, Exit 3</li><li>15:10 Shopping &amp; free time at The Hyundai Seoul</li><li>16:30 Walk in Yeouido Park</li><li>17:30 Move to the Seoul Cruise pier</li><li>18:30 Two-hour cruise with show, dinner &amp; fireworks</li><li>20:30 Tour ends</li></ol>
+        <ol class="tt-route"><li>15:00 Meet at Yeouido Station, Exit 3</li><li>15:10 Shopping &amp; free time at The Hyundai Seoul<span class="tt-route-d">A cultural complex where you can experience Seoul&#x27;s latest lifestyle, fashion, food, art and architecture in one place.</span></li><li>16:30 Walk in Yeouido Park<span class="tt-route-d">A city park in the heart of Yeouido, Seoul&#x27;s financial district, offering nature and rest between skyscrapers and shopping malls.</span></li><li>17:30 Move to the Seoul Cruise pier<span class="tt-route-d">The only cruise on the Han River that combines dinner, music and a fireworks show.</span></li><li>18:30 Two-hour cruise with show, dinner &amp; fireworks<span class="tt-route-d">Two hours of live shows, dinner and Seoul&#x27;s night view, ending with fireworks.</span></li><li>20:30 Tour ends</li></ol>
         <p class="tt-note">Passport required · Full refund or date change if the cruise is changed due to bad weather</p>
         <a class="tt-btn" href="#tt-booking">Book this program</a>
       </div>
@@ -277,7 +278,7 @@
           <div><dt>Meeting</dt><dd>Seongsu Station</dd></div>
         </dl><div class="tt-tiers"><div><span>1 person</span><b>KRW 800,000</b></div><div><span>2 people</span><b>KRW 450,000</b></div><div><span>3 people</span><b>KRW 300,000</b></div><div><span>4+ people</span><b>KRW 250,000</b></div></div>
         <p class="tt-sub">Itinerary</p>
-        <ol class="tt-route"><li>10:00 Meet at Seongsu Station</li><li>Olive Young N · Gentle Monster · Musinsa</li><li>Trend shops such as Nyunyu, Igu Home, Daelim Changgo</li><li>Seasonal pop-up stores &amp; select shops</li><li>11:30 Brunch &amp; café hopping</li><li>15:00 Finish at Seoul Forest or Olive Young N</li></ol>
+        <ol class="tt-route"><li>10:00 Meet at Seongsu Station</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Seoul&#x27;s hottest neighborhood right now. Old factories and warehouses reborn as cafés, select shops, fashion brands and pop-up stores show Seoul&#x27;s stylish lifestyle in one place.</span></li><li>Trend shops such as Nyunyu, Igu Home, Daelim Changgo</li><li>Seasonal pop-up stores &amp; select shops</li><li>11:30 Brunch &amp; café hopping</li><li>15:00 Finish at Seoul Forest or Olive Young N<span class="tt-route-d">Olive Young N: a K-beauty landmark opened in November 2024. A huge beauty space of about 4,600 m², with a different concept on each floor and a wide range of brands and products.</span></li></ol>
         <p class="tt-note">Meal included · Café costs paid individually · Tell us in advance about pop-ups you want to visit</p>
         <a class="tt-btn" href="#tt-booking">Book this program</a>
       </div>
@@ -299,7 +300,7 @@
           <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
         </dl>
         <p class="tt-sub">Itinerary</p>
-        <ol class="tt-route"><li>09:00 Hotel pickup</li><li>10:00 Enter Lotte World · All-day pass</li><li>Free time at Adventure &amp; Magic Island</li><li>13:30 Return to hotel, or stay longer and return on your own</li></ol>
+        <ol class="tt-route"><li>09:00 Hotel pickup</li><li>10:00 Enter Lotte World · All-day pass</li><li>Free time at Adventure &amp; Magic Island<span class="tt-route-d">An entertainment complex combining the indoor &#x27;Adventure&#x27; park and the outdoor &#x27;Magic Island&#x27;. From all-weather indoor rides to outdoor attractions on Seokchon Lake, it&#x27;s fun for all ages.</span></li><li>13:30 Return to hotel, or stay longer and return on your own</li></ol>
         <p class="tt-note">Guide, vehicle, admission and pickup included</p>
         <a class="tt-btn" href="#tt-booking">Book this program</a>
       </div>
@@ -321,7 +322,7 @@
           <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
         </dl>
         <p class="tt-sub">Itinerary</p>
-        <ol class="tt-route"><li>13:00 Hotel pickup</li><li>Bossam &amp; makgeolli</li><li>Gwangjang Market tour · bindaetteok, gimbap, tteokbokki</li><li>Street snacks &amp; somaek</li><li>16:30 Finish near Jongno 5-ga Station</li></ol>
+        <ol class="tt-route"><li>13:00 Hotel pickup</li><li>Bossam &amp; makgeolli</li><li>Gwangjang Market tour · bindaetteok, gimbap, tteokbokki<span class="tt-route-d">Seoul&#x27;s signature food market, full of traditional market life. Enjoy street food like bindaetteok, gimbap and tteokbokki in a lively atmosphere.</span></li><li>Street snacks &amp; somaek</li><li>16:30 Finish near Jongno 5-ga Station</li></ol>
         <p class="tt-note">Bring ID as alcohol is included · Tell us about allergies or dietary needs when you book</p>
         <a class="tt-btn" href="#tt-booking">Book this program</a>
       </div>
@@ -343,7 +344,7 @@
           <div><dt>Meeting</dt><dd>City Hall Station, Exit 7</dd></div>
         </dl>
         <p class="tt-sub">Itinerary</p>
-        <ol class="tt-route"><li>07:30 Meet at City Hall Station, Exit 7</li><li>Q&amp;A with a North Korean defector</li><li>Imjingak · Unification Bridge · ID check</li><li>DMZ Theater · Third Tunnel</li><li>Dora Observatory · Unification Village</li><li>Gamaksan suspension bridge (40–50 min round trip)</li><li>17:00 Tour ends at City Hall Station</li></ol>
+        <ol class="tt-route"><li>07:30 Meet at City Hall Station, Exit 7</li><li>Q&amp;A with a North Korean defector</li><li>Imjingak · Unification Bridge · ID check<span class="tt-route-d">Imjingak: a symbolic site of the Korean War and division, where traces of war meet hopes for peace. Unification Bridge: the gateway into the Civilian Control Zone.</span></li><li>DMZ Theater · Third Tunnel<span class="tt-route-d">DMZ Theater &amp; Exhibition: films and exhibits on how the DMZ, the Korean War and the division came about. Third Tunnel: an underground military tunnel dug by North Korea for invasion, discovered in 1978.</span></li><li>Dora Observatory · Unification Village<span class="tt-route-d">Dora Observatory: the best-known DMZ viewpoint, looking out over North Korean villages and Mt. Songaksan. Unification Village: a village inside the Civilian Control Zone with a unique way of life.</span></li><li>Gamaksan suspension bridge (40–50 min round trip)<span class="tt-route-d">The best hiking spot near the DMZ.</span></li><li>17:00 Tour ends at City Hall Station</li></ol>
         <p class="tt-note">Passport/ID required · Alternative route if military or weather conditions require · Closed Mondays and public holidays</p>
         <a class="tt-btn" href="#tt-booking">Book this program</a>
       </div>

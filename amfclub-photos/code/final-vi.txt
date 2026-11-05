@@ -65,6 +65,7 @@
 .tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
 .tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
 .tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-route .tt-route-d{display:block;font-size:13px;line-height:1.65;color:var(--sub);margin-top:3px;word-break:keep-all}
 .tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
 .tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
 .tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
@@ -233,7 +234,7 @@
           <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
         </dl>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>10:00 Đón khách</li><li>10:30 Dạo Insadong &amp; Bukchon cùng hướng dẫn viên</li><li>12:00 Trải nghiệm thắt nút cùng nghệ nhân tại Donglim Maedeup</li><li>13:00 Bữa trưa món Hàn</li><li>14:30 Massage 60 phút tại spa L&#x27;Occitane</li><li>16:30 Tự do hoặc về khách sạn</li></ol>
+        <ol class="tt-route"><li>10:00 Đón khách</li><li>10:30 Dạo Insadong &amp; Bukchon cùng hướng dẫn viên</li><li>12:00 Trải nghiệm thắt nút cùng nghệ nhân tại Donglim Maedeup<span class="tt-route-d">Học thắt nút cùng nghệ nhân 50 năm kinh nghiệm. Maedeup là nghề thủ công truyền thống Hàn Quốc, xoắn và đan nhiều sợi dây thành những hình dáng tinh xảo.</span></li><li>13:00 Bữa trưa món Hàn</li><li>14:30 Massage 60 phút tại spa L&#x27;Occitane<span class="tt-route-d">Spa trong khách sạn JW Marriott, trải nghiệm K-beauty và massage cao cấp. Massage thư giãn hoặc mô sâu 60 phút; chọn 90 phút thêm 90.000 won.</span></li><li>16:30 Tự do hoặc về khách sạn</li></ol>
         <p class="tt-note">Chọn spa 90 phút: +90.000 KRW · Spa có thể đổi sang nơi cùng hạng tùy tình trạng đặt chỗ</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>
@@ -255,7 +256,7 @@
           <div><dt>Điểm hẹn</dt><dd>Ga Yeouido, cửa số 3</dd></div>
         </dl>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>15:00 Tập trung tại ga Yeouido, cửa số 3</li><li>15:10 Mua sắm &amp; tự do tại The Hyundai Seoul</li><li>16:30 Dạo công viên Yeouido</li><li>17:30 Di chuyển đến bến Seoul Cruise</li><li>18:30 2 giờ biểu diễn, bữa tối &amp; pháo hoa</li><li>20:30 Kết thúc</li></ol>
+        <ol class="tt-route"><li>15:00 Tập trung tại ga Yeouido, cửa số 3</li><li>15:10 Mua sắm &amp; tự do tại The Hyundai Seoul<span class="tt-route-d">Không gian văn hóa phức hợp, nơi trải nghiệm phong cách sống, thời trang, ẩm thực, nghệ thuật và kiến trúc mới nhất của Seoul.</span></li><li>16:30 Dạo công viên Yeouido<span class="tt-route-d">Công viên giữa trung tâm tài chính Yeouido, nơi tận hưởng thiên nhiên và nghỉ ngơi giữa những tòa nhà cao tầng và trung tâm mua sắm.</span></li><li>17:30 Di chuyển đến bến Seoul Cruise<span class="tt-route-d">Du thuyền duy nhất trên sông Hàn kết hợp bữa tối, âm nhạc và màn pháo hoa.</span></li><li>18:30 2 giờ biểu diễn, bữa tối &amp; pháo hoa<span class="tt-route-d">Hai giờ biểu diễn, bữa tối và ngắm cảnh đêm Seoul, khép lại bằng pháo hoa đáng nhớ.</span></li><li>20:30 Kết thúc</li></ol>
         <p class="tt-note">Bắt buộc mang hộ chiếu · Hoàn tiền toàn bộ hoặc đổi ngày nếu du thuyền thay đổi do thời tiết xấu</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>
@@ -277,7 +278,7 @@
           <div><dt>Điểm hẹn</dt><dd>Ga Seongsu</dd></div>
         </dl><div class="tt-tiers"><div><span>1 người</span><b>800.000 KRW</b></div><div><span>2 người</span><b>450.000 KRW</b></div><div><span>3 người</span><b>300.000 KRW</b></div><div><span>Từ 4 người</span><b>250.000 KRW</b></div></div>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>10:00 Tập trung tại ga Seongsu</li><li>Olive Young N · Gentle Monster · Musinsa</li><li>Các cửa hàng xu hướng như Nyunyu, Igu Home, Daelim Changgo</li><li>Cửa hàng pop-up theo mùa &amp; select shop</li><li>11:30 Brunch &amp; quán cà phê</li><li>15:00 Kết thúc tại Seoul Forest hoặc Olive Young N</li></ol>
+        <ol class="tt-route"><li>10:00 Tập trung tại ga Seongsu</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Khu phố sôi động nhất Seoul hiện nay. Nhà máy và nhà kho cũ trở thành quán cà phê, cửa hàng tuyển chọn, thương hiệu thời trang và cửa hàng pop-up, hội tụ phong cách sống tinh tế của Seoul.</span></li><li>Các cửa hàng xu hướng như Nyunyu, Igu Home, Daelim Changgo</li><li>Cửa hàng pop-up theo mùa &amp; select shop</li><li>11:30 Brunch &amp; quán cà phê</li><li>15:00 Kết thúc tại Seoul Forest hoặc Olive Young N<span class="tt-route-d">Olive Young N: biểu tượng K-beauty khai trương tháng 11/2024. Không gian làm đẹp khổng lồ khoảng 4.600 m², mỗi tầng một concept với rất nhiều thương hiệu và sản phẩm.</span></li></ol>
         <p class="tt-note">Bao gồm bữa ăn · Chi phí cà phê tự trả · Có thể đề nghị trước cửa hàng pop-up muốn ghé</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>
@@ -299,7 +300,7 @@
           <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
         </dl>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>10:00 Vào Lotte World · Vé trọn ngày</li><li>Tự do vui chơi tại Adventure &amp; Magic Island</li><li>13:30 Về khách sạn, hoặc ở lại và tự về</li></ol>
+        <ol class="tt-route"><li>09:00 Đón tại khách sạn</li><li>10:00 Vào Lotte World · Vé trọn ngày</li><li>Tự do vui chơi tại Adventure &amp; Magic Island<span class="tt-route-d">Tổ hợp giải trí gồm công viên trong nhà &#x27;Adventure&#x27; và khu ngoài trời &#x27;Magic Island&#x27;. Từ trò chơi trong nhà không lo thời tiết đến khu ngoài trời bên hồ Seokchon, phù hợp mọi lứa tuổi.</span></li><li>13:30 Về khách sạn, hoặc ở lại và tự về</li></ol>
         <p class="tt-note">Bao gồm hướng dẫn viên, xe, vé vào cổng và đưa đón</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>
@@ -321,7 +322,7 @@
           <div><dt>Điểm hẹn</dt><dd>Đón tại khách sạn trung tâm</dd></div>
         </dl>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>13:00 Đón tại khách sạn</li><li>Bossam &amp; makgeolli</li><li>Tham quan chợ Gwangjang · bindaetteok, gimbap, tteokbokki</li><li>Món ăn vặt &amp; somaek</li><li>16:30 Kết thúc gần ga Jongno 5-ga</li></ol>
+        <ol class="tt-route"><li>13:00 Đón tại khách sạn</li><li>Bossam &amp; makgeolli</li><li>Tham quan chợ Gwangjang · bindaetteok, gimbap, tteokbokki<span class="tt-route-d">Điểm ẩm thực tiêu biểu để cảm nhận văn hóa chợ truyền thống Seoul. Thưởng thức bindaetteok, gimbap, tteokbokki giữa không khí chợ nhộn nhịp.</span></li><li>Món ăn vặt &amp; somaek</li><li>16:30 Kết thúc gần ga Jongno 5-ga</li></ol>
         <p class="tt-note">Mang giấy tờ tùy thân vì có đồ uống có cồn · Báo trước dị ứng hoặc chế độ ăn khi đặt tour</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>
@@ -343,7 +344,7 @@
           <div><dt>Điểm hẹn</dt><dd>Ga City Hall, cửa số 7</dd></div>
         </dl>
         <p class="tt-sub">Lịch trình</p>
-        <ol class="tt-route"><li>07:30 Tập trung tại ga City Hall, cửa số 7</li><li>Hỏi đáp cùng người đào tẩu Bắc Triều Tiên</li><li>Imjingak · Cầu Thống Nhất · Kiểm tra giấy tờ</li><li>Nhà chiếu phim DMZ · Đường hầm số 3</li><li>Đài quan sát Dora · Làng Thống Nhất</li><li>Cầu treo Gamaksan (khứ hồi 40–50 phút)</li><li>17:00 Kết thúc tại ga City Hall</li></ol>
+        <ol class="tt-route"><li>07:30 Tập trung tại ga City Hall, cửa số 7</li><li>Hỏi đáp cùng người đào tẩu Bắc Triều Tiên</li><li>Imjingak · Cầu Thống Nhất · Kiểm tra giấy tờ<span class="tt-route-d">Imjingak: địa điểm biểu tượng của Chiến tranh Triều Tiên và sự chia cắt, nơi cảm nhận dấu vết chiến tranh và khát vọng hòa bình. Cầu Thống Nhất: cửa ngõ vào khu vực hạn chế dân sự.</span></li><li>Nhà chiếu phim DMZ · Đường hầm số 3<span class="tt-route-d">Nhà chiếu phim &amp; triển lãm DMZ: tìm hiểu sự hình thành DMZ, Chiến tranh Triều Tiên và bối cảnh chia cắt qua phim và hiện vật. Đường hầm số 3: đường hầm quân sự do Triều Tiên đào nhằm xâm nhập, phát hiện năm 1978.</span></li><li>Đài quan sát Dora · Làng Thống Nhất<span class="tt-route-d">Đài quan sát Dora: điểm ngắm DMZ nổi tiếng, nhìn sang làng Triều Tiên và núi Songak. Làng Thống Nhất: ngôi làng trong khu vực hạn chế dân sự với nếp sống đặc biệt.</span></li><li>Cầu treo Gamaksan (khứ hồi 40–50 phút)<span class="tt-route-d">Điểm đi bộ đường dài đẹp nhất gần DMZ.</span></li><li>17:00 Kết thúc tại ga City Hall</li></ol>
         <p class="tt-note">Bắt buộc hộ chiếu/giấy tờ tùy thân · Có tuyến thay thế tùy tình hình quân sự, thời tiết · Nghỉ thứ Hai và ngày lễ</p>
         <a class="tt-btn" href="#tt-booking">Đặt chương trình này</a>
       </div>
