@@ -169,7 +169,7 @@
     </div>
     <div class="tt-rail">
       <a class="tt-card" href="#tt-p01">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="수문장 교대식" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="수문장 교대식" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
         <p class="tt-card-meta">09:00 – 17:30 · 최소 2인</p>
         <h3 class="tt-card-title">HELLO SEOUL</h3>
         <p class="tt-card-kr">Hello Seoul! 서울 시티투어</p>
@@ -183,7 +183,7 @@
         <p class="tt-card-price"><b class="tt-olive">02</b> 500,000원</p>
       </a>
       <a class="tt-card" href="#tt-p03">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="더현대 서울" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/fireworks.jpg?v=1" alt="한강 불꽃" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
         <p class="tt-card-meta">15:00 – 20:30 · 최소 4인</p>
         <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
         <p class="tt-card-kr">더현대 서울 쇼핑 &amp; 불꽃 크루즈</p>
@@ -204,7 +204,7 @@
         <p class="tt-card-price"><b class="tt-olive">05</b> 160,000원</p>
       </a>
       <a class="tt-card" href="#tt-p06">
-        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg?v=2" alt="떡볶이 · 순대" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/fishcake.jpg?v=1" alt="떡볶이 · 순대" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
         <p class="tt-card-meta">13:00 – 16:30 · 최소 2인</p>
         <h3 class="tt-card-title">K-FOOD MARKET</h3>
         <p class="tt-card-kr">K-Food 마켓 투어</p>
@@ -230,8 +230,8 @@
     <div class="tt-progs">
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="수문장 교대식" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="북촌 한옥마을" class="" loading="lazy"><figcaption>북촌 한옥마을</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N서울타워" class="" loading="lazy"><figcaption>N서울타워</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="수문장 교대식" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="수문장 교대식" class="" loading="lazy"><figcaption>수문장 교대식</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N서울타워" class="" loading="lazy"><figcaption>N서울타워</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>
@@ -276,8 +276,8 @@
     </article>
     <article class="tt-prog" id="tt-p03">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="더현대 서울" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
-        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg?v=2" alt="한강 불꽃" class="" loading="lazy"><figcaption>한강 불꽃</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/yeouido.jpg?v=2" alt="여의도 공원" class="" loading="lazy"><figcaption>여의도 공원</figcaption></figure></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/fireworks.jpg?v=1" alt="한강 불꽃" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg?v=2" alt="한강 불꽃" class="" loading="lazy"><figcaption>한강 불꽃</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="더현대 서울" class="" loading="lazy"><figcaption>더현대 서울</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 03</p>
@@ -345,7 +345,7 @@
     </article>
     <article class="tt-prog tt-flip" id="tt-p06">
       <div class="tt-gallery">
-        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/food.jpg?v=2" alt="떡볶이 · 순대" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/fishcake.jpg?v=1" alt="떡볶이 · 순대" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
         <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg?v=2" alt="광장시장" class="" loading="lazy"><figcaption>광장시장</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg?v=2" alt="빈대떡" class="" loading="lazy"><figcaption>빈대떡</figcaption></figure></div>
       </div>
       <div class="tt-info">
