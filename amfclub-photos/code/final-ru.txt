@@ -419,5 +419,6 @@ function show(){var h=(location.hash||'').slice(1),m=/^tt-p0[1-7]$/.test(h);r.cl
 [].forEach.call(r.querySelectorAll('.tt-prog,.tt-pnav-list a'),function(e){e.classList.toggle('tt-on',e.id===h||e.getAttribute('href')==='#'+h)});
 if(m){var t=r.querySelector('.tt-details');setTimeout(function(){window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset-90)},0)}
 else if(h==='tt-programs'){var p=r.querySelector('.tt-sec-programs');setTimeout(function(){window.scrollTo(0,p.getBoundingClientRect().top+window.pageYOffset-90)},0)}}
-window.addEventListener('hashchange',show);show();})();
+r.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href^="#tt-p"],a[href="#tt-programs"]');if(!a)return;ev.preventDefault();ev.stopPropagation();var h=a.getAttribute('href');if(location.hash!==h){history.pushState(null,'',h)}show()},true);
+window.addEventListener('hashchange',show);window.addEventListener('popstate',show);show();})();
 </script>
