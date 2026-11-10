@@ -255,7 +255,7 @@
    {id:'02',n:'ART & BEAUTY',k:'아트앤뷰티 · 공예와 스파',p:500000,t:'10:00–17:00',min:4,g:['en'],spa:true},
    {id:'03',n:'THE HYUNDAI & CRUISE',k:'더현대 서울 & 불꽃 크루즈',p:115000,t:'15:00–20:30',min:4,g:['en']},
    {id:'04',n:'SEONGSU TREND',k:'성수 트렌드 투어',p:250000,t:'10:00–15:00',min:2,g:['en'],from:true},
-   {id:'05',n:'LOTTE WORLD',k:'롯데월드',p:160000,t:'09:00–13:00',min:3,g:['en','zh','ja'],kids:true,partner:true},
+   {id:'05',n:'LOTTE WORLD',k:'롯데월드',p:160000,t:'09:00–13:00',min:3,g:['en','zh','ja'],kids:true},
    {id:'06',n:'K-FOOD MARKET',k:'미식 투어 · 광장시장',p:165000,t:'13:00–16:30',min:2,g:['en','zh','ja']},
    {id:'07',n:'DMZ & GAMAKSAN',k:'DMZ 투어',p:145000,t:'07:30–17:00',min:4,g:['en','zh','ja']}
   ];
