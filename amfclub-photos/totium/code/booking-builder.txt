@@ -58,6 +58,7 @@
 .tb-ppbtn{display:flex;align-items:center;justify-content:center;gap:8px;background:#ffc439;color:#111!important;border-radius:999px;min-height:50px;padding:8px 16px;font-weight:700;font-size:15px;text-decoration:none!important;text-align:center}
 .tb-ppbtn:hover{filter:brightness(.96)}
 .tb-ppbtn .pl{font-style:italic;font-size:18px;color:#003087}.tb-ppbtn .pl i{color:#009cde}
+.tb-ppshop{display:block;margin-top:10px;text-align:center;border:1px solid #cdb892;color:#cdb892!important;border-radius:999px;padding:10px;font-size:13.5px;text-decoration:none!important}
 .tb-ppsub{font-size:12px;color:#9a9388;margin-top:8px;text-align:center}
 .tb-ppalt{display:flex;gap:8px;margin-top:10px}.tb-ppalt a{flex:1;text-align:center;border:1px solid #4a4a46;border-radius:999px;padding:9px;font-size:13px;color:#ddd!important;text-decoration:none!important}
 .tb-sum .dep td{color:#cdb892}
@@ -141,7 +142,7 @@
     err_tour:'투어를 하나 이상 골라주세요.',err_date:'의 날짜를 골라주세요.',err_people:'참가자 이름을 모두 적어주세요.',
     partner:'제휴',min:'최소',
     pp_note:'① 아래 신청서를 먼저 제출하고 ② 선금을 결제해 주세요. 해외 카드는 PayPal로 바로 결제할 수 있어요(PayPal 계정 없어도 카드 결제 가능). 국내 계좌이체·카드는 신청 후 안내드려요. 예약이 안 되면 100% 환불해 드려요.',
-    pp_btn:'PayPal로 선금 {usd} 결제',pp_sub:'paypal.me/totium2026 · 새 창에서 열리고 금액이 자동 입력돼요',pp_ask:'💬 WhatsApp 문의',pp_kakao:'💬 카카오톡 문의',pp_none:'투어를 고르면 선금이 표시돼요.'},
+    pp_shop:'💳 홈페이지 결제로 진행 (수량 {usd}개 선택)',pp_btn:'PayPal로 선금 {usd} 결제',pp_sub:'paypal.me/totium2026 · 새 창에서 열리고 금액이 자동 입력돼요',pp_ask:'💬 WhatsApp 문의',pp_kakao:'💬 카카오톡 문의',pp_none:'투어를 고르면 선금이 표시돼요.'},
    en:{title:'TOUR BOOKING',lead:'Pick your tours and tell us who is coming. We will confirm availability and send deposit details.',
     s1:'<b>1</b> Choose tours',s2:'<b>2</b> Date & guests',s3:'<b>3</b> Guest details',s4:'<b>4</b> Submit → Deposit',
     h_tour:'1. Choose tours',h_tour_hint:'You can book more than one.',
@@ -162,7 +163,7 @@
     err_tour:'Please choose at least one tour.',err_date:': please choose a date.',err_people:'Please enter every guest name.',
     partner:'Partner',min:'min.',
     pp_note:'① Submit the form below first. ② Then pay the deposit with PayPal (card OK, no PayPal account needed). If your date is not available, we refund 100%.',
-    pp_btn:'Pay deposit {usd} with',pp_sub:'paypal.me/totium2026 · opens in a new tab · amount filled in automatically',pp_ask:'💬 Ask on WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Choose a tour to see your deposit.'},
+    pp_shop:'💳 Or check out on our site (set quantity to {usd})',pp_btn:'Pay deposit {usd} with',pp_sub:'paypal.me/totium2026 · opens in a new tab · amount filled in automatically',pp_ask:'💬 Ask on WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Choose a tour to see your deposit.'},
    ja:{title:'ツアー予約',lead:'ツアーを選び、参加者情報をご入力ください。空き状況を確認後、予約金のご案内をお送りします。',
     s1:'<b>1</b> ツアー選択',s2:'<b>2</b> 日付・人数',s3:'<b>3</b> 参加者情報',s4:'<b>4</b> 申込 → 予約金',
     h_tour:'1. ツアー選択',h_tour_hint:'複数まとめてお申し込みいただけます。',
@@ -183,7 +184,7 @@
     err_tour:'ツアーを1つ以上お選びください。',err_date:'の日付をお選びください。',err_people:'参加者全員のお名前をご入力ください。',
     partner:'提携',min:'最少',
     pp_note:'① まず下のフォームを送信し、② PayPalで予約金をお支払いください（PayPalアカウントがなくてもカード決済可）。ご希望日に催行できない場合は全額返金します。',
-    pp_btn:'PayPalで予約金 {usd} を支払う',pp_sub:'paypal.me/totium2026 · 新しいタブで開き、金額は自動入力されます',pp_ask:'💬 WhatsAppで問い合わせ',pp_kakao:'💬 KakaoTalk',pp_none:'ツアーを選ぶと予約金が表示されます。'},
+    pp_shop:'💳 サイトで決済する（数量を{usd}に設定）',pp_btn:'PayPalで予約金 {usd} を支払う',pp_sub:'paypal.me/totium2026 · 新しいタブで開き、金額は自動入力されます',pp_ask:'💬 WhatsAppで問い合わせ',pp_kakao:'💬 KakaoTalk',pp_none:'ツアーを選ぶと予約金が表示されます。'},
    zh:{title:'行程预订',lead:'请选择行程并填写参加者信息。确认名额后，我们会发送定金支付说明。',
     s1:'<b>1</b> 选择行程',s2:'<b>2</b> 日期·人数',s3:'<b>3</b> 参加者信息',s4:'<b>4</b> 提交 → 定金',
     h_tour:'1. 选择行程',h_tour_hint:'可同时预订多个行程。',
@@ -204,7 +205,7 @@
     err_tour:'请至少选择一个行程。',err_date:'：请选择日期。',err_people:'请填写所有参加者姓名。',
     partner:'合作',min:'最少',
     pp_note:'① 请先提交下方表单，② 再通过PayPal支付定金（无需PayPal账户，可直接刷卡）。如日期无法安排，定金全额退还。',
-    pp_btn:'用PayPal支付定金 {usd}',pp_sub:'paypal.me/totium2026 · 新窗口打开，金额自动填写',pp_ask:'💬 WhatsApp 咨询',pp_kakao:'💬 KakaoTalk',pp_none:'选择行程后显示定金金额。'},
+    pp_shop:'💳 在本站结账（数量选 {usd}）',pp_btn:'用PayPal支付定金 {usd}',pp_sub:'paypal.me/totium2026 · 新窗口打开，金额自动填写',pp_ask:'💬 WhatsApp 咨询',pp_kakao:'💬 KakaoTalk',pp_none:'选择行程后显示定金金额。'},
    vi:{title:'ĐẶT TOUR',lead:'Chọn tour và cho chúng tôi biết ai sẽ tham gia. Sau khi kiểm tra chỗ, chúng tôi sẽ gửi hướng dẫn đặt cọc.',
     s1:'<b>1</b> Chọn tour',s2:'<b>2</b> Ngày & số khách',s3:'<b>3</b> Thông tin khách',s4:'<b>4</b> Gửi → Đặt cọc',
     h_tour:'1. Chọn tour',h_tour_hint:'Bạn có thể đặt nhiều tour cùng lúc.',
@@ -225,7 +226,7 @@
     err_tour:'Vui lòng chọn ít nhất một tour.',err_date:': vui lòng chọn ngày.',err_people:'Vui lòng nhập tên tất cả khách.',
     partner:'Đối tác',min:'tối thiểu',
     pp_note:'① Gửi biểu mẫu bên dưới trước. ② Sau đó đặt cọc qua PayPal (thanh toán bằng thẻ, không cần tài khoản PayPal). Nếu ngày bạn chọn không còn chỗ, chúng tôi hoàn tiền 100%.',
-    pp_btn:'Đặt cọc {usd} qua',pp_sub:'paypal.me/totium2026 · mở tab mới · tự điền số tiền',pp_ask:'💬 Hỏi qua WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Chọn tour để xem số tiền đặt cọc.'},
+    pp_shop:'💳 Hoặc thanh toán trên web (chọn số lượng {usd})',pp_btn:'Đặt cọc {usd} qua',pp_sub:'paypal.me/totium2026 · mở tab mới · tự điền số tiền',pp_ask:'💬 Hỏi qua WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Chọn tour để xem số tiền đặt cọc.'},
    ru:{title:'БРОНИРОВАНИЕ',lead:'Выберите туры и укажите участников. Мы проверим наличие мест и пришлём данные для депозита.',
     s1:'<b>1</b> Туры',s2:'<b>2</b> Дата и гости',s3:'<b>3</b> Участники',s4:'<b>4</b> Заявка → Депозит',
     h_tour:'1. Выберите туры',h_tour_hint:'Можно забронировать несколько туров.',
@@ -246,7 +247,7 @@
     err_tour:'Выберите хотя бы один тур.',err_date:': выберите дату.',err_people:'Укажите имена всех участников.',
     partner:'Партнёр',min:'мин.',
     pp_note:'① Сначала отправьте форму ниже. ② Затем оплатите депозит через PayPal (картой, аккаунт PayPal не нужен). Если дата недоступна, вернём 100%.',
-    pp_btn:'Оплатить депозит {usd} через',pp_sub:'paypal.me/totium2026 · откроется в новой вкладке · сумма подставится автоматически',pp_ask:'💬 Написать в WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Выберите тур, чтобы увидеть сумму депозита.'}
+    pp_shop:'💳 Или оплатить на сайте (количество {usd})',pp_btn:'Оплатить депозит {usd} через',pp_sub:'paypal.me/totium2026 · откроется в новой вкладке · сумма подставится автоматически',pp_ask:'💬 Написать в WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Выберите тур, чтобы увидеть сумму депозита.'}
   }[lang];
   // id, name, ko name, price(per person, KRW), time, min pax, languages, extras
   var TOURS=[
@@ -333,6 +334,7 @@
     return '<div class="tb-pp"><p>'+T.pp_note+'</p>'+
       '<a class="tb-ppbtn" href="https://paypal.me/totium2026/'+u+'USD" target="_blank" rel="noopener">'+inner+'</a>'+
       '<div class="tb-ppsub">'+T.pp_sub+'</div>'+
+      '<a class="tb-ppshop" href="https://totium-en.imweb.me/shop_view/?idx=3" target="_blank" rel="noopener">'+esc(T.pp_shop.replace('{usd}',u))+'</a>'+
       '<div class="tb-ppalt"><a href="https://wa.me/821020473178" target="_blank" rel="noopener">'+T.pp_ask+'</a><a href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener">'+T.pp_kakao+'</a></div></div>';
   }
   function drawSum(c){
