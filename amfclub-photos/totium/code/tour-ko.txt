@@ -56,6 +56,7 @@
 .tt-root .tt-main{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
 .tt-root .tt-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
 .tt-root .tt-thumbs figure{min-width:0}
+.tt-thumbs.tt-more{grid-template-columns:repeat(3,1fr)}
 .tt-root .tt-thumbs img{aspect-ratio:3/2;height:auto;border-radius:8px}
 .tt-root .tt-thumbs figcaption{font-size:12.5px;color:var(--mute);margin-top:6px}
 .tt-root .tt-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
@@ -241,7 +242,7 @@
     <article class="tt-prog" id="tt-p01">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/22b2a1a7dc5fd.jpg" alt="수문장 교대식" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d23fcb3f46722.jpg" alt="수문장 교대식" class="" loading="lazy"><figcaption>수문장 교대식</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/4866ab04ba8f1.jpg" alt="N서울타워" class="" loading="lazy"><figcaption>N서울타워</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d23fcb3f46722.jpg" alt="수문장 교대식" class="" loading="lazy"><figcaption>수문장 교대식</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/4866ab04ba8f1.jpg" alt="N서울타워" class="" loading="lazy"><figcaption>N서울타워</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/feac42e723ce8.jpg" alt="광화문" loading="lazy"><figcaption>광화문</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/94855ba5e161c.jpg" alt="남산골·북촌 한옥" loading="lazy"><figcaption>남산골·북촌 한옥</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/896eca8f2a76b.jpg" alt="청계천 야경" loading="lazy"><figcaption>청계천 야경</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 01</p>
@@ -264,7 +265,7 @@
     <article class="tt-prog tt-flip" id="tt-p02">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/61325909fe327.jpg" alt="동림매듭" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5873ce9711f02.jpg" alt="매듭 팔찌" class="" loading="lazy"><figcaption>매듭 팔찌</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/608dd2ff28fb7.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5873ce9711f02.jpg" alt="매듭 팔찌" class="" loading="lazy"><figcaption>매듭 팔찌</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/608dd2ff28fb7.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/be9c16e4c2fcf.jpg" alt="인사동" loading="lazy"><figcaption>인사동</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e9e4fa34d786b.jpg" alt="한옥 공방" loading="lazy"><figcaption>한옥 공방</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/c811dba259fba.jpg" alt="한식 점심" loading="lazy"><figcaption>한식 점심</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 02</p>
@@ -287,7 +288,7 @@
     <article class="tt-prog" id="tt-p03">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/1d2f38d50d9f2.jpg" alt="한강 불꽃" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/f3deb5c695486.jpg" alt="한강 불꽃" class="" loading="lazy"><figcaption>한강 불꽃</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5a06e1da2d858.jpg" alt="더현대 서울" class="" loading="lazy"><figcaption>더현대 서울</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/f3deb5c695486.jpg" alt="한강 불꽃" class="" loading="lazy"><figcaption>한강 불꽃</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5a06e1da2d858.jpg" alt="더현대 서울" class="" loading="lazy"><figcaption>더현대 서울</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/42737c4b15178.jpg" alt="여의도 공원" loading="lazy"><figcaption>여의도 공원</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/05d8a16d64af9.jpg" alt="한강 크루즈" loading="lazy"><figcaption>한강 크루즈</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/6027a6d02c352.jpg" alt="한강 야경" loading="lazy"><figcaption>한강 야경</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 03</p>
@@ -310,7 +311,7 @@
     <article class="tt-prog tt-flip" id="tt-p04">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/b8dc0402d343d.jpg" alt="올리브영N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/714347a87ef9a.jpg" alt="젠틀몬스터" class="" loading="lazy"><figcaption>젠틀몬스터</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/119139c93a9ee.jpg" alt="시즌 팝업" class="" loading="lazy"><figcaption>시즌 팝업</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/714347a87ef9a.jpg" alt="젠틀몬스터" class="" loading="lazy"><figcaption>젠틀몬스터</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/119139c93a9ee.jpg" alt="시즌 팝업" class="" loading="lazy"><figcaption>시즌 팝업</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d939cc4683555.jpg" alt="성수 대림창고" loading="lazy"><figcaption>성수 대림창고</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/ee524e5dec52d.jpg" alt="성수 카페" loading="lazy"><figcaption>성수 카페</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d0cdc5c782366.jpg" alt="서울숲" loading="lazy"><figcaption>서울숲</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 04</p>
@@ -333,7 +334,7 @@
     <article class="tt-prog" id="tt-p05">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e3d0b2e9c31c1.jpg" alt="매직아일랜드" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/a7504f732c5f3.jpg" alt="실내 회전목마" class="" loading="lazy"><figcaption>실내 회전목마</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/897e329955cdb.jpg" alt="매직캐슬" class="" loading="lazy"><figcaption>매직캐슬</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/a7504f732c5f3.jpg" alt="실내 회전목마" class="" loading="lazy"><figcaption>실내 회전목마</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/897e329955cdb.jpg" alt="매직캐슬" class="" loading="lazy"><figcaption>매직캐슬</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/971e97e366ee6.jpg" alt="석촌호수" loading="lazy"><figcaption>석촌호수</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/cd63bc5ca12dd.jpg" alt="매직아일랜드" loading="lazy"><figcaption>매직아일랜드</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/f76320c1abf5c.jpg" alt="실내 어드벤처" loading="lazy"><figcaption>실내 어드벤처</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 05</p>
@@ -356,7 +357,7 @@
     <article class="tt-prog tt-flip" id="tt-p06">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/386fc39971a89.jpg" alt="떡볶이 · 순대" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/42103cc24240e.jpg" alt="광장시장" class="" loading="lazy"><figcaption>광장시장</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/146bd5be0a1e4.jpg" alt="빈대떡" class="" loading="lazy"><figcaption>빈대떡</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/42103cc24240e.jpg" alt="광장시장" class="" loading="lazy"><figcaption>광장시장</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/146bd5be0a1e4.jpg" alt="빈대떡" class="" loading="lazy"><figcaption>빈대떡</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/4ad5aa3858f55.jpg" alt="보쌈 한 상" loading="lazy"><figcaption>보쌈 한 상</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/303278a5ed362.jpg" alt="떡볶이" loading="lazy"><figcaption>떡볶이</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/befd132688bd1.jpg" alt="분식" loading="lazy"><figcaption>분식</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 06</p>
@@ -379,7 +380,7 @@
     <article class="tt-prog" id="tt-p07">
       <div class="tt-gallery">
         <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/9ba2f1c77a526.jpg" alt="DMZ 전망대" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
-        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/9c7ffecc1186f.jpg" alt="임진각" class="" loading="lazy"><figcaption>임진각</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/52b74e8f84243.jpg" alt="출렁다리" class="" loading="lazy"><figcaption>출렁다리</figcaption></figure></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/9c7ffecc1186f.jpg" alt="임진각" class="" loading="lazy"><figcaption>임진각</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/52b74e8f84243.jpg" alt="출렁다리" class="" loading="lazy"><figcaption>출렁다리</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e7b1324488d94.jpg" alt="도라전망대" loading="lazy"><figcaption>도라전망대</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/70492c528d547.jpg" alt="임진각 리본" loading="lazy"><figcaption>임진각 리본</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d481fca501ca9.jpg" alt="가을 산 전경" loading="lazy"><figcaption>가을 산 전경</figcaption></figure></div>
       </div>
       <div class="tt-info">
         <p class="tt-eyebrow">PROGRAM 07</p>
