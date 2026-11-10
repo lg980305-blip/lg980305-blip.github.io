@@ -554,9 +554,12 @@ body{background:#faf8f3}
   // smooth in-page links (imweb intercepts hash clicks)
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="/#"]'); if(!a) return; var id=a.getAttribute('href').slice(2), el=document.getElementById(id);
     if(el && location.pathname==='/'){ e.preventDefault(); e.stopImmediatePropagation(); window.scrollTo({top:el.getBoundingClientRect().top+scrollY-70,behavior:'smooth'}); history.pushState(null,'','#'+id); } },true);
-  // remove template placeholder text in footer
-  function clean(){ document.querySelectorAll('#doz_footer_wrap *').forEach(function(el){ if(el.children.length===0 && /^(Site name|I'm a paragraph\.)/.test((el.textContent||'').trim())){ var w=el.closest('.doz_row')||el; w.style.display='none'; } });
-    document.querySelectorAll('#doz_footer_wrap a[href*="facebook"], #doz_footer_wrap .icon-facebook, #doz_footer_wrap [class*="facebook"]').forEach(function(el){ var w=el.closest('.doz_row')||el; w.style.display='none'; }); }
+  // remove template placeholder text in footer, add required business info
+  function clean(){ var f=document.getElementById('doz_footer_wrap'); if(!f) return;
+    f.querySelectorAll('*').forEach(function(el){ if(el.children.length===0 && /^(Site name|I'm a paragraph\.)/.test((el.textContent||'').trim())){ el.style.display='none'; } });
+    f.querySelectorAll('a[href*="facebook"], [class*="facebook"]').forEach(function(el){ (el.closest('a')||el).style.display='none'; });
+    var info=f.querySelector('.footer-company-info'); if(info && !info.querySelector('.ts-extra')){ var p=document.createElement('p'); p.className='ts-extra'; p.style.marginTop='4px';
+      p.textContent='통신판매업신고: 제2026-경기시흥-2583호 · 고객센터: +82 10-2047-3178 · 개인정보보호책임자: 이우현'; info.appendChild(p); } }
   clean(); setTimeout(clean,800); setTimeout(clean,2500);
 })();
 </script>
