@@ -2,7 +2,6 @@
   예약 신청서 위쪽 코드 위젯. 고른 투어·참가자 정보를 아래 아임웹 입력폼의
   "Booking details / 예약 내용" 칸에 자동으로 정리해서 넣습니다. -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
 .tb-root{--ink:#1f1f1f;--sub:#6b6b6b;--line:#e6e4dc;--soft:#f6f5f0;--olive:#8a7a12;--yellow:#f2e14b;
   font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;color:var(--ink);
   max-width:880px;margin:0 auto;padding:8px 0 4px;line-height:1.6;word-break:keep-all}
