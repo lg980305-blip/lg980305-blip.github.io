@@ -1,0 +1,474 @@
+<!-- TOTIUM booking builder [TOTIUM-BOOKING] v1
+  예약 신청서 위쪽 코드 위젯. 고른 투어·참가자 정보를 아래 아임웹 입력폼의
+  "Booking details / 예약 내용" 칸에 자동으로 정리해서 넣습니다. -->
+<style>
+.tb-root{--ink:#1f1f1f;--sub:#6b6b6b;--line:#e6e4dc;--soft:#f6f5f0;--olive:#8a7a12;--yellow:#f2e14b;
+  font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;color:var(--ink);
+  max-width:880px;margin:0 auto;padding:8px 0 4px;line-height:1.6;word-break:keep-all}
+.tb-root *{box-sizing:border-box}
+.tb-head{text-align:center;margin:8px 0 28px}
+.tb-kicker{font-family:Poppins,sans-serif;font-size:12px;letter-spacing:.2em;color:var(--olive);font-weight:700}
+.tb-title{font-family:Poppins,sans-serif;font-size:34px;font-weight:800;margin:6px 0 6px;letter-spacing:-.01em}
+.tb-lead{color:var(--sub);font-size:15px;margin:0}
+.tb-steps{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 0;padding:0;list-style:none;font-size:13px;color:var(--sub)}
+.tb-steps li{background:var(--soft);border-radius:999px;padding:5px 12px}
+.tb-steps b{color:var(--ink)}
+.tb-sec{border:1px solid var(--line);border-radius:14px;padding:22px;margin:0 0 18px;background:#fff}
+.tb-sec h3{font-size:18px;margin:0 0 4px;font-weight:700}
+.tb-sec .tb-hint{font-size:13px;color:var(--sub);margin:0 0 16px}
+.tb-tours{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.tb-tour{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;transition:.15s;background:#fff}
+.tb-tour:hover{border-color:#c9c4ae}
+.tb-tour.on{border-color:var(--ink);background:var(--soft)}
+.tb-tour input{margin-top:4px;accent-color:#1f1f1f;width:17px;height:17px;flex:none}
+.tb-tour .n{font-family:Poppins,sans-serif;font-weight:700;font-size:14px}
+.tb-tour .n em{font-style:normal;color:var(--olive);margin-right:6px}
+.tb-tour .m{font-size:12.5px;color:var(--sub)}
+.tb-tour .p{font-size:13px;font-weight:700;margin-top:2px}
+.tb-tag{display:inline-block;font-size:11px;background:#efe9c4;color:#5d530b;border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:1px}
+.tb-item{border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;background:var(--soft)}
+.tb-item h4{margin:0 0 12px;font-size:15px;font-family:Poppins,Pretendard,sans-serif}
+.tb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.tb-f label{display:block;font-size:12.5px;color:var(--sub);margin:0 0 4px;font-weight:600}
+.tb-f input,.tb-f select,.tb-f textarea{width:100%;height:42px;border:1px solid #d9d6cb;border-radius:9px;padding:0 12px;font-size:15px;background:#fff;color:var(--ink);font-family:inherit}
+.tb-f textarea{height:84px;padding:10px 12px;resize:vertical}
+.tb-f input:focus,.tb-f select:focus,.tb-f textarea:focus{outline:2px solid #1f1f1f;outline-offset:0;border-color:transparent}
+.tb-people{display:grid;gap:10px}
+.tb-person{display:grid;grid-template-columns:34px 1.6fr 1fr 1.2fr;gap:8px;align-items:end}
+.tb-person .no{font-family:Poppins,sans-serif;font-weight:700;color:var(--olive);padding-bottom:10px}
+.tb-check{display:flex;gap:8px;align-items:center;font-size:14.5px;cursor:pointer;margin:4px 0 0}
+.tb-check input{width:17px;height:17px;accent-color:#1f1f1f}
+.tb-rep{margin-top:12px;display:none}
+.tb-rep.on{display:grid}
+.tb-sum{background:#1f1f1f;color:#fff;border-radius:14px;padding:20px 22px;margin:0 0 22px}
+.tb-sum h3{color:#fff;font-size:16px;margin:0 0 10px}
+.tb-sum table{width:100%;border-collapse:collapse;font-size:14px}
+.tb-sum td{padding:5px 0;border-bottom:1px solid #3a3a3a;vertical-align:top}
+.tb-sum td:last-child{text-align:right;white-space:nowrap;padding-left:12px}
+.tb-sum .tot td{border:0;font-weight:700;font-size:15px;padding-top:10px}
+.tb-sum .dep td{border:0;color:var(--yellow);font-weight:800;font-size:17px}
+.tb-sum .note{font-size:12.5px;color:#bdbdbd;margin:10px 0 0}
+.tb-next{font-size:14px;color:var(--sub);text-align:center;margin:0 0 6px}
+.tb-err{display:none;background:#fff1f0;color:#b42318;border:1px solid #f3c2bd;border-radius:10px;padding:10px 14px;font-size:14px;margin:0 0 14px}
+.tb-err.on{display:block}
+.tb-empty{font-size:14px;color:var(--sub);margin:0}
+@media(max-width:640px){.tb-title{font-size:26px}.tb-sec{padding:16px}.tb-person{grid-template-columns:28px 1fr 1fr}.tb-person .dob{grid-column:2 / 4}}
+.tb-pp{margin-top:16px;background:#2a2a28;border-radius:12px;padding:16px}
+.tb-pp p{margin:0 0 10px;font-size:13px;color:#cfc8bb;line-height:1.6}
+.tb-ppbtn{display:flex;align-items:center;justify-content:center;gap:8px;background:#ffc439;color:#111!important;border-radius:999px;min-height:50px;padding:8px 16px;font-weight:700;font-size:15px;text-decoration:none!important;text-align:center}
+.tb-ppbtn:hover{filter:brightness(.96)}
+.tb-ppbtn .pl{font-style:italic;font-size:18px;color:#003087}.tb-ppbtn .pl i{color:#009cde}
+.tb-ppsub{font-size:12px;color:#9a9388;margin-top:8px;text-align:center}
+.tb-ppalt{display:flex;gap:8px;margin-top:10px}.tb-ppalt a{flex:1;text-align:center;border:1px solid #4a4a46;border-radius:999px;padding:9px;font-size:13px;color:#ddd!important;text-decoration:none!important}
+.tb-sum .dep td{color:#cdb892}
+@media(max-width:640px){.tb-ppalt{flex-direction:column}}
+</style>
+
+<div class="tb-root" id="tb-root">
+  <div class="tb-head">
+    <div class="tb-kicker">TOTIUM TRAVEL</div>
+    <h2 class="tb-title" data-t="title">TOUR BOOKING</h2>
+    <p class="tb-lead" data-t="lead"></p>
+    <ol class="tb-steps">
+      <li data-t="s1"></li><li data-t="s2"></li><li data-t="s3"></li><li data-t="s4"></li>
+    </ol>
+  </div>
+
+  <div class="tb-sec">
+    <h3 data-t="h_tour"></h3>
+    <p class="tb-hint" data-t="h_tour_hint"></p>
+    <div class="tb-tours" id="tb-tours"></div>
+  </div>
+
+  <div class="tb-sec">
+    <h3 data-t="h_detail"></h3>
+    <p class="tb-hint" data-t="h_detail_hint"></p>
+    <div id="tb-items"><p class="tb-empty" data-t="empty"></p></div>
+  </div>
+
+  <div class="tb-sec">
+    <h3 data-t="h_people"></h3>
+    <p class="tb-hint" data-t="h_people_hint"></p>
+    <div class="tb-people" id="tb-people"><p class="tb-empty" data-t="empty"></p></div>
+  </div>
+
+  <div class="tb-sec">
+    <h3 data-t="h_info"></h3>
+    <p class="tb-hint" data-t="h_info_hint"></p>
+    <div class="tb-grid">
+      <div class="tb-f"><label data-t="nat"></label><input id="tb-nat" autocomplete="country-name"></div>
+      <div class="tb-f"><label data-t="hotel"></label><input id="tb-hotel"></div>
+      <div class="tb-f"><label data-t="via"></label>
+        <select id="tb-via"><option>WhatsApp</option><option>KakaoTalk</option><option>Telegram</option><option>WeChat</option><option>LINE</option><option>Email</option><option data-t="phone_opt">Phone</option></select></div>
+      <div class="tb-f"><label data-t="msgid"></label><input id="tb-msgid"></div>
+    </div>
+    <label class="tb-check" style="margin-top:14px"><input type="checkbox" id="tb-other"> <span data-t="other"></span></label>
+    <div class="tb-grid tb-rep" id="tb-rep">
+      <div class="tb-f"><label data-t="rep_name"></label><input id="tb-rep-name"></div>
+      <div class="tb-f"><label data-t="rep_phone"></label><input id="tb-rep-phone" inputmode="tel"></div>
+    </div>
+    <div class="tb-f" style="margin-top:14px"><label data-t="req"></label><textarea id="tb-req"></textarea></div>
+  </div>
+
+  <div class="tb-sum" id="tb-sum"></div>
+  <div class="tb-err" id="tb-err"></div>
+  <p class="tb-next" data-t="next"></p>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('tb-root'); if(!root||root.dataset.ready) return; root.dataset.ready='1';
+  var q=new URLSearchParams(location.search), lang=(q.get('lang')||document.documentElement.lang||'ko').slice(0,2).toLowerCase();
+  if(['ko','en','ja','zh','vi','ru'].indexOf(lang)<0) lang='en';
+  var T={
+   ko:{title:'투어 예약 신청',lead:'투어를 고르고 참가자 정보를 적어주세요. 확인 후 선금 안내를 드립니다.',
+    s1:'<b>1</b> 투어 선택',s2:'<b>2</b> 날짜·인원',s3:'<b>3</b> 참가자 정보',s4:'<b>4</b> 신청 → 선금 안내',
+    h_tour:'1. 투어 선택',h_tour_hint:'여러 개를 함께 신청할 수 있어요.',
+    h_detail:'2. 날짜·인원·옵션',h_detail_hint:'투어마다 날짜와 인원을 정해주세요.',
+    h_people:'3. 참가자 명단',h_people_hint:'가장 많은 인원 기준으로 칸이 생겨요. 여권 영문 이름으로 적어주세요.',
+    h_info:'4. 신청자 정보',h_info_hint:'이름·연락처·이메일은 아래 신청서에 적어주세요.',
+    empty:'위에서 투어를 먼저 골라주세요.',date:'희망 날짜',adult:'인원',adult_l:'대인 (만 13세 이상)',child:'소인 (만 3~12세)',
+    spa:'스파 구분',spa_w:'여성',spa_c:'커플',spa_m:'남성',guide:'가이드 언어',
+    g_en:'영어',g_zh:'중국어 (요청)',g_ja:'일본어 (요청)',g_ko:'한국어',
+    pname:'이름 (영문)',gender:'성별',male:'남',female:'여',dob:'생년월일',
+    nat:'국적',hotel:'숙소(호텔)',via:'연락받을 방법',msgid:'메신저 ID / 번호',phone_opt:'전화',
+    other:'신청자와 실제 참가 대표자가 달라요',rep_name:'대표 참가자 이름',rep_phone:'대표 참가자 연락처',
+    req:'요청사항 (식이 제한, 알레르기, 픽업 위치 등)',
+    sum:'예상 금액',none:'아직 고른 투어가 없어요.',total:'예상 합계 (VAT 별도)',dep:'선금 10%',
+    pp:'명',child_tbd:'소인 요금은 확인 후 안내',from:'~',
+    note:'최종 금액은 예약 가능 여부 확인 후 안내드려요. 확정되면 잔금 결제 링크를 보내드립니다.',
+    next:'↓ 아래 신청서에 이름·연락처·이메일을 적고 [신청하기]를 눌러주세요.',
+    err_tour:'투어를 하나 이상 골라주세요.',err_date:'의 날짜를 골라주세요.',err_people:'참가자 이름을 모두 적어주세요.',
+    partner:'제휴',min:'최소',
+    pp_note:'① 아래 신청서를 먼저 제출하고 ② 선금을 결제해 주세요. 해외 카드는 PayPal로 바로 결제할 수 있어요(PayPal 계정 없어도 카드 결제 가능). 국내 계좌이체·카드는 신청 후 안내드려요. 예약이 안 되면 100% 환불해 드려요.',
+    pp_btn:'PayPal로 선금 {usd} 결제',pp_sub:'paypal.me/totium2026 · 새 창에서 열리고 금액이 자동 입력돼요',pp_ask:'💬 WhatsApp 문의',pp_kakao:'💬 카카오톡 문의',pp_none:'투어를 고르면 선금이 표시돼요.'},
+   en:{title:'TOUR BOOKING',lead:'Pick your tours and tell us who is coming. We will confirm availability and send deposit details.',
+    s1:'<b>1</b> Choose tours',s2:'<b>2</b> Date & guests',s3:'<b>3</b> Guest details',s4:'<b>4</b> Submit → Deposit',
+    h_tour:'1. Choose tours',h_tour_hint:'You can book more than one.',
+    h_detail:'2. Date, guests & options',h_detail_hint:'Set a date and group size for each tour.',
+    h_people:'3. Guest list',h_people_hint:'Rows follow your largest group. Please use names as in your passport.',
+    h_info:'4. Your details',h_info_hint:'Enter your name, phone and email in the form below.',
+    empty:'Choose a tour above first.',date:'Preferred date',adult:'Guests',adult_l:'Adults (13+)',child:'Children (3–12)',
+    spa:'Spa type',spa_w:'Women',spa_c:'Couple',spa_m:'Men',guide:'Guide language',
+    g_en:'English',g_zh:'Chinese (on request)',g_ja:'Japanese (on request)',g_ko:'Korean',
+    pname:'Full name',gender:'Gender',male:'M',female:'F',dob:'Date of birth',
+    nat:'Nationality',hotel:'Hotel',via:'Preferred contact',msgid:'Messenger ID / number',phone_opt:'Phone call',
+    other:'I am booking for someone else',rep_name:'Lead guest name',rep_phone:'Lead guest phone',
+    req:'Requests (dietary needs, allergies, pickup point…)',
+    sum:'Estimate',none:'No tours selected yet.',total:'Estimated total (excl. 10% VAT)',dep:'Deposit 10%',
+    pp:' pax',child_tbd:'child rate confirmed later',from:'from ',
+    note:'We will confirm the final amount after checking availability, then send a link for the balance.',
+    next:'↓ Enter your name, phone and email below and press [Submit].',
+    err_tour:'Please choose at least one tour.',err_date:': please choose a date.',err_people:'Please enter every guest name.',
+    partner:'Partner',min:'min.',
+    pp_note:'① Submit the form below first. ② Then pay the deposit with PayPal (card OK, no PayPal account needed). If your date is not available, we refund 100%.',
+    pp_btn:'Pay deposit {usd} with',pp_sub:'paypal.me/totium2026 · opens in a new tab · amount filled in automatically',pp_ask:'💬 Ask on WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Choose a tour to see your deposit.'},
+   ja:{title:'ツアー予約',lead:'ツアーを選び、参加者情報をご入力ください。空き状況を確認後、予約金のご案内をお送りします。',
+    s1:'<b>1</b> ツアー選択',s2:'<b>2</b> 日付・人数',s3:'<b>3</b> 参加者情報',s4:'<b>4</b> 申込 → 予約金',
+    h_tour:'1. ツアー選択',h_tour_hint:'複数まとめてお申し込みいただけます。',
+    h_detail:'2. 日付・人数・オプション',h_detail_hint:'ツアーごとに日付と人数を選んでください。',
+    h_people:'3. 参加者名簿',h_people_hint:'最も多い人数に合わせて欄が表示されます。パスポートと同じローマ字表記でご入力ください。',
+    h_info:'4. お申込者情報',h_info_hint:'お名前・連絡先・メールは下のフォームにご入力ください。',
+    empty:'まず上でツアーを選んでください。',date:'希望日',adult:'人数',adult_l:'大人（13歳以上）',child:'子ども（3〜12歳）',
+    spa:'スパ区分',spa_w:'女性',spa_c:'カップル',spa_m:'男性',guide:'ガイド言語',
+    g_en:'英語',g_zh:'中国語（リクエスト）',g_ja:'日本語（リクエスト）',g_ko:'韓国語',
+    pname:'氏名（ローマ字）',gender:'性別',male:'男',female:'女',dob:'生年月日',
+    nat:'国籍',hotel:'宿泊ホテル',via:'ご希望の連絡方法',msgid:'メッセンジャーID / 番号',phone_opt:'電話',
+    other:'申込者と参加代表者が異なります',rep_name:'参加代表者のお名前',rep_phone:'参加代表者の連絡先',
+    req:'ご要望（食事制限・アレルギー・送迎場所など）',
+    sum:'お見積り',none:'まだツアーが選ばれていません。',total:'合計見込み（VAT 10%別）',dep:'予約金 10%',
+    pp:'名',child_tbd:'子ども料金は確認後ご案内',from:'',
+    note:'最終金額は空き状況の確認後にご案内します。確定後、残金のお支払いリンクをお送りします。',
+    next:'↓ 下のフォームにお名前・連絡先・メールを入力し［送信］を押してください。',
+    err_tour:'ツアーを1つ以上お選びください。',err_date:'の日付をお選びください。',err_people:'参加者全員のお名前をご入力ください。',
+    partner:'提携',min:'最少',
+    pp_note:'① まず下のフォームを送信し、② PayPalで予約金をお支払いください（PayPalアカウントがなくてもカード決済可）。ご希望日に催行できない場合は全額返金します。',
+    pp_btn:'PayPalで予約金 {usd} を支払う',pp_sub:'paypal.me/totium2026 · 新しいタブで開き、金額は自動入力されます',pp_ask:'💬 WhatsAppで問い合わせ',pp_kakao:'💬 KakaoTalk',pp_none:'ツアーを選ぶと予約金が表示されます。'},
+   zh:{title:'行程预订',lead:'请选择行程并填写参加者信息。确认名额后，我们会发送定金支付说明。',
+    s1:'<b>1</b> 选择行程',s2:'<b>2</b> 日期·人数',s3:'<b>3</b> 参加者信息',s4:'<b>4</b> 提交 → 定金',
+    h_tour:'1. 选择行程',h_tour_hint:'可同时预订多个行程。',
+    h_detail:'2. 日期·人数·选项',h_detail_hint:'请为每个行程选择日期和人数。',
+    h_people:'3. 参加者名单',h_people_hint:'按人数最多的行程生成栏位。请填写与护照一致的拼音/英文姓名。',
+    h_info:'4. 申请人信息',h_info_hint:'姓名、电话、邮箱请填写在下方表单中。',
+    empty:'请先在上方选择行程。',date:'希望日期',adult:'人数',adult_l:'成人（13岁以上）',child:'儿童（3–12岁）',
+    spa:'水疗类型',spa_w:'女性',spa_c:'情侣',spa_m:'男性',guide:'导游语言',
+    g_en:'英语',g_zh:'中文（需申请）',g_ja:'日语（需申请）',g_ko:'韩语',
+    pname:'姓名（护照拼写）',gender:'性别',male:'男',female:'女',dob:'出生日期',
+    nat:'国籍',hotel:'入住酒店',via:'联系方式',msgid:'微信/通讯账号或号码',phone_opt:'电话',
+    other:'申请人与实际参加代表不同',rep_name:'参加代表姓名',rep_phone:'参加代表电话',
+    req:'特殊要求（饮食禁忌、过敏、接送地点等）',
+    sum:'预估费用',none:'尚未选择行程。',total:'预估合计（不含10%增值税）',dep:'定金 10%',
+    pp:'人',child_tbd:'儿童价格确认后告知',from:'起 ',
+    note:'最终金额将在确认名额后告知。确认后我们会发送尾款支付链接。',
+    next:'↓ 请在下方表单填写姓名、电话、邮箱，然后点击［提交］。',
+    err_tour:'请至少选择一个行程。',err_date:'：请选择日期。',err_people:'请填写所有参加者姓名。',
+    partner:'合作',min:'最少',
+    pp_note:'① 请先提交下方表单，② 再通过PayPal支付定金（无需PayPal账户，可直接刷卡）。如日期无法安排，定金全额退还。',
+    pp_btn:'用PayPal支付定金 {usd}',pp_sub:'paypal.me/totium2026 · 新窗口打开，金额自动填写',pp_ask:'💬 WhatsApp 咨询',pp_kakao:'💬 KakaoTalk',pp_none:'选择行程后显示定金金额。'},
+   vi:{title:'ĐẶT TOUR',lead:'Chọn tour và cho chúng tôi biết ai sẽ tham gia. Sau khi kiểm tra chỗ, chúng tôi sẽ gửi hướng dẫn đặt cọc.',
+    s1:'<b>1</b> Chọn tour',s2:'<b>2</b> Ngày & số khách',s3:'<b>3</b> Thông tin khách',s4:'<b>4</b> Gửi → Đặt cọc',
+    h_tour:'1. Chọn tour',h_tour_hint:'Bạn có thể đặt nhiều tour cùng lúc.',
+    h_detail:'2. Ngày, số khách & tùy chọn',h_detail_hint:'Chọn ngày và số khách cho từng tour.',
+    h_people:'3. Danh sách khách',h_people_hint:'Số dòng theo nhóm đông nhất. Vui lòng ghi tên như trên hộ chiếu.',
+    h_info:'4. Thông tin của bạn',h_info_hint:'Nhập tên, số điện thoại và email ở biểu mẫu bên dưới.',
+    empty:'Vui lòng chọn tour ở trên trước.',date:'Ngày mong muốn',adult:'Số khách',adult_l:'Người lớn (13+)',child:'Trẻ em (3–12)',
+    spa:'Loại spa',spa_w:'Nữ',spa_c:'Cặp đôi',spa_m:'Nam',guide:'Ngôn ngữ HDV',
+    g_en:'Tiếng Anh',g_zh:'Tiếng Trung (theo yêu cầu)',g_ja:'Tiếng Nhật (theo yêu cầu)',g_ko:'Tiếng Hàn',
+    pname:'Họ tên',gender:'Giới tính',male:'Nam',female:'Nữ',dob:'Ngày sinh',
+    nat:'Quốc tịch',hotel:'Khách sạn',via:'Cách liên hệ',msgid:'ID / số messenger',phone_opt:'Gọi điện',
+    other:'Tôi đặt cho người khác',rep_name:'Tên trưởng đoàn',rep_phone:'SĐT trưởng đoàn',
+    req:'Yêu cầu (ăn kiêng, dị ứng, điểm đón…)',
+    sum:'Dự toán',none:'Chưa chọn tour nào.',total:'Tổng dự kiến (chưa gồm 10% VAT)',dep:'Đặt cọc 10%',
+    pp:' khách',child_tbd:'giá trẻ em báo sau',from:'từ ',
+    note:'Chúng tôi sẽ báo giá cuối cùng sau khi kiểm tra chỗ, rồi gửi link thanh toán phần còn lại.',
+    next:'↓ Nhập tên, số điện thoại, email bên dưới rồi bấm [Gửi].',
+    err_tour:'Vui lòng chọn ít nhất một tour.',err_date:': vui lòng chọn ngày.',err_people:'Vui lòng nhập tên tất cả khách.',
+    partner:'Đối tác',min:'tối thiểu',
+    pp_note:'① Gửi biểu mẫu bên dưới trước. ② Sau đó đặt cọc qua PayPal (thanh toán bằng thẻ, không cần tài khoản PayPal). Nếu ngày bạn chọn không còn chỗ, chúng tôi hoàn tiền 100%.',
+    pp_btn:'Đặt cọc {usd} qua',pp_sub:'paypal.me/totium2026 · mở tab mới · tự điền số tiền',pp_ask:'💬 Hỏi qua WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Chọn tour để xem số tiền đặt cọc.'},
+   ru:{title:'БРОНИРОВАНИЕ',lead:'Выберите туры и укажите участников. Мы проверим наличие мест и пришлём данные для депозита.',
+    s1:'<b>1</b> Туры',s2:'<b>2</b> Дата и гости',s3:'<b>3</b> Участники',s4:'<b>4</b> Заявка → Депозит',
+    h_tour:'1. Выберите туры',h_tour_hint:'Можно забронировать несколько туров.',
+    h_detail:'2. Дата, гости и опции',h_detail_hint:'Укажите дату и число гостей для каждого тура.',
+    h_people:'3. Список участников',h_people_hint:'Строки по самой большой группе. Имена — как в загранпаспорте (латиницей).',
+    h_info:'4. Ваши данные',h_info_hint:'Имя, телефон и e-mail укажите в форме ниже.',
+    empty:'Сначала выберите тур выше.',date:'Желаемая дата',adult:'Гости',adult_l:'Взрослые (13+)',child:'Дети (3–12)',
+    spa:'Тип спа',spa_w:'Женщины',spa_c:'Пара',spa_m:'Мужчины',guide:'Язык гида',
+    g_en:'Английский',g_zh:'Китайский (по запросу)',g_ja:'Японский (по запросу)',g_ko:'Корейский',
+    pname:'Имя и фамилия',gender:'Пол',male:'М',female:'Ж',dob:'Дата рождения',
+    nat:'Гражданство',hotel:'Отель',via:'Способ связи',msgid:'ID / номер в мессенджере',phone_opt:'Звонок',
+    other:'Я бронирую для другого человека',rep_name:'Имя главного участника',rep_phone:'Телефон главного участника',
+    req:'Пожелания (питание, аллергии, место встречи…)',
+    sum:'Расчёт',none:'Туры пока не выбраны.',total:'Итого (без 10% НДС)',dep:'Депозит 10%',
+    pp:' чел.',child_tbd:'детский тариф уточним',from:'от ',
+    note:'Окончательную сумму сообщим после проверки мест и пришлём ссылку на оплату остатка.',
+    next:'↓ Укажите имя, телефон и e-mail ниже и нажмите [Отправить].',
+    err_tour:'Выберите хотя бы один тур.',err_date:': выберите дату.',err_people:'Укажите имена всех участников.',
+    partner:'Партнёр',min:'мин.',
+    pp_note:'① Сначала отправьте форму ниже. ② Затем оплатите депозит через PayPal (картой, аккаунт PayPal не нужен). Если дата недоступна, вернём 100%.',
+    pp_btn:'Оплатить депозит {usd} через',pp_sub:'paypal.me/totium2026 · откроется в новой вкладке · сумма подставится автоматически',pp_ask:'💬 Написать в WhatsApp',pp_kakao:'💬 KakaoTalk',pp_none:'Выберите тур, чтобы увидеть сумму депозита.'}
+  }[lang];
+  // id, name, ko name, price(per person, KRW), time, min pax, languages, extras
+  var TOURS=[
+   {id:'01',n:'HELLO SEOUL',k:'서울 시티투어',p:165000,t:'09:00–17:30',min:2,g:['en','zh','ja']},
+   {id:'02',n:'ART & BEAUTY',k:'아트앤뷰티 · 공예와 스파',p:500000,t:'10:00–17:00',min:4,g:['en'],spa:true},
+   {id:'03',n:'THE HYUNDAI & CRUISE',k:'더현대 서울 & 불꽃 크루즈',p:115000,t:'15:00–20:30',min:4,g:['en']},
+   {id:'04',n:'SEONGSU TREND',k:'성수 트렌드 투어',p:250000,t:'10:00–15:00',min:2,g:['en'],from:true},
+   {id:'05',n:'LOTTE WORLD',k:'롯데월드',p:160000,t:'09:00–13:00',min:3,g:['en','zh','ja'],kids:true,partner:true},
+   {id:'06',n:'K-FOOD MARKET',k:'미식 투어 · 광장시장',p:165000,t:'13:00–16:30',min:2,g:['en','zh','ja']},
+   {id:'07',n:'DMZ & GAMAKSAN',k:'DMZ 투어',p:145000,t:'07:30–17:00',min:4,g:['en','zh','ja']}
+  ];
+  var st={sel:{},people:[]};
+  var $=function(s,el){return (el||root).querySelector(s)};
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var won=function(n){return n.toLocaleString('en-US')+(lang==='ko'?'원':' KRW')};
+  var RATE=1341.68, usd=function(krw){return Math.max(1,Math.ceil(krw/RATE))};
+  root.querySelectorAll('[data-t]').forEach(function(el){var k=el.getAttribute('data-t'); if(T[k]!=null) el.innerHTML=T[k];});
+  var today=new Date(); today.setDate(today.getDate()+1); var minD=today.toISOString().slice(0,10);
+
+  // tour cards
+  $('#tb-tours').innerHTML=TOURS.map(function(t){
+    return '<label class="tb-tour" data-id="'+t.id+'"><input type="checkbox" value="'+t.id+'"><div>'+
+      '<div class="n"><em>'+t.id+'</em>'+esc(t.n)+(t.partner?'<span class="tb-tag">'+T.partner+'</span>':'')+'</div>'+
+      '<div class="m">'+(lang==='ko'?esc(t.k)+' · ':'')+t.t+' · '+T.min+' '+t.min+T.pp+'</div>'+
+      '<div class="p">'+(t.from&&lang!=='ko'?T.from:'')+won(t.p)+(t.from&&lang==='ko'?T.from:'')+'</div></div></label>';
+  }).join('');
+  $('#tb-tours').addEventListener('change',function(e){
+    var id=e.target.value; if(!id) return;
+    if(e.target.checked){ var t=TOURS.filter(function(x){return x.id===id})[0];
+      st.sel[id]={date:'',adult:t.min,child:0,spa:'',guide:'en'}; }
+    else delete st.sel[id];
+    e.target.closest('.tb-tour').classList.toggle('on',e.target.checked);
+    drawItems(); drawPeople(); sync();
+  });
+
+  function drawItems(){
+    var ids=Object.keys(st.sel).sort();
+    if(!ids.length){ $('#tb-items').innerHTML='<p class="tb-empty">'+T.empty+'</p>'; return; }
+    $('#tb-items').innerHTML=ids.map(function(id){
+      var t=TOURS.filter(function(x){return x.id===id})[0], s=st.sel[id], h='';
+      h+='<div class="tb-item" data-id="'+id+'"><h4>'+id+' '+esc(t.n)+'</h4><div class="tb-grid">';
+      h+='<div class="tb-f"><label>'+T.date+'</label><input type="date" data-k="date" min="'+minD+'" value="'+s.date+'"></div>';
+      h+='<div class="tb-f"><label>'+(t.kids?T.adult_l:T.adult)+'</label><input type="number" data-k="adult" min="1" max="30" value="'+s.adult+'"></div>';
+      if(t.kids) h+='<div class="tb-f"><label>'+T.child+'</label><input type="number" data-k="child" min="0" max="30" value="'+s.child+'"></div>';
+      if(t.spa) h+='<div class="tb-f"><label>'+T.spa+'</label><select data-k="spa"><option value="">—</option><option value="W"'+(s.spa==='W'?' selected':'')+'>'+T.spa_w+'</option><option value="C"'+(s.spa==='C'?' selected':'')+'>'+T.spa_c+'</option><option value="M"'+(s.spa==='M'?' selected':'')+'>'+T.spa_m+'</option></select></div>';
+      h+='<div class="tb-f"><label>'+T.guide+'</label><select data-k="guide">'+t.g.map(function(g){return '<option value="'+g+'"'+(s.guide===g?' selected':'')+'>'+T['g_'+g]+'</option>'}).join('')+'</select></div>';
+      return h+'</div></div>';
+    }).join('');
+  }
+  $('#tb-items').addEventListener('input',function(e){
+    var box=e.target.closest('.tb-item'); if(!box) return; var k=e.target.getAttribute('data-k'); if(!k) return;
+    var v=e.target.value; if(k==='adult'||k==='child') v=Math.max(0,parseInt(v||0,10)||0);
+    st.sel[box.getAttribute('data-id')][k]=v; if(k==='adult'||k==='child') drawPeople(); sync();
+  });
+  $('#tb-items').addEventListener('change',function(e){ $('#tb-items').dispatchEvent(new Event('input',{bubbles:true})); });
+
+  function headcount(){ var m=0; Object.keys(st.sel).forEach(function(id){var s=st.sel[id]; m=Math.max(m,(+s.adult||0)+(+s.child||0));}); return Math.min(m,30); }
+  function drawPeople(){
+    var n=headcount(); while(st.people.length<n) st.people.push({name:'',g:'',dob:''});
+    if(!n){ $('#tb-people').innerHTML='<p class="tb-empty">'+T.empty+'</p>'; return; }
+    var h=''; for(var i=0;i<n;i++){ var p=st.people[i];
+      h+='<div class="tb-person" data-i="'+i+'"><div class="no">'+(i+1)+'</div>'+
+        '<div class="tb-f"><label>'+T.pname+'</label><input data-k="name" value="'+esc(p.name)+'"></div>'+
+        '<div class="tb-f"><label>'+T.gender+'</label><select data-k="g"><option value="">—</option><option value="M"'+(p.g==='M'?' selected':'')+'>'+T.male+'</option><option value="F"'+(p.g==='F'?' selected':'')+'>'+T.female+'</option></select></div>'+
+        '<div class="tb-f dob"><label>'+T.dob+'</label><input type="date" data-k="dob" max="'+new Date().toISOString().slice(0,10)+'" value="'+p.dob+'"></div></div>'; }
+    $('#tb-people').innerHTML=h;
+  }
+  $('#tb-people').addEventListener('input',function(e){ var r=e.target.closest('.tb-person'); if(!r) return; st.people[+r.getAttribute('data-i')][e.target.getAttribute('data-k')]=e.target.value; sync(); });
+  $('#tb-people').addEventListener('change',function(e){ $('#tb-people').dispatchEvent(new Event('input',{bubbles:true})); });
+  $('#tb-other').addEventListener('change',function(){ $('#tb-rep').classList.toggle('on',this.checked); sync(); });
+  ['#tb-nat','#tb-hotel','#tb-via','#tb-msgid','#tb-rep-name','#tb-rep-phone','#tb-req'].forEach(function(s){ $(s).addEventListener('input',sync); $(s).addEventListener('change',sync); });
+
+  function calc(){
+    var rows=[], tot=0;
+    Object.keys(st.sel).sort().forEach(function(id){
+      var t=TOURS.filter(function(x){return x.id===id})[0], s=st.sel[id], a=+s.adult||0, c=+s.child||0, sub=t.p*a; tot+=sub;
+      rows.push({t:t,s:s,a:a,c:c,sub:sub});
+    });
+    return {rows:rows,tot:tot,dep:Math.round(tot*0.1/100)*100};
+  }
+  function ppBox(c){
+    var u=usd(c.dep), lab=T.pp_btn.replace('{usd}','US$'+u), logo='<b class="pl">Pay<i>Pal</i></b>';
+    var inner=/with$|qua$|через$/.test(lab)?esc(lab)+' '+logo:(lang==='ko'||lang==='ja'||lang==='zh'?esc(lab):esc(lab)+' '+logo);
+    return '<div class="tb-pp"><p>'+T.pp_note+'</p>'+
+      '<a class="tb-ppbtn" href="https://paypal.me/totium2026/'+u+'USD" target="_blank" rel="noopener">'+inner+'</a>'+
+      '<div class="tb-ppsub">'+T.pp_sub+'</div>'+
+      '<div class="tb-ppalt"><a href="https://wa.me/821020473178" target="_blank" rel="noopener">'+T.pp_ask+'</a><a href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener">'+T.pp_kakao+'</a></div></div>';
+  }
+  function drawSum(c){
+    var h='<h3>'+T.sum+'</h3>';
+    if(!c.rows.length){ $('#tb-sum').innerHTML=h+'<p class="tb-empty" style="color:#bdbdbd">'+T.none+'</p>'; return; }
+    h+='<table>'+c.rows.map(function(r){
+      return '<tr><td>'+r.t.id+' '+esc(r.t.n)+(r.s.date?' · '+r.s.date:'')+'<br><span style="color:#bdbdbd;font-size:12.5px">'+
+        won(r.t.p)+' × '+r.a+T.pp+(r.c?' + '+r.c+(lang==='ko'?'명 소인':' '+T.child)+' ('+T.child_tbd+')':'')+'</span></td><td>'+(r.t.from&&lang!=='ko'?T.from:'')+won(r.sub)+(r.t.from&&lang==='ko'?T.from:'')+'</td></tr>';
+    }).join('')+'<tr class="tot"><td>'+T.total+'</td><td>'+won(c.tot)+'</td></tr><tr class="dep"><td>'+T.dep+'</td><td>'+won(c.dep)+' ≈ US$'+usd(c.dep)+'</td></tr></table><p class="note">'+T.note+'</p>'+ppBox(c);
+    $('#tb-sum').innerHTML=h;
+  }
+  function text(c){
+    var L=[], gl={en:'English',zh:'Chinese',ja:'Japanese',ko:'Korean'}, sp={W:'Women',C:'Couple',M:'Men'};
+    L.push('■ TOURS');
+    c.rows.forEach(function(r){
+      L.push('- '+r.t.id+' '+r.t.n+' | '+(r.s.date||'(date?)')+' | Adult '+r.a+(r.t.kids?' / Child '+r.c:'')+(r.t.spa?' | Spa: '+(sp[r.s.spa]||'-'):'')+' | Guide: '+gl[r.s.guide]+' | '+r.sub.toLocaleString()+' KRW');
+    });
+    L.push('Total (excl. VAT): '+c.tot.toLocaleString()+' KRW / Deposit 10%: '+c.dep.toLocaleString()+' KRW (≈ US$'+usd(c.dep)+' via PayPal)');
+    L.push(''); L.push('■ GUESTS');
+    st.people.slice(0,headcount()).forEach(function(p,i){ L.push((i+1)+'. '+(p.name||'-')+' | '+(p.g||'-')+' | '+(p.dob||'-')); });
+    L.push(''); L.push('■ INFO');
+    L.push('Nationality: '+$('#tb-nat').value); L.push('Hotel: '+$('#tb-hotel').value);
+    L.push('Contact via: '+$('#tb-via').value+' '+$('#tb-msgid').value);
+    if($('#tb-other').checked) L.push('Lead guest (different from applicant): '+$('#tb-rep-name').value+' / '+$('#tb-rep-phone').value);
+    if($('#tb-req').value.trim()) L.push('Requests: '+$('#tb-req').value.trim());
+    L.push('Page language: '+lang);
+    return L.join('\n');
+  }
+  // find the imweb form's "Booking details" textarea
+  function formArea(){
+    var tas=[].slice.call(document.querySelectorAll('textarea')).filter(function(t){return !root.contains(t)});
+    for(var i=0;i<tas.length;i++){ var box=tas[i].closest('.form-group,.form_group,div'); var up=tas[i];
+      for(var j=0;j<6&&up;j++){ up=up.parentElement; if(up&&/Booking details/.test(up.textContent||'')&&up.querySelectorAll('textarea').length===1) return {ta:tas[i],wrap:up}; } }
+    return null;
+  }
+  function sync(){
+    var c=calc(); drawSum(c);
+    var f=formArea(); if(!f) return;
+    var v=c.rows.length?text(c):'';
+    var set=Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,'value').set; set.call(f.ta,v);
+    f.ta.dispatchEvent(new Event('input',{bubbles:true})); f.ta.dispatchEvent(new Event('change',{bubbles:true}));
+  }
+  function hideArea(){ var f=formArea(); if(f){ f.wrap.style.display='none';
+      var form=f.wrap.closest('form'); if(form&&!root.dataset.moved){ root.dataset.moved='1'; form.parentNode.insertBefore(root,form); }
+      return true;} return false; }
+  var tries=0; (function wait(){ if(!hideArea()&&tries++<40) setTimeout(wait,250); else sync(); })();
+
+  function validate(){
+    var c=calc(), e='';
+    if(!c.rows.length) e=T.err_tour;
+    else { for(var i=0;i<c.rows.length;i++){ if(!c.rows[i].s.date){ e=c.rows[i].t.n+T.err_date; break; } }
+      if(!e && st.people.slice(0,headcount()).some(function(p){return !p.name.trim()})) e=T.err_people; }
+    var box=$('#tb-err'); box.textContent=e; box.classList.toggle('on',!!e);
+    if(e) box.scrollIntoView({behavior:'smooth',block:'center'});
+    return !e;
+  }
+  document.addEventListener('click',function(ev){
+    var b=ev.target.closest('button,a,input[type=submit]'); if(!b||root.contains(b)) return;
+    var form=formArea(); if(!form) return;
+    var host=form.wrap.closest('form')||form.wrap.parentElement.parentElement;
+    if(!host||!host.contains(b)) return;
+    if(!/submit|신청|제출|작성/i.test((b.textContent||b.value||'')+' '+(b.type||''))) return;
+    sync(); if(!validate()){ ev.preventDefault(); ev.stopImmediatePropagation(); }
+  },true);
+  drawSum(calc());
+})();
+</script>
+
+<!-- TOTIUM shell: header + floating contact + footer cleanup [TOTIUM-SHELL] -->
+<style>
+#doz_header_wrap{display:none!important}
+body{background:#faf8f3}
+.ts-head{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;transition:background .3s,box-shadow .3s,padding .3s;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.ts-head .lg{display:block;height:36px}.ts-head .lg img{height:100%;width:auto;display:block}
+.ts-head .lg .dk{display:none}
+.ts-nav{display:flex;align-items:center;gap:30px;font-size:13.5px;letter-spacing:.08em;color:#fff}
+.ts-nav a{color:inherit;text-decoration:none}
+.ts-nav .bk{border:1px solid currentColor;padding:9px 20px;border-radius:999px}
+.ts-head.solid,.ts-head.light{background:rgba(250,248,243,.96);box-shadow:0 1px 0 #e7e1d6;padding:12px 48px}
+.ts-head.solid .ts-nav,.ts-head.light .ts-nav{color:#1c1b19}
+.ts-head.solid .lg .wh,.ts-head.light .lg .wh{display:none}.ts-head.solid .lg .dk,.ts-head.light .lg .dk{display:block}
+.ts-head.solid .bk,.ts-head.light .bk{background:#1c1b19;color:#fff;border-color:#1c1b19}
+.ts-burger{display:none;background:none;border:0;width:36px;height:36px;color:inherit;font-size:24px;cursor:pointer}
+@media(max-width:760px){.ts-head{padding:14px 18px}.ts-head.solid,.ts-head.light{padding:10px 18px}.ts-head .lg{height:28px}.ts-nav a:not(.bk){display:none}.ts-nav{gap:10px}.ts-nav .bk{padding:7px 14px;font-size:12px}}
+.ts-fab{position:fixed;right:22px;bottom:22px;z-index:998;font-family:Pretendard,"Apple SD Gothic Neo",sans-serif}
+.ts-fab>button{width:58px;height:58px;border-radius:50%;border:0;background:#1c1b19;color:#fff;font-size:24px;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer}
+.ts-fab .menu{position:absolute;right:0;bottom:70px;background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.18);padding:8px;width:210px;display:none}
+.ts-fab.on .menu{display:block}
+.ts-fab .menu a{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:8px;color:#1c1b19;text-decoration:none;font-size:14px}
+.ts-fab .menu a:hover{background:#faf8f3}
+.ts-fab .menu a.bk{background:#1c1b19;color:#fff;justify-content:center;margin-top:4px;letter-spacing:.08em;font-size:13px}
+.ts-fab .menu small{color:#8a8378;font-size:12px;margin-left:auto}
+.ts-toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#1c1b19;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;z-index:1000;opacity:0;transition:.3s;pointer-events:none}
+.ts-toast.on{opacity:1}
+.ts-lang{position:relative}.ts-lang>button{background:none;border:0;color:inherit;font:inherit;letter-spacing:.06em;cursor:pointer;padding:6px 2px}.ts-lang .ls{position:absolute;right:0;top:34px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(0,0,0,.16);padding:6px;display:none;min-width:120px}.ts-lang.on .ls{display:block}.ts-lang .ls a{display:block;padding:8px 12px;border-radius:6px;color:#1c1b19!important;font-size:13px;letter-spacing:.02em}.ts-lang .ls a:hover,.ts-lang .ls a.on{background:#f3efe6}@media(max-width:760px){.ts-nav .ts-lang{display:block}}
+.ts-lang{position:relative}.ts-lang>button{background:none;border:0;color:inherit;font:inherit;letter-spacing:.06em;cursor:pointer;padding:6px 2px}.ts-lang .ls{position:absolute;right:0;top:34px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(0,0,0,.16);padding:6px;display:none;min-width:120px}.ts-lang.on .ls{display:block}.ts-lang .ls a{display:block;padding:8px 12px;border-radius:6px;color:#1c1b19!important;font-size:13px;letter-spacing:.02em}.ts-lang .ls a:hover,.ts-lang .ls a.on{background:#f3efe6}@media(max-width:760px){.ts-nav .ts-lang{display:block}}
+</style>
+<header class="ts-head" id="ts-head">
+  <a class="lg" href="/" aria-label="TOTIUM home"><img class="wh" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM"><img class="dk" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/66396e596c9c0.png" alt="TOTIUM"></a>
+  <nav class="ts-nav"><a href="/#tt-programs">TOURS</a><a href="/#ts-why">ABOUT</a><a href="/#tt-booking">CONTACT</a><a class="bk" href="/booking">BOOK NOW</a><div class="ts-lang"><button type="button">KO ▾</button><div class="ls"><a href="https://totium.imweb.me/" class=on>KO</a><a href="https://totium-en.imweb.me/">EN</a><a href="https://totium-ja.imweb.me/">日本語</a><a href="https://totium-zh.imweb.me/">中文</a><a href="https://totium-vi.imweb.me/">VI</a><a href="https://totium.imweb.me/ru">RU</a></div></div><div class="ts-lang"><button type="button">EN ▾</button><div class="ls"><a href="https://totium.imweb.me/">KO</a><a href="https://totium-en.imweb.me/" class=on>EN</a><a href="https://totium-ja.imweb.me/">日本語</a><a href="https://totium-zh.imweb.me/">中文</a><a href="https://totium-vi.imweb.me/">VI</a><a href="https://totium.imweb.me/ru">RU</a></div></div></nav>
+</header>
+<div class="ts-fab" id="ts-fab">
+  <div class="menu">
+    <a href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener">💬 KakaoTalk <small>coolibiza</small></a>
+    <a href="#" data-copy="@totium2026">🟢 WhatsApp <small>@totium2026</small></a>
+    <a href="https://t.me/coolibiza" target="_blank" rel="noopener">✈️ Telegram <small>@coolibiza</small></a>
+    <a href="tel:+821020473178">📞 Phone <small>+82 10-2047-3178</small></a>
+    <a class="bk" href="/booking">BOOK NOW</a>
+  </div>
+  <button type="button" aria-label="Contact">💬</button>
+</div>
+<div class="ts-toast" id="ts-toast"></div>
+<script>
+(function(){
+  if(window.__tsShell) return; window.__tsShell=1;
+  var head=document.getElementById('ts-head'), hasHero=!!document.querySelector('.ts-hero');
+  if(!hasHero){ head.classList.add('light'); var mn=document.querySelector('main'); if(mn) mn.style.paddingTop='76px'; }
+  document.body.appendChild(head); document.body.appendChild(document.getElementById('ts-fab')); document.body.appendChild(document.getElementById('ts-toast'));
+  function onScroll(){ if(hasHero) head.classList.toggle('solid', window.scrollY>window.innerHeight*0.6); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var fab=document.getElementById('ts-fab');
+  fab.querySelector('button').addEventListener('click',function(){ fab.classList.toggle('on'); this.textContent=fab.classList.contains('on')?'✕':'💬'; });
+  function toast(m){ var t=document.getElementById('ts-toast'); t.textContent=m; t.classList.add('on'); setTimeout(function(){t.classList.remove('on')},2200); }
+  fab.querySelectorAll('[data-copy]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); var v=a.getAttribute('data-copy');
+    (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){toast('WhatsApp ID copied: '+v)},function(){toast('WhatsApp: '+v)}); }); });
+  var lg=document.querySelector('.ts-lang'); if(lg){ lg.querySelector('button').addEventListener('click',function(e){e.stopPropagation(); lg.classList.toggle('on');}); document.addEventListener('click',function(){lg.classList.remove('on')}); }
+  var lg=document.querySelector('.ts-lang'); if(lg){ lg.querySelector('button').addEventListener('click',function(e){e.stopPropagation(); lg.classList.toggle('on');}); document.addEventListener('click',function(){lg.classList.remove('on')}); }
+  // smooth in-page links (imweb intercepts hash clicks)
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="/#"]'); if(!a) return; var id=a.getAttribute('href').slice(2), el=document.getElementById(id);
+    if(el && location.pathname==='/'){ e.preventDefault(); e.stopImmediatePropagation(); window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); history.pushState(null,'','#'+id); } },true);
+  // remove template placeholder text in footer, add required business info
+  function clean(){ var f=document.getElementById('doz_footer_wrap'); if(!f) return;
+    f.querySelectorAll('*').forEach(function(el){ if(el.children.length===0 && /^(Site name|I'm a paragraph\.)/.test((el.textContent||'').trim())){ el.style.display='none'; } });
+    f.querySelectorAll('a[href*="facebook"], [class*="facebook"]').forEach(function(el){ (el.closest('a')||el).style.display='none'; });
+    var info=f.querySelector('.footer-company-info'); if(info && !info.querySelector('.ts-extra')){ var p=document.createElement('p'); p.className='ts-extra'; p.style.marginTop='4px';
+      p.textContent='통신판매업신고: 제2026-경기시흥-2583호 · 고객센터: +82 10-2047-3178 · 개인정보보호책임자: 이우현'; info.appendChild(p); } }
+  clean(); setTimeout(clean,800); setTimeout(clean,2500);
+})();
+</script>
