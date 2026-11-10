@@ -31,7 +31,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
 </style>
 <section class="ts-hero">
   <img class="po" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg" alt="">
-  <video autoplay muted loop playsinline preload="auto" poster="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg"><source src="https://cdn.imweb.me/upload/S20261110f40759a202b75/de381e07ac4ca.mp4" type="video/mp4"></video>
+  <video autoplay muted loop playsinline preload="auto" poster="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg"><source src="https://cdn.imweb.me/upload/S20261110f40759a202b75/8d7b99dfb3e9a.mp4" type="video/mp4"></video>
   <div class="in"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/34576f7166906.png" alt="tOTIUM — Beyond Travel"><p>서울을 가장 편하게 — 호텔 픽업 · 다국어 가이드 · 소규모 투어</p><a class="cta" href="/#tt-programs">EXPLORE TOURS</a></div>
   <span class="scr">SCROLL ↓</span>
 </section>
