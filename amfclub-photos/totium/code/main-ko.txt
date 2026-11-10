@@ -24,6 +24,8 @@ html body .ts-steps>div:not(:last-child):after{content:"";position:absolute;top:
 html body .ts-steps .n{width:56px;height:56px;border-radius:50%;background:#1c1b19;color:#fff;display:grid;place-items:center;margin:0 auto 16px;font-family:"Times New Roman",serif;font-size:22px}
 html body .ts-steps h4{font-size:16px;font-weight:600;margin:0 0 6px}html body .ts-steps p{font-size:13.5px;color:#6d675e;line-height:1.65;margin:0}
 @media(max-width:760px){.ts-sec{padding:64px 18px}html body .ts-why .g{grid-template-columns:1fr;gap:30px}html body .ts-steps{grid-template-columns:1fr 1fr;row-gap:30px}html body .ts-steps>div:after{display:none}}
+html body .ts-hero{width:100vw;margin-left:calc(50% - 50vw)}
+html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
 </style>
 <section class="ts-hero">
   <img class="po" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg" alt="">
