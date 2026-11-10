@@ -1,0 +1,580 @@
+<!-- TOTIUM main page [TOTIUM-MAIN] (ru) -->
+<style>
+html body .ts-hero{position:relative;height:100vh;min-height:560px;max-height:900px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;background:#111;margin:0 0 0;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+html body .ts-hero video,html body .ts-hero .po{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+html body .ts-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.25) 40%,rgba(0,0,0,.55))}
+html body .ts-hero .in{position:relative;z-index:2;padding:0 20px}
+html body .ts-hero .in img{width:min(440px,78vw);height:auto;display:block;margin:0 auto;opacity:0;transform:translateY(14px);animation:tsUp 1.2s .3s forwards}
+html body .ts-hero .in p{margin:24px 0 32px;font-size:clamp(14px,1.6vw,17px);letter-spacing:.04em;opacity:0;animation:tsUp 1s .9s forwards}
+html body .ts-hero .cta{display:inline-block;background:#b39a74;color:#fff;padding:15px 34px;border-radius:999px;font-size:13.5px;letter-spacing:.14em;text-decoration:none;opacity:0;animation:tsUp 1s 1.2s forwards}
+html body .ts-hero .scr{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:.3em;opacity:.8}
+@keyframes tsUp{to{opacity:1;transform:none}}
+html body .ts-sec{padding:96px 24px;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#1c1b19}
+html body .ts-sec .w{max-width:1160px;margin:0 auto}
+html body .ts-kick{font-size:12px;letter-spacing:.3em;color:#b39a74;text-align:center}
+html body .ts-h2{font-family:"Times New Roman","Noto Serif KR","Noto Serif CJK KR",serif;font-weight:400;font-size:clamp(28px,3.4vw,40px);text-align:center;margin:12px 0 8px}
+html body .ts-lead{text-align:center;color:#6d675e;font-size:15px;margin:0 0 48px}
+html body .ts-why{background:#fff}
+html body .ts-why .g{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;text-align:center}
+html body .ts-why .ic{width:58px;height:58px;border:1px solid #cdb892;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;color:#b39a74;font-size:22px}
+html body .ts-why h4{font-size:18px;font-weight:500;margin:0 0 8px}html body .ts-why p{color:#6d675e;font-size:14px;line-height:1.7;margin:0}
+html body .ts-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+html body .ts-steps>div{text-align:center;position:relative}
+html body .ts-steps>div:not(:last-child):after{content:"";position:absolute;top:28px;left:calc(50% + 40px);right:calc(-50% + 40px);border-top:1px dashed #cdb892}
+html body .ts-steps .n{width:56px;height:56px;border-radius:50%;background:#1c1b19;color:#fff;display:grid;place-items:center;margin:0 auto 16px;font-family:"Times New Roman",serif;font-size:22px}
+html body .ts-steps h4{font-size:16px;font-weight:600;margin:0 0 6px}html body .ts-steps p{font-size:13.5px;color:#6d675e;line-height:1.65;margin:0}
+@media(max-width:760px){.ts-sec{padding:64px 18px}html body .ts-why .g{grid-template-columns:1fr;gap:30px}html body .ts-steps{grid-template-columns:1fr 1fr;row-gap:30px}html body .ts-steps>div:after{display:none}}
+html body .ts-hero{width:100vw;margin-left:calc(50% - 50vw)}
+html body .tt-root .tt-sec h2,html body .tt-root .tt-cta h2{font-family:"Times New Roman","Noto Serif KR","Noto Serif CJK KR",serif!important;font-weight:400!important;letter-spacing:.01em!important}
+html body .tt-root{scroll-margin-top:80px}
+html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
+.tt-root a.tt-map{color:inherit;text-decoration:underline;text-decoration-color:#cdb892;text-underline-offset:3px}.tt-root a.tt-map:before{content:"📍";margin-right:3px;text-decoration:none;display:inline-block}
+</style>
+<section class="ts-hero">
+  <img class="po" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg" alt="">
+  <video autoplay muted loop playsinline preload="auto" poster="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg"><source src="https://cdn.imweb.me/upload/S20261110f40759a202b75/8d7b99dfb3e9a.mp4" type="video/mp4"></video>
+  <div class="in"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM — Beyond Travel"><p>The Easiest Way to Experience Seoul — трансфер из отеля · гиды на разных языках · малые группы</p><a class="cta" href="#tt-programs">EXPLORE TOURS</a></div>
+  <span class="scr">SCROLL ↓</span>
+</section>
+<style>
+.tt-root{--ink:#212121;--sub:#6b6b6b;--mute:#9a9a9a;--line:#e4e4e4;--gray:#f6f6f6;--cream:#f5f4e7;--yellow:#cdb892;--olive:#a88d62;
+  font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Nanum Gothic",sans-serif;color:var(--ink);background:#faf8f3;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.tt-root *{box-sizing:border-box;margin:0;padding:0}
+.tt-root img{display:block;max-width:100%;width:100%;height:100%;object-fit:cover}
+.tt-root a{color:inherit;text-decoration:none}
+.tt-root a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.tt-root h1,.tt-root h2,.tt-root h3{text-wrap:balance}
+.tt-root .tt-eyebrow{font-family:Poppins,Pretendard,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--sub)}
+.tt-root .tt-olive{color:var(--olive)}
+/* hero */
+.tt-root .tt-hero{position:relative;margin:0 auto;width:calc(100% - 32px);max-width:1400px;border-radius:12px;overflow:hidden;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;background:#222}
+.tt-root .tt-hero-img{position:absolute;inset:0;filter:brightness(.55)}
+.tt-root .tt-hero-in{position:relative;padding:72px 20px}
+.tt-root .tt-hero-kicker{font-family:Poppins,sans-serif;font-weight:600;font-size:13px;letter-spacing:.12em;color:#fff}
+.tt-root .tt-hero-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;color:var(--yellow);font-size:clamp(68px,13vw,150px);line-height:.95;letter-spacing:.01em;margin:14px 0 18px}
+.tt-root .tt-hero-sub{color:var(--yellow);font-size:15px;font-weight:500;line-height:1.55}
+/* sections */
+.tt-root .tt-sec{padding:88px 16px}
+.tt-root .tt-gray{background:var(--gray)}
+.tt-root .tt-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.tt-root .tt-h2{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(26px,4vw,34px);line-height:1.2;margin:8px 0 10px;letter-spacing:-.005em}
+.tt-root .tt-lead{color:var(--sub);font-size:15px}
+.tt-root .tt-left{text-align:left}
+/* card rail */
+.tt-root .tt-railwrap{position:relative;max-width:1200px;margin:0 auto}
+.tt-root .tt-rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:14px;scrollbar-width:none}
+.tt-root .tt-rail::-webkit-scrollbar{display:none}
+@media (max-width:900px){.tt-root .tt-rail{grid-auto-columns:42%}}
+@media (max-width:600px){.tt-root .tt-rail{grid-auto-columns:78%}}
+.tt-root .tt-rail-btn{position:absolute;top:calc(50% - 60px);width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,.18);font-size:20px;line-height:44px;text-align:center;cursor:pointer;z-index:2;transition:opacity .2s}
+.tt-root .tt-rail-btn.tt-prev{left:-22px}.tt-root .tt-rail-btn.tt-next{right:-22px}
+.tt-root .tt-rail-btn[disabled]{opacity:0;pointer-events:none}
+@media (max-width:600px){.tt-root .tt-rail-btn{display:none}}
+.tt-root .tt-rail-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.tt-root .tt-rail-dots i{width:6px;height:6px;border-radius:50%;background:#d6d6d6;transition:all .2s}
+.tt-root .tt-rail-dots i.tt-on{width:18px;border-radius:3px;background:var(--ink)}
+.tt-root .tt-card{scroll-snap-align:start;min-width:0;display:block}
+.tt-root .tt-card-img{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ddd}
+.tt-root .tt-arrow{position:absolute;top:12px;right:14px;color:#fff;font-size:26px;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.tt-root .tt-badge{position:absolute;left:0;top:0;background:#111;color:var(--yellow);font-family:Poppins,sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;padding:6px 10px;border-bottom-right-radius:8px}
+.tt-root .tt-card-meta{margin-top:12px;color:var(--mute);font-size:13px;font-variant-numeric:tabular-nums}
+.tt-root .tt-card-title{font-family:Poppins,Pretendard,sans-serif;font-weight:700;font-size:20px;line-height:1.25;margin-top:2px}
+.tt-root .tt-card-kr{font-size:14px;color:var(--sub)}
+.tt-root .tt-card-price{margin-top:4px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+/* program detail */
+.tt-root .tt-progs{display:flex;flex-direction:column;gap:24px;max-width:1200px;margin:0 auto}
+.tt-root .tt-prog{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;background:#fff;border-radius:16px;padding:28px}
+.tt-root .tt-flip .tt-gallery{order:2}
+.tt-root .tt-main{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+.tt-root .tt-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tt-root .tt-thumbs figure{min-width:0}
+.tt-root .tt-thumbs img{aspect-ratio:3/2;height:auto;border-radius:8px}
+.tt-root .tt-thumbs figcaption{font-size:12.5px;color:var(--mute);margin-top:6px}
+.tt-root .tt-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.tt-root .tt-prog-title{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(24px,3vw,30px);line-height:1.15;margin-top:4px}
+.tt-root .tt-prog-kr{font-weight:700;font-size:16px;margin-top:4px}
+.tt-root .tt-desc{color:var(--sub);font-size:15px;margin-top:10px}
+.tt-root .tt-facts{width:100%;margin-top:20px;border-top:1px solid var(--ink)}
+.tt-root .tt-facts div{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.tt-root .tt-facts dt{color:var(--mute)}
+.tt-root .tt-facts dd{font-weight:600;font-variant-numeric:tabular-nums}
+.tt-root .tt-facts small{font-weight:400;color:var(--mute);font-size:12.5px;margin-left:4px}
+.tt-root .tt-tiers{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px;background:var(--cream);border-radius:8px;text-align:center}
+.tt-root .tt-tiers div{padding:10px 4px}
+.tt-root .tt-tiers span{display:block;font-size:12px;color:var(--sub)}
+.tt-root .tt-tiers b{font-size:13.5px;font-variant-numeric:tabular-nums}
+.tt-root .tt-sub{font-weight:700;font-size:15px;margin-top:22px}
+.tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
+.tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
+.tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-route .tt-route-d{display:block;font-size:13px;line-height:1.65;color:var(--sub);margin-top:3px;word-break:keep-all}
+.tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
+.tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
+.tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+.tt-root .tt-ci{cursor:pointer}
+.tt-root .tt-pop{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px}
+.tt-root .tt-pop.tt-on{display:flex}
+.tt-root .tt-pop-box{background:#fff;border-radius:16px;padding:24px;max-width:300px;width:100%;text-align:center}
+.tt-root .tt-pop-box img{width:200px;height:200px;margin:0 auto 12px}
+.tt-root .tt-pop-box p{font-size:13.5px;color:var(--sub);line-height:1.6}
+.tt-root .tt-pop-box b{display:block;font-size:16px;margin-bottom:10px;color:var(--ink)}
+.tt-root .tt-pop-box button{margin-top:14px;border:0;background:var(--ink);color:#fff;font-weight:600;padding:10px 22px;border-radius:8px;cursor:pointer}
+.tt-root .tt-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:14px;padding:10px 18px;border-radius:8px;z-index:99999;opacity:0;transition:opacity .2s;pointer-events:none}
+.tt-root .tt-toast.tt-on{opacity:1}
+.tt-root .tt-pnav{display:none}
+.tt-root.tt-js .tt-details{display:none}
+.tt-root.tt-js.tt-view-detail .tt-details{display:block;padding-top:40px}
+.tt-root.tt-js.tt-view-detail .tt-hero,.tt-root.tt-js.tt-view-detail .tt-sec-programs,.tt-root.tt-js.tt-view-detail .tt-sec-faq,.tt-root.tt-js.tt-view-detail .tt-details>.tt-head{display:none}
+.tt-root.tt-js .tt-details .tt-prog{display:none}
+.tt-root.tt-js .tt-details .tt-prog.tt-on{display:grid}
+.tt-root.tt-js .tt-pnav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto 20px}
+.tt-root .tt-pnav-back{font-size:14px;font-weight:600;color:var(--ink)}
+.tt-root .tt-pnav-list{display:flex;gap:6px;flex-wrap:wrap}
+.tt-root .tt-pnav-list a{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--ink)}
+.tt-root .tt-pnav-list a.tt-on{background:var(--ink);color:var(--yellow)}
+.tt-root .tt-contact{margin-top:28px;padding-top:22px;border-top:1px solid rgba(33,33,33,.12);max-width:520px}
+.tt-root .tt-contact>p{font-size:13px;color:var(--sub);margin-bottom:12px}
+.tt-root .tt-contact-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tt-root .tt-ci{display:flex;align-items:center;gap:10px;min-width:0;padding:12px;border-radius:10px;background:#fff;border:1px solid transparent;color:var(--ink);transition:border-color .2s}
+.tt-root a.tt-ci:hover{border-color:var(--ink)}
+.tt-root .tt-ci-ic{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.tt-root .tt-ci-ic svg{width:16px;height:16px;fill:var(--yellow)}
+.tt-root .tt-ci-tx{min-width:0;line-height:1.3}
+.tt-root .tt-ci-tx b{display:block;font-size:13.5px;font-weight:700}
+.tt-root .tt-ci-tx span{display:block;font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* faq */
+.tt-root .tt-faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.tt-root .tt-q{padding:22px 4px;border-bottom:1px solid var(--line)}
+.tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
+.tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
+.tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
+.tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
+.tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
+.tt-root .tt-cancel-item b.tt-zero{color:#c0392b}
+.tt-root .tt-cancel-item em{font-style:normal;font-size:13px}
+/* cta */
+.tt-root .tt-cta{background:var(--cream);padding:80px 16px}
+.tt-root .tt-cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.tt-root .tt-cta-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;font-size:clamp(46px,7vw,76px);line-height:1;margin:10px 0 16px}
+.tt-root .tt-qr{width:180px;background:#fff;border-radius:12px;padding:14px;text-align:center}
+.tt-root .tt-qr-box{position:relative;aspect-ratio:1;border:1.5px dashed #c9c9c9;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;color:var(--mute)}
+.tt-root .tt-qr-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.tt-root .tt-qr-box.tt-qr-on{border:0}
+.tt-root .tt-qr p{font-size:13px;font-weight:600;margin-top:10px}
+.tt-root .tt-biz{padding:40px 16px 48px;max-width:1000px;margin:0 auto;font-size:13px;color:var(--sub);line-height:1.8}
+.tt-root .tt-biz-name{font-family:Poppins,sans-serif;font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px}
+.tt-root .tt-biz-name span{font-weight:500;color:var(--mute)}
+.tt-root .tt-biz i{font-style:normal;color:#ccc;margin:0 6px}
+.tt-root .tt-biz-todo{color:#c0392b}
+.tt-root .tt-biz-copy{margin-top:10px;color:var(--mute)}
+/* responsive */
+@media (max-width:860px){
+  .tt-root .tt-prog{grid-template-columns:1fr;gap:24px;padding:20px}
+  .tt-root .tt-flip .tt-gallery{order:0}
+  .tt-root .tt-cta-in{grid-template-columns:1fr}
+  .tt-root .tt-qr{margin:0 auto}
+}
+@media (max-width:600px){
+  .tt-root .tt-sec{padding:64px 16px}
+  .tt-root .tt-hero{min-height:380px;border-radius:0;width:100%}
+  .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-cancel{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tt-root .tt-btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
+.tt-root:lang(ja){font-family:Pretendard,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(zh-CN){font-family:Pretendard,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(vi){font-family:Pretendard,"Be Vietnam Pro","Noto Sans",Arial,sans-serif;word-break:normal}
+.tt-root:lang(ru){font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;word-break:normal}
+.tt-root:lang(ru) .tt-facts div,.tt-root:lang(vi) .tt-facts div,.tt-root:lang(en) .tt-facts div{grid-template-columns:84px minmax(0,1fr)}
+
+.tt-thumbs.tt-more{grid-template-columns:repeat(3,1fr)}
+</style>
+<div class="tt-root" lang="ru">
+
+  <section class="tt-sec tt-sec-programs" id="tt-programs">
+    <div class="tt-head">
+      <p class="tt-eyebrow">PROGRAMS</p>
+      <h2 class="tt-h2">FIND YOUR TOUR</h2>
+      <p class="tt-lead">Каждая программа проводится отдельно. Выберите только те, что вам интересны, и бронируйте их по отдельности.</p>
+    </div>
+    <div class="tt-railwrap"><button type="button" class="tt-rail-btn tt-prev" aria-label="prev">&#8592;</button><button type="button" class="tt-rail-btn tt-next" aria-label="next">&#8594;</button>
+    <div class="tt-rail">
+      <a class="tt-card" href="#tt-p01">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/22b2a1a7dc5fd.jpg" alt="Смена королевской стражи" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <p class="tt-card-meta">09:00 – 17:30 · От 2 человек</p>
+        <h3 class="tt-card-title">HELLO SEOUL</h3>
+        <p class="tt-card-kr">Hello Seoul! Обзорный тур</p>
+        <p class="tt-card-price"><b class="tt-olive">01</b> 165 000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p02">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/61325909fe327.jpg" alt="Студия узлов Донглим" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
+        <p class="tt-card-meta">10:00 – 17:00 · От 4 человек</p>
+        <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
+        <p class="tt-card-kr">Art &amp; Beauty · Ремесло и спа</p>
+        <p class="tt-card-price"><b class="tt-olive">02</b> 500 000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p03">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/1d2f38d50d9f2.jpg" alt="Фейерверк над Ханганом" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <p class="tt-card-meta">15:00 – 20:30 · От 4 человек</p>
+        <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-card-kr">The Hyundai Seoul и круиз с фейерверком</p>
+        <p class="tt-card-price"><b class="tt-olive">03</b> 115 000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p04">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/b8dc0402d343d.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
+        <p class="tt-card-meta">10:00 – 15:00 · От 2 человек</p>
+        <h3 class="tt-card-title">SEONGSU TREND</h3>
+        <p class="tt-card-kr">Тренды Сонсу и шопинг</p>
+        <p class="tt-card-price"><b class="tt-olive">04</b> От 250 000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p05">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e3d0b2e9c31c1.jpg" alt="Magic Island" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
+        <p class="tt-card-meta">09:00 – 13:00 · От 3 человек</p>
+        <h3 class="tt-card-title">LOTTE WORLD</h3>
+        <p class="tt-card-kr">День в Lotte World</p>
+        <p class="tt-card-price"><b class="tt-olive">05</b> 160 000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p06">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/386fc39971a89.jpg" alt="Ттокпокки и сундэ" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <p class="tt-card-meta">13:00 – 16:30 · От 2 человек</p>
+        <h3 class="tt-card-title">K-FOOD MARKET</h3>
+        <p class="tt-card-kr">Гастротур K-Food по рынку</p>
+        <p class="tt-card-price"><b class="tt-olive">06</b> 165 000 KRW</p>
+      </a>
+      <a class="tt-card" href="#tt-p07">
+        <div class="tt-card-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/9ba2f1c77a526.jpg" alt="Обсерватория DMZ" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
+        <p class="tt-card-meta">07:30 – 17:00 · От 4 человек</p>
+        <h3 class="tt-card-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-card-kr">DMZ, история перебежчика из КНДР + подвесной мост Камаксан</p>
+        <p class="tt-card-price"><b class="tt-olive">07</b> 145 000 KRW</p>
+      </a>
+    </div><div class="tt-rail-dots"></div></div>
+  </section>
+
+  <section class="tt-sec tt-gray tt-details">
+    <nav class="tt-pnav"><a class="tt-pnav-back" href="#tt-programs">&#8592; Все программы</a><div class="tt-pnav-list"><a href="#tt-p01">01</a><a href="#tt-p02">02</a><a href="#tt-p03">03</a><a href="#tt-p04">04</a><a href="#tt-p05">05</a><a href="#tt-p06">06</a><a href="#tt-p07">07</a></div></nav>
+    <div class="tt-head">
+      <p class="tt-eyebrow">DETAILS</p>
+      <h2 class="tt-h2">PROGRAM DETAILS</h2>
+      <p class="tt-lead">Расписание и стоимость каждой программы. Цены указаны за одного человека.</p>
+    </div>
+    <div class="tt-progs">
+    <article class="tt-prog" id="tt-p01">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/22b2a1a7dc5fd.jpg" alt="Смена королевской стражи" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d23fcb3f46722.jpg" alt="Смена королевской стражи" class="" loading="lazy"><figcaption>Смена королевской стражи</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/4866ab04ba8f1.jpg" alt="Башня N Seoul Tower" class="" loading="lazy"><figcaption>Башня N Seoul Tower</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/feac42e723ce8.jpg" alt="Кванхвамун" loading="lazy"><figcaption>Кванхвамун</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/94855ba5e161c.jpg" alt="Ханоки Намсанголь и Пукчон" loading="lazy"><figcaption>Ханоки Намсанголь и Пукчон</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/896eca8f2a76b.jpg" alt="Чхонгечхон ночью" loading="lazy"><figcaption>Чхонгечхон ночью</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 01</p>
+        <h3 class="tt-prog-title">HELLO SEOUL</h3>
+        <p class="tt-prog-kr">Hello Seoul! Обзорный тур</p>
+        <p class="tt-desc">История Сеула и современный город за один день: королевские дворцы, виды на город и рынок Кванджан.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>165 000 KRW <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>09:00 – 17:30</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>Ежедневно, кроме вторника</dd></div>
+          <div><dt>Группа</dt><dd>От 2 человек</dd></div>
+          <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
+        </dl>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>09:00 Трансфер из отеля</li><li>Кванхвамун и Чхонгечхон на машине, храм Чогеса</li><li>Смена королевской стражи и дворец Кёнбоккун</li><li>Национальный фольклорный музей · Обед</li><li>Деревня ханоков Намсангол (по понедельникам — Пукчон)</li><li>N Seoul Tower → рынок Кванджан</li><li>17:00 Возвращение в отель</li></ol>
+        <p class="tt-note">Программа может измениться, если дворцы закрыты или проводят мероприятия · Вегетарианское/халяльное питание — по запросу заранее</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p02">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/61325909fe327.jpg" alt="Студия узлов Донглим" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5873ce9711f02.jpg" alt="Браслеты из узлов" class="" loading="lazy"><figcaption>Браслеты из узлов</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/608dd2ff28fb7.jpg" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/be9c16e4c2fcf.jpg" alt="Инсадон" loading="lazy"><figcaption>Инсадон</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e9e4fa34d786b.jpg" alt="Мастерская в ханоке" loading="lazy"><figcaption>Мастерская в ханоке</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/c811dba259fba.jpg" alt="Корейский обед" loading="lazy"><figcaption>Корейский обед</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 02</p>
+        <h3 class="tt-prog-title">ART &amp; BEAUTY</h3>
+        <p class="tt-prog-kr">Art &amp; Beauty · Ремесло и спа</p>
+        <p class="tt-desc">Прогулка по улочкам Инсадона и Пукчона, мастер-класс по традиционному плетению узлов у мастера с 50-летним опытом и отдых в спа L&#x27;Occitane в отеле JW Marriott.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>500 000 KRW <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>10:00 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>22 и 29 ноября (вс)</dd></div>
+          <div><dt>Группа</dt><dd>От 4 человек</dd></div>
+          <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
+        </dl>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>10:00 Трансфер</li><li>10:30 Прогулка с гидом по Инсадону и Пукчону</li><li>12:00 Мастер-класс по плетению узлов в Donglim Maedeup<span class="tt-route-d">Мастер-класс по узелковому плетению у мастера с 50-летним опытом. Мэдып — традиционное корейское ремесло: из переплетённых шнуров создают изящные узоры.</span></li><li>13:00 Корейский обед</li><li>14:30 Массаж 60 минут в спа L&#x27;Occitane<span class="tt-route-d">Спа в отеле JW Marriott: K-beauty и премиальный массаж. Расслабляющий или глубокий массаж 60 минут включён; 90 минут — доплата 90 000 вон.</span></li><li>16:30 Свободное время или возвращение в отель</li></ol>
+        <p class="tt-note">Спа 90 минут: +90 000 KRW · Спа может быть заменён на аналогичный по уровню в зависимости от наличия мест</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p03">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/1d2f38d50d9f2.jpg" alt="Фейерверк над Ханганом" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/f3deb5c695486.jpg" alt="Фейерверк над Ханганом" class="" loading="lazy"><figcaption>Фейерверк над Ханганом</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5a06e1da2d858.jpg" alt="The Hyundai Seoul" class="" loading="lazy"><figcaption>The Hyundai Seoul</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/42737c4b15178.jpg" alt="Парк Ёыйдо" loading="lazy"><figcaption>Парк Ёыйдо</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/05d8a16d64af9.jpg" alt="Круиз по Хангану" loading="lazy"><figcaption>Круиз по Хангану</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/6027a6d02c352.jpg" alt="Ночной Ханган" loading="lazy"><figcaption>Ночной Ханган</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 03</p>
+        <h3 class="tt-prog-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-prog-kr">The Hyundai Seoul и круиз с фейерверком</p>
+        <p class="tt-desc">Начните с The Hyundai Seoul — культового торгового центра, а вечер завершите на реке Ханган: шоу, ужин и фейерверк.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>115 000 KRW / с ужином 170 000 KRW <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>15:00 – 20:30</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>21 и 28 ноября (сб)</dd></div>
+          <div><dt>Группа</dt><dd>От 4 человек</dd></div>
+          <div><dt>Встреча</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%97%AC%EC%9D%98%EB%8F%84%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">Станция Ёыидо, выход 3</a></dd></div>
+        </dl>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>15:00 Встреча у станции Ёыидо, выход 3</li><li>15:10 Шопинг и свободное время в The Hyundai Seoul<span class="tt-route-d">Культурный комплекс, где в одном месте собраны новейший стиль жизни Сеула, мода, гастрономия, искусство и архитектура.</span></li><li>16:30 Прогулка по парку Ёыидо<span class="tt-route-d">Городской парк в центре Ёыйдо, финансового района Сеула: природа и отдых среди небоскрёбов и торговых центров.</span></li><li>17:30 Переход к причалу Seoul Cruise<span class="tt-route-d">Единственный круиз по реке Ханган, где сочетаются ужин, музыка и фейерверк.</span></li><li>18:30 Двухчасовой круиз: шоу, ужин и фейерверк<span class="tt-route-d">Два часа шоу, ужина и ночных видов Сеула, а в финале — фейерверк.</span></li><li>20:30 Окончание тура</li></ol>
+        <p class="tt-note">Нужен паспорт · При отмене круиза из-за погоды — полный возврат или перенос даты</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p04">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/b8dc0402d343d.jpg" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/714347a87ef9a.jpg" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/119139c93a9ee.jpg" alt="Сезонный поп-ап" class="" loading="lazy"><figcaption>Сезонный поп-ап</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d939cc4683555.jpg" alt="Склад Тэрим, Сонсу" loading="lazy"><figcaption>Склад Тэрим, Сонсу</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/ee524e5dec52d.jpg" alt="Кафе в Сонсу" loading="lazy"><figcaption>Кафе в Сонсу</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d0cdc5c782366.jpg" alt="Сеульский лес" loading="lazy"><figcaption>Сеульский лес</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 04</p>
+        <h3 class="tt-prog-title">SEONGSU TREND</h3>
+        <p class="tt-prog-kr">Тренды Сонсу и шопинг</p>
+        <p class="tt-desc">Район Сонсу, где старые фабрики и склады стали концепт-сторами, поп-апами и кафе. Самая свежая мода и бьюти Сеула.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>От 250 000 KRW (от 4 человек) <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>10:00 – 15:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>26 (чт), 27 (пт) и 29 (вс) ноября</dd></div>
+          <div><dt>Группа</dt><dd>От 2 человек</dd></div>
+          <div><dt>Встреча</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%B1%EC%88%98%EC%97%AD%202%ED%98%B8%EC%84%A0" target="_blank" rel="noopener">Станция Сонсу</a></dd></div>
+        </dl><div class="tt-tiers"><div><span>1 человек</span><b>800 000 KRW</b></div><div><span>2 человека</span><b>450 000 KRW</b></div><div><span>3 человека</span><b>300 000 KRW</b></div><div><span>4+ человек</span><b>250 000 KRW</b></div></div>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>10:00 Встреча у станции Сонсу</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Самый модный район Сеула. Старые фабрики и склады превратились в кафе, мультибрендовые магазины, модные бренды и поп-апы — весь стиль жизни Сеула в одном месте.</span></li><li>Трендовые магазины: Nyunyu, Igu Home, Daelim Changgo</li><li>Сезонные поп-апы и мультибрендовые магазины</li><li>11:30 Бранч и прогулка по кафе</li><li>15:00 Окончание у Сеульского леса или Olive Young N<span class="tt-route-d">Olive Young N: K-beauty-флагман, открытый в ноябре 2024 года. Огромное пространство около 4600 м², на каждом этаже своя концепция и множество брендов и продуктов.</span></li></ol>
+        <p class="tt-note">Питание включено · Кафе оплачиваются отдельно · Заранее сообщите, какие поп-апы хотите посетить</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p05">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e3d0b2e9c31c1.jpg" alt="Magic Island" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/a7504f732c5f3.jpg" alt="Крытая карусель" class="" loading="lazy"><figcaption>Крытая карусель</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/897e329955cdb.jpg" alt="Волшебный замок" class="" loading="lazy"><figcaption>Волшебный замок</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/971e97e366ee6.jpg" alt="Озеро Сокчхон" loading="lazy"><figcaption>Озеро Сокчхон</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/cd63bc5ca12dd.jpg" alt="Magic Island" loading="lazy"><figcaption>Magic Island</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/f76320c1abf5c.jpg" alt="Крытые аттракционы" loading="lazy"><figcaption>Крытые аттракционы</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 05</p>
+        <h3 class="tt-prog-title">LOTTE WORLD</h3>
+        <p class="tt-prog-kr">День в Lotte World</p>
+        <p class="tt-desc">Крытый парк Adventure и Magic Island на озере Сокчхон. Утро в парке развлечений Сеула в любую погоду.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>160 000 KRW <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>09:00 – 13:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>Ежедневно</dd></div>
+          <div><dt>Группа</dt><dd>От 3 человек</dd></div>
+          <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
+        </dl>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>09:00 Трансфер из отеля</li><li>10:00 Вход в Lotte World · Билет на весь день</li><li>Свободное время в Adventure и Magic Island<span class="tt-route-d">Развлекательный комплекс из крытого парка «Adventure» и открытого «Magic Island». От всепогодных аттракционов до площадок у озера Сокчхон — интересно в любом возрасте.</span></li><li>13:30 Возвращение в отель или остаться и вернуться самостоятельно</li></ol>
+        <p class="tt-note">Гид, транспорт, входной билет и трансфер включены</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p06">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/386fc39971a89.jpg" alt="Ттокпокки и сундэ" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/42103cc24240e.jpg" alt="Рынок Кванджан" class="" loading="lazy"><figcaption>Рынок Кванджан</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/146bd5be0a1e4.jpg" alt="Пиндэтток" class="" loading="lazy"><figcaption>Пиндэтток</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/4ad5aa3858f55.jpg" alt="Сет посам" loading="lazy"><figcaption>Сет посам</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/303278a5ed362.jpg" alt="Ттокпокки" loading="lazy"><figcaption>Ттокпокки</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/befd132688bd1.jpg" alt="Уличная еда" loading="lazy"><figcaption>Уличная еда</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 06</p>
+        <h3 class="tt-prog-title">K-FOOD MARKET</h3>
+        <p class="tt-prog-kr">Гастротур K-Food по рынку</p>
+        <p class="tt-desc">Ешьте, пейте и общайтесь как местные. Тур «всё включено»: 10 блюд, макколли и сомэк.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>165 000 KRW <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>13:00 – 16:30</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>Ежедневно</dd></div>
+          <div><dt>Группа</dt><dd>От 2 человек</dd></div>
+          <div><dt>Встреча</dt><dd>Трансфер из отеля (центр Сеула)</dd></div>
+        </dl>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>13:00 Трансфер из отеля</li><li>Поссам и макколли</li><li>Рынок Кванджан · пиндэтток, кимпаб, ттокпокки<span class="tt-route-d">Главный гастрономический рынок Сеула. Уличная еда — пиндэттоқ, кимпаб, ттокпокки — и живая атмосфера традиционного рынка.</span></li><li>Уличная еда и сомэк</li><li>16:30 Окончание у станции Чонно 5-га</li></ol>
+        <p class="tt-note">Возьмите удостоверение личности (включён алкоголь) · Сообщите об аллергиях и ограничениях в питании при бронировании</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p07">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/9ba2f1c77a526.jpg" alt="Обсерватория DMZ" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-thumbs"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/9c7ffecc1186f.jpg" alt="Имджингак" class="" loading="lazy"><figcaption>Имджингак</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/52b74e8f84243.jpg" alt="Подвесной мост" class="" loading="lazy"><figcaption>Подвесной мост</figcaption></figure></div><div class="tt-thumbs tt-more"><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e7b1324488d94.jpg" alt="Обсерватория Дора" loading="lazy"><figcaption>Обсерватория Дора</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/70492c528d547.jpg" alt="Ленты Имджингак" loading="lazy"><figcaption>Ленты Имджингак</figcaption></figure><figure><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/d481fca501ca9.jpg" alt="Осенние горы" loading="lazy"><figcaption>Осенние горы</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 07</p>
+        <h3 class="tt-prog-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-prog-kr">DMZ, история перебежчика из КНДР + подвесной мост Камаксан</p>
+        <p class="tt-desc">Линия разделения Кореи, рассказ перебежчика из Северной Кореи и прогулка по подвесному мосту Камаксан среди осенних пейзажей.</p>
+        <dl class="tt-facts">
+          <div><dt>Цена</dt><dd>145 000 KRW <small>за человека · без НДС</small></dd></div>
+          <div><dt>Время</dt><dd>07:30 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>Даты</dt><dd>18 (ср), 19 (чт), 20 (пт), 22 (вс) и 29 (вс) ноября</dd></div>
+          <div><dt>Группа</dt><dd>От 4 человек</dd></div>
+          <div><dt>Встреча</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%8B%9C%EC%B2%AD%EC%97%AD%207%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">Станция City Hall, выход 7</a></dd></div>
+        </dl>
+        <p class="tt-sub">Маршрут</p>
+        <ol class="tt-route"><li>07:30 Встреча у станции City Hall, выход 7</li><li>Вопросы и ответы с перебежчиком из КНДР</li><li>Имджингак · Мост объединения · Проверка документов<span class="tt-route-d">Имджингак: символическое место Корейской войны и раскола страны — следы войны и надежда на мир. Мост Объединения: въезд в зону ограниченного доступа для гражданских.</span></li><li>Кинозал DMZ · Третий туннель<span class="tt-route-d">Кинозал и выставка DMZ: фильмы и экспонаты о том, как возникли DMZ, Корейская война и раскол. Третий туннель: подземный военный туннель, вырытый КНДР для вторжения, обнаружен в 1978 году.</span></li><li>Обсерватория Дора · Деревня объединения<span class="tt-route-d">Обсерватория Дора: главная смотровая площадка DMZ с видом на сёла КНДР и гору Сонгаксан. Деревня Объединения: посёлок в зоне ограниченного доступа с особым укладом жизни.</span></li><li>Подвесной мост Камаксан (40–50 мин туда и обратно)<span class="tt-route-d">Лучшее место для прогулок в горах рядом с DMZ.</span></li><li>17:00 Окончание у станции City Hall</li></ol>
+        <p class="tt-note">Нужен паспорт/удостоверение · Маршрут может измениться по военным или погодным причинам · Не проводится по понедельникам и праздникам</p>
+        <a class="tt-btn" href="/booking?lang=ru">Забронировать</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="tt-sec tt-sec-faq">
+    <div class="tt-head">
+      <p class="tt-eyebrow">NOTICE</p>
+      <h2 class="tt-h2">BEFORE YOU BOOK</h2>
+      <p class="tt-lead">Пожалуйста, ознакомьтесь перед бронированием.</p>
+    </div>
+    <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>Есть ли трансфер из отеля?</p><p class="tt-q-a">Трансфер включён для отелей в центре Сеула (в пределах старых городских ворот). Для других районов взимается доплата в зависимости от расстояния. Для программ 03, 04 и 07 сбор в назначенном месте.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>За сколько нужно бронировать?</p><p class="tt-q-a">Бронирование закрывается за неделю до даты тура. Заявка принимается после предоплаты 10%, остаток оплачивается после подтверждения тура.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Как можно оплатить?</p><p class="tt-q-a">Картой или наличными. Цены указаны за человека, без НДС 10%.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Можно забронировать несколько программ?</p><p class="tt-q-a">Да. Каждая программа — отдельный продукт: просто укажите в форме все нужные программы и даты.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Что взять с собой?</p><p class="tt-q-a">Паспорт для программ 03 и 07, удостоверение личности для программы 06 (включён алкоголь). Сообщите о вегетарианском или халяльном питании и аллергиях при бронировании.</p></div>
+      <div class="tt-q"><p class="tt-q-title"><b>Q</b>Можно ли вернуть деньги при отмене?</p>
+        <p class="tt-q-a">Возврат рассчитывается от времени начала тура, как указано ниже. После подтверждения брони предоплата 10% не возвращается; она также удерживается, если остаток не оплачен после подтверждения.</p>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>Более 72 ч</span><b class="">90%</b><em>возврат (кроме предоплаты)</em></div><div class="tt-cancel-item"><span>За 72–48 ч</span><b class="">50%</b><em>возврат</em></div><div class="tt-cancel-item"><span>За 48–24 ч</span><b class="">30%</b><em>возврат</em></div><div class="tt-cancel-item"><span>Менее 24 ч</span><b class="tt-zero">0%</b><em>без возврата</em></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tt-cta" id="tt-booking">
+    <div class="tt-cta-in">
+      <div>
+        <p class="tt-eyebrow">RESERVATION</p>
+        <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
+        <p class="tt-lead tt-left">Укажите программу, дату, количество человек и ваш отель. Наша команда подтвердит бронь и пришлёт реквизиты для предоплаты.</p>
+        <a class="tt-btn tt-btn-lg" href="/booking?lang=ru">Забронировать тур &#8599;</a>
+        <div class="tt-contact"><p>Есть вопросы? Напишите менеджеру напрямую.</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="Найдите по ID"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>Телефон</b><span>+82 10-2047-3178</span></span></a></div></div>
+      </div>
+      <div class="tt-qr">
+        <div class="tt-qr-box tt-qr-on"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/5fb75f855f2a3.png" alt="QR"></div>
+        <p>Отсканируйте для брони</p>
+      </div>
+    </div>
+  </section>
+<div class="tt-pop" id="tt-kakao-pop"><div class="tt-pop-box"><b>KakaoTalk · coolibiza</b><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/3ef2a1e716dde.png" alt="KakaoTalk QR"><p>Отсканируйте камерой телефона, чтобы добавить нас в KakaoTalk.</p><button type="button" class="tt-pop-close">Закрыть</button></div></div><div class="tt-toast" id="tt-toast"></div>
+</div>
+<script>
+(function(){var r=document.currentScript&&document.currentScript.parentNode.querySelector('.tt-root')||document.querySelector('.tt-root');if(!r)return;r.classList.add('tt-js');
+function show(){var h=(location.hash||'').slice(1),m=/^tt-p0[1-7]$/.test(h);r.classList.toggle('tt-view-detail',m);
+[].forEach.call(r.querySelectorAll('.tt-prog,.tt-pnav-list a'),function(e){e.classList.toggle('tt-on',e.id===h||e.getAttribute('href')==='#'+h)});
+if(m){var t=r.querySelector('.tt-details');setTimeout(function(){window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset-90)},0)}
+else if(h==='tt-programs'){var p=r.querySelector('.tt-sec-programs');setTimeout(function(){window.scrollTo(0,p.getBoundingClientRect().top+window.pageYOffset-90)},0)}}
+r.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href^="#tt-p"],a[href="#tt-programs"]');if(!a)return;ev.preventDefault();ev.stopPropagation();var h=a.getAttribute('href');if(location.hash!==h){history.pushState(null,'',h)}show()},true);
+var mob=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent),pop=r.querySelector('#tt-kakao-pop'),toast=r.querySelector('#tt-toast'),tt;
+function say(m){toast.textContent=m;toast.classList.add('tt-on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('tt-on')},1600)}
+function copy(t,label){try{navigator.clipboard.writeText(t).then(function(){say('Скопировано: '+label)},function(){say(label)})}catch(e){say(label)}}
+r.addEventListener('click',function(ev){var c=ev.target.closest&&ev.target.closest('.tt-ci');if(ev.target.closest&&ev.target.closest('.tt-pop-close')||ev.target===pop){pop.classList.remove('tt-on');return}if(!c)return;var h=c.getAttribute('href')||'';
+if(/kakao/.test(h)&&!mob){ev.preventDefault();pop.classList.add('tt-on')}
+else if(/^tel:/.test(h)&&!mob){ev.preventDefault();copy('+82 10-2047-3178','+82 10-2047-3178')}
+else if(!h){copy('totium2026','WhatsApp @totium2026')}});
+var rl=r.querySelector('.tt-rail'),pv=r.querySelector('.tt-prev'),nx=r.querySelector('.tt-next'),dots=r.querySelector('.tt-rail-dots');
+if(rl){rl.scrollLeft=0;var cards=rl.querySelectorAll('.tt-card');dots.innerHTML=Array.prototype.map.call(cards,function(){return '<i></i>'}).join('');
+function upd(){var w=cards[0].getBoundingClientRect().width+16,i=Math.round(rl.scrollLeft/w),max=rl.scrollWidth-rl.clientWidth-4;pv.disabled=rl.scrollLeft<4;nx.disabled=rl.scrollLeft>=max;[].forEach.call(dots.children,function(d,k){d.classList.toggle('tt-on',k===Math.min(i,cards.length-1))})}
+function go(d){var w=cards[0].getBoundingClientRect().width+16;rl.scrollBy({left:d*w,behavior:'smooth'})}
+pv.addEventListener('click',function(e){e.preventDefault();go(-1)});nx.addEventListener('click',function(e){e.preventDefault();go(1)});rl.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);setTimeout(upd,50)}
+window.addEventListener('hashchange',show);window.addEventListener('popstate',show);show();})();
+</script>
+
+<section class="ts-sec ts-why" id="ts-why"><div class="w">
+  <div class="ts-kick">WHY TOTIUM</div><h2 class="ts-h2">Beyond Travel</h2><p class="ts-lead">Легко даже в первый приезд в Сеул</p>
+  <div class="g">
+    <div><div class="ic">⌂</div><h4>Трансфер из отеля</h4><p>Бесплатно из отелей центра Сеула<br>(03·04·07 — встреча в точке сбора)</p></div>
+    <div><div class="ic">文</div><h4>Гиды на разных языках</h4><p>Английский по умолчанию<br>китайский · японский по запросу</p></div>
+    <div><div class="ic">◎</div><h4>Малые группы</h4><p>Туры от<br>2–4 человек</p></div>
+  </div></div></section>
+<section class="ts-sec" id="ts-how"><div class="w">
+  <div class="ts-kick">HOW TO BOOK</div><h2 class="ts-h2">Как забронировать</h2><p class="ts-lead">4 простых шага</p>
+  <div class="ts-steps">
+    <div><div class="n">1</div><h4>Заявка</h4><p>Выберите тур, дату и гостей<br>на странице бронирования</p></div>
+    <div><div class="n">2</div><h4>Депозит 10%</h4><p>Безопасная оплата<br>через PayPal</p></div>
+    <div><div class="n">3</div><h4>Подтверждение</h4><p>Проверим наличие мест<br>и свяжемся с вами</p></div>
+    <div><div class="n">4</div><h4>Оплата → В путь</h4><p>Оплатите остаток и получите<br>время трансфера и гида</p></div>
+  </div></div></section>
+<script>
+(function(){ var faq=document.querySelector('.tt-sec-faq'); var w=document.getElementById('ts-why'), h=document.getElementById('ts-how');
+  if(faq&&w&&h&&!w.dataset.mv){ w.dataset.mv=1; faq.parentNode.insertBefore(w,faq); faq.parentNode.insertBefore(h,faq); }
+  var v=document.querySelector('.ts-hero video'), po=document.querySelector('.ts-hero .po');
+  if(v){ v.muted=true; v.setAttribute('muted',''); v.playsInline=true;
+    var hide=function(){ if(po) po.style.display='none'; };
+    v.addEventListener('playing',hide); v.addEventListener('timeupdate',function(){ if(v.currentTime>0.1) hide(); });
+    var go=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+    if(v.readyState>=2) go(); else v.addEventListener('canplay',go,{once:true});
+    ['touchstart','click','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,function once(){ if(v.paused) go(); window.removeEventListener(ev,once); },{passive:true}); });
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden && v.paused) go(); });
+    if(!v.paused && v.currentTime>0) hide(); }
+})();
+</script>
+<!-- TOTIUM shell: header + floating contact + footer cleanup [TOTIUM-SHELL] -->
+<style>
+#doz_header_wrap{display:none!important}
+body{background:#faf8f3}
+.ts-head{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;transition:background .3s,box-shadow .3s,padding .3s;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.ts-head .lg{display:block;height:36px}.ts-head .lg img{height:100%;width:auto;display:block}
+.ts-head .lg .dk{display:none}
+.ts-nav{display:flex;align-items:center;gap:30px;font-size:13.5px;letter-spacing:.08em;color:#fff}
+.ts-nav a{color:inherit;text-decoration:none}
+.ts-nav .bk{border:1px solid currentColor;padding:9px 20px;border-radius:999px}
+.ts-head.solid,.ts-head.light{background:rgba(250,248,243,.96);box-shadow:0 1px 0 #e7e1d6;padding:12px 48px}
+.ts-head.solid .ts-nav,.ts-head.light .ts-nav{color:#1c1b19}
+.ts-head.solid .lg .wh,.ts-head.light .lg .wh{display:none}.ts-head.solid .lg .dk,.ts-head.light .lg .dk{display:block}
+.ts-head.solid .bk,.ts-head.light .bk{background:#1c1b19;color:#fff;border-color:#1c1b19}
+.ts-burger{display:none;background:none;border:0;width:36px;height:36px;color:inherit;font-size:24px;cursor:pointer}
+@media(max-width:760px){.ts-head{padding:14px 18px}.ts-head.solid,.ts-head.light{padding:10px 18px}.ts-head .lg{height:28px}.ts-nav a:not(.bk){display:none}.ts-nav{gap:10px}.ts-nav .bk{padding:7px 14px;font-size:12px}}
+.ts-fab{position:fixed;right:22px;bottom:22px;z-index:998;font-family:Pretendard,"Apple SD Gothic Neo",sans-serif}
+.ts-fab>button{width:58px;height:58px;border-radius:50%;border:0;background:#1c1b19;color:#fff;font-size:24px;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer}
+.ts-fab .menu{position:absolute;right:0;bottom:70px;background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.18);padding:8px;width:210px;display:none}
+.ts-fab.on .menu{display:block}
+.ts-fab .menu a{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:8px;color:#1c1b19;text-decoration:none;font-size:14px}
+.ts-fab .menu a:hover{background:#faf8f3}
+.ts-fab .menu a.bk{background:#1c1b19;color:#fff;justify-content:center;margin-top:4px;letter-spacing:.08em;font-size:13px}
+.ts-fab .menu small{color:#8a8378;font-size:12px;margin-left:auto}
+.ts-toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#1c1b19;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;z-index:1000;opacity:0;transition:.3s;pointer-events:none}
+.ts-toast.on{opacity:1}
+.ts-lang{position:relative}.ts-lang>button{background:none;border:0;color:inherit;font:inherit;letter-spacing:.06em;cursor:pointer;padding:6px 2px}.ts-lang .ls{position:absolute;right:0;top:34px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(0,0,0,.16);padding:6px;display:none;min-width:120px}.ts-lang.on .ls{display:block}.ts-lang .ls a{display:block;padding:8px 12px;border-radius:6px;color:#1c1b19!important;font-size:13px;letter-spacing:.02em}.ts-lang .ls a:hover,.ts-lang .ls a.on{background:#f3efe6}@media(max-width:760px){.ts-nav .ts-lang{display:block}}
+</style>
+<header class="ts-head" id="ts-head">
+  <a class="lg" href="/ru" aria-label="TOTIUM home"><img class="wh" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM"><img class="dk" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/66396e596c9c0.png" alt="TOTIUM"></a>
+  <nav class="ts-nav"><a href="/ru#tt-programs">ТУРЫ</a><a href="/ru#ts-why">О НАС</a><a href="/ru#tt-booking">КОНТАКТЫ</a><a class="bk" href="/booking?lang=ru">ЗАБРОНИРОВАТЬ</a><div class="ts-lang"><button type="button">RU ▾</button><div class="ls"><a href="https://totium.imweb.me/">KO</a><a href="https://totium-en.imweb.me/">EN</a><a href="https://totium-ja.imweb.me/">日本語</a><a href="https://totium-zh.imweb.me/">中文</a><a href="https://totium-vi.imweb.me/">VI</a><a href="https://totium.imweb.me/ru" class=on>RU</a></div></div></nav>
+</header>
+<div class="ts-fab" id="ts-fab">
+  <div class="menu">
+    <a href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener">💬 KakaoTalk <small>coolibiza</small></a>
+    <a href="#" data-copy="@totium2026">🟢 WhatsApp <small>@totium2026</small></a>
+    <a href="https://t.me/coolibiza" target="_blank" rel="noopener">✈️ Telegram <small>@coolibiza</small></a>
+    <a href="tel:+821020473178">📞 Phone <small>+82 10-2047-3178</small></a>
+    <a class="bk" href="/booking?lang=ru">ЗАБРОНИРОВАТЬ</a>
+  </div>
+  <button type="button" aria-label="Contact">💬</button>
+</div>
+<div class="ts-toast" id="ts-toast"></div>
+<script>
+(function(){
+  if(window.__tsShell) return; window.__tsShell=1;
+  var head=document.getElementById('ts-head'), hasHero=!!document.querySelector('.ts-hero');
+  if(!hasHero){ head.classList.add('light'); var mn=document.querySelector('main'); if(mn) mn.style.paddingTop='76px'; }
+  document.body.appendChild(head); document.body.appendChild(document.getElementById('ts-fab')); document.body.appendChild(document.getElementById('ts-toast'));
+  function onScroll(){ if(hasHero) head.classList.toggle('solid', window.scrollY>window.innerHeight*0.6); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var fab=document.getElementById('ts-fab');
+  fab.querySelector('button').addEventListener('click',function(){ fab.classList.toggle('on'); this.textContent=fab.classList.contains('on')?'✕':'💬'; });
+  function toast(m){ var t=document.getElementById('ts-toast'); t.textContent=m; t.classList.add('on'); setTimeout(function(){t.classList.remove('on')},2200); }
+  fab.querySelectorAll('[data-copy]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); var v=a.getAttribute('data-copy');
+    (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){toast('WhatsApp ID copied: '+v)},function(){toast('WhatsApp: '+v)}); }); });
+  var lg=document.querySelector('.ts-lang'); if(lg){ lg.querySelector('button').addEventListener('click',function(e){e.stopPropagation(); lg.classList.toggle('on');}); document.addEventListener('click',function(){lg.classList.remove('on')}); }
+  // smooth in-page links (imweb intercepts hash clicks)
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="/#"],a[href^="/ru#"]'); if(!a) return; var id=a.getAttribute('href').split('#')[1], el=document.getElementById(id);
+    if(el && /^\/(ru)?\/?$/.test(location.pathname)){ e.preventDefault(); e.stopImmediatePropagation(); window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); history.pushState(null,'','#'+id); } },true);
+  // remove template placeholder text in footer, add required business info
+  function clean(){ var f=document.getElementById('doz_footer_wrap'); if(!f) return;
+    f.querySelectorAll('*').forEach(function(el){ if(el.children.length===0 && /^(Site name|I'm a paragraph\.)/.test((el.textContent||'').trim())){ el.style.display='none'; } });
+    f.querySelectorAll('a[href*="facebook"], [class*="facebook"]').forEach(function(el){ (el.closest('a')||el).style.display='none'; });
+    var info=f.querySelector('.footer-company-info'); if(info && !info.querySelector('.ts-extra')){ var p=document.createElement('p'); p.className='ts-extra'; p.style.marginTop='4px';
+      p.textContent='통신판매업신고: 제2026-경기시흥-2583호 · 고객센터: +82 10-2047-3178 · 개인정보보호책임자: 이우현'; info.appendChild(p); } }
+  clean(); setTimeout(clean,800); setTimeout(clean,2500);
+})();
+</script>

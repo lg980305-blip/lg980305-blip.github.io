@@ -28,11 +28,12 @@ html body .ts-hero{width:100vw;margin-left:calc(50% - 50vw)}
 html body .tt-root .tt-sec h2,html body .tt-root .tt-cta h2{font-family:"Times New Roman","Noto Serif KR","Noto Serif CJK KR",serif!important;font-weight:400!important;letter-spacing:.01em!important}
 html body .tt-root{scroll-margin-top:80px}
 html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
+.tt-root a.tt-map{color:inherit;text-decoration:underline;text-decoration-color:#cdb892;text-underline-offset:3px}.tt-root a.tt-map:before{content:"📍";margin-right:3px;text-decoration:none;display:inline-block}
 </style>
 <section class="ts-hero">
   <img class="po" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg" alt="">
   <video autoplay muted loop playsinline preload="auto" poster="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg"><source src="https://cdn.imweb.me/upload/S20261110f40759a202b75/8d7b99dfb3e9a.mp4" type="video/mp4"></video>
-  <div class="in"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM — Beyond Travel"><p>서울을 가장 편하게 — 호텔 픽업 · 다국어 가이드 · 소규모 투어</p><a class="cta" href="/#tt-programs">EXPLORE TOURS</a></div>
+  <div class="in"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM — Beyond Travel"><p>The Easiest Way to Experience Seoul — 호텔 픽업 · 다국어 가이드 · 소규모 투어</p><a class="cta" href="/#tt-programs">EXPLORE TOURS</a></div>
   <span class="scr">SCROLL ↓</span>
 </section>
 <style>
@@ -322,7 +323,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
           <div><dt>시간</dt><dd>15:00 – 20:30</dd></div>
           <div class="tt-date-row"><dt>운영일</dt><dd>11/21(토), 11/28(토)</dd></div>
           <div><dt>인원</dt><dd>최소 4인</dd></div>
-          <div><dt>미팅</dt><dd>여의도역 3번 출구</dd></div>
+          <div><dt>미팅</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%97%AC%EC%9D%98%EB%8F%84%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">여의도역 3번 출구</a></dd></div>
         </dl>
         <p class="tt-sub">일정</p>
         <ol class="tt-route"><li>15:00 여의도역 3번 출구 미팅</li><li>15:10 더현대 서울 쇼핑 &amp; 자유시간<span class="tt-route-d">서울의 최신 라이프스타일과 패션, 미식, 예술, 건축을 한 공간에서 경험할 수 있는 복합문화공간입니다.</span></li><li>16:30 여의도 공원 산책<span class="tt-route-d">금융·비즈니스 중심지 여의도 한복판의 도심 공원으로, 고층 빌딩과 대형 쇼핑몰 사이에서 자연과 휴식을 즐길 수 있습니다.</span></li><li>17:30 서울크루즈 선착장 이동<span class="tt-route-d">한강 위에서 디너와 음악, 불꽃쇼를 함께 즐기는 유일한 상품입니다.</span></li><li>18:30 공연·디너·불꽃쇼 2시간<span class="tt-route-d">2시간 동안 이어지는 공연과 디너, 서울의 야경 감상. 불꽃놀이로 마무리하는 추억의 시간입니다.</span></li><li>20:30 일정 종료</li></ol>
@@ -345,7 +346,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
           <div><dt>시간</dt><dd>10:00 – 15:00</dd></div>
           <div class="tt-date-row"><dt>운영일</dt><dd>11/26(목), 27(금), 29(일)</dd></div>
           <div><dt>인원</dt><dd>최소 2인</dd></div>
-          <div><dt>미팅</dt><dd>성수역 미팅</dd></div>
+          <div><dt>미팅</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%B1%EC%88%98%EC%97%AD%202%ED%98%B8%EC%84%A0" target="_blank" rel="noopener">성수역 미팅</a></dd></div>
         </dl><div class="tt-tiers"><div><span>1인</span><b>800,000원</b></div><div><span>2인</span><b>450,000원</b></div><div><span>3인</span><b>300,000원</b></div><div><span>4인 이상</span><b>250,000원</b></div></div>
         <p class="tt-sub">일정</p>
         <ol class="tt-route"><li>10:00 성수역 미팅</li><li>올리브영N · 젠틀몬스터 · 무신사<span class="tt-route-d">지금 서울에서 가장 핫한 동네. 오래된 공장과 창고가 카페, 편집숍, 패션 브랜드, 팝업스토어로 다시 태어나, 서울의 감각적인 라이프스타일을 한자리에서 만날 수 있습니다.</span></li><li>뉴뉴 · 이구홈 · 대림창고 등 트렌드 숍</li><li>시즌 팝업스토어 &amp; 편집숍</li><li>11:30 브런치·카페 탐방</li><li>15:00 서울숲 또는 올리브영N에서 종료<span class="tt-route-d">올리브영N: 2024년 11월 문을 연 K-뷰티 랜드마크. 1,400평 규모의 초대형 뷰티 공간으로, 층마다 다른 콘셉트로 다양한 브랜드와 제품을 경험할 수 있습니다.</span></li></ol>
@@ -414,7 +415,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
           <div><dt>시간</dt><dd>07:30 – 17:00</dd></div>
           <div class="tt-date-row"><dt>운영일</dt><dd>11/18(수), 19(목), 20(금), 22(일), 29(일)</dd></div>
           <div><dt>인원</dt><dd>최소 4인</dd></div>
-          <div><dt>미팅</dt><dd>시청역 7번 출구</dd></div>
+          <div><dt>미팅</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%8B%9C%EC%B2%AD%EC%97%AD%207%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">시청역 7번 출구</a></dd></div>
         </dl>
         <p class="tt-sub">일정</p>
         <ol class="tt-route"><li>07:30 시청역 7번 출구 미팅</li><li>탈북민 질의응답</li><li>임진각 · 통일대교 · 신분 확인<span class="tt-route-d">임진각: 한국전쟁과 남북 분단의 역사를 간직한 상징적인 장소로, 전쟁의 흔적과 평화를 향한 염원을 함께 느낄 수 있습니다. 통일대교: 민간인 출입통제구역으로 들어가는 관문입니다.</span></li><li>DMZ 영상관 · 제3땅굴<span class="tt-route-d">DMZ 영상관·전시관: DMZ의 형성과 한국전쟁, 남북 분단의 배경을 영상과 전시로 살펴보며 분단의 현실과 평화의 의미를 이해합니다. 제3땅굴: 북한이 남침을 목적으로 만든 것으로 확인된 지하 군사시설로, 1978년에 발견되었습니다.</span></li><li>도라전망대 · 통일촌<span class="tt-route-d">도라전망대: 북한 마을과 송악산 일대까지 내다볼 수 있는 대표 DMZ 전망 명소. 통일촌: 민간인 출입통제구역 안에 자리한 마을로, 주민들의 특별한 생활 모습을 엿볼 수 있습니다.</span></li><li>감악산 출렁다리 (왕복 40~50분)<span class="tt-route-d">DMZ 인근 최고의 하이킹 명소입니다.</span></li><li>17:00 시청역 해산</li></ol>
@@ -533,10 +534,11 @@ body{background:#faf8f3}
 .ts-fab .menu small{color:#8a8378;font-size:12px;margin-left:auto}
 .ts-toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#1c1b19;color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;z-index:1000;opacity:0;transition:.3s;pointer-events:none}
 .ts-toast.on{opacity:1}
+.ts-lang{position:relative}.ts-lang>button{background:none;border:0;color:inherit;font:inherit;letter-spacing:.06em;cursor:pointer;padding:6px 2px}.ts-lang .ls{position:absolute;right:0;top:34px;background:#fff;border-radius:10px;box-shadow:0 10px 26px rgba(0,0,0,.16);padding:6px;display:none;min-width:120px}.ts-lang.on .ls{display:block}.ts-lang .ls a{display:block;padding:8px 12px;border-radius:6px;color:#1c1b19!important;font-size:13px;letter-spacing:.02em}.ts-lang .ls a:hover,.ts-lang .ls a.on{background:#f3efe6}@media(max-width:760px){.ts-nav .ts-lang{display:block}}
 </style>
 <header class="ts-head" id="ts-head">
   <a class="lg" href="/" aria-label="TOTIUM home"><img class="wh" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM"><img class="dk" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/66396e596c9c0.png" alt="TOTIUM"></a>
-  <nav class="ts-nav"><a href="/#tt-programs">TOURS</a><a href="/#ts-why">ABOUT</a><a href="/#tt-booking">CONTACT</a><a class="bk" href="/booking">BOOK NOW</a></nav>
+  <nav class="ts-nav"><a href="/#tt-programs">TOURS</a><a href="/#ts-why">ABOUT</a><a href="/#tt-booking">CONTACT</a><a class="bk" href="/booking">BOOK NOW</a><div class="ts-lang"><button type="button">KO ▾</button><div class="ls"><a href="https://totium.imweb.me/" class=on>KO</a><a href="https://totium-en.imweb.me/">EN</a><a href="https://totium-ja.imweb.me/">日本語</a><a href="https://totium-zh.imweb.me/">中文</a><a href="https://totium-vi.imweb.me/">VI</a><a href="https://totium.imweb.me/ru">RU</a></div></div></nav>
 </header>
 <div class="ts-fab" id="ts-fab">
   <div class="menu">
@@ -562,6 +564,7 @@ body{background:#faf8f3}
   function toast(m){ var t=document.getElementById('ts-toast'); t.textContent=m; t.classList.add('on'); setTimeout(function(){t.classList.remove('on')},2200); }
   fab.querySelectorAll('[data-copy]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); var v=a.getAttribute('data-copy');
     (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){toast('WhatsApp ID copied: '+v)},function(){toast('WhatsApp: '+v)}); }); });
+  var lg=document.querySelector('.ts-lang'); if(lg){ lg.querySelector('button').addEventListener('click',function(e){e.stopPropagation(); lg.classList.toggle('on');}); document.addEventListener('click',function(){lg.classList.remove('on')}); }
   // smooth in-page links (imweb intercepts hash clicks)
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="/#"]'); if(!a) return; var id=a.getAttribute('href').slice(2), el=document.getElementById(id);
     if(el && location.pathname==='/'){ e.preventDefault(); e.stopImmediatePropagation(); window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); history.pushState(null,'','#'+id); } },true);
