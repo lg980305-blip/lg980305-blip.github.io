@@ -270,7 +270,9 @@
     var set=Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype,'value').set; set.call(f.ta,v);
     f.ta.dispatchEvent(new Event('input',{bubbles:true})); f.ta.dispatchEvent(new Event('change',{bubbles:true}));
   }
-  function hideArea(){ var f=formArea(); if(f){ f.wrap.style.display='none'; return true;} return false; }
+  function hideArea(){ var f=formArea(); if(f){ f.wrap.style.display='none';
+      var form=f.wrap.closest('form'); if(form&&!root.dataset.moved){ root.dataset.moved='1'; form.parentNode.insertBefore(root,form); }
+      return true;} return false; }
   var tries=0; (function wait(){ if(!hideArea()&&tries++<40) setTimeout(wait,250); else sync(); })();
 
   function validate(){
