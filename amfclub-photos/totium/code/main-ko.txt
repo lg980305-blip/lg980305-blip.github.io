@@ -496,7 +496,15 @@ window.addEventListener('hashchange',show);window.addEventListener('popstate',sh
 <script>
 (function(){ var faq=document.querySelector('.tt-sec-faq'); var w=document.getElementById('ts-why'), h=document.getElementById('ts-how');
   if(faq&&w&&h&&!w.dataset.mv){ w.dataset.mv=1; faq.parentNode.insertBefore(w,faq); faq.parentNode.insertBefore(h,faq); }
-  var v=document.querySelector('.ts-hero video'); if(v){ v.addEventListener('playing',function(){ var p=document.querySelector('.ts-hero .po'); if(p) p.style.display='none'; }); }
+  var v=document.querySelector('.ts-hero video'), po=document.querySelector('.ts-hero .po');
+  if(v){ v.muted=true; v.setAttribute('muted',''); v.playsInline=true;
+    var hide=function(){ if(po) po.style.display='none'; };
+    v.addEventListener('playing',hide); v.addEventListener('timeupdate',function(){ if(v.currentTime>0.1) hide(); });
+    var go=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+    if(v.readyState>=2) go(); else v.addEventListener('canplay',go,{once:true});
+    ['touchstart','click','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,function once(){ if(v.paused) go(); window.removeEventListener(ev,once); },{passive:true}); });
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden && v.paused) go(); });
+    if(!v.paused && v.currentTime>0) hide(); }
 })();
 </script>
 <!-- TOTIUM shell: header + floating contact + footer cleanup [TOTIUM-SHELL] -->
