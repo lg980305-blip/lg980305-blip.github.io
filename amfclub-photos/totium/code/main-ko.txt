@@ -353,6 +353,39 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
         <p class="tt-note">식사 포함 · 카페 비용 개인 부담 · 꼭 가고 싶은 팝업은 미리 요청 가능</p>
         <a class="tt-btn" href="https://totium.imweb.me/booking">이 프로그램 예약하기</a>
       </div>
+    <!-- TOTIUM Seongsu pop-up reference [TOTIUM-POPUPS] -->
+<style>
+.sp-wrap{max-width:1240px;margin:0 auto;padding:72px 20px;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#1c1b19}
+.sp-kick{font-size:12px;letter-spacing:.3em;color:#b39a74;text-align:center}
+.sp-h{font-family:"Times New Roman","Noto Serif KR",serif;font-weight:400;font-size:clamp(26px,3vw,36px);text-align:center;margin:10px 0 6px}
+.sp-lead{text-align:center;color:#6d675e;font-size:14.5px;margin:0 0 36px}
+.sp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.sp-card{background:#fff;border-radius:10px;overflow:hidden;border:1px solid #ece6da;display:flex;flex-direction:column}
+.sp-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#eee}
+.sp-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sp-img span{position:absolute;left:10px;top:10px;background:rgba(28,27,25,.78);color:#fff;font-size:10.5px;letter-spacing:.12em;padding:3px 8px;border-radius:3px}
+.sp-b{padding:14px 15px 16px}
+.sp-brand{font-family:"Times New Roman",serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 4px;line-height:1.2}
+.sp-b h4{font-size:13.5px;font-weight:600;color:#6d675e;margin:0 0 4px;line-height:1.35}
+.sp-d{color:#a88d62;font-weight:700;font-size:13px;margin:0 0 10px}
+.sp-b dl{margin:0;font-size:12.5px}
+.sp-b dl div{display:grid;grid-template-columns:32px 1fr;gap:6px;margin:0 0 3px}
+.sp-b dt{color:#9a9388}.sp-b dd{margin:0}
+.sp-why{font-size:12px;color:#6d675e;margin:10px 0 0;padding-top:10px;border-top:1px dashed #e7e1d6}
+.sp-note{text-align:center;color:#9a9388;font-size:12px;margin:24px 0 0;line-height:1.7}
+@media(max-width:1100px){.sp-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.sp-grid{grid-template-columns:repeat(2,1fr);gap:10px}.sp-brand{font-size:15px}}
+#tt-p04 .sp-in{order:9;grid-column:1/-1;max-width:none;padding:36px 0 4px;margin-top:8px;border-top:1px solid #e7e1d6}
+#tt-p04 .sp-in .sp-h{font-size:clamp(22px,2.4vw,30px)}
+#tt-p04 .sp-in .sp-lead{margin-bottom:24px}
+</style>
+<section class="sp-wrap sp-in" id="ts-popups">
+  <div class="sp-kick">SEONGSU POP-UPS · NOVEMBER</div>
+  <h2 class="sp-h">이번 달 성수 추천 팝업</h2>
+  <p class="sp-lead">04 SEONGSU TREND 투어에서 들르기 좋은 팝업이에요 (참고용)</p>
+  <div class="sp-grid"><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/0508999391fe5.jpg" alt="NCT DREAM pop-up" loading="lazy" style="object-position:center top"><span>K-POP</span></div><div class="sp-b"><p class="sp-brand">NCT DREAM</p><h4>NCT 드림 WELCOME, DREAMERS</h4><p class="sp-d">11/8–11/16</p><dl><div><dt>위치</dt><dd>연무장7길 16</dd></div><div><dt>예약</dt><dd>현장대기</dd></div></dl><p class="sp-why">K-팝 팬 1순위 · 스탬프 랠리 · 포토카드</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/768c1dc9e0e4c.jpg" alt="hince pop-up" loading="lazy" style="object-position:center center"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">hince</p><h4>힌스 글릿 엔젤</h4><p class="sp-d">11/12–11/19</p><dl><div><dt>위치</dt><dd>올리브영N 성수</dd></div><div><dt>예약</dt><dd>네이버 사전예약</dd></div></dl><p class="sp-why">K-뷰티 · 미션 완료 시 본품 증정</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/72aab34798ca6.jpg" alt="2aN × Hearts2Hearts pop-up" loading="lazy" style="object-position:center top"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">2aN × Hearts2Hearts</p><h4>투에이엔 모브 크러쉬</h4><p class="sp-d">11/11–12/7</p><dl><div><dt>위치</dt><dd>무신사 뷰티 성수</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">새로 연 400평 뷰티 매장 · 포토카드</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/a3bbb62fd8e0f.jpg" alt="CHANEL pop-up" loading="lazy" style="object-position:center center"><span>HOLIDAY</span></div><div class="sp-b"><p class="sp-brand">CHANEL</p><h4>샤넬 홀리데이</h4><p class="sp-d">11/21–12/31</p><dl><div><dt>위치</dt><dd>성수이로7가길 9</dd></div><div><dt>예약</dt><dd>사전예약</dd></div></dl><p class="sp-why">연말 분위기 · 포토 스팟</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/07ad4fe3c7ac1.jpg" alt="Love Live! pop-up" loading="lazy" style="object-position:center bottom"><span>EXHIBITION</span></div><div class="sp-b"><p class="sp-brand">Love Live!</p><h4>러브라이브! 15주년 전시</h4><p class="sp-d">11/14–12/31</p><dl><div><dt>위치</dt><dd>어브 스튜디오</dd></div><div><dt>예약</dt><dd>티켓 구매</dd></div></dl><p class="sp-why">일본·중국 애니 팬</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fec32551dd743.jpg" alt="Cardcaptor Sakura pop-up" loading="lazy" style="object-position:center top"><span>CAFE</span></div><div class="sp-b"><p class="sp-brand">Cardcaptor Sakura</p><h4>사쿠라와 토모요의 티파티</h4><p class="sp-d">11/11–11/29</p><dl><div><dt>위치</dt><dd>무신사 스페이스 서울숲</dd></div><div><dt>예약</dt><dd>사전예약 (입장 5,000원)</dd></div></dl><p class="sp-why">캐릭터 카페 · 서울숲과 함께</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/b49486eab567c.jpg" alt="Torriden × CORTIS pop-up" loading="lazy" style="object-position:center center"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">Torriden × CORTIS</p><h4>토리든 커넥트 딥 다이브</h4><p class="sp-d">~12/31</p><dl><div><dt>위치</dt><dd>토리든 커넥트 성수</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">K-뷰티와 K-팝을 한 번에</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/1b296aa3d4917.jpg" alt="UGG pop-up" loading="lazy" style="object-position:center top"><span>FASHION</span></div><div class="sp-b"><p class="sp-brand">UGG</p><h4>UGG 홀리데이</h4><p class="sp-d">11/5–12/30</p><dl><div><dt>위치</dt><dd>성수포탈 (연무장7길 16)</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">겨울 쇼핑 · NCT 드림과 같은 건물</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/0e2befd5d3ebb.jpg" alt="BRAYE pop-up" loading="lazy" style="object-position:center center"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">BRAYE</p><h4>브레이 팝업</h4><p class="sp-d">11/12–11/25</p><dl><div><dt>위치</dt><dd>성수이로 87, 1층</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">1+1 제품 · 가챠 · 구매 사은품</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/3780b2c6370a7.jpg" alt="Spotify × hyukoh pop-up" loading="lazy" style="object-position:center top"><span>LIVE</span></div><div class="sp-b"><p class="sp-brand">Spotify × hyukoh</p><h4>스포티파이 스픽이지 혁오 라이브</h4><p class="sp-d">11/14 하루</p><dl><div><dt>위치</dt><dd>에스팩토리 D동</dd></div><div><dt>예약</dt><dd>응모 추첨 (500명)</dd></div></dl><p class="sp-why">미발매곡 포함 라이브 · 당첨자만 입장</p></div></article></div>
+  <p class="sp-note">팝업 일정과 예약 방식은 브랜드 사정으로 바뀔 수 있어요. 방문 가능 여부는 투어 일정에 따라 달라집니다.<br>이미지 출처: 각 브랜드·운영사 공식 홍보물 · TOTIUM은 각 브랜드와 제휴 관계가 아닙니다.</p>
+</section>
     </article>
     <article class="tt-prog" id="tt-p05">
       <div class="tt-gallery">
@@ -479,36 +512,6 @@ pv.addEventListener('click',function(e){e.preventDefault();go(-1)});nx.addEventL
 window.addEventListener('hashchange',show);window.addEventListener('popstate',show);show();})();
 </script>
 
-<!-- TOTIUM Seongsu pop-up reference [TOTIUM-POPUPS] -->
-<style>
-.sp-wrap{max-width:1240px;margin:0 auto;padding:72px 20px;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#1c1b19}
-.sp-kick{font-size:12px;letter-spacing:.3em;color:#b39a74;text-align:center}
-.sp-h{font-family:"Times New Roman","Noto Serif KR",serif;font-weight:400;font-size:clamp(26px,3vw,36px);text-align:center;margin:10px 0 6px}
-.sp-lead{text-align:center;color:#6d675e;font-size:14.5px;margin:0 0 36px}
-.sp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.sp-card{background:#fff;border-radius:10px;overflow:hidden;border:1px solid #ece6da;display:flex;flex-direction:column}
-.sp-img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#eee}
-.sp-img img{width:100%;height:100%;object-fit:cover;display:block}
-.sp-img span{position:absolute;left:10px;top:10px;background:rgba(28,27,25,.78);color:#fff;font-size:10.5px;letter-spacing:.12em;padding:3px 8px;border-radius:3px}
-.sp-b{padding:14px 15px 16px}
-.sp-brand{font-family:"Times New Roman",serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 4px;line-height:1.2}
-.sp-b h4{font-size:13.5px;font-weight:600;color:#6d675e;margin:0 0 4px;line-height:1.35}
-.sp-d{color:#a88d62;font-weight:700;font-size:13px;margin:0 0 10px}
-.sp-b dl{margin:0;font-size:12.5px}
-.sp-b dl div{display:grid;grid-template-columns:32px 1fr;gap:6px;margin:0 0 3px}
-.sp-b dt{color:#9a9388}.sp-b dd{margin:0}
-.sp-why{font-size:12px;color:#6d675e;margin:10px 0 0;padding-top:10px;border-top:1px dashed #e7e1d6}
-.sp-note{text-align:center;color:#9a9388;font-size:12px;margin:24px 0 0;line-height:1.7}
-@media(max-width:1100px){.sp-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.sp-grid{grid-template-columns:repeat(2,1fr);gap:10px}.sp-brand{font-size:15px}}
-</style>
-<section class="sp-wrap" id="ts-popups">
-  <div class="sp-kick">SEONGSU POP-UPS · NOVEMBER</div>
-  <h2 class="sp-h">이번 달 성수 추천 팝업</h2>
-  <p class="sp-lead">04 SEONGSU TREND 투어에서 들르기 좋은 팝업이에요 (참고용)</p>
-  <div class="sp-grid"><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/0508999391fe5.jpg" alt="NCT DREAM pop-up" loading="lazy" style="object-position:center top"><span>K-POP</span></div><div class="sp-b"><p class="sp-brand">NCT DREAM</p><h4>NCT 드림 WELCOME, DREAMERS</h4><p class="sp-d">11/8–11/16</p><dl><div><dt>위치</dt><dd>연무장7길 16</dd></div><div><dt>예약</dt><dd>현장대기</dd></div></dl><p class="sp-why">K-팝 팬 1순위 · 스탬프 랠리 · 포토카드</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/768c1dc9e0e4c.jpg" alt="hince pop-up" loading="lazy" style="object-position:center center"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">hince</p><h4>힌스 글릿 엔젤</h4><p class="sp-d">11/12–11/19</p><dl><div><dt>위치</dt><dd>올리브영N 성수</dd></div><div><dt>예약</dt><dd>네이버 사전예약</dd></div></dl><p class="sp-why">K-뷰티 · 미션 완료 시 본품 증정</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/72aab34798ca6.jpg" alt="2aN × Hearts2Hearts pop-up" loading="lazy" style="object-position:center top"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">2aN × Hearts2Hearts</p><h4>투에이엔 모브 크러쉬</h4><p class="sp-d">11/11–12/7</p><dl><div><dt>위치</dt><dd>무신사 뷰티 성수</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">새로 연 400평 뷰티 매장 · 포토카드</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/a3bbb62fd8e0f.jpg" alt="CHANEL pop-up" loading="lazy" style="object-position:center center"><span>HOLIDAY</span></div><div class="sp-b"><p class="sp-brand">CHANEL</p><h4>샤넬 홀리데이</h4><p class="sp-d">11/21–12/31</p><dl><div><dt>위치</dt><dd>성수이로7가길 9</dd></div><div><dt>예약</dt><dd>사전예약</dd></div></dl><p class="sp-why">연말 분위기 · 포토 스팟</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/07ad4fe3c7ac1.jpg" alt="Love Live! pop-up" loading="lazy" style="object-position:center bottom"><span>EXHIBITION</span></div><div class="sp-b"><p class="sp-brand">Love Live!</p><h4>러브라이브! 15주년 전시</h4><p class="sp-d">11/14–12/31</p><dl><div><dt>위치</dt><dd>어브 스튜디오</dd></div><div><dt>예약</dt><dd>티켓 구매</dd></div></dl><p class="sp-why">일본·중국 애니 팬</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fec32551dd743.jpg" alt="Cardcaptor Sakura pop-up" loading="lazy" style="object-position:center top"><span>CAFE</span></div><div class="sp-b"><p class="sp-brand">Cardcaptor Sakura</p><h4>사쿠라와 토모요의 티파티</h4><p class="sp-d">11/11–11/29</p><dl><div><dt>위치</dt><dd>무신사 스페이스 서울숲</dd></div><div><dt>예약</dt><dd>사전예약 (입장 5,000원)</dd></div></dl><p class="sp-why">캐릭터 카페 · 서울숲과 함께</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/b49486eab567c.jpg" alt="Torriden × CORTIS pop-up" loading="lazy" style="object-position:center center"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">Torriden × CORTIS</p><h4>토리든 커넥트 딥 다이브</h4><p class="sp-d">~12/31</p><dl><div><dt>위치</dt><dd>토리든 커넥트 성수</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">K-뷰티와 K-팝을 한 번에</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/1b296aa3d4917.jpg" alt="UGG pop-up" loading="lazy" style="object-position:center top"><span>FASHION</span></div><div class="sp-b"><p class="sp-brand">UGG</p><h4>UGG 홀리데이</h4><p class="sp-d">11/5–12/30</p><dl><div><dt>위치</dt><dd>성수포탈 (연무장7길 16)</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">겨울 쇼핑 · NCT 드림과 같은 건물</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/0e2befd5d3ebb.jpg" alt="BRAYE pop-up" loading="lazy" style="object-position:center center"><span>BEAUTY</span></div><div class="sp-b"><p class="sp-brand">BRAYE</p><h4>브레이 팝업</h4><p class="sp-d">11/12–11/25</p><dl><div><dt>위치</dt><dd>성수이로 87, 1층</dd></div><div><dt>예약</dt><dd>현장</dd></div></dl><p class="sp-why">1+1 제품 · 가챠 · 구매 사은품</p></div></article><article class="sp-card"><div class="sp-img"><img src="https://cdn.imweb.me/upload/S20261110f40759a202b75/3780b2c6370a7.jpg" alt="Spotify × hyukoh pop-up" loading="lazy" style="object-position:center top"><span>LIVE</span></div><div class="sp-b"><p class="sp-brand">Spotify × hyukoh</p><h4>스포티파이 스픽이지 혁오 라이브</h4><p class="sp-d">11/14 하루</p><dl><div><dt>위치</dt><dd>에스팩토리 D동</dd></div><div><dt>예약</dt><dd>응모 추첨 (500명)</dd></div></dl><p class="sp-why">미발매곡 포함 라이브 · 당첨자만 입장</p></div></article></div>
-  <p class="sp-note">팝업 일정과 예약 방식은 브랜드 사정으로 바뀔 수 있어요. 방문 가능 여부는 투어 일정에 따라 달라집니다.<br>이미지 출처: 각 브랜드·운영사 공식 홍보물 · TOTIUM은 각 브랜드와 제휴 관계가 아닙니다.</p>
-</section>
 <section class="ts-sec ts-why" id="ts-why"><div class="w">
   <div class="ts-kick">WHY TOTIUM</div><h2 class="ts-h2">Beyond Travel</h2><p class="ts-lead">처음 오는 서울도 편하게</p>
   <div class="g">
@@ -526,7 +529,7 @@ window.addEventListener('hashchange',show);window.addEventListener('popstate',sh
   </div></div></section>
 <script>
 (function(){ var faq=document.querySelector('.tt-sec-faq'); var w=document.getElementById('ts-why'), h=document.getElementById('ts-how');
-  if(faq&&w&&h&&!w.dataset.mv){ w.dataset.mv=1; var pp=document.getElementById('ts-popups'); if(pp) faq.parentNode.insertBefore(pp,faq); faq.parentNode.insertBefore(w,faq); faq.parentNode.insertBefore(h,faq); }
+  if(faq&&w&&h&&!w.dataset.mv){ w.dataset.mv=1; faq.parentNode.insertBefore(w,faq); faq.parentNode.insertBefore(h,faq); }
   var v=document.querySelector('.ts-hero video'), po=document.querySelector('.ts-hero .po');
   if(v){ v.muted=true; v.setAttribute('muted',''); v.playsInline=true;
     var hide=function(){ if(po) po.style.display='none'; };
