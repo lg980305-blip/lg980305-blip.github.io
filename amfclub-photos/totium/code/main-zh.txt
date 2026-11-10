@@ -28,7 +28,7 @@ html body .ts-hero{width:100vw;margin-left:calc(50% - 50vw)}
 html body .tt-root .tt-sec h2,html body .tt-root .tt-cta h2{font-family:"Times New Roman","Noto Serif KR","Noto Serif CJK KR",serif!important;font-weight:400!important;letter-spacing:.01em!important}
 html body .tt-root{scroll-margin-top:80px}
 html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
-.tt-root a.tt-map{color:inherit;text-decoration:underline;text-decoration-color:#cdb892;text-underline-offset:3px}.tt-root a.tt-map:before{content:"📍";margin-right:3px;text-decoration:none;display:inline-block}
+.tt-root a.tt-map{color:inherit;text-decoration:underline;text-decoration-color:#cdb892;text-underline-offset:3px}.tt-root a.tt-bd{display:inline-block;margin-left:6px;font-size:12px;padding:1px 8px;border-radius:999px;background:#2932e1;color:#fff!important;text-decoration:none;vertical-align:1px}.tt-root a.tt-map:before{content:"📍";margin-right:3px;text-decoration:none;display:inline-block}
 </style>
 <section class="ts-hero">
   <img class="po" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/e5a497e90b83d.jpg" alt="">
@@ -323,7 +323,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
           <div><dt>时间</dt><dd>15:00 – 20:30</dd></div>
           <div class="tt-date-row"><dt>日期</dt><dd>11月21日（周六）、28日（周六）</dd></div>
           <div><dt>人数</dt><dd>4人起</dd></div>
-          <div><dt>集合</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%97%AC%EC%9D%98%EB%8F%84%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">汝矣岛站3号出口</a></dd></div>
+          <div><dt>集合</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%97%AC%EC%9D%98%EB%8F%84%EC%97%AD%203%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">汝矣岛站3号出口</a> <a class="tt-bd" href="https://map.baidu.com/search/%E9%A6%96%E5%B0%94%20%E6%B1%9D%E7%9F%A3%E5%B2%9B%E7%AB%99?querytype=s&amp;wd=%E9%A6%96%E5%B0%94%20%E6%B1%9D%E7%9F%A3%E5%B2%9B%E7%AB%99" target="_blank" rel="noopener">百度地图</a></dd></div>
         </dl>
         <p class="tt-sub">行程</p>
         <ol class="tt-route"><li>15:00 汝矣岛站3号出口集合</li><li>15:10 现代百货首尔购物 &amp; 自由活动<span class="tt-route-d">在一个空间里体验首尔最新的生活方式、时尚、美食、艺术与建筑的复合文化空间。</span></li><li>16:30 汝矣岛公园散步<span class="tt-route-d">位于金融商业中心汝矣岛的城市公园，在高楼与大型商场之间享受自然与休憩。</span></li><li>17:30 前往首尔游船码头<span class="tt-route-d">唯一可以在汉江上同时享受晚餐、音乐和烟花秀的游船。</span></li><li>18:30 2小时演出·晚餐·烟花秀<span class="tt-route-d">两小时的演出、晚餐与首尔夜景，最后以烟花收尾，留下难忘回忆。</span></li><li>20:30 行程结束</li></ol>
@@ -346,7 +346,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
           <div><dt>时间</dt><dd>10:00 – 15:00</dd></div>
           <div class="tt-date-row"><dt>日期</dt><dd>11月26日（周四）、27日（周五）、29日（周日）</dd></div>
           <div><dt>人数</dt><dd>2人起</dd></div>
-          <div><dt>集合</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%B1%EC%88%98%EC%97%AD%202%ED%98%B8%EC%84%A0" target="_blank" rel="noopener">圣水站集合</a></dd></div>
+          <div><dt>集合</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%B1%EC%88%98%EC%97%AD%202%ED%98%B8%EC%84%A0" target="_blank" rel="noopener">圣水站集合</a> <a class="tt-bd" href="https://map.baidu.com/search/%E9%A6%96%E5%B0%94%20%E5%9C%A3%E6%B0%B4%E7%AB%99?querytype=s&amp;wd=%E9%A6%96%E5%B0%94%20%E5%9C%A3%E6%B0%B4%E7%AB%99" target="_blank" rel="noopener">百度地图</a></dd></div>
         </dl><div class="tt-tiers"><div><span>1人</span><b>800,000韩元</b></div><div><span>2人</span><b>450,000韩元</b></div><div><span>3人</span><b>300,000韩元</b></div><div><span>4人以上</span><b>250,000韩元</b></div></div>
         <p class="tt-sub">行程</p>
         <ol class="tt-route"><li>10:00 圣水站集合</li><li>Olive Young N · Gentle Monster · 无信社<span class="tt-route-d">首尔当下最火的街区。老工厂和仓库变身为咖啡馆、买手店、时尚品牌和快闪店，一站感受首尔的潮流生活方式。</span></li><li>NYUNYU · iGu Home · 大林仓库等潮流店</li><li>季节快闪店 &amp; 买手店</li><li>11:30 早午餐·咖啡馆探访</li><li>15:00 在首尔林或Olive Young N结束<span class="tt-route-d">Olive Young N：2024年11月开业的K-美容地标。约4,600平方米的超大型美妆空间，每层概念不同，可体验众多品牌与产品。</span></li></ol>
@@ -415,7 +415,7 @@ html body .ts-why{box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
           <div><dt>时间</dt><dd>07:30 – 17:00</dd></div>
           <div class="tt-date-row"><dt>日期</dt><dd>11月18日（周三）、19日（周四）、20日（周五）、22日（周日）、29日（周日）</dd></div>
           <div><dt>人数</dt><dd>4人起</dd></div>
-          <div><dt>集合</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%8B%9C%EC%B2%AD%EC%97%AD%207%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">市厅站7号出口</a></dd></div>
+          <div><dt>集合</dt><dd><a class="tt-map" href="https://www.google.com/maps/search/?api=1&amp;query=%EC%8B%9C%EC%B2%AD%EC%97%AD%207%EB%B2%88%EC%B6%9C%EA%B5%AC" target="_blank" rel="noopener">市厅站7号出口</a> <a class="tt-bd" href="https://map.baidu.com/search/%E9%A6%96%E5%B0%94%20%E5%B8%82%E5%8E%85%E7%AB%99?querytype=s&amp;wd=%E9%A6%96%E5%B0%94%20%E5%B8%82%E5%8E%85%E7%AB%99" target="_blank" rel="noopener">百度地图</a></dd></div>
         </dl>
         <p class="tt-sub">行程</p>
         <ol class="tt-route"><li>07:30 市厅站7号出口集合</li><li>与脱北者问答交流</li><li>临津阁 · 统一大桥 · 身份核查<span class="tt-route-d">临津阁：承载朝鲜战争与南北分裂历史的象征性地点，可感受战争痕迹与对和平的期盼。统一大桥：进入民间人出入控制区的关口。</span></li><li>DMZ影像馆 · 第三地道<span class="tt-route-d">DMZ影像馆·展览馆：通过影像和展品了解DMZ的形成、朝鲜战争及南北分裂的背景。第三地道：经证实为朝鲜以南侵为目的挖掘的地下军事设施，于1978年被发现。</span></li><li>都罗瞭望台 · 统一村<span class="tt-route-d">都罗瞭望台：可眺望朝鲜村庄及松岳山一带的代表性DMZ观景点。统一村：位于民间人出入控制区内的村庄，可一窥居民独特的生活。</span></li><li>绀岳山吊桥（往返40~50分钟）<span class="tt-route-d">DMZ附近最佳的徒步胜地。</span></li><li>17:00 市厅站解散</li></ol>
