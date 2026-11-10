@@ -1,0 +1,457 @@
+<!-- ============================================================
+  TOTIUM TRAVEL — Seoul Tour Programs [TOTIUM-SITE] (en)
+  아임웹 HTML 코드 블록용. 스타일은 .tt-root 안에서만 적용됩니다.
+  - 이미지 src(예: gyeongbok.jpg)를 아임웹에 올린 이미지 주소로 바꾸세요.
+  - BOOKING_URL 을 예약 신청 폼 주소로 바꾸세요. QR은 qr.jpg 자리에 넣으세요.
+============================================================= -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap');
+.tt-root{--ink:#212121;--sub:#6b6b6b;--mute:#9a9a9a;--line:#e4e4e4;--gray:#f6f6f6;--cream:#f5f4e7;--yellow:#fff27a;--olive:#a39318;
+  font-family:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR","Nanum Gothic",sans-serif;color:var(--ink);background:#fff;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.tt-root *{box-sizing:border-box;margin:0;padding:0}
+.tt-root img{display:block;max-width:100%;width:100%;height:100%;object-fit:cover}
+.tt-root a{color:inherit;text-decoration:none}
+.tt-root a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.tt-root h1,.tt-root h2,.tt-root h3{text-wrap:balance}
+.tt-root .tt-eyebrow{font-family:Poppins,Pretendard,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--sub)}
+.tt-root .tt-olive{color:var(--olive)}
+/* hero */
+.tt-root .tt-hero{position:relative;margin:0 auto;width:calc(100% - 32px);max-width:1400px;border-radius:12px;overflow:hidden;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;background:#222}
+.tt-root .tt-hero-img{position:absolute;inset:0;filter:brightness(.55)}
+.tt-root .tt-hero-in{position:relative;padding:72px 20px}
+.tt-root .tt-hero-kicker{font-family:Poppins,sans-serif;font-weight:600;font-size:13px;letter-spacing:.12em;color:#fff}
+.tt-root .tt-hero-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;color:var(--yellow);font-size:clamp(68px,13vw,150px);line-height:.95;letter-spacing:.01em;margin:14px 0 18px}
+.tt-root .tt-hero-sub{color:var(--yellow);font-size:15px;font-weight:500;line-height:1.55}
+/* sections */
+.tt-root .tt-sec{padding:88px 16px}
+.tt-root .tt-gray{background:var(--gray)}
+.tt-root .tt-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.tt-root .tt-h2{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(26px,4vw,34px);line-height:1.2;margin:8px 0 10px;letter-spacing:-.005em}
+.tt-root .tt-lead{color:var(--sub);font-size:15px}
+.tt-root .tt-left{text-align:left}
+/* card rail */
+.tt-root .tt-railwrap{position:relative;max-width:1200px;margin:0 auto}
+.tt-root .tt-rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:14px;scrollbar-width:none}
+.tt-root .tt-rail::-webkit-scrollbar{display:none}
+@media (max-width:900px){.tt-root .tt-rail{grid-auto-columns:42%}}
+@media (max-width:600px){.tt-root .tt-rail{grid-auto-columns:78%}}
+.tt-root .tt-rail-btn{position:absolute;top:calc(50% - 60px);width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,.18);font-size:20px;line-height:44px;text-align:center;cursor:pointer;z-index:2;transition:opacity .2s}
+.tt-root .tt-rail-btn.tt-prev{left:-22px}.tt-root .tt-rail-btn.tt-next{right:-22px}
+.tt-root .tt-rail-btn[disabled]{opacity:0;pointer-events:none}
+@media (max-width:600px){.tt-root .tt-rail-btn{display:none}}
+.tt-root .tt-rail-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.tt-root .tt-rail-dots i{width:6px;height:6px;border-radius:50%;background:#d6d6d6;transition:all .2s}
+.tt-root .tt-rail-dots i.tt-on{width:18px;border-radius:3px;background:var(--ink)}
+.tt-root .tt-card{scroll-snap-align:start;min-width:0;display:block}
+.tt-root .tt-card-img{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ddd}
+.tt-root .tt-arrow{position:absolute;top:12px;right:14px;color:#fff;font-size:26px;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.tt-root .tt-badge{position:absolute;left:0;top:0;background:#111;color:var(--yellow);font-family:Poppins,sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;padding:6px 10px;border-bottom-right-radius:8px}
+.tt-root .tt-card-meta{margin-top:12px;color:var(--mute);font-size:13px;font-variant-numeric:tabular-nums}
+.tt-root .tt-card-title{font-family:Poppins,Pretendard,sans-serif;font-weight:700;font-size:20px;line-height:1.25;margin-top:2px}
+.tt-root .tt-card-kr{font-size:14px;color:var(--sub)}
+.tt-root .tt-card-price{margin-top:4px;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+/* program detail */
+.tt-root .tt-progs{display:flex;flex-direction:column;gap:24px;max-width:1200px;margin:0 auto}
+.tt-root .tt-prog{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;background:#fff;border-radius:16px;padding:28px}
+.tt-root .tt-flip .tt-gallery{order:2}
+.tt-root .tt-main{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+.tt-root .tt-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tt-root .tt-thumbs figure{min-width:0}
+.tt-root .tt-thumbs img{aspect-ratio:3/2;height:auto;border-radius:8px}
+.tt-root .tt-thumbs figcaption{font-size:12.5px;color:var(--mute);margin-top:6px}
+.tt-root .tt-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.tt-root .tt-prog-title{font-family:Poppins,Pretendard,sans-serif;font-weight:800;font-size:clamp(24px,3vw,30px);line-height:1.15;margin-top:4px}
+.tt-root .tt-prog-kr{font-weight:700;font-size:16px;margin-top:4px}
+.tt-root .tt-desc{color:var(--sub);font-size:15px;margin-top:10px}
+.tt-root .tt-facts{width:100%;margin-top:20px;border-top:1px solid var(--ink)}
+.tt-root .tt-facts div{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.tt-root .tt-facts dt{color:var(--mute)}
+.tt-root .tt-facts dd{font-weight:600;font-variant-numeric:tabular-nums}
+.tt-root .tt-facts small{font-weight:400;color:var(--mute);font-size:12.5px;margin-left:4px}
+.tt-root .tt-tiers{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px;background:var(--cream);border-radius:8px;text-align:center}
+.tt-root .tt-tiers div{padding:10px 4px}
+.tt-root .tt-tiers span{display:block;font-size:12px;color:var(--sub)}
+.tt-root .tt-tiers b{font-size:13.5px;font-variant-numeric:tabular-nums}
+.tt-root .tt-sub{font-weight:700;font-size:15px;margin-top:22px}
+.tt-root .tt-route{list-style:none;margin-top:8px;width:100%;counter-reset:r}
+.tt-root .tt-route li{position:relative;padding:4px 0 4px 30px;font-size:14.5px;counter-increment:r}
+.tt-root .tt-route li::before{content:counter(r);position:absolute;left:0;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:var(--yellow);font:600 11px/20px Poppins,sans-serif;text-align:center}
+.tt-root .tt-route .tt-route-d{display:block;font-size:13px;line-height:1.65;color:var(--sub);margin-top:3px;word-break:keep-all}
+.tt-root .tt-note{margin-top:14px;font-size:13px;color:var(--sub);background:var(--gray);border-radius:8px;padding:10px 14px;width:100%}
+.tt-root .tt-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#000;color:#fff;font-weight:600;font-size:15px;padding:13px 22px;border-radius:8px}
+.tt-root .tt-btn-lg{font-size:16px;padding:15px 28px}
+.tt-root .tt-ci{cursor:pointer}
+.tt-root .tt-pop{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px}
+.tt-root .tt-pop.tt-on{display:flex}
+.tt-root .tt-pop-box{background:#fff;border-radius:16px;padding:24px;max-width:300px;width:100%;text-align:center}
+.tt-root .tt-pop-box img{width:200px;height:200px;margin:0 auto 12px}
+.tt-root .tt-pop-box p{font-size:13.5px;color:var(--sub);line-height:1.6}
+.tt-root .tt-pop-box b{display:block;font-size:16px;margin-bottom:10px;color:var(--ink)}
+.tt-root .tt-pop-box button{margin-top:14px;border:0;background:var(--ink);color:#fff;font-weight:600;padding:10px 22px;border-radius:8px;cursor:pointer}
+.tt-root .tt-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:14px;padding:10px 18px;border-radius:8px;z-index:99999;opacity:0;transition:opacity .2s;pointer-events:none}
+.tt-root .tt-toast.tt-on{opacity:1}
+.tt-root .tt-pnav{display:none}
+.tt-root.tt-js .tt-details{display:none}
+.tt-root.tt-js.tt-view-detail .tt-details{display:block;padding-top:40px}
+.tt-root.tt-js.tt-view-detail .tt-hero,.tt-root.tt-js.tt-view-detail .tt-sec-programs,.tt-root.tt-js.tt-view-detail .tt-sec-faq,.tt-root.tt-js.tt-view-detail .tt-details>.tt-head{display:none}
+.tt-root.tt-js .tt-details .tt-prog{display:none}
+.tt-root.tt-js .tt-details .tt-prog.tt-on{display:grid}
+.tt-root.tt-js .tt-pnav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto 20px}
+.tt-root .tt-pnav-back{font-size:14px;font-weight:600;color:var(--ink)}
+.tt-root .tt-pnav-list{display:flex;gap:6px;flex-wrap:wrap}
+.tt-root .tt-pnav-list a{font-family:Poppins,sans-serif;font-size:13px;font-weight:600;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--ink)}
+.tt-root .tt-pnav-list a.tt-on{background:var(--ink);color:var(--yellow)}
+.tt-root .tt-contact{margin-top:28px;padding-top:22px;border-top:1px solid rgba(33,33,33,.12);max-width:520px}
+.tt-root .tt-contact>p{font-size:13px;color:var(--sub);margin-bottom:12px}
+.tt-root .tt-contact-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tt-root .tt-ci{display:flex;align-items:center;gap:10px;min-width:0;padding:12px;border-radius:10px;background:#fff;border:1px solid transparent;color:var(--ink);transition:border-color .2s}
+.tt-root a.tt-ci:hover{border-color:var(--ink)}
+.tt-root .tt-ci-ic{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.tt-root .tt-ci-ic svg{width:16px;height:16px;fill:var(--yellow)}
+.tt-root .tt-ci-tx{min-width:0;line-height:1.3}
+.tt-root .tt-ci-tx b{display:block;font-size:13.5px;font-weight:700}
+.tt-root .tt-ci-tx span{display:block;font-size:12px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* faq */
+.tt-root .tt-faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.tt-root .tt-q{padding:22px 4px;border-bottom:1px solid var(--line)}
+.tt-root .tt-q-title{display:flex;gap:12px;font-weight:700;font-size:17px}
+.tt-root .tt-q-title b{font-family:Poppins,sans-serif;font-weight:800;font-size:19px;line-height:1.3}
+.tt-root .tt-q-a{color:var(--sub);font-size:15px;margin:8px 0 0 30px}
+.tt-root .tt-cancel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0 0 30px}
+.tt-root .tt-cancel-item{background:var(--gray);border-radius:10px;padding:16px 8px;text-align:center}
+.tt-root .tt-cancel-item span{display:block;font-size:13px;color:var(--sub)}
+.tt-root .tt-cancel-item b{display:block;font-family:Poppins,sans-serif;font-weight:800;font-size:28px;line-height:1.2;margin:4px 0}
+.tt-root .tt-cancel-item b.tt-zero{color:#c0392b}
+.tt-root .tt-cancel-item em{font-style:normal;font-size:13px}
+/* cta */
+.tt-root .tt-cta{background:var(--cream);padding:80px 16px}
+.tt-root .tt-cta-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.tt-root .tt-cta-title{font-family:Anton,"Black Tie",Poppins,Impact,sans-serif;font-weight:400;font-size:clamp(46px,7vw,76px);line-height:1;margin:10px 0 16px}
+.tt-root .tt-qr{width:180px;background:#fff;border-radius:12px;padding:14px;text-align:center}
+.tt-root .tt-qr-box{position:relative;aspect-ratio:1;border:1.5px dashed #c9c9c9;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;color:var(--mute)}
+.tt-root .tt-qr-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.tt-root .tt-qr-box.tt-qr-on{border:0}
+.tt-root .tt-qr p{font-size:13px;font-weight:600;margin-top:10px}
+.tt-root .tt-biz{padding:40px 16px 48px;max-width:1000px;margin:0 auto;font-size:13px;color:var(--sub);line-height:1.8}
+.tt-root .tt-biz-name{font-family:Poppins,sans-serif;font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px}
+.tt-root .tt-biz-name span{font-weight:500;color:var(--mute)}
+.tt-root .tt-biz i{font-style:normal;color:#ccc;margin:0 6px}
+.tt-root .tt-biz-todo{color:#c0392b}
+.tt-root .tt-biz-copy{margin-top:10px;color:var(--mute)}
+/* responsive */
+@media (max-width:860px){
+  .tt-root .tt-prog{grid-template-columns:1fr;gap:24px;padding:20px}
+  .tt-root .tt-flip .tt-gallery{order:0}
+  .tt-root .tt-cta-in{grid-template-columns:1fr}
+  .tt-root .tt-qr{margin:0 auto}
+}
+@media (max-width:600px){
+  .tt-root .tt-sec{padding:64px 16px}
+  .tt-root .tt-hero{min-height:380px;border-radius:0;width:100%}
+  .tt-root .tt-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tt-root .tt-q-a,.tt-root .tt-cancel{margin-left:0}
+  .tt-root .tt-cancel{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tt-root .tt-btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:no-preference){.tt-root .tt-card-img img{transition:transform .5s ease}.tt-root .tt-card:hover .tt-card-img img{transform:scale(1.04)}}
+.tt-root:lang(ja){font-family:Pretendard,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(zh-CN){font-family:Pretendard,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;word-break:normal;line-break:strict}
+.tt-root:lang(vi){font-family:Pretendard,"Be Vietnam Pro","Noto Sans",Arial,sans-serif;word-break:normal}
+.tt-root:lang(vi) .tt-facts div,.tt-root:lang(en) .tt-facts div{grid-template-columns:84px minmax(0,1fr)}
+
+</style>
+<div class="tt-root" lang="en">
+
+  <section class="tt-hero">
+    <img src="https://lg980305-blip.github.io/amfclub-photos/bukchon.jpg?v=2" alt="Bukchon" class="tt-hero-img" loading="lazy">
+    <div class="tt-hero-in">
+      <p class="tt-hero-kicker">TOTIUM TRAVEL · 2026.11.06 – 11.30</p>
+      <h1 class="tt-hero-title">SEOUL<br>TOURS</h1>
+      <p class="tt-hero-sub">STAY. MEET. EXPERIENCE. Seven Seoul tour programs<br>curated by Totium for Asia Model Festival 2026 participants</p>
+    </div>
+  </section>
+
+  <section class="tt-sec tt-sec-programs" id="tt-programs">
+    <div class="tt-head">
+      <p class="tt-eyebrow">PROGRAMS</p>
+      <h2 class="tt-h2">FIND YOUR TOUR</h2>
+      <p class="tt-lead">Each program runs separately. Pick only the ones you want and book them individually.</p>
+    </div>
+    <div class="tt-railwrap"><button type="button" class="tt-rail-btn tt-prev" aria-label="prev">&#8592;</button><button type="button" class="tt-rail-btn tt-next" aria-label="next">&#8594;</button>
+    <div class="tt-rail">
+      <a class="tt-card" href="#tt-p01">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CITY TOUR</span></div>
+        <p class="tt-card-meta">09:00 – 17:30 · Min. 2 people</p>
+        <h3 class="tt-card-title">HELLO SEOUL</h3>
+        <p class="tt-card-kr">Hello Seoul! City Tour</p>
+        <p class="tt-card-price"><b class="tt-olive">01</b> KRW 165,000</p>
+      </a>
+      <a class="tt-card" href="#tt-p02">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg?v=2" alt="Donglim Knot Studio" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">CRAFT & SPA</span></div>
+        <p class="tt-card-meta">10:00 – 17:00 · Min. 4 people</p>
+        <h3 class="tt-card-title">ART &amp; BEAUTY</h3>
+        <p class="tt-card-kr">Art &amp; Beauty · Craft and Spa</p>
+        <p class="tt-card-price"><b class="tt-olive">02</b> KRW 500,000</p>
+      </a>
+      <a class="tt-card" href="#tt-p03">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/fireworks.jpg?v=1" alt="Han River fireworks" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <p class="tt-card-meta">15:00 – 20:30 · Min. 4 people</p>
+        <h3 class="tt-card-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-card-kr">The Hyundai Seoul &amp; Fireworks Cruise</p>
+        <p class="tt-card-price"><b class="tt-olive">03</b> KRW 115,000</p>
+      </a>
+      <a class="tt-card" href="#tt-p04">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg?v=2" alt="Olive Young N" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">TREND & SHOPPING</span></div>
+        <p class="tt-card-meta">10:00 – 15:00 · Min. 2 people</p>
+        <h3 class="tt-card-title">SEONGSU TREND</h3>
+        <p class="tt-card-kr">Seongsu Trend Tour &amp; Shopping Day</p>
+        <p class="tt-card-price"><b class="tt-olive">04</b> From KRW 250,000</p>
+      </a>
+      <a class="tt-card" href="#tt-p05">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg?v=2" alt="Magic Island" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">THEME PARK</span></div>
+        <p class="tt-card-meta">09:00 – 13:00 · Min. 3 people</p>
+        <h3 class="tt-card-title">LOTTE WORLD</h3>
+        <p class="tt-card-kr">Lotte World Picnic Day</p>
+        <p class="tt-card-price"><b class="tt-olive">05</b> KRW 160,000</p>
+      </a>
+      <a class="tt-card" href="#tt-p06">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/fishcake.jpg?v=1" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">FOOD TOUR</span></div>
+        <p class="tt-card-meta">13:00 – 16:30 · Min. 2 people</p>
+        <h3 class="tt-card-title">K-FOOD MARKET</h3>
+        <p class="tt-card-kr">K-Food Market Tour</p>
+        <p class="tt-card-price"><b class="tt-olive">06</b> KRW 165,000</p>
+      </a>
+      <a class="tt-card" href="#tt-p07">
+        <div class="tt-card-img"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg?v=2" alt="DMZ observatory" class="" loading="lazy"><span class="tt-arrow" aria-hidden="true">&#8599;</span><span class="tt-badge">HISTORY & NATURE</span></div>
+        <p class="tt-card-meta">07:30 – 17:00 · Min. 4 people</p>
+        <h3 class="tt-card-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-card-kr">DMZ &amp; North Korean Defector&#x27;s Story + Gamaksan Suspension Bridge</p>
+        <p class="tt-card-price"><b class="tt-olive">07</b> KRW 145,000</p>
+      </a>
+    </div><div class="tt-rail-dots"></div></div>
+  </section>
+
+  <section class="tt-sec tt-gray tt-details">
+    <nav class="tt-pnav"><a class="tt-pnav-back" href="#tt-programs">&#8592; All programs</a><div class="tt-pnav-list"><a href="#tt-p01">01</a><a href="#tt-p02">02</a><a href="#tt-p03">03</a><a href="#tt-p04">04</a><a href="#tt-p05">05</a><a href="#tt-p06">06</a><a href="#tt-p07">07</a></div></nav>
+    <div class="tt-head">
+      <p class="tt-eyebrow">DETAILS</p>
+      <h2 class="tt-h2">PROGRAM DETAILS</h2>
+      <p class="tt-lead">Check the schedule and price of each program. Prices are per person.</p>
+    </div>
+    <div class="tt-progs">
+    <article class="tt-prog" id="tt-p01">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/palace.jpg?v=1" alt="Royal Guard Ceremony" class="" loading="lazy"><span class="tt-badge">CITY TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gyeongbok.jpg?v=2" alt="Royal Guard Ceremony" class="" loading="lazy"><figcaption>Royal Guard Ceremony</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/nseoultower.jpg?v=2" alt="N Seoul Tower" class="" loading="lazy"><figcaption>N Seoul Tower</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 01</p>
+        <h3 class="tt-prog-title">HELLO SEOUL</h3>
+        <p class="tt-prog-kr">Hello Seoul! City Tour</p>
+        <p class="tt-desc">Seoul&#x27;s history and today&#x27;s cityscape in one day: royal palaces, city views and Gwangjang Market.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>KRW 165,000 <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>09:00 – 17:30</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Daily except Tuesday</dd></div>
+          <div><dt>Group</dt><dd>Min. 2 people</dd></div>
+          <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
+        </dl>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>09:00 Hotel pickup</li><li>Gwanghwamun &amp; Cheonggyecheon by car, Jogyesa Temple</li><li>Royal Guard Changing Ceremony &amp; Gyeongbokgung Palace</li><li>National Folk Museum · Lunch</li><li>Namsangol Hanok Village (Bukchon on Mondays)</li><li>N Seoul Tower → Gwangjang Market</li><li>17:00 Return to hotel</li></ol>
+        <p class="tt-note">Schedule may change if palaces are closed or hosting events · Request vegetarian/halal meals in advance</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p02">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/maedeup.jpg?v=2" alt="Donglim Knot Studio" class="" loading="lazy"><span class="tt-badge">CRAFT & SPA</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bracelet.jpg?v=2" alt="Knot bracelets" class="" loading="lazy"><figcaption>Knot bracelets</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/spa.jpg?v=2" alt="Provence Spa" class="" loading="lazy"><figcaption>Provence Spa</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 02</p>
+        <h3 class="tt-prog-title">ART &amp; BEAUTY</h3>
+        <p class="tt-prog-kr">Art &amp; Beauty · Craft and Spa</p>
+        <p class="tt-desc">Walk the lanes of Insadong and Bukchon, learn traditional knotting from a master with 50 years of experience, then relax at the L&#x27;Occitane spa in JW Marriott.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>KRW 500,000 <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>10:00 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Sun 22 & Sun 29 Nov</dd></div>
+          <div><dt>Group</dt><dd>Min. 4 people</dd></div>
+          <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
+        </dl>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>10:00 Pickup</li><li>10:30 Guided walk through Insadong &amp; Bukchon</li><li>12:00 Traditional knot workshop at Donglim Maedeup<span class="tt-route-d">Learn knotting from a master with 50 years of experience. Maedeup is a traditional Korean craft that twists and weaves strands of cord into delicate forms.</span></li><li>13:00 Korean lunch</li><li>14:30 60-minute massage at L&#x27;Occitane spa<span class="tt-route-d">A spa inside JW Marriott offering K-beauty and premium massage. Relaxing or deep-tissue massage, 60 minutes included; 90 minutes for an extra KRW 90,000.</span></li><li>16:30 Free time or return to hotel</li></ol>
+        <p class="tt-note">90-minute spa option: +KRW 90,000 · The spa may change to one of the same grade depending on availability</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p03">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/fireworks.jpg?v=1" alt="Han River fireworks" class="" loading="lazy"><span class="tt-badge">SHOPPING & NIGHT</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/cruise.jpg?v=2" alt="Han River fireworks" class="" loading="lazy"><figcaption>Han River fireworks</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/thehyundai.jpg?v=2" alt="The Hyundai Seoul" class="" loading="lazy"><figcaption>The Hyundai Seoul</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 03</p>
+        <h3 class="tt-prog-title">THE HYUNDAI &amp; CRUISE</h3>
+        <p class="tt-prog-kr">The Hyundai Seoul &amp; Fireworks Cruise</p>
+        <p class="tt-desc">Start at The Hyundai Seoul, a lifestyle shopping landmark, and end the evening on the Han River with a show, dinner and fireworks.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>KRW 115,000 / with dinner KRW 170,000 <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>15:00 – 20:30</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Sat 21 & Sat 28 Nov</dd></div>
+          <div><dt>Group</dt><dd>Min. 4 people</dd></div>
+          <div><dt>Meeting</dt><dd>Yeouido Station, Exit 3</dd></div>
+        </dl>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>15:00 Meet at Yeouido Station, Exit 3</li><li>15:10 Shopping &amp; free time at The Hyundai Seoul<span class="tt-route-d">A cultural complex where you can experience Seoul&#x27;s latest lifestyle, fashion, food, art and architecture in one place.</span></li><li>16:30 Walk in Yeouido Park<span class="tt-route-d">A city park in the heart of Yeouido, Seoul&#x27;s financial district, offering nature and rest between skyscrapers and shopping malls.</span></li><li>17:30 Move to the Seoul Cruise pier<span class="tt-route-d">The only cruise on the Han River that combines dinner, music and a fireworks show.</span></li><li>18:30 Two-hour cruise with show, dinner &amp; fireworks<span class="tt-route-d">Two hours of live shows, dinner and Seoul&#x27;s night view, ending with fireworks.</span></li><li>20:30 Tour ends</li></ol>
+        <p class="tt-note">Passport required · Full refund or date change if the cruise is changed due to bad weather</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p04">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/oliveyoung.jpg?v=2" alt="Olive Young N" class="" loading="lazy"><span class="tt-badge">TREND & SHOPPING</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gentle.jpg?v=2" alt="Gentle Monster" class="" loading="lazy"><figcaption>Gentle Monster</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/dior.jpg?v=2" alt="Seasonal pop-up" class="" loading="lazy"><figcaption>Seasonal pop-up</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 04</p>
+        <h3 class="tt-prog-title">SEONGSU TREND</h3>
+        <p class="tt-prog-kr">Seongsu Trend Tour &amp; Shopping Day</p>
+        <p class="tt-desc">Explore Seongsu, where old factories and warehouses became concept stores, pop-ups and cafés, and see Seoul&#x27;s latest fashion and beauty.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>From KRW 250,000 (4+ people) <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>10:00 – 15:00</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Thu 26, Fri 27 & Sun 29 Nov</dd></div>
+          <div><dt>Group</dt><dd>Min. 2 people</dd></div>
+          <div><dt>Meeting</dt><dd>Seongsu Station</dd></div>
+        </dl><div class="tt-tiers"><div><span>1 person</span><b>KRW 800,000</b></div><div><span>2 people</span><b>KRW 450,000</b></div><div><span>3 people</span><b>KRW 300,000</b></div><div><span>4+ people</span><b>KRW 250,000</b></div></div>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>10:00 Meet at Seongsu Station</li><li>Olive Young N · Gentle Monster · Musinsa<span class="tt-route-d">Seoul&#x27;s hottest neighborhood right now. Old factories and warehouses reborn as cafés, select shops, fashion brands and pop-up stores show Seoul&#x27;s stylish lifestyle in one place.</span></li><li>Trend shops such as Nyunyu, Igu Home, Daelim Changgo</li><li>Seasonal pop-up stores &amp; select shops</li><li>11:30 Brunch &amp; café hopping</li><li>15:00 Finish at Seoul Forest or Olive Young N<span class="tt-route-d">Olive Young N: a K-beauty landmark opened in November 2024. A huge beauty space of about 4,600 m², with a different concept on each floor and a wide range of brands and products.</span></li></ol>
+        <p class="tt-note">Meal included · Café costs paid individually · Tell us in advance about pop-ups you want to visit</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p05">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAerial.jpg?v=2" alt="Magic Island" class="" loading="lazy"><span class="tt-badge">THEME PARK</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteAdventure.jpg?v=2" alt="Indoor carousel" class="" loading="lazy"><figcaption>Indoor carousel</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/lotteCastle.jpg?v=2" alt="Magic Castle" class="" loading="lazy"><figcaption>Magic Castle</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 05</p>
+        <h3 class="tt-prog-title">LOTTE WORLD</h3>
+        <p class="tt-prog-kr">Lotte World Picnic Day</p>
+        <p class="tt-desc">Indoor Adventure and Magic Island on Seokchon Lake. A theme park morning in Seoul, rain or shine.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>KRW 160,000 <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>09:00 – 13:00</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Daily</dd></div>
+          <div><dt>Group</dt><dd>Min. 3 people</dd></div>
+          <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
+        </dl>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>09:00 Hotel pickup</li><li>10:00 Enter Lotte World · All-day pass</li><li>Free time at Adventure &amp; Magic Island<span class="tt-route-d">An entertainment complex combining the indoor &#x27;Adventure&#x27; park and the outdoor &#x27;Magic Island&#x27;. From all-weather indoor rides to outdoor attractions on Seokchon Lake, it&#x27;s fun for all ages.</span></li><li>13:30 Return to hotel, or stay longer and return on your own</li></ol>
+        <p class="tt-note">Guide, vehicle, admission and pickup included</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    <article class="tt-prog tt-flip" id="tt-p06">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/fishcake.jpg?v=1" alt="Tteokbokki &amp; sundae" class="" loading="lazy"><span class="tt-badge">FOOD TOUR</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/gwangjang.jpg?v=2" alt="Gwangjang Market" class="" loading="lazy"><figcaption>Gwangjang Market</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bindae.jpg?v=2" alt="Bindaetteok" class="" loading="lazy"><figcaption>Bindaetteok</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 06</p>
+        <h3 class="tt-prog-title">K-FOOD MARKET</h3>
+        <p class="tt-prog-kr">K-Food Market Tour</p>
+        <p class="tt-desc">Eat, drink and meet like a local. An all-inclusive tour with 10 dishes plus makgeolli and somaek.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>KRW 165,000 <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>13:00 – 16:30</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Daily</dd></div>
+          <div><dt>Group</dt><dd>Min. 2 people</dd></div>
+          <div><dt>Meeting</dt><dd>Hotel pickup (central Seoul)</dd></div>
+        </dl>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>13:00 Hotel pickup</li><li>Bossam &amp; makgeolli</li><li>Gwangjang Market tour · bindaetteok, gimbap, tteokbokki<span class="tt-route-d">Seoul&#x27;s signature food market, full of traditional market life. Enjoy street food like bindaetteok, gimbap and tteokbokki in a lively atmosphere.</span></li><li>Street snacks &amp; somaek</li><li>16:30 Finish near Jongno 5-ga Station</li></ol>
+        <p class="tt-note">Bring ID as alcohol is included · Tell us about allergies or dietary needs when you book</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    <article class="tt-prog" id="tt-p07">
+      <div class="tt-gallery">
+        <div class="tt-main"><img src="https://lg980305-blip.github.io/amfclub-photos/observatory.jpg?v=2" alt="DMZ observatory" class="" loading="lazy"><span class="tt-badge">HISTORY & NATURE</span></div>
+        <div class="tt-thumbs"><figure><img src="https://lg980305-blip.github.io/amfclub-photos/imjingak.jpg?v=2" alt="Imjingak" class="" loading="lazy"><figcaption>Imjingak</figcaption></figure><figure><img src="https://lg980305-blip.github.io/amfclub-photos/bridge.jpg?v=2" alt="Suspension bridge" class="" loading="lazy"><figcaption>Suspension bridge</figcaption></figure></div>
+      </div>
+      <div class="tt-info">
+        <p class="tt-eyebrow">PROGRAM 07</p>
+        <h3 class="tt-prog-title">DMZ &amp; GAMAKSAN</h3>
+        <p class="tt-prog-kr">DMZ &amp; North Korean Defector&#x27;s Story + Gamaksan Suspension Bridge</p>
+        <p class="tt-desc">See the front line of division, hear a North Korean defector&#x27;s story, then walk the Gamaksan suspension bridge through autumn scenery.</p>
+        <dl class="tt-facts">
+          <div><dt>Price</dt><dd>KRW 145,000 <small>per person · VAT excluded</small></dd></div>
+          <div><dt>Time</dt><dd>07:30 – 17:00</dd></div>
+          <div class="tt-date-row"><dt>Dates</dt><dd>Wed 18, Thu 19, Fri 20, Sun 22 & Sun 29 Nov</dd></div>
+          <div><dt>Group</dt><dd>Min. 4 people</dd></div>
+          <div><dt>Meeting</dt><dd>City Hall Station, Exit 7</dd></div>
+        </dl>
+        <p class="tt-sub">Itinerary</p>
+        <ol class="tt-route"><li>07:30 Meet at City Hall Station, Exit 7</li><li>Q&amp;A with a North Korean defector</li><li>Imjingak · Unification Bridge · ID check<span class="tt-route-d">Imjingak: a symbolic site of the Korean War and division, where traces of war meet hopes for peace. Unification Bridge: the gateway into the Civilian Control Zone.</span></li><li>DMZ Theater · Third Tunnel<span class="tt-route-d">DMZ Theater &amp; Exhibition: films and exhibits on how the DMZ, the Korean War and the division came about. Third Tunnel: an underground military tunnel dug by North Korea for invasion, discovered in 1978.</span></li><li>Dora Observatory · Unification Village<span class="tt-route-d">Dora Observatory: the best-known DMZ viewpoint, looking out over North Korean villages and Mt. Songaksan. Unification Village: a village inside the Civilian Control Zone with a unique way of life.</span></li><li>Gamaksan suspension bridge (40–50 min round trip)<span class="tt-route-d">The best hiking spot near the DMZ.</span></li><li>17:00 Tour ends at City Hall Station</li></ol>
+        <p class="tt-note">Passport/ID required · Alternative route if military or weather conditions require · Closed Mondays and public holidays</p>
+        <a class="tt-btn" href="https://totium.imweb.me/booking?lang=en">Book this program</a>
+      </div>
+    </article>
+    </div>
+  </section>
+
+  <section class="tt-sec tt-sec-faq">
+    <div class="tt-head">
+      <p class="tt-eyebrow">NOTICE</p>
+      <h2 class="tt-h2">BEFORE YOU BOOK</h2>
+      <p class="tt-lead">Please read before you book.</p>
+    </div>
+    <div class="tt-faq"><div class="tt-q"><p class="tt-q-title"><b>Q</b>Do you offer hotel pickup?</p><p class="tt-q-a">Pickup is included for hotels inside Seoul&#x27;s old city gates (central Seoul). Other areas have an extra pickup/drop-off fee based on distance. Programs 03, 04 and 07 meet at a set location.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>How far in advance do I need to book?</p><p class="tt-q-a">Bookings close one week before the tour date. Your request is received once you pay a 10% deposit, and the balance is due once the tour is confirmed.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>How do I pay?</p><p class="tt-q-a">You can pay by card or cash. Prices shown are per person and exclude 10% VAT.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>Can I book more than one program?</p><p class="tt-q-a">Yes. Each program is a separate product, so just list every program and date you want on the booking form.</p></div><div class="tt-q"><p class="tt-q-title"><b>Q</b>What should I bring?</p><p class="tt-q-a">Bring your passport for programs 03 and 07, and an ID for program 06 (alcohol included). Let us know about vegetarian, halal or allergy needs when you book.</p></div>
+      <div class="tt-q"><p class="tt-q-title"><b>Q</b>Can I get a refund if I cancel?</p>
+        <p class="tt-q-a">Refunds are based on the tour&#x27;s departure time, as shown below. After your booking is confirmed, the 10% deposit is non-refundable, and it is also forfeited if the balance is not paid after confirmation.</p>
+        <div class="tt-cancel"><div class="tt-cancel-item"><span>72+ hours before</span><b class="">90%</b><em>refund (minus deposit)</em></div><div class="tt-cancel-item"><span>72–48 hours before</span><b class="">50%</b><em>refund</em></div><div class="tt-cancel-item"><span>48–24 hours before</span><b class="">30%</b><em>refund</em></div><div class="tt-cancel-item"><span>Within 24 hours</span><b class="tt-zero">0%</b><em>no refund</em></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tt-cta" id="tt-booking">
+    <div class="tt-cta-in">
+      <div>
+        <p class="tt-eyebrow">RESERVATION</p>
+        <h2 class="tt-cta-title">BOOK YOUR<br>SEOUL TOUR</h2>
+        <p class="tt-lead tt-left">Tell us the program, date, number of people and your hotel. Our team will confirm and send you the deposit details.</p>
+        <a class="tt-btn tt-btn-lg" href="https://totium.imweb.me/booking?lang=en">Book now &#8599;</a>
+        <div class="tt-contact"><p>Questions? Message our tour manager directly.</p><div class="tt-contact-row"><a class="tt-ci" href="http://qr.kakao.com/talk/cDWl4.a2rUG_6IOb_BhI_Uk0jLM-" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.1c0 2.5 1.6 4.6 4.1 5.9L6.3 20l3.6-2.3c.7.1 1.4.2 2.1.2 5 0 9-3.2 9-7.1S17 4 12 4z"/></svg></span><span class="tt-ci-tx"><b>KakaoTalk</b><span>coolibiza</span></span></a><div class="tt-ci" title="Search this ID"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg></span><span class="tt-ci-tx"><b>WhatsApp</b><span>@totium2026</span></span></div><a class="tt-ci" href="https://t.me/coolibiza" target="_blank" rel="noopener"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2.2L18 7l-7 7.4V20l3.3-3.6L18 19z"/></svg></span><span class="tt-ci-tx"><b>Telegram</b><span>@coolibiza</span></span></a><a class="tt-ci" href="tel:+821020473178"><span class="tt-ci-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.6 16.6 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z"/></svg></span><span class="tt-ci-tx"><b>Phone</b><span>+82 10-2047-3178</span></span></a></div></div>
+      </div>
+      <div class="tt-qr">
+        <div class="tt-qr-box tt-qr-on"><img src="https://lg980305-blip.github.io/amfclub-photos/totium/qr/qr-booking-en.png?v=1" alt="QR"></div>
+        <p>Scan to book</p>
+      </div>
+    </div>
+  </section>
+<div class="tt-pop" id="tt-kakao-pop"><div class="tt-pop-box"><b>KakaoTalk · coolibiza</b><img src="https://lg980305-blip.github.io/amfclub-photos/qr/kakao-coolibiza.png?v=1" alt="KakaoTalk QR"><p>Scan with your phone camera to add us on KakaoTalk.</p><button type="button" class="tt-pop-close">Close</button></div></div><div class="tt-toast" id="tt-toast"></div>
+</div>
+<script>
+(function(){var r=document.currentScript&&document.currentScript.parentNode.querySelector('.tt-root')||document.querySelector('.tt-root');if(!r)return;r.classList.add('tt-js');
+function show(){var h=(location.hash||'').slice(1),m=/^tt-p0[1-7]$/.test(h);r.classList.toggle('tt-view-detail',m);
+[].forEach.call(r.querySelectorAll('.tt-prog,.tt-pnav-list a'),function(e){e.classList.toggle('tt-on',e.id===h||e.getAttribute('href')==='#'+h)});
+if(m){var t=r.querySelector('.tt-details');setTimeout(function(){window.scrollTo(0,t.getBoundingClientRect().top+window.pageYOffset-90)},0)}
+else if(h==='tt-programs'){var p=r.querySelector('.tt-sec-programs');setTimeout(function(){window.scrollTo(0,p.getBoundingClientRect().top+window.pageYOffset-90)},0)}}
+r.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a[href^="#tt-p"],a[href="#tt-programs"]');if(!a)return;ev.preventDefault();ev.stopPropagation();var h=a.getAttribute('href');if(location.hash!==h){history.pushState(null,'',h)}show()},true);
+var mob=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent),pop=r.querySelector('#tt-kakao-pop'),toast=r.querySelector('#tt-toast'),tt;
+function say(m){toast.textContent=m;toast.classList.add('tt-on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('tt-on')},1600)}
+function copy(t,label){try{navigator.clipboard.writeText(t).then(function(){say('Copied: '+label)},function(){say(label)})}catch(e){say(label)}}
+r.addEventListener('click',function(ev){var c=ev.target.closest&&ev.target.closest('.tt-ci');if(ev.target.closest&&ev.target.closest('.tt-pop-close')||ev.target===pop){pop.classList.remove('tt-on');return}if(!c)return;var h=c.getAttribute('href')||'';
+if(/kakao/.test(h)&&!mob){ev.preventDefault();pop.classList.add('tt-on')}
+else if(/^tel:/.test(h)&&!mob){ev.preventDefault();copy('+82 10-2047-3178','+82 10-2047-3178')}
+else if(!h){copy('totium2026','WhatsApp @totium2026')}});
+var rl=r.querySelector('.tt-rail'),pv=r.querySelector('.tt-prev'),nx=r.querySelector('.tt-next'),dots=r.querySelector('.tt-rail-dots');
+if(rl){rl.scrollLeft=0;var cards=rl.querySelectorAll('.tt-card');dots.innerHTML=Array.prototype.map.call(cards,function(){return '<i></i>'}).join('');
+function upd(){var w=cards[0].getBoundingClientRect().width+16,i=Math.round(rl.scrollLeft/w),max=rl.scrollWidth-rl.clientWidth-4;pv.disabled=rl.scrollLeft<4;nx.disabled=rl.scrollLeft>=max;[].forEach.call(dots.children,function(d,k){d.classList.toggle('tt-on',k===Math.min(i,cards.length-1))})}
+function go(d){var w=cards[0].getBoundingClientRect().width+16;rl.scrollBy({left:d*w,behavior:'smooth'})}
+pv.addEventListener('click',function(e){e.preventDefault();go(-1)});nx.addEventListener('click',function(e){e.preventDefault();go(1)});rl.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);setTimeout(upd,50)}
+window.addEventListener('hashchange',show);window.addEventListener('popstate',show);show();})();
+</script>
