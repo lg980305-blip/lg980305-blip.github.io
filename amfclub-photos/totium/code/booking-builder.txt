@@ -323,7 +323,7 @@ body{background:#faf8f3}
 .ts-toast.on{opacity:1}
 </style>
 <header class="ts-head" id="ts-head">
-  <a class="lg" href="/" aria-label="TOTIUM home"><img class="wh" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/34576f7166906.png" alt="tOTIUM"><img class="dk" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/33d12347b81a2.png" alt="tOTIUM"></a>
+  <a class="lg" href="/" aria-label="TOTIUM home"><img class="wh" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/fa6e8d0776f95.png" alt="TOTIUM"><img class="dk" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/66396e596c9c0.png" alt="TOTIUM"></a>
   <nav class="ts-nav"><a href="/#tt-programs">TOURS</a><a href="/#ts-why">ABOUT</a><a href="/#tt-booking">CONTACT</a><a class="bk" href="/booking">BOOK NOW</a></nav>
 </header>
 <div class="ts-fab" id="ts-fab">
