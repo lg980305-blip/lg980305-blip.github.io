@@ -324,7 +324,7 @@ body{background:#faf8f3}
 </style>
 <header class="ts-head" id="ts-head">
   <a class="lg" href="/" aria-label="TOTIUM home"><img class="wh" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/34576f7166906.png" alt="tOTIUM"><img class="dk" src="https://cdn.imweb.me/upload/S20261110f40759a202b75/33d12347b81a2.png" alt="tOTIUM"></a>
-  <nav class="ts-nav"><a href="/#tt-programs">TOURS</a><a href="/#ts-why">ABOUT</a><a href="/booking">BOOKING</a><a class="bk" href="/booking">BOOK NOW</a></nav>
+  <nav class="ts-nav"><a href="/#tt-programs">TOURS</a><a href="/#ts-why">ABOUT</a><a href="/#tt-booking">CONTACT</a><a class="bk" href="/booking">BOOK NOW</a></nav>
 </header>
 <div class="ts-fab" id="ts-fab">
   <div class="menu">
@@ -341,7 +341,7 @@ body{background:#faf8f3}
 (function(){
   if(window.__tsShell) return; window.__tsShell=1;
   var head=document.getElementById('ts-head'), hasHero=!!document.querySelector('.ts-hero');
-  if(!hasHero) head.classList.add('light');
+  if(!hasHero){ head.classList.add('light'); var mn=document.querySelector('main'); if(mn) mn.style.paddingTop='76px'; }
   document.body.appendChild(head); document.body.appendChild(document.getElementById('ts-fab')); document.body.appendChild(document.getElementById('ts-toast'));
   function onScroll(){ if(hasHero) head.classList.toggle('solid', window.scrollY>window.innerHeight*0.6); }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
@@ -352,7 +352,7 @@ body{background:#faf8f3}
     (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){toast('WhatsApp ID copied: '+v)},function(){toast('WhatsApp: '+v)}); }); });
   // smooth in-page links (imweb intercepts hash clicks)
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="/#"]'); if(!a) return; var id=a.getAttribute('href').slice(2), el=document.getElementById(id);
-    if(el && location.pathname==='/'){ e.preventDefault(); e.stopImmediatePropagation(); window.scrollTo({top:el.getBoundingClientRect().top+scrollY-70,behavior:'smooth'}); history.pushState(null,'','#'+id); } },true);
+    if(el && location.pathname==='/'){ e.preventDefault(); e.stopImmediatePropagation(); window.scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:'smooth'}); history.pushState(null,'','#'+id); } },true);
   // remove template placeholder text in footer, add required business info
   function clean(){ var f=document.getElementById('doz_footer_wrap'); if(!f) return;
     f.querySelectorAll('*').forEach(function(el){ if(el.children.length===0 && /^(Site name|I'm a paragraph\.)/.test((el.textContent||'').trim())){ el.style.display='none'; } });
