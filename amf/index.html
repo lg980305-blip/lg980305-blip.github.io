@@ -897,6 +897,7 @@
   var K='amf.demoBar.v1', bar=document.getElementById('demoBar');
   if(!bar) return;
   try{ if(localStorage.getItem(K)) return; }catch(e){}
+  if(bar.parentElement) bar.parentElement.prepend(bar);   /* 홈 화면이 위에 끼어들어도 고지가 맨 위에 오게 */
   bar.hidden=false;
   document.getElementById('demoBarX').onclick=function(){ bar.hidden=true; try{ localStorage.setItem(K,'1'); }catch(e){} };
 })();
