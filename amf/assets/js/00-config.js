@@ -1,0 +1,1 @@
+window.AMF_AI_CONFIG=window.AMF_AI_CONFIG||{ENDPOINT:"https://amf-gemini.amf-gemini.workers.dev",MODEL:"gemini-flash-lite-latest"};
