@@ -7,13 +7,13 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0A1A33">
-<meta name="description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta name="description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성합니다.">
 <link rel="canonical" href="https://lg980305-blip.github.io/amf/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AMF Entertainment">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="AMF 커머스 인텔리전스 — 범아시아 크리에이터 섭외 의사결정 엔진">
-<meta property="og:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta property="og:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성합니다.">
 <meta property="og:url" content="https://lg980305-blip.github.io/amf/">
 <meta property="og:image" content="https://lg980305-blip.github.io/amf/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -21,13 +21,13 @@
 <meta property="og:image:alt" content="AMF 커머스 인텔리전스 소개 카드와 추천 화면이 표시된 휴대폰">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AMF 커머스 인텔리전스 — 범아시아 크리에이터 섭외 의사결정 엔진">
-<meta name="twitter:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta name="twitter:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성합니다.">
 <meta name="twitter:image" content="https://lg980305-blip.github.io/amf/og-image.png">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<script src="assets/js/00-config.js?v=20261118b"></script>
-<script src="assets/js/11-shows-data.js?v=20261118b"></script>
-<link rel="stylesheet" href="assets/css/app.css?v=20261118b">
+<script src="assets/js/00-config.js?v=20261118d"></script>
+<script src="assets/js/11-shows-data.js?v=20261118d"></script>
+<link rel="stylesheet" href="assets/css/app.css?v=20261118d">
 </head>
 <body>
 <a class="skip" href="#mainContent">본문으로 건너뛰기</a>
@@ -115,7 +115,7 @@
       <input class="g-in" id="gl-email" type="email" placeholder="업무 이메일" autocomplete="off">
       <button class="g-go" type="submit" data-glogin="email">시작하기</button>
     </form>
-    <p class="g-note">시연용 데모입니다. 입력한 이메일은 이 브라우저에만 저장됩니다. · <a href="privacy.html">개인정보처리방침</a></p>
+    <p class="g-note">입력한 이메일은 이 브라우저에만 저장됩니다. · <a href="privacy.html">개인정보처리방침</a></p>
   </div>
 </div>
 
@@ -163,14 +163,13 @@
     </div>
     <div class="tbright">
       <button class="crchip" id="crchip"><span class="cc">C</span><b id="crn">30</b></button>
-      <span class="chip prod" title="팔로워·성과·리스크 지표는 시연용 시뮬레이션입니다">● 데모 데이터</span>
-      <span class="chip mono" id="chipModel">CIE-v1.5.0</span>
+      <span class="chip mono" id="chipModel" hidden>CIE-v1.5.0</span>
       <span class="chip gold">등록특허 제10-2278814호</span>
       <button class="thbtn" id="skinBtn" type="button" aria-label="디자인 스킨 전환"
         title="디자인 스킨 전환"><svg viewBox="0 0 16 16" aria-hidden="true"><path
         d="M8 1.8a6.2 6.2 0 000 12.4c.9 0 1.5-.6 1.5-1.4 0-.4-.2-.7-.4-1-.2-.2-.3-.5-.3-.8 0-.6.5-1.1 1.2-1.1h1.2a3 3 0 003-3c0-2.8-2.8-5.1-6.2-5.1z"/><circle cx="5.1" cy="6.4" r=".9"/><circle cx="8" cy="4.7" r=".9"/><circle cx="10.9" cy="6.4" r=".9"/></svg></button>
       <button class="thbtn lang" id="langBtn" type="button" aria-label="Switch to English">EN</button>
-      <button class="thbtn" id="aiBtn" type="button" aria-label="AI(Gemini) 연결 설정"
+      <button class="thbtn" id="aiBtn" type="button" hidden aria-label="AI(Gemini) 연결 설정"
         title="AI 연결 설정"><svg viewBox="0 0 16 16" aria-hidden="true"><path
         d="M8 1.4l1.5 3.9 3.9 1.5-3.9 1.5L8 12.2 6.5 8.3 2.6 6.8l3.9-1.5z"/><circle cx="12.6" cy="12.4" r="1.5"/></svg></button>
       <button class="thbtn" id="themeBtn" type="button" aria-label="화면 테마 전환"
@@ -233,11 +232,6 @@
 
   
   <main class="main" id="mainContent" tabindex="-1"><div class="wrap">
-  <div class="demo-bar" id="demoBar" hidden>
-    <span>인물 정보는 AMF 로스터의 이름·국가·사진·키·사이즈입니다. 팔로워·성과·리스크 지표는 엔진 시연용 시뮬레이션 값입니다.</span>
-    <a href="privacy.html">개인정보처리방침</a>
-    <button type="button" id="demoBarX" aria-label="고지 닫기">닫기</button>
-  </div>
 
   
   <section id="v_match">
@@ -274,7 +268,7 @@
                 aria-hidden="true"><path d="M8 1.4l1.5 3.9 3.9 1.5-3.9 1.5L8 12.2 6.5 8.3 2.6 6.8l3.9-1.5z"/></svg>
                 자연어로 브리프 작성</span>
               <span class="aistat" id="aiStat">미연결</span>
-              <button class="btn sm" type="button" id="aiSetup" style="margin-left:auto">AI 연결 설정</button>
+              <button class="btn sm" type="button" id="aiSetup" hidden style="margin-left:auto">AI 연결 설정</button>
             </div>
             <label class="sr-only" for="aiText">캠페인 설명</label>
             <textarea id="aiText" rows="2" placeholder="예) 우즈베키스탄·카자흐스탄 20대 후반 여성 대상 스킨케어 신제품을 런칭합니다. 예산 8천만원, 인스타그램 중심으로 5명 추천해 주세요."></textarea>
@@ -415,10 +409,6 @@
 
       <div class="card" style="margin-bottom:14px">
         <div class="chd"><h3>추천 포트폴리오</h3><span class="sub" id="portSub"></span></div>
-        <div style="padding:8px 18px;background:var(--warnsoft);border-bottom:1px solid var(--line);
-          font-size:10.5px;color:var(--noteink)"><b>단가 주의 —</b> 표시 금액은 업계 평균 조사치가 아닌
-          데모용 가정치입니다. 실사 제출 전 실제 계약 단가표로 교체가 필요합니다
-          (모델 거버넌스 → 경제 가정치 참조).</div>
         <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div><div class="tblwrap"><table id="portTbl"></table></div>
       </div>
 
@@ -544,7 +534,7 @@
       <p>스코어링 모델의 버전·산식·데이터 출처·재현성 및 편향 점검 기록입니다.</p>
     </div></div>
     <div class="note" style="margin-bottom:14px">
-      <b>데이터 고지 —</b> 본 콘솔의 크리에이터 <b>98인</b>은 AMF 로스터(모델 60인 · 역대 수상자 38인)의 실제 이름·국가·사진입니다. 팔로워·참여율·성과 이력·리스크 지표는 <b>엔진 검증용 시뮬레이션 값</b>으로 고정 시드로 생성되어 언제 열어도 동일하게 재현되며, 실 데이터 연동 시 이 레이어(<span class="mono">buildRoster()</span>)만 교체하면 엔진·UI는 그대로 동작합니다.
+      <b>데이터 출처 —</b> 인물 정보: AMF 로스터 98인(모델 60 · 역대 수상자 38) · 성과 지표: 시뮬레이션
     </div>
     <div class="split" style="margin-bottom:14px">
       <div class="card"><div class="chd"><h3>모델 카드</h3><span class="sub mono" id="govVerChip">CIE-v1.5.0</span></div>
@@ -572,8 +562,7 @@
       <div class="tblwrap"><table id="govDict"></table></div></div>
 
     <div class="card" style="margin-bottom:14px">
-      <div class="chd"><h3>경제 가정치</h3>
-        <span class="sub" style="color:var(--neg);font-weight:700">미검증 — 실사 전 실제 단가표로 교체 필요</span></div>
+      <div class="chd"><h3>경제 가정치</h3></div>
       <div class="cbd" style="padding-bottom:0">
         <div class="note" style="margin-bottom:0">
           <b>중요 —</b> 아래 금액·비율은 <b>업계 평균 조사치가 아니라 데모 동작을 위한 가정치</b>입니다.
@@ -840,14 +829,9 @@
 
   <div class="footer">
     <div>
-      <b style="color:var(--ink2)">AMF Entertainment</b> · Commerce Intelligence Engine ·
-      등록특허 제10-2278814호 · <a href="privacy.html" style="color:inherit">개인정보처리방침</a><br>
-      <span class="mono">인물 98인은 AMF 로스터(이름·국가·사진) · 팔로워·성과·리스크 지표는 엔진 검증용 시뮬레이션 ·
-        금액·전환율은 업계 조사치가 아닌 미검증 가정치</span>
+      <b style="color:var(--ink2)">AMF Entertainment</b> · 등록특허 제10-2278814호 · <a href="privacy.html" style="color:inherit">개인정보처리방침</a>
     </div>
-    <div class="mono" style="text-align:right">
-      <span id="footVer">CIE-v1.5.0</span> · dataset r98-c22<br>rendered <span id="ts"></span>
-    </div>
+    <div class="mono" style="text-align:right" hidden><span id="footVer"></span><span id="ts"></span></div>
   </div>
 
   </div></main>
@@ -864,38 +848,23 @@
   <div class="dbd" id="dBody"></div>
 </aside>
 
-<script src="data/roster.js?v=20261118b"></script>
-<script src="assets/js/01-core-i18n.js?v=20261118b"></script>
-<script src="assets/js/02-taxonomy.js?v=20261118b"></script>
-<script src="assets/js/03-dataset.js?v=20261118b"></script>
-<script src="assets/js/04-engine.js?v=20261118b"></script>
-<script src="assets/js/05-ui.js?v=20261118b"></script>
-<script src="assets/js/06-extensions.js?v=20261118b"></script>
-<script src="assets/js/07-data-adapter.js?v=20261118b"></script>
-<script src="assets/js/08-report-ai.js?v=20261118b"></script>
-<script src="assets/js/09-service-shell.js?v=20261118b"></script>
-<script src="assets/js/10-live-rundown.js?v=20261118b"></script>
-<script src="assets/js/12-plans.js?v=20261118b"></script>
-<script src="assets/js/13-home.js?v=20261118b"></script>
-<script src="assets/js/14-install.js?v=20261118b"></script>
-<script src="assets/js/15-assistant.js?v=20261118b"></script>
+<script src="data/roster.js?v=20261118d"></script>
+<script src="assets/js/01-core-i18n.js?v=20261118d"></script>
+<script src="assets/js/02-taxonomy.js?v=20261118d"></script>
+<script src="assets/js/03-dataset.js?v=20261118d"></script>
+<script src="assets/js/04-engine.js?v=20261118d"></script>
+<script src="assets/js/05-ui.js?v=20261118d"></script>
+<script src="assets/js/06-extensions.js?v=20261118d"></script>
+<script src="assets/js/07-data-adapter.js?v=20261118d"></script>
+<script src="assets/js/08-report-ai.js?v=20261118d"></script>
+<script src="assets/js/09-service-shell.js?v=20261118d"></script>
+<script src="assets/js/10-live-rundown.js?v=20261118d"></script>
+<script src="assets/js/12-plans.js?v=20261118d"></script>
+<script src="assets/js/13-home.js?v=20261118d"></script>
+<script src="assets/js/14-install.js?v=20261118d"></script>
+<script src="assets/js/15-assistant.js?v=20261118d"></script>
 <style>
-.demo-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 14px;padding:10px 14px;border-radius:10px;
-  background:var(--brand-soft, rgba(80,110,255,.08));color:var(--ink2);font-size:12px;line-height:1.6}
-.demo-bar span{flex:1 1 320px;min-width:0}
-.demo-bar a{color:inherit;font-weight:600}
-.demo-bar button{border:0;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;padding:2px 4px}
 .demo-note{margin:0 0 10px;font-size:11.5px;color:var(--ink3, #7a8296);line-height:1.6}
 </style>
-<script>
-(function(){
-  var K='amf.demoBar.v1', bar=document.getElementById('demoBar');
-  if(!bar) return;
-  try{ if(localStorage.getItem(K)) return; }catch(e){}
-  if(bar.parentElement) bar.parentElement.prepend(bar);   
-  bar.hidden=false;
-  document.getElementById('demoBarX').onclick=function(){ bar.hidden=true; try{ localStorage.setItem(K,'1'); }catch(e){} };
-})();
-</script>
 </body>
 </html>
