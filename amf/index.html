@@ -1,39 +1,905 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AMF 커머스 인텔리전스 · 새 주소로 이전</title>
-<meta name="robots" content="noindex">
-<link rel="canonical" href="https://www.theamfclub.com/">
-<link rel="icon" href="icon-192.png">
-<style>
-:root{--bg:#0A1A33;--fg:#F2F5FA;--mute:#A9B4C8;--acc:#9DB8FF}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--fg);
-  font:16px/1.7 "Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;padding:24px max(16px,env(safe-area-inset-right)) 24px max(16px,env(safe-area-inset-left))}
-main{max-width:520px;text-align:center}
-h1{font-size:22px;margin:0 0 10px}
-p{margin:0 0 18px;color:var(--mute)}
-a.btn{display:inline-block;padding:12px 22px;border-radius:10px;background:var(--fg);color:var(--bg);font-weight:700;text-decoration:none}
-</style>
-<script>
-/* 옛 주소(github.io/amf) → 새 주소. 새 주소가 열리는지 먼저 확인하고 이동한다. */
-(function(){
-  var target='https://www.theamfclub.com/'+(/[?&]app=1/.test(location.search)?'?app=1':'');
-  var done=false, img=new Image();
-  img.onload=function(){ if(!done){ done=true; location.replace(target); } };
-  img.src='https://www.theamfclub.com/icon-192.png?probe='+Date.now();
-  window.AMF_TARGET=target;
-})();
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AMF 커머스 인텔리전스</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0A1A33">
+<meta name="description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<link rel="canonical" href="https://lg980305-blip.github.io/amf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AMF Entertainment">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AMF 커머스 인텔리전스 — 범아시아 크리에이터 섭외 의사결정 엔진">
+<meta property="og:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta property="og:url" content="https://lg980305-blip.github.io/amf/">
+<meta property="og:image" content="https://lg980305-blip.github.io/amf/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AMF 커머스 인텔리전스 소개 카드와 추천 화면이 표시된 휴대폰">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AMF 커머스 인텔리전스 — 범아시아 크리에이터 섭외 의사결정 엔진">
+<meta name="twitter:description" content="AMF 엔터테인먼트의 크리에이터 커머스 인텔리전스 엔진. 22개국 98인 범아시아 크리에이터 네트워크에서 캠페인 조건에 맞는 크리에이터를 추천하고, 예산 안에서 최적 포트폴리오를 구성하는 작동 시연 페이지입니다.">
+<meta name="twitter:image" content="https://lg980305-blip.github.io/amf/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="assets/js/00-config.js?v=20261118a"></script>
+<script src="assets/js/11-shows-data.js?v=20261118a"></script>
+<link rel="stylesheet" href="assets/css/app.css?v=20261118a">
 </head>
 <body>
-<main>
-  <h1>AMF 커머스 인텔리전스가 새 주소로 이전했습니다</h1>
-  <p>잠시 후 자동으로 이동합니다. 이동하지 않으면 아래 버튼을 눌러 주세요.</p>
-  <a class="btn" id="go" href="https://www.theamfclub.com/">www.theamfclub.com 으로 가기</a>
-</main>
-<script>document.getElementById('go').href=window.AMF_TARGET||document.getElementById('go').href;</script>
+<a class="skip" href="#mainContent">본문으로 건너뛰기</a>
+
+<!-- ══════════════ 소개 페이지 (왼쪽 설명 + 폰 목업) ══════════════
+     폰 안에는 목업 그림이 아니라 이 파일 자신을 iframe 으로 띄운다.
+     iframe 안에서는 뷰포트가 390px 이므로 모바일 레이아웃이 그대로 작동하고,
+     왼쪽 목록을 누르면 postMessage 로 화면을 넘긴다. -->
+<div id="promo" hidden>
+  <div class="pm-wrap">
+
+    <div class="pm-left">
+      <div class="pm-icon" aria-hidden="true"><span>AMF<br>ASIA</span></div>
+
+      <h1 class="pm-title">범아시아 크리에이터<br>섭외 의사결정 엔진</h1>
+
+      <p class="pm-desc">
+        우즈베키스탄·베트남·인도네시아 등 22개국 98인 네트워크에서
+        캠페인 조건에 맞는 크리에이터를 6축으로 산출하고, 예산 제약 아래
+        최적 포트폴리오까지 구성하는 작동 목업입니다.
+        화면을 직접 눌러 확인하실 수 있습니다.
+      </p>
+
+      <div class="pm-rule"></div>
+
+      <ul class="pm-list" id="pmList">
+        <li data-view="home"><span class="n">01</span>
+          <span class="t">추천 — 한 줄 브리프, 추천 크리에이터 카드, 이번 주 쇼 티커</span></li>
+        <li data-view="roster"><span class="n">02</span>
+          <span class="t">크리에이터 — DB · 프로필 · 성장 리포트</span></li>
+        <li data-view="board"><span class="n">03</span>
+          <span class="t">캐스팅 — 보드, 쇼 · 행사 일정 37건, 조건으로 매칭</span></li>
+        <li data-view="dash"><span class="n">04</span>
+          <span class="t">인사이트 — 대시보드 · 트렌드 · 케이스 · 거버넌스 · 알림</span></li>
+        <li data-view="match"><span class="n">05</span>
+          <span class="t">상세 매칭 — 10칸 브리프, 산출 로그, 민감도 분석, 내보내기</span></li>
+        <li data-view="plans"><span class="n">06</span>
+          <span class="t">구독 · 요금제 — Lite/Pro/Enterprise, 시연용 결제 흐름</span></li>
+      </ul>
+
+      <div class="pm-rule"></div>
+
+      <p class="pm-note">
+        시연용 목업입니다. 표시되는 크리에이터 정보·성과·단가는
+        <b>AMF 로스터 98인 (성과 지표는 시뮬레이션)</b>이며, 금액과 전환율은
+        업계 조사치가 아닌 미검증 가정치입니다. 실 데이터 연동 시
+        데이터 레이어만 교체하면 엔진과 화면은 그대로 동작합니다.
+      </p>
+
+      <div class="pm-actions">
+        <button class="pm-btn" type="button" id="pmFull">전체 화면으로 열기</button>
+        <button class="pm-btn ghost" type="button" id="pmReset">폰 처음으로</button>
+      </div>
+    </div>
+
+    <div class="pm-right">
+      <div class="pm-phone">
+        <div class="pm-notch" aria-hidden="true"></div>
+        <iframe id="pmFrame" title="AMF 커머스 인텔리전스 데모" loading="eager"></iframe>
+        <div class="pm-fallback" id="pmFallback" hidden>
+          <p>폰 미리보기를 불러오지 못했습니다.</p>
+          <button class="pm-btn" type="button" onclick="document.getElementById('pmFull').click()">
+            전체 화면으로 열기</button>
+        </div>
+      </div>
+      <p class="pm-hint">화면을 직접 눌러 보세요 · 왼쪽 목록을 누르면 해당 화면으로 이동합니다</p>
+      <p class="pm-hint">휴대폰에서 이 주소를 열면 <b>홈 화면에 앱으로 추가</b>할 수 있습니다</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ 서비스 게이트 ══ -->
+<div id="gate" role="dialog" aria-modal="true" aria-label="AMF 커머스 인텔리전스 콘솔 로그인">
+  <div class="g-mark">AMF</div>
+  <p class="g-word">Commerce <em>Intelligence</em> Engine</p>
+  <p class="g-sub">브리프를 넣으면 3초 안에 크리에이터 포트폴리오가 나옵니다<br>22개국 98인 네트워크 · 6축 적합도 스코어링 · 감사 추적</p>
+  <div class="g-pills">
+    <span class="g-pill">📊 목표별 가중치 매칭</span>
+    <span class="g-pill">🔍 산출 근거 전체 공개</span>
+  </div>
+  <div class="g-sheet">
+    <h2>콘솔 로그인</h2>
+    <p class="g-cap">캠페인 매칭을 이어서 진행하세요</p>
+    <button type="button" class="g-soc" data-glogin="demo">데모 체험하기</button>
+    <div class="g-or">또는 이름을 남기고 시작</div>
+    <form id="gl-form" novalidate>
+      <label class="sr-only" for="gl-email">업무 이메일</label>
+      <input class="g-in" id="gl-email" type="email" placeholder="업무 이메일" autocomplete="off">
+      <button class="g-go" type="submit" data-glogin="email">시작하기</button>
+    </form>
+    <p class="g-note">시연용 데모입니다. 입력한 이메일은 이 브라우저에만 저장됩니다. · <a href="privacy.html">개인정보처리방침</a></p>
+  </div>
+</div>
+
+<!-- ══ 모바일 하단 탭 ══ -->
+<nav id="mtab" aria-label="모바일 주 메뉴">
+  <button data-mview="match" class="on"><svg viewBox="0 0 16 16"><path d="M2 8h3l2-4 2 8 2-4h3"/></svg>매칭</button>
+  <button data-mview="dash"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="12" rx="1"/><rect x="9" y="6" width="5" height="8" rx="1"/></svg>대시보드</button>
+  <button data-mview="roster"><svg viewBox="0 0 16 16"><circle cx="8" cy="5" r="2.6"/><path d="M2.8 13c0-2.6 2.3-4 5.2-4s5.2 1.4 5.2 4"/></svg>크리에이터</button>
+  <button data-mview="board"><svg viewBox="0 0 16 16"><rect x="2" y="2.5" width="4" height="11" rx="1"/><rect x="7" y="2.5" width="4" height="7" rx="1"/><path d="M13 5v6M10 8h6"/></svg>보드</button>
+  <button type="button" id="moreTab"><svg viewBox="0 0 16 16"><circle cx="3.2" cy="8" r="1.3"/><circle cx="8" cy="8" r="1.3"/><circle cx="12.8" cy="8" r="1.3"/></svg>더보기</button>
+</nav>
+
+<!-- ══ 모바일 더보기 시트 ══ -->
+<div id="moreSheet" role="dialog" aria-modal="true" aria-label="전체 메뉴">
+  <div class="ms-box">
+    <div class="ms-hd">전체 메뉴<button type="button" id="moreClose" aria-label="닫기">×</button></div>
+    <div class="ms-list" id="moreList"></div>
+  </div>
+</div>
+
+<!-- ══ 크레딧 모달 ══ -->
+<div id="crmodal" role="dialog" aria-modal="true" aria-labelledby="crbox"><div class="cr-box" id="crbox"></div></div>
+
+<!-- ══ AI 연결 설정 ══ -->
+<div id="aimodal" role="dialog" aria-modal="true" aria-labelledby="aimTitle"><div class="cr-box wide" id="aimbox"></div></div>
+
+<div class="shell">
+
+  <!-- ── BRAND ── -->
+  <div class="brandbar">
+    <div class="mark">AMF</div>
+    <div>
+      <div class="bn">AMF Entertainment</div>
+      <div class="bt">COMMERCE INTELLIGENCE</div>
+    </div>
+  </div>
+
+  <!-- ── TOP BAR ── -->
+  <div class="topbar">
+    <div class="tbleft">
+      <div>
+        <div class="tbtitle" id="pgTitle">캠페인 매칭 엔진</div>
+        <div class="tbpath" id="pgPath">Platform / Matching / New Campaign</div>
+      </div>
+    </div>
+    <div class="tbright">
+      <button class="crchip" id="crchip"><span class="cc">C</span><b id="crn">30</b></button>
+      <span class="chip prod" title="팔로워·성과·리스크 지표는 시연용 시뮬레이션입니다">● 데모 데이터</span>
+      <span class="chip mono" id="chipModel">CIE-v1.5.0</span>
+      <span class="chip gold">등록특허 제10-2278814호</span>
+      <button class="thbtn" id="skinBtn" type="button" aria-label="디자인 스킨 전환"
+        title="디자인 스킨 전환"><svg viewBox="0 0 16 16" aria-hidden="true"><path
+        d="M8 1.8a6.2 6.2 0 000 12.4c.9 0 1.5-.6 1.5-1.4 0-.4-.2-.7-.4-1-.2-.2-.3-.5-.3-.8 0-.6.5-1.1 1.2-1.1h1.2a3 3 0 003-3c0-2.8-2.8-5.1-6.2-5.1z"/><circle cx="5.1" cy="6.4" r=".9"/><circle cx="8" cy="4.7" r=".9"/><circle cx="10.9" cy="6.4" r=".9"/></svg></button>
+      <button class="thbtn lang" id="langBtn" type="button" aria-label="Switch to English">EN</button>
+      <button class="thbtn" id="aiBtn" type="button" aria-label="AI(Gemini) 연결 설정"
+        title="AI 연결 설정"><svg viewBox="0 0 16 16" aria-hidden="true"><path
+        d="M8 1.4l1.5 3.9 3.9 1.5-3.9 1.5L8 12.2 6.5 8.3 2.6 6.8l3.9-1.5z"/><circle cx="12.6" cy="12.4" r="1.5"/></svg></button>
+      <button class="thbtn" id="themeBtn" type="button" aria-label="화면 테마 전환"
+        title="화면 테마 전환 (시스템 → 다크 → 라이트)"><svg viewBox="0 0 16 16" aria-hidden="true"><path id="themeIcon" d="M8 1.6v1.8M8 12.6v1.8M1.6 8h1.8M12.6 8h1.8M3.5 3.5l1.3 1.3M11.2 11.2l1.3 1.3M12.5 3.5l-1.3 1.3M4.8 11.2l-1.3 1.3"/><circle cx="8" cy="8" r="3.1"/></svg></button>
+      <div class="who">
+        <div class="av">KA</div>
+        <div>
+          <div class="wn">Kim, Analyst</div>
+          <div class="wr">Brand Solutions · Seoul HQ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RAIL ── -->
+  <nav class="rail" aria-label="주 메뉴">
+    <div class="rgrp">INTELLIGENCE</div>
+    <button class="rlink on" data-view="match">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h3l2-4 2 8 2-4h3"/></svg>
+      캠페인 매칭</button>
+    <button class="rlink" data-view="dash">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5.5" height="5.5" rx="1"/><rect x="8.5" y="2" width="5.5" height="9" rx="1"/><rect x="2" y="8.5" width="5.5" height="5.5" rx="1"/><rect x="8.5" y="12" width="5.5" height="2" rx="1"/></svg>
+      네트워크 대시보드</button>
+    <button class="rlink" data-view="roster">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="5.5" r="2.4"/><path d="M1.8 13.5c0-2.4 1.9-4 4.2-4s4.2 1.6 4.2 4"/><path d="M11 4.2a2.2 2.2 0 010 4.3M12.2 13.5c0-1.6-.5-2.9-1.4-3.7"/></svg>
+      크리에이터 DB <span class="bdg" id="railCount">98</span></button>
+    <button class="rlink" data-view="board">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="4" height="11" rx="1"/><rect x="7" y="2.5" width="4" height="7" rx="1"/><path d="M13 5v6M10 8h6"/></svg>
+      캐스팅 보드 <span class="bdg" id="railBoard">0</span></button>
+    <button class="rlink" data-view="shows">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="11" rx="1.4"/><path d="M2 6.5h12M5.5 1.8v2.4M10.5 1.8v2.4"/></svg>
+      쇼 일정 <span class="bdg" id="railShows">0</span></button>
+    <button class="rlink" data-view="cue">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.6" y="3.2" width="12.8" height="8.2" rx="1.2"/><path d="M5.6 13.8h4.8M8 11.4v2.4"/><path d="M6.4 5.8l3.2 1.5-3.2 1.5z" fill="currentColor" stroke="none"/></svg>
+      라이브 편성 <span class="bdg" id="railCue">7</span></button>
+    <div class="rgrp">INSIGHTS</div>
+    <button class="rlink" data-view="trends">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 11.5l3.5-4 2.5 2.5L13.5 4"/><path d="M10.5 4h3v3"/></svg>
+      트렌드 브리핑</button>
+    <button class="rlink" data-view="growth">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 13.5h12"/><rect x="3" y="8" width="2.6" height="5"/><rect x="6.8" y="5" width="2.6" height="8"/><rect x="10.6" y="2.5" width="2.6" height="10.5"/></svg>
+      성장 리포트</button>
+    <button class="rlink" data-view="cases">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="12" height="9.5" rx="1.2"/><path d="M5.5 4V2.8h5V4M2 7.5h12"/></svg>
+      성과 케이스</button>
+    <div class="rgrp">GOVERNANCE</div>
+    <button class="rlink" data-view="gov">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1.6l5.2 2.2v4c0 3.3-2.2 5.9-5.2 6.8-3-.9-5.2-3.5-5.2-6.8v-4z"/><path d="M5.8 8l1.6 1.6L10.4 6.4"/></svg>
+      모델 거버넌스</button>
+    <button class="rlink" data-view="alerts">
+      <svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2.2a3.6 3.6 0 00-3.6 3.6c0 3.3-1.4 4.4-1.4 4.4h10s-1.4-1.1-1.4-4.4A3.6 3.6 0 008 2.2z"/><path d="M6.9 12.6a1.3 1.3 0 002.2 0"/></svg>
+      세이프티 알림 <span class="bdg" id="railAlerts">0</span></button>
+    <div class="railfoot">
+      env · production<br>
+      region · ap-northeast-2<br>
+      build · 2026.08.19<br>
+      dataset · r98
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main class="main" id="mainContent" tabindex="-1"><div class="wrap">
+  <div class="demo-bar" id="demoBar" hidden>
+    <span>인물 정보는 AMF 로스터의 이름·국가·사진·키·사이즈입니다. 팔로워·성과·리스크 지표는 엔진 시연용 시뮬레이션 값입니다.</span>
+    <a href="privacy.html">개인정보처리방침</a>
+    <button type="button" id="demoBarX" aria-label="고지 닫기">닫기</button>
+  </div>
+
+  <!-- ══════════════ VIEW: MATCH ══════════════ -->
+  <section id="v_match">
+    <div class="pagehd">
+      <div>
+        <h1>캠페인 매칭 엔진</h1>
+        <p>캠페인 조건을 입력하면 네트워크 전체 크리에이터를 대상으로 6축 적합도를 실제 연산하여
+           후보를 선별하고, 예산 제약 하에서 최적 포트폴리오를 구성합니다.</p>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn sm" onclick="loadPreset()">샘플 브리프 불러오기</button>
+        <button class="btn sm" onclick="exportJSON()">결과 JSON 내보내기<span class="price-tag"><i aria-hidden="true"></i>2</span></button>
+      </div>
+    </div>
+
+    <div class="steps" id="stepper">
+      <button class="stp on" type="button" data-s="1" onclick="resetMatch()" style="cursor:pointer"
+        title="클릭하면 조건 입력으로 돌아갑니다"><span class="n">1</span>
+        <span>캠페인 브리프<small>조건 정의 · 클릭 시 복귀</small></span></button>
+      <div class="stp" data-s="2"><span class="n">2</span><span>후보 선별<small>필터 파이프라인</small></span></div>
+      <div class="stp" data-s="3"><span class="n">3</span><span>적합도 산출<small>6축 스코어링</small></span></div>
+      <div class="stp" data-s="4"><span class="n">4</span><span>포트폴리오<small>예산 최적화</small></span></div>
+    </div>
+
+    <!-- STEP 1 : BRIEF -->
+    <div class="card" id="p_input">
+      <div class="chd"><h3>캠페인 브리프</h3>
+        <span class="sub">필수 항목 6 · 선택 항목 3</span></div>
+      <div class="cbd">
+        <div class="fgrid">
+          <div class="aibox" id="aiBrief">
+            <div class="aihd">
+              <span class="ailabel"><svg class="aispark" viewBox="0 0 16 16" fill="currentColor"
+                aria-hidden="true"><path d="M8 1.4l1.5 3.9 3.9 1.5-3.9 1.5L8 12.2 6.5 8.3 2.6 6.8l3.9-1.5z"/></svg>
+                자연어로 브리프 작성</span>
+              <span class="aistat" id="aiStat">미연결</span>
+              <button class="btn sm" type="button" id="aiSetup" style="margin-left:auto">AI 연결 설정</button>
+            </div>
+            <label class="sr-only" for="aiText">캠페인 설명</label>
+            <textarea id="aiText" rows="2" placeholder="예) 우즈베키스탄·카자흐스탄 20대 후반 여성 대상 스킨케어 신제품을 런칭합니다. 예산 8천만원, 인스타그램 중심으로 5명 추천해 주세요."></textarea>
+            <div class="airow">
+              <button class="btn pri sm" type="button" id="aiParse">브리프로 변환</button>
+              <span class="fhint" id="aiNote">Gemini가 문장을 아래 조건으로 바꿔 채웁니다.
+                <b>적합도 계산과 추천은 엔진이 그대로 수행</b>하며, AI는 점수에 관여하지 않습니다.</span>
+            </div>
+            <div id="aiParseOut" style="margin-top:9px"></div>
+          </div>
+          <div class="fld"><label for="f_cat">상품 분야<span class="req">*</span></label>
+            <select id="f_cat"></select></div>
+          <div class="fld"><label for="f_age">타깃 연령<span class="req">*</span></label>
+            <select id="f_age"></select></div>
+          <div class="fld"><label for="f_sex">타깃 성별<span class="req">*</span></label>
+            <select id="f_sex"><option value="여성">여성</option><option value="남성">남성</option><option value="성별 무관">성별 무관</option></select></div>
+          <div class="fld"><label for="f_obj">캠페인 목표<span class="req">*</span></label>
+            <select id="f_obj"></select></div>
+
+          <div class="fld"><label for="f_reg">진출 권역</label>
+            <select id="f_reg"><option value="전 권역">전 권역</option><option value="중앙아시아">중앙아시아</option><option value="동남아시아">동남아시아</option><option value="동북아시아">동북아시아</option><option value="남아시아">남아시아</option></select></div>
+          <div class="fld"><label for="f_ctry">진출 국가</label>
+            <select id="f_ctry"><option value="국가 무관">국가 무관</option></select></div>
+          <div class="fld"><label for="f_plt">주력 채널</label>
+            <select id="f_plt"><option value="채널 무관">채널 무관</option><option value="Instagram">Instagram</option><option value="TikTok">TikTok</option><option value="YouTube">YouTube</option></select></div>
+          <div class="fld"><label for="f_tier">최소 등급</label>
+            <select id="f_tier"><option value="제한 없음">제한 없음</option><option value="B 이상">B 이상</option><option value="A 이상">A 이상</option><option value="S 전용">S 전용</option></select></div>
+          <div class="fld"><label for="f_topn">추천 인원</label>
+            <select id="f_topn"><option value="3">상위 3인</option><option value="5">상위 5인</option><option value="8">상위 8인</option></select></div>
+          <div class="fld"><label for="f_aqs">오디언스 진정성 기준 (AQS)</label>
+            <select id="f_aqs">
+              <option value="0">적용 안 함</option>
+              <option value="55">AQS 55 이상 (기본 검증)</option>
+              <option value="70" selected>AQS 70 이상 (권장)</option>
+              <option value="80">AQS 80 이상 (엄격)</option>
+            </select></div>
+          <div class="fld" style="grid-column:1/-1"><label for="f_body">모델 신체 조건 (피팅 · 착용 촬영이 필요한 캠페인)</label>
+            <select id="f_body"><option value="제한 없음">제한 없음</option><option value="키 168cm 이상">키 168cm 이상</option>
+              <option value="키 172cm 이상">키 172cm 이상</option><option value="키 178cm 이상">키 178cm 이상</option>
+              <option value="여성 55 이하 사이즈">여성 55 이하 사이즈</option><option value="남성 100 이하 사이즈">남성 100 이하 사이즈</option></select>
+            <div class="fhint">의류 · 패션 · 뷰티 착용 촬영 시 브랜드 샘플 사이즈와의 정합 조건입니다.</div></div>
+
+          <div class="budget">
+            <div class="budrow">
+              <div>
+                <label for="f_bud" style="display:block;font-size:9.5px;letter-spacing:1.2px;color:var(--ink3);font-weight:700;margin-bottom:7px">
+                  캠페인 총 예산 (KRW)</label>
+                <div class="budamt num" id="budAmt">₩20,000,000<small> / 2,000만원</small></div>
+              </div>
+              <div class="budstats">
+                <div><div class="k">섭외 가능 인원</div><div class="v num" id="budCnt">–</div></div>
+                <div><div class="k">1인 평균 단가</div><div class="v num" id="budAvg">–</div></div>
+                <div><div class="k">예산 내 후보</div><div class="v num" id="budPool">–</div></div>
+              </div>
+            </div>
+            <input type="range" id="f_bud" min="0.5" max="300" step="0.5" value="20" oninput="updateBudget()"
+              aria-describedby="budAmt">
+            <div class="ticks"><span>500만</span><span>7,500만</span><span>1억5천</span><span>2억2천</span><span>3억</span></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:18px;align-items:center">
+          <button class="btn pri" onclick="runPipeline()" style="padding:10px 26px">매칭 실행<span class="price-tag" style="color:#fff"><i aria-hidden="true"></i>3</span></button>
+          <span class="fhint" id="briefHint">네트워크 98인 · 22개국 대상 전수 연산</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 : PIPELINE LOG -->
+    <div class="card hidden" id="p_scan" style="margin-top:14px">
+      <div class="chd"><h3>매칭 파이프라인 실행</h3>
+        <span class="sub mono" id="scanRun">run_id —</span></div>
+      <div class="scan-cute" id="scanCute">
+        <div class="mascot"><div class="face"></div><div class="eye l"></div><div class="eye r"></div>
+          <div class="mouth"></div><div class="glass"></div></div>
+        <div class="scan-msg" id="scanMsg" role="status" aria-live="polite">캠페인 브리프를 읽고 있어요…</div>
+        <div class="scan-bar"><i id="scanBar"></i></div>
+        <div class="scan-sub" id="scanSub">네트워크 98인을 살펴보는 중</div>
+        <div class="scan-dots"><i></i><i></i><i></i></div>
+        <button id="devlog-toggle" type="button" aria-expanded="false" aria-controls="plogWrap">상세 실행 로그 (관리자)</button>
+      </div>
+      <div class="cbd"><div id="plogWrap" class="hidden">
+<div class="plog" id="plog"></div>
+</div></div>
+    </div>
+
+    <!-- STEP 3~4 : RESULT -->
+    <div class="hidden" id="p_result">
+      <div class="actbar">
+        <button class="btn pri" onclick="resetMatch()">← 조건 변경하고 재매칭</button>
+        <span class="actinfo" id="actInfo"></span>
+        <button class="btn sm" onclick="exportJSON()">결과 JSON<span class="price-tag"><i aria-hidden="true"></i>2</span></button>
+        <button class="btn sm" onclick="exportCSV()">포트폴리오 CSV<span class="price-tag"><i aria-hidden="true"></i>2</span></button>
+        <button class="btn sm" onclick="copyShareLink()">공유 링크 복사</button>
+        <button class="btn sm" type="button" id="aiSumBtn">AI 코멘터리</button>
+        <button class="btn sm" type="button"
+          onclick="boardAddMany(LAST.res.port.map(x=>x.c.idx))">포트폴리오 전원 보드에 담기</button>
+        <button class="btn sm" onclick="window.print()">인쇄 · PDF</button>
+        <button class="btn sm" onclick="showView('roster')">크리에이터 DB</button>
+      </div>
+      <div class="card exsum" id="exSumCard" style="margin-bottom:14px">
+        <div class="chd"><h3>실행 요약</h3>
+          <span class="sub">Executive Summary · 연산 결과 자동 생성</span></div>
+        <div class="cbd"><div id="exSum"></div></div>
+      </div>
+      <div class="card hidden" id="aiSumCard" style="margin-bottom:14px">
+        <div class="chd"><h3>AI 코멘터리</h3>
+          <span class="sub">Gemini · 엔진 산출 결과 해설 (수치는 엔진이 계산한 값만 사용)</span></div>
+        <div class="cbd">
+          <div class="aiout" id="aiSum"></div>
+          <div class="aiqa hidden" id="aiQaWrap">
+            <div class="airow" style="margin-top:0">
+              <label class="sr-only" for="aiQ">결과에 대한 질문</label>
+              <input type="text" id="aiQ" placeholder="결과에 대해 질문하기 — 예) 왜 S등급이 한 명뿐인가요?">
+              <button class="btn sm" type="button" id="aiAsk">질문</button>
+            </div>
+            <div id="aiQaList" style="margin-top:12px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpis" id="resKpis"></div>
+
+      <div class="split3" style="margin-bottom:14px">
+        <div class="card">
+          <div class="chd"><h3>후보 선별 파이프라인</h3>
+            <span class="sub" id="funnelSub"></span></div>
+          <div class="cbd"><div class="fn" id="funnel"></div></div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>목표별 가중치 프로파일</h3><span class="sub" id="wProfName"></span></div>
+          <div class="cbd"><div class="dist" id="wDist"></div>
+            <div style="margin-top:13px;font-size:10.5px;color:var(--ink3);line-height:1.6">
+              최종 점수 = Σ(축 점수 × 가중치) − 리스크 페널티(R × 0.35).
+              가중치는 선택한 캠페인 목표에 따라 자동 전환됩니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="chd"><h3>추천 포트폴리오</h3><span class="sub" id="portSub"></span></div>
+        <div style="padding:8px 18px;background:var(--warnsoft);border-bottom:1px solid var(--line);
+          font-size:10.5px;color:var(--noteink)"><b>단가 주의 —</b> 표시 금액은 업계 평균 조사치가 아닌
+          데모용 가정치입니다. 실사 제출 전 실제 계약 단가표로 교체가 필요합니다
+          (모델 거버넌스 → 경제 가정치 참조).</div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div><div class="tblwrap"><table id="portTbl"></table></div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="chd"><h3>예상 성과 시뮬레이션</h3>
+          <span class="sub">포트폴리오 편성 기준 · 과거 실적 회귀 추정</span></div>
+        <div class="cbd"><div class="simgrid" id="simGrid"></div>
+          <div style="margin-top:12px;font-size:10.5px;color:var(--ink3);line-height:1.6" id="simNote"></div>
+        </div>
+      </div>
+
+      <div class="split3" style="margin-bottom:14px">
+        <div class="card">
+          <div class="chd"><h3>오디언스 중복도 분석</h3>
+            <span class="sub">순 도달 산출 근거 · 상위 중복 조합</span></div>
+          <div class="cbd" id="overlapBox"></div>
+        </div>
+        <div class="card">
+          <div class="chd"><h3>대안 포트폴리오 시나리오</h3>
+            <span class="sub">동일 예산 · 목적별 대안</span></div>
+          <div class="tblwrap"><table id="scenTbl"></table></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="chd"><h3>스코어 산출 감사 추적</h3>
+          <span class="sub">Audit Trail · <select id="auditPick" class="btn sm" aria-label="감사 추적 대상 크리에이터"
+            style="padding:4px 8px" onchange="renderAudit()"></select></span></div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div><div class="tblwrap"><table id="auditTbl"></table></div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px" id="histCard">
+        <div class="chd"><h3>실행 이력 · 비교</h3>
+          <span class="sub">최근 실행 12건 · 행을 클릭하면 해당 브리프가 폼에 복원됩니다</span></div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div>
+        <div class="tblwrap"><table id="histTbl"></table></div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="chd"><h3>조건 민감도 분석</h3>
+          <span class="sub">단일 조건만 변경했을 때 결과 변화 · 엔진 반응성 검증</span></div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div><div class="tblwrap"><table id="sensTbl"></table></div>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="chd"><h3>전체 후보 랭킹</h3>
+          <span class="sub" id="rankSub"></span></div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div><div class="tblwrap" style="max-height:420px;overflow-y:auto"><table id="rankTbl"></table></div>
+      </div>
+
+      <div class="sec" id="recSec">최종 추천 · 상세 리포트</div>
+      <div id="recWarn"></div>
+      <div class="recs" id="recs"></div>
+
+      <div style="margin-top:16px;display:flex;gap:10px">
+        <button class="btn pri" onclick="resetMatch()">← 조건 변경하고 재매칭</button>
+        <button class="btn" onclick="window.scrollTo({top:0,behavior:SB});document.querySelector('.main').scrollTo({top:0,behavior:SB})">↑ 맨 위로</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: DASHBOARD ══════════════ -->
+  <section id="v_dash" class="hidden">
+    <div class="pagehd"><div>
+      <h1>네트워크 대시보드</h1>
+      <p>AMF 범아시아 크리에이터 네트워크의 현재 규모·구성·성과 지표 요약입니다.</p>
+    </div></div>
+    <div class="kpis" id="dashKpis"></div>
+    <div class="split" style="margin-bottom:14px">
+      <div class="card"><div class="chd"><h3>국가별 분포</h3><span class="sub">Creator 수 기준</span></div>
+        <div class="cbd"><div class="dist" id="dCountry"></div></div></div>
+      <div class="card"><div class="chd"><h3>카테고리 강점 분포</h3><span class="sub">주력 카테고리 기준</span></div>
+        <div class="cbd"><div class="dist" id="dCat"></div></div></div>
+    </div>
+    <div class="split">
+      <div class="card"><div class="chd"><h3>등급 · 특화 유형 구성</h3>
+        <span class="sub">Tier / Archetype</span></div>
+        <div class="cbd"><div class="dist" id="dTier"></div>
+          <div style="height:1px;background:var(--line);margin:13px 0"></div>
+          <div class="dist" id="dArch"></div></div></div>
+      <div class="card"><div class="chd"><h3>커머스 성과 상위 10</h3><span class="sub">누적 GMV 기준</span></div>
+        <div class="tblwrap"><table id="dTop"></table></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: ROSTER ══════════════ -->
+  <section id="v_roster" class="hidden">
+    <div class="pagehd"><div>
+      <h1>크리에이터 DB</h1>
+      <p>네트워크 전체 인원의 프로필·성과·리스크 원장입니다. 행을 클릭하면 상세 프로필이 열립니다.</p>
+    </div></div>
+    <div class="card">
+      <div class="cbd" style="padding-bottom:0">
+        <div class="toolbar">
+          <div class="search">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.6"/><path d="M10.5 10.5L14 14"/></svg>
+            <label class="sr-only" for="q">크리에이터 검색</label>
+            <input type="text" id="q" placeholder="이름 · ID · 국가 검색" oninput="renderRoster(1)">
+          </div>
+          <select class="btn sm" id="q_cat" aria-label="카테고리 필터" onchange="renderRoster(1)" style="padding:7px 10px"></select>
+          <select class="btn sm" id="q_reg" aria-label="권역 필터" onchange="renderRoster(1)" style="padding:7px 10px">
+            <option value="전 권역">전 권역</option><option value="중앙아시아">중앙아시아</option><option value="동남아시아">동남아시아</option><option value="동북아시아">동북아시아</option><option value="남아시아">남아시아</option></select>
+          <select class="btn sm" id="q_tier" aria-label="등급 필터" onchange="renderRoster(1)" style="padding:7px 10px">
+            <option value="">전체 등급</option><option value="S">S</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select>
+          <select class="btn sm" id="q_arch" aria-label="특화 유형 필터" onchange="renderRoster(1)" style="padding:7px 10px">
+            <option value="">전체 유형</option><option value="커머스 특화">커머스 특화</option><option value="도달 특화">도달 특화</option>
+            <option value="브랜드 세이프티 특화">브랜드 세이프티 특화</option><option value="성장 특화">성장 특화</option><option value="밸런스형">밸런스형</option></select>
+          <select class="btn sm" id="q_body" aria-label="신체 조건 필터" onchange="renderRoster(1)" style="padding:7px 10px">
+            <option value="">신체 조건 전체</option><option value="키 168cm 이상">키 168cm 이상</option><option value="키 172cm 이상">키 172cm 이상</option>
+            <option value="키 178cm 이상">키 178cm 이상</option><option value="여성 55 이하 사이즈">여성 55 이하 사이즈</option><option value="남성 100 이하 사이즈">남성 100 이하 사이즈</option></select>
+          <span style="margin-left:auto;font-size:11.5px;color:var(--ink3)" id="qCount"></span>
+        </div>
+      </div>
+      <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div><div class="tblwrap"><table id="rosterTbl"></table></div>
+      <div class="pager"><span id="pgInfo"></span><div class="pg" id="pgBtns"></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: GOVERNANCE ══════════════ -->
+  <section id="v_gov" class="hidden">
+    <div class="pagehd"><div>
+      <h1>모델 거버넌스</h1>
+      <p>스코어링 모델의 버전·산식·데이터 출처·재현성 및 편향 점검 기록입니다.</p>
+    </div></div>
+    <div class="note" style="margin-bottom:14px">
+      <b>데이터 고지 —</b> 본 콘솔의 크리에이터 <b>98인</b>은 AMF 로스터(모델 60인 · 역대 수상자 38인)의 실제 이름·국가·사진입니다. 팔로워·참여율·성과 이력·리스크 지표는 <b>엔진 검증용 시뮬레이션 값</b>으로 고정 시드로 생성되어 언제 열어도 동일하게 재현되며, 실 데이터 연동 시 이 레이어(<span class="mono">buildRoster()</span>)만 교체하면 엔진·UI는 그대로 동작합니다.
+    </div>
+    <div class="split" style="margin-bottom:14px">
+      <div class="card"><div class="chd"><h3>모델 카드</h3><span class="sub mono" id="govVerChip">CIE-v1.5.0</span></div>
+        <div class="cbd"><dl class="dl" id="govCard"></dl></div></div>
+      <div class="card"><div class="chd"><h3>스코어링 산식</h3><span class="sub">6축 + 리스크</span></div>
+        <div class="cbd"><div class="dist" id="govAxes"></div></div></div>
+    </div>
+    <div class="card" style="margin-bottom:14px"><div class="chd"><h3>목표별 가중치 매트릭스</h3>
+      <span class="sub">7개 프로파일 × 6축</span></div>
+      <div class="tblwrap"><table id="govMatrix"></table></div></div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="chd"><h3>데이터 소스</h3>
+        <span class="sub">합성 ↔ 실 데이터 교체 · 브라우저 내에서만 처리</span></div>
+      <div class="cbd" id="dataPanel"></div></div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="chd"><h3>적재 스키마</h3>
+        <span class="sub">업로드 파일의 열 이름 · 필수 7 / 선택 20</span></div>
+      <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div>
+      <div class="tblwrap" style="max-height:360px;overflow-y:auto"><table id="schemaTbl"></table></div></div>
+
+    <div class="card" style="margin-bottom:14px"><div class="chd"><h3>데이터 사전</h3>
+      <span class="sub">Creator 레코드 필드 정의</span></div>
+      <div class="tblwrap"><table id="govDict"></table></div></div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="chd"><h3>경제 가정치</h3>
+        <span class="sub" style="color:var(--neg);font-weight:700">미검증 — 실사 전 실제 단가표로 교체 필요</span></div>
+      <div class="cbd" style="padding-bottom:0">
+        <div class="note" style="margin-bottom:0">
+          <b>중요 —</b> 아래 금액·비율은 <b>업계 평균 조사치가 아니라 데모 동작을 위한 가정치</b>입니다.
+          공개 벤치마크나 시장 조사에 근거하지 않았으며, AMF 실제 단가표와도 대조되지 않았습니다.
+          IR·실사 제출 전 반드시 <b>실제 계약 단가 · 실제 캠페인 정산 데이터</b>로 교체하십시오.
+          엔진 로직은 이 값과 독립적으로 동작하므로, 숫자만 바꾸면 결과가 그대로 재계산됩니다.
+        </div>
+      </div>
+      <div class="tblwrap"><table id="govAssume"></table></div></div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="chd"><h3>업계 기준 대조</h3>
+        <span class="sub">본 데이터셋의 가정치를 공개 통용 기준과 비교</span></div>
+      <div class="tblwrap"><table id="govBench"></table></div>
+      <div class="cbd" style="font-size:10.5px;color:var(--ink3);line-height:1.65;padding-top:11px">
+        업계 기준값은 공개 자료에서 통용되는 범위를 참고한 것으로, 특정 조사기관의 확정 수치가 아닙니다.
+        AMF 실제 계약 단가·정산 데이터로 교체 시 이 표를 갱신해 대조 근거로 사용하십시오.
+      </div></div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="chd"><h3>GARM 브랜드 적합성 분포</h3>
+        <span class="sub">Global Alliance for Responsible Media 기준</span></div>
+      <div class="cbd"><div id="govGarm"></div>
+        <div style="font-size:10.5px;color:var(--ink3);margin-top:12px;line-height:1.65">
+          GARM은 세계광고주연맹(WFA)이 주도한 브랜드 안전성 표준으로, 11개 콘텐츠 유형을
+          High / Medium / Low Risk 3단계와 집행 불가 기준선(Floor)으로 구분합니다.
+          2024년 8월 GARM 조직은 해산했으나 프레임워크는 광고 업계 사실상 표준으로 계속 사용됩니다.
+          본 엔진은 Floor 등급을 매칭 후보에서 자동 제외하고, Q축(품질)에 등급별 가감점을 반영합니다.
+        </div></div></div>
+
+    <div class="split">
+      <div class="card"><div class="chd"><h3>편향 점검</h3>
+        <span class="sub">추천 편중도 모니터링</span></div>
+        <div class="cbd"><div id="govBias"></div></div></div>
+      <div class="card"><div class="chd"><h3>모델 버전 이력</h3>
+        <span class="sub">Change Log</span></div>
+        <div class="cbd"><div id="govVer"></div></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: CASTING BOARD ══════════════ -->
+  <section id="v_board" class="hidden">
+    <div class="pagehd">
+      <div>
+        <h1>캐스팅 보드</h1>
+        <p>후보를 담아 팀과 공유하는 작업 공간입니다. 담거나 뺄 때마다 예산 · 순 도달 · 평균 적합도가
+           즉시 다시 계산됩니다. 매칭 결과 · 크리에이터 DB · 프로필 어디서든 담을 수 있습니다.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn sm" type="button" id="boardShareBtn">보드 링크 복사</button>
+        <button class="btn sm" type="button" id="boardCsvBtn">보드 CSV</button>
+        <button class="btn sm" type="button" id="boardClearBtn">비우기</button>
+      </div>
+    </div>
+    <div class="kpis" id="boardKpis"></div>
+    <div class="card" style="margin-bottom:14px">
+      <div class="chd"><h3>담긴 후보</h3><span class="sub" id="boardSub"></span></div>
+      <div class="cbd" style="padding-bottom:12px">
+        <div class="budget" style="grid-column:auto;padding:13px 15px">
+          <div class="budrow">
+            <div>
+              <label for="boardBud" style="display:block;font-size:9.5px;letter-spacing:1.2px;color:var(--ink3);font-weight:700;margin-bottom:6px">보드 예산 (KRW)</label>
+              <div class="budamt num" id="boardBudAmt" style="font-size:22px">–</div>
+            </div>
+            <div class="budstats">
+              <div><div class="k">집행 예정</div><div class="v num" id="boardSpend">–</div></div>
+              <div><div class="k">잔여</div><div class="v num" id="boardLeft">–</div></div>
+            </div>
+          </div>
+          <input type="range" id="boardBud" min="5" max="300" step="5" value="50">
+        </div>
+      </div>
+      <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div>
+      <div class="tblwrap" id="boardWrap"><table id="boardTbl"></table></div>
+    </div>
+    <div class="split" id="boardPanels">
+      <div class="card"><div class="chd"><h3>중복도 진단</h3>
+        <span class="sub">보드 구성 기준 순 도달</span></div>
+        <div class="cbd" id="boardOverlap"></div></div>
+      <div class="card"><div class="chd"><h3>구성 균형</h3>
+        <span class="sub">등급 · 권역 · 특화 유형</span></div>
+        <div class="cbd" id="boardMix"></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: SHOWS ══════════════ -->
+  <section id="v_shows" class="hidden">
+    <div class="pagehd"><div>
+      <h1>쇼 · 캐스팅 일정</h1>
+      <p>패션위크 · 박람회 · 커머스 이벤트 · 에디토리얼 촬영 일정입니다.
+         행사마다 신체 조건과 권역이 정해져 있으므로, <b>적합 모델 찾기</b>를 누르면
+         그 조건이 그대로 브리프에 얹혀 매칭 엔진으로 넘어갑니다.</p>
+    </div></div>
+    <div class="note" style="margin-bottom:14px">
+      <b>일정 고지 —</b> 행사명 · 날짜 · 도시 · [확정]/[예상] 구분은 2026-09-18 기준 공개 일정(주최 측 발표 및 업계 캘린더)을 참고했습니다. <b>캐스팅 정원 · 예상 마감 · 참여 모델은 데모 가정치</b>이며, [예상] 항목의 날짜는 관례상 시기의 대표 날짜입니다. 일정은 <span class="mono">shows-data.js</span> 한 곳만 고치면 홈 티커와 D-day 가 함께 바뀝니다.</div>
+    <div class="kpis" id="showKpis"></div>
+    <div class="tabs" id="showRegionTabs" role="tablist"></div>
+    <div class="tabs" id="showTypeTabs" role="tablist" style="margin-top:-6px"></div>
+    <div class="card">
+      <div class="chd"><h3>일정</h3><span class="sub" id="showSub"></span></div>
+      <div class="cbd" id="showList"></div>
+    </div>
+  </section>
+  <section id="v_cue" class="hidden">
+    <div class="pagehd"><div>
+      <h1>라이브 편성 · 구간 예측</h1>
+      <p>같은 엔진을 <b>방송 편성</b>에 적용한 화면입니다. 시간대마다 구매층이 다르므로
+         상품군과 출연자가 달라지고, 그 배치를 6축 점수와 중복 보정 순 도달로 계산합니다.
+         아래쪽은 방송이 진행되는 동안 <b>다음 구간을 예측해 소재를 미리 준비</b>하는
+         구성으로, 보유 특허의 구조를 판매 방송에 적용한 것입니다.</p>
+    </div></div>
+
+    <div class="note" style="margin-bottom:14px">
+      <b>데이터 고지 —</b> 시간대 구성 · 주문 추이 · 과거 방송 로그는 전부
+      <b>데모 가정치</b>입니다. 실제 방송 데이터와 다르며, 실 데이터 연동 시
+      <span class="mono">cueBuildLogs()</span> 한 곳만 교체하면 됩니다.
+    </div>
+
+    <div class="kpis" id="cueKpis"></div>
+
+    <div class="card">
+      <div class="chd"><h3>큐시트</h3><span class="sub" id="cueSub"></span></div>
+      <div class="cbd"><div id="cueList"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="chd"><h3>다음 구간 예측 · 선반영</h3>
+        <span class="sub">등록특허 제10-2278814호 구성 적용</span></div>
+      <div class="cbd">
+        <div class="cuelbl">진행된 구간</div>
+        <div id="cueSeq" class="segtrail"></div>
+        <div class="cuelbl">다음 구간 확률</div>
+        <div id="cuePred" class="predlist"></div>
+        <div class="cuelbl">선반영</div>
+        <div id="cuePrefetch"></div>
+        <div class="cuebar">
+          <button class="btn pri sm" id="cueStep">다음 구간 진행</button>
+          <button class="btn sm" id="cueReset">처음부터</button>
+          <span class="mono cueloss" id="cueLoss"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="chd"><h3>청구항 ↔ 구현 대응</h3>
+        <span class="sub">실사 제출용</span></div>
+      <div class="cbd" id="cueClaims"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: TRENDS ══════════════ -->
+  <section id="v_trends" class="hidden">
+    <div class="pagehd"><div>
+      <h1>권역별 트렌드 브리핑</h1>
+      <p>네트워크 실측치에서 직접 산출한 권역별 카테고리 모멘텀입니다. 외부 조사가 아니라
+         우리 크리에이터의 성장률 · 참여율 · 커머스 실적을 카테고리별로 집계한 값입니다.</p>
+    </div></div>
+    <div class="tabs" id="trendTabs" role="tablist"></div>
+    <div class="kpis" id="trendKpis"></div>
+    <div class="split3" style="margin-bottom:14px">
+      <div class="card"><div class="chd"><h3>카테고리 모멘텀</h3>
+        <span class="sub" id="trendSub"></span></div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div>
+        <div class="tblwrap"><table id="trendTbl"></table></div></div>
+      <div class="card"><div class="chd"><h3>권역 벤치마크</h3>
+        <span class="sub">전 권역 대비</span></div>
+        <div class="cbd"><div class="dist" id="trendBench"></div></div></div>
+    </div>
+    <div class="split">
+      <div class="card"><div class="chd"><h3>상승 카테고리 주도 크리에이터</h3>
+        <span class="sub">모멘텀 기여 상위</span></div>
+        <div class="tblwrap"><table id="trendLeaders"></table></div></div>
+      <div class="card"><div class="chd"><h3>브리핑 요약</h3>
+        <span class="sub">집계 결과 자동 생성</span></div>
+        <div class="cbd"><div class="aiout" id="trendBrief"></div></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: GROWTH ══════════════ -->
+  <section id="v_growth" class="hidden">
+    <div class="pagehd"><div>
+      <h1>크리에이터 성장 리포트</h1>
+      <p>주 단위 팔로워 · 참여율 변화를 추적합니다. 네트워크 이탈 신호를 조기에 잡고,
+         크리에이터 본인에게 발송할 리포트를 만드는 화면입니다.</p>
+    </div></div>
+    <div class="kpis" id="growthKpis"></div>
+    <div class="split" style="margin-bottom:14px">
+      <div class="card"><div class="chd"><h3>주간 상승 상위</h3>
+        <span class="sub">최근 1주 팔로워 증가율</span></div>
+        <div class="tblwrap"><table id="growthUp"></table></div></div>
+      <div class="card"><div class="chd"><h3>주간 하락 · 주의</h3>
+        <span class="sub">이탈 · 정체 신호</span></div>
+        <div class="tblwrap"><table id="growthDown"></table></div></div>
+    </div>
+    <div class="card">
+      <div class="chd"><h3>개인 리포트</h3>
+        <span class="sub">발송용 · <select id="growthPick" class="btn sm"
+          aria-label="리포트 대상 크리에이터" style="padding:4px 8px"></select></span></div>
+      <div class="cbd"><div id="growthCard"></div>
+        <div style="border-top:1px solid var(--line);margin-top:14px;padding-top:13px">
+          <div class="airow" style="margin-top:0">
+            <label class="sr-only" for="gSendTo">받는 사람 이메일</label>
+            <input type="text" id="gSendTo" placeholder="받는 사람 이메일 — 예) creator@example.com">
+            <button class="btn pri sm" type="button" id="gSendBtn">메일 앱으로 열기</button>
+          </div>
+          <div id="gSendMsg" style="margin-top:9px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: CASE STUDIES ══════════════ -->
+  <section id="v_cases" class="hidden">
+    <div class="pagehd"><div>
+      <h1>캠페인 성과 케이스</h1>
+      <p>집행이 끝난 캠페인의 <b>엔진 예측값과 실제 정산값</b>을 나란히 놓습니다.
+         엔진이 어디서 얼마나 틀리는지를 공개하는 화면이며, 이 오차가 곧 모델 재보정의 근거입니다.</p>
+    </div></div>
+    <div class="note" style="margin-bottom:14px">
+      <b>정확도 고지 —</b> 아래 케이스는 합성 데이터로 생성한 것으로, 실제 집행 실적이 아닙니다.
+      실 데이터 연동 시 <span class="mono">buildCases()</span> 한 곳만 교체하면 동일한 화면이 실측 기준으로 동작합니다.
+    </div>
+    <div class="kpis" id="caseKpis"></div>
+    <div class="split3" style="margin-bottom:14px">
+      <div class="card"><div class="chd"><h3>예측 vs 실제</h3>
+        <span class="sub" id="caseSub"></span></div>
+        <div class="swipehint">표를 좌우로 밀어 전체 항목을 확인하세요</div>
+        <div class="tblwrap" style="max-height:440px;overflow-y:auto"><table id="caseTbl"></table></div></div>
+      <div class="card"><div class="chd"><h3>목표별 보정 계수</h3>
+        <span class="sub">실제 ÷ 예측</span></div>
+        <div class="cbd"><div class="dist" id="caseCalib"></div>
+          <div style="margin-top:13px;font-size:10.5px;color:var(--ink3);line-height:1.6" id="caseCalibNote"></div>
+        </div></div>
+    </div>
+    <div class="card">
+      <div class="chd"><h3>오차 분포</h3><span class="sub">예측 대비 실제 편차</span></div>
+      <div class="cbd"><div id="caseHist"></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ VIEW: SAFETY ALERTS ══════════════ -->
+  <section id="v_alerts" class="hidden">
+    <div class="pagehd">
+      <div>
+        <h1>브랜드 세이프티 알림</h1>
+        <p>계약 중이거나 추천 후보에 오른 크리에이터의 리스크 변동을 감시합니다.
+           사고가 난 뒤가 아니라 나기 전에 브랜드에 알리는 것이 목적입니다.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <select class="btn sm" id="alertSev" aria-label="심각도 필터" style="padding:7px 10px">
+          <option value="">전체 심각도</option><option value="high">높음</option>
+          <option value="mid">중간</option><option value="low">낮음</option></select>
+        <select class="btn sm" id="alertState" aria-label="처리 상태 필터" style="padding:7px 10px">
+          <option value="open">미처리</option><option value="done">처리됨</option><option value="">전체</option></select>
+        <button class="btn sm" type="button" id="alertAckAll">보이는 항목 모두 처리</button>
+      </div>
+    </div>
+    <div class="kpis" id="alertKpis"></div>
+    <div class="card">
+      <div class="chd"><h3>알림 목록</h3><span class="sub" id="alertSub"></span></div>
+      <div class="cbd" id="alertList"></div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div>
+      <b style="color:var(--ink2)">AMF Entertainment</b> · Commerce Intelligence Engine ·
+      등록특허 제10-2278814호 · <a href="privacy.html" style="color:inherit">개인정보처리방침</a><br>
+      <span class="mono">인물 98인은 AMF 로스터(이름·국가·사진) · 팔로워·성과·리스크 지표는 엔진 검증용 시뮬레이션 ·
+        금액·전환율은 업계 조사치가 아닌 미검증 가정치</span>
+    </div>
+    <div class="mono" style="text-align:right">
+      <span id="footVer">CIE-v1.5.0</span> · dataset r98-c22<br>rendered <span id="ts"></span>
+    </div>
+  </div>
+
+  </div></main>
+</div>
+
+<!-- ── DRAWER ── -->
+<div class="scrim" id="scrim" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true"
+       aria-labelledby="dName" aria-hidden="true">
+  <div class="dhd">
+    <div><div class="dt" id="dName">—</div><div class="ds" id="dId">—</div></div>
+    <button type="button" id="dClose" aria-label="프로필 닫기" onclick="closeDrawer()">×</button>
+  </div>
+  <div class="dbd" id="dBody"></div>
+</aside>
+
+<script src="data/roster.js?v=20261118a"></script>
+<script src="assets/js/01-core-i18n.js?v=20261118a"></script>
+<script src="assets/js/02-taxonomy.js?v=20261118a"></script>
+<script src="assets/js/03-dataset.js?v=20261118a"></script>
+<script src="assets/js/04-engine.js?v=20261118a"></script>
+<script src="assets/js/05-ui.js?v=20261118a"></script>
+<script src="assets/js/06-extensions.js?v=20261118a"></script>
+<script src="assets/js/07-data-adapter.js?v=20261118a"></script>
+<script src="assets/js/08-report-ai.js?v=20261118a"></script>
+<script src="assets/js/09-service-shell.js?v=20261118a"></script>
+<script src="assets/js/10-live-rundown.js?v=20261118a"></script>
+<script src="assets/js/12-plans.js?v=20261118a"></script>
+<script src="assets/js/13-home.js?v=20261118a"></script>
+<script src="assets/js/14-install.js?v=20261118a"></script>
+<script src="assets/js/15-assistant.js?v=20261118a"></script>
+<style>
+.demo-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 14px;padding:10px 14px;border-radius:10px;
+  background:var(--brand-soft, rgba(80,110,255,.08));color:var(--ink2);font-size:12px;line-height:1.6}
+.demo-bar span{flex:1 1 320px;min-width:0}
+.demo-bar a{color:inherit;font-weight:600}
+.demo-bar button{border:0;background:transparent;color:inherit;font:inherit;font-weight:600;cursor:pointer;padding:2px 4px}
+.demo-note{margin:0 0 10px;font-size:11.5px;color:var(--ink3, #7a8296);line-height:1.6}
+</style>
+<script>
+(function(){
+  var K='amf.demoBar.v1', bar=document.getElementById('demoBar');
+  if(!bar) return;
+  try{ if(localStorage.getItem(K)) return; }catch(e){}
+  bar.hidden=false;
+  document.getElementById('demoBarX').onclick=function(){ bar.hidden=true; try{ localStorage.setItem(K,'1'); }catch(e){} };
+})();
+</script>
 </body>
 </html>

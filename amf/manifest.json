@@ -1,0 +1,37 @@
+{
+  "name": "AMF 커머스 인텔리전스",
+  "short_name": "AMF CIE",
+  "description": "AMF 엔터테인먼트 범아시아 크리에이터 섭외 의사결정 엔진",
+  "start_url": "./?app=1&utm_source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0A1A33",
+  "theme_color": "#0A1A33",
+  "lang": "ko",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "./?app=1"
+}
